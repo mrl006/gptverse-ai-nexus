@@ -615,7 +615,6 @@ const AboutGPTVerse = () => {
                               <motion.div 
                                 className="tech-icon-primary p-3 rounded-lg backdrop-blur-xl bg-black/40 border border-[#0ef34b]/20"
                                 whileHover={{ scale: 1.1 }}
-                                transition={{ type: "spring", stiffness: 300 }}
                                 animate={{ 
                                   borderColor: ["rgba(14, 243, 75, 0.2)", "rgba(14, 243, 75, 0.4)", "rgba(14, 243, 75, 0.2)"],
                                   boxShadow: [
@@ -642,7 +641,6 @@ const AboutGPTVerse = () => {
                               <motion.div 
                                 className="tech-icon-primary p-3 rounded-lg backdrop-blur-xl bg-black/40 border border-[#0ef34b]/20"
                                 whileHover={{ scale: 1.1 }}
-                                transition={{ type: "spring", stiffness: 300 }}
                                 animate={{ 
                                   borderColor: ["rgba(14, 243, 75, 0.2)", "rgba(14, 243, 75, 0.4)", "rgba(14, 243, 75, 0.2)"],
                                   boxShadow: [
@@ -669,7 +667,6 @@ const AboutGPTVerse = () => {
                               <motion.div 
                                 className="tech-icon-primary p-3 rounded-lg backdrop-blur-xl bg-black/40 border border-[#0ef34b]/20"
                                 whileHover={{ scale: 1.1 }}
-                                transition={{ type: "spring", stiffness: 300 }}
                                 animate={{ 
                                   borderColor: ["rgba(14, 243, 75, 0.2)", "rgba(14, 243, 75, 0.4)", "rgba(14, 243, 75, 0.2)"],
                                   boxShadow: [
@@ -742,7 +739,6 @@ const AboutGPTVerse = () => {
                                       <motion.div 
                                         className="tech-icon-secondary p-3 rounded-lg backdrop-blur-xl bg-black/40 border border-[#00aeff]/20"
                                         whileHover={{ scale: 1.1 }}
-                                        transition={{ type: "spring", stiffness: 300 }}
                                         animate={{ 
                                           borderColor: ["rgba(0, 174, 255, 0.2)", "rgba(0, 174, 255, 0.4)", "rgba(0, 174, 255, 0.2)"],
                                           boxShadow: [
@@ -785,7 +781,7 @@ const AboutGPTVerse = () => {
                               boxShadow: "0 0 20px rgba(0, 174, 255, 0.2)"
                             }}
                           >
-                            <h4 className="font-semibold text-[#00aeff] mb-2">Technology Stack</h4>
+                            <h4 className="font-semibold text-center text-[#00aeff] mb-3">Technology Stack</h4>
                             <div className="grid grid-cols-3 gap-2 text-center">
                               {["Neural Networks", "Blockchain", "Smart Contracts", "NLP", "Computer Vision", "Multichain"].map((tech, index) => (
                                 <motion.div 

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { 
   Globe, 
@@ -20,8 +20,7 @@ import {
   Braces,
   Sparkles,
   Database,
-  PlugZap,
-  PuzzlePiece
+  PlugZap
 } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
@@ -437,44 +436,6 @@ const AboutGPTVerse = () => {
             </motion.div>
           </div>
         </div>
-        
-        {/* CTA Section - Enhanced with glassmorphism */}
-        <motion.div 
-          className="mt-16 glass-card p-8 backdrop-blur-xl border border-white/10 bg-[#06101a]/40 rounded-2xl relative overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#0ef34b]/5 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-20 -left-20 w-60 h-60 bg-[#00aeff]/5 rounded-full blur-3xl"></div>
-          
-          {/* Tech line pattern */}
-          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxkZWZzPgogICAgPHBhdHRlcm4gaWQ9ImhleCIgd2lkdGg9IjUwIiBoZWlnaHQ9IjUwIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBwYXR0ZXJuVHJhbnNmb3JtPSJyb3RhdGUoMzApIj4KICAgICAgPHBhdGggZD0iTTI1LDNMMzgsMTdMMzgsMzRMMjUsNDhMMTIsMzRMMTIsMTdMMjUsMyIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJyZ2JhKDE0LCAyNDMsIDc1LCAwLjA1KSIgc3Ryb2tlLXdpZHRoPSIwLjUiLz4KICAgIDwvcGF0dGVybj4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNoZXgpIi8+Cjwvc3ZnPg==')] opacity-10"></div>
-          
-          <div className="max-w-2xl mx-auto text-center relative z-10">
-            <div className="mb-1 inline-block">
-              <Sparkles className="w-6 h-6 text-[#0ef34b] inline-block mb-2" />
-            </div>
-            <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-[#0ef34b] via-[#00aeff] to-[#d946ef] bg-clip-text text-transparent">
-              Join the Future Today
-            </h3>
-            
-            <p className="text-base text-white/80 mb-5">
-              Embrace the possibilities, unleash your creativity, and shape the future with GPTVerse's cutting-edge AI technologies.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-3">
-              <button className="px-6 py-2.5 bg-gradient-to-r from-[#0ef34b] to-[#00aeff] rounded-lg text-black font-medium transition hover:brightness-110">
-                Enter the GPTVerse
-              </button>
-              
-              <button className="px-6 py-2.5 bg-transparent border border-[#d946ef]/50 rounded-lg text-white font-medium transition hover:bg-[#d946ef]/10">
-                Join Community
-              </button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

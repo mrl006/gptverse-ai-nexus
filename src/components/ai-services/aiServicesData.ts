@@ -1,7 +1,5 @@
 
 import { ReactNode } from 'react';
-import { Button } from '@/components/ui/button';
-import { Play } from 'lucide-react';
 
 interface AiService {
   title: string;
@@ -13,6 +11,8 @@ interface AiService {
   actionButtons?: ReactNode;
 }
 
+// This function returns the AI services data
+// We'll define the actionButtons later in React components
 const getAiServices = (): AiService[] => {
   return [
     {
@@ -24,11 +24,8 @@ const getAiServices = (): AiService[] => {
         { text: "On Live", color: "bg-[#0ef34b]/20 text-[#0ef34b]" },
         { text: "MVP Ready", color: "bg-[#00aeff]/20 text-[#00aeff]" }
       ],
-      actionButtons: (
-        <Button className="bg-[#0070f3] hover:bg-[#0070f3]/90 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0070f3]/20">
-          Try AI HUB
-        </Button>
-      )
+      // We'll pass the actual ReactNode buttons from the AiServiceCard component
+      actionButtons: null
     },
     {
       title: "AI Education",
@@ -40,16 +37,7 @@ const getAiServices = (): AiService[] => {
         { text: "Integrated", color: "bg-[#f0db4f]/20 text-[#f0db4f]" }
       ],
       flipped: true,
-      actionButtons: (
-        <>
-          <Button className="bg-[#0ef34b] hover:bg-[#0ef34b]/90 text-black font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0ef34b]/20">
-            Try in AI HUB
-          </Button>
-          <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 hover:border-white/30">
-            <Play size={16} /> Watch Trailer
-          </Button>
-        </>
-      )
+      actionButtons: null
     },
     {
       title: "AI",
@@ -59,11 +47,7 @@ const getAiServices = (): AiService[] => {
       statusLabels: [
         { text: "MVP Ready", color: "bg-[#00aeff]/20 text-[#00aeff]" }
       ],
-      actionButtons: (
-        <Button className="bg-gradient-to-r from-[#d946ef] to-[#00aeff] hover:opacity-90 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#d946ef]/20">
-          Learn More
-        </Button>
-      )
+      actionButtons: null
     },
     {
       title: "AI",
@@ -74,11 +58,7 @@ const getAiServices = (): AiService[] => {
         { text: "On Live", color: "bg-[#0ef34b]/20 text-[#0ef34b]" }
       ],
       flipped: true,
-      actionButtons: (
-        <Button className="bg-[#0ef34b] hover:bg-[#0ef34b]/90 text-black font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0ef34b]/20">
-          Start Training
-        </Button>
-      )
+      actionButtons: null
     },
     {
       title: "AI",
@@ -89,11 +69,7 @@ const getAiServices = (): AiService[] => {
         { text: "Coming Soon", color: "bg-[#f43f5e]/20 text-[#f43f5e]" },
         { text: "MVP Ready", color: "bg-[#00aeff]/20 text-[#00aeff]" }
       ],
-      actionButtons: (
-        <Button variant="outline" className="border-[#f43f5e]/30 text-[#f43f5e] hover:bg-[#f43f5e]/10 font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1">
-          Join Waitlist
-        </Button>
-      )
+      actionButtons: null
     }
   ];
 };

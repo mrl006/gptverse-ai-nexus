@@ -23,6 +23,53 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
   flipped = false,
   actionButtons
 }) => {
+  
+  // Render service-specific buttons based on the title
+  const renderButtons = () => {
+    if (actionButtons) return actionButtons;
+    
+    // Generate buttons based on the service type
+    switch (title) {
+      case "AI" && subtitle === "Hub":
+        return (
+          <Button className="bg-[#0070f3] hover:bg-[#0070f3]/90 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0070f3]/20">
+            Try AI HUB
+          </Button>
+        );
+      case "AI Education":
+        return (
+          <>
+            <Button className="bg-[#0ef34b] hover:bg-[#0ef34b]/90 text-black font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0ef34b]/20">
+              Try in AI HUB
+            </Button>
+            <Button variant="outline" className="text-white border-white/20 hover:bg-white/10 flex items-center gap-2 transition-all duration-300 hover:-translate-y-1 hover:border-white/30">
+              <Play size={16} /> Watch Trailer
+            </Button>
+          </>
+        );
+      case "AI" && subtitle === "Persona":
+        return (
+          <Button className="bg-gradient-to-r from-[#d946ef] to-[#00aeff] hover:opacity-90 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#d946ef]/20">
+            Learn More
+          </Button>
+        );
+      case "AI" && subtitle === "Fitness Coach":
+        return (
+          <Button className="bg-[#0ef34b] hover:bg-[#0ef34b]/90 text-black font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0ef34b]/20">
+            Start Training
+          </Button>
+        );
+      case "AI" && subtitle === "Receptionist":
+        return (
+          <Button variant="outline" className="border-[#f43f5e]/30 text-[#f43f5e] hover:bg-[#f43f5e]/10 font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1">
+            Join Waitlist
+          </Button>
+        );
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="w-full mb-12">
       <Card className="w-full overflow-hidden border-0 bg-transparent">
@@ -69,11 +116,9 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
               </div>
               
               {/* Action buttons with reduced animation */}
-              {actionButtons && (
-                <div className="flex flex-wrap gap-4">
-                  {actionButtons}
-                </div>
-              )}
+              <div className="flex flex-wrap gap-4">
+                {renderButtons()}
+              </div>
             </div>
           </div>
         </div>

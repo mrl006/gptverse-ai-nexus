@@ -27,7 +27,6 @@ const AiServices = () => {
               image={service.image}
               statusLabels={service.statusLabels}
               flipped={service.flipped}
-              actionButtons={service.actionButtons}
             />
           ))}
         </div>

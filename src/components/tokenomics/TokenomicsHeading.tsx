@@ -23,18 +23,6 @@ const TokenomicsHeading = () => {
       <p className="text-white/80 text-lg max-w-2xl mx-auto animate-text-reveal-delay-1 leading-relaxed">
         Our token distribution strategy is designed for long-term sustainable growth while ensuring fair allocation across our ecosystem.
       </p>
-      
-      <div className="flex flex-wrap gap-4 justify-center pt-4 animate-text-reveal-delay-2">
-        <div className="flex items-center neo-blur px-5 py-3 rounded-full border border-white/10 shadow-[0_0_15px_rgba(139,92,246,0.1)] transform transition-all duration-500 hover:shadow-[0_0_20px_rgba(139,92,246,0.2)]">
-          <div className="w-3 h-3 rounded-full bg-[#8B5CF6] mr-2 animate-pulse-slow"></div>
-          <span className="text-white font-medium">Total Supply: 1,000,000,000</span>
-        </div>
-        
-        <div className="flex items-center neo-blur px-5 py-3 rounded-full border border-white/10 shadow-[0_0_15px_rgba(217,70,239,0.1)] transform transition-all duration-500 hover:shadow-[0_0_20px_rgba(217,70,239,0.2)]">
-          <div className="w-3 h-3 rounded-full bg-[#D946EF] mr-2 animate-pulse-slow"></div>
-          <span className="text-white font-medium">Initial Price: $0.015</span>
-        </div>
-      </div>
     </div>
   );
 };

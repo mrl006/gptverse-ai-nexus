@@ -8,10 +8,10 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import React from 'react';
 
-// Create a client outside of the component
+// Create a client outside of the component to avoid recreation on each render
 const queryClient = new QueryClient();
 
-const App = () => {
+function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
@@ -27,6 +27,6 @@ const App = () => {
       </TooltipProvider>
     </QueryClientProvider>
   );
-};
+}
 
 export default App;

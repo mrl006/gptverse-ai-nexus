@@ -6,7 +6,6 @@ import PlatformButtons from '../components/PlatformButtons';
 import ProductView from '../components/ProductView';
 import AiServices from '../components/AiServices';
 import Footer from '../components/Footer';
-import Explore from '../components/Explore';
 import AboutGPTVerse from '../components/AboutGPTVerse';
 import Tokenomics from '../components/Tokenomics';
 import Roadmap from '../components/Roadmap';
@@ -40,35 +39,11 @@ const Index = () => {
         <div className="flex-grow">
           <Hero />
           
-          <div className="relative z-20 w-full px-6 py-12 bg-[#030610]/80 backdrop-blur-sm border-y border-white/5">
-            <div className="max-w-[1400px] mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-4xl md:text-5xl font-bold mb-3">
-                  <span className="text-[#0ef34b]">EXPLORE</span>
-                  <span className="text-white mx-3">THE</span>
-                  <span className="text-[#00aeff]">GPTVERSE</span>
-                </h2>
-                <div className="relative">
-                  <div className="absolute -top-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/30 to-transparent"></div>
-                  <p className="text-[#0ef34b]/60 text-lg font-mono uppercase tracking-wider mt-4">
-                    NEXT-GEN AI POWERED TOOLS
-                  </p>
-                  <div className="absolute -bottom-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00aeff]/30 to-transparent"></div>
-                </div>
-              </div>
-              <PlatformButtons />
-            </div>
-            
-            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#0ef34b]/30 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00aeff]/30 to-transparent"></div>
-          </div>
-          
           <ProductView />
           <AiServices />
           <AboutGPTVerse />
           <Tokenomics />
           <Roadmap />
-          <Explore />
           
           <div id="overview" className="section-anchor pt-20"></div>
           <div id="features" className="section-anchor pt-20"></div>

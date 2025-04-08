@@ -1,5 +1,6 @@
 
 import React, { useEffect } from 'react';
+import { Bot } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import Explore from '../components/Explore';

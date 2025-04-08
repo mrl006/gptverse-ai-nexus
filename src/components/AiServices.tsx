@@ -1,9 +1,9 @@
 
 import React from 'react';
-import AiServiceCard from './ai-services/AiServiceCard';
 import AiServicesHeader from './ai-services/AiServicesHeader';
 import AiServicesBackground from './ai-services/AiServicesBackground';
 import { getAiServices } from './ai-services/aiServicesData';
+import AiServiceBox from './ai-services/AiServiceBox';
 
 const AiServices = () => {
   const aiServices = getAiServices();
@@ -17,16 +17,16 @@ const AiServices = () => {
         {/* Section Header */}
         <AiServicesHeader />
         
-        <div className="space-y-12">
+        {/* Grid of service boxes */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-12">
           {aiServices.map((service, index) => (
-            <AiServiceCard
+            <AiServiceBox
               key={index}
               title={service.title}
               subtitle={service.subtitle}
               description={service.description}
               image={service.image}
               statusLabels={service.statusLabels}
-              flipped={service.flipped}
               buttonType={service.buttonType}
             />
           ))}

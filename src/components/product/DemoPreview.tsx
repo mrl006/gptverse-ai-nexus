@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, FileText, ImageIcon, Send } from 'lucide-react';
+import { FileText, ImageIcon, Send } from 'lucide-react';
 import { AiModels, demoMessages, getIconByName } from '@/data/aiModels';
+import { Button } from '@/components/ui/button';
 
 interface DemoPreviewProps {
   modelId: string;
@@ -108,20 +109,28 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   };
 
   return (
-    <div className="flex flex-col h-full">
-      <div className="flex items-center gap-4 mb-4">
-        <div className={`h-10 w-10 ${iconBg} rounded-full flex items-center justify-center text-white`}>
-          {modelIcon}
+    <div className="flex flex-col h-full bg-[#06101a] rounded-xl overflow-hidden border border-white/10">
+      <div className="flex items-center justify-between p-4 border-b border-white/10">
+        <div className="flex items-center gap-3">
+          <div className={`h-10 w-10 ${iconBg} rounded-full flex items-center justify-center text-white`}>
+            {modelIcon}
+          </div>
+          <div>
+            <div className="text-sm text-white/50">@gptverse</div>
+            <h3 className="text-lg font-bold text-white">{currentModel?.name}</h3>
+          </div>
         </div>
-        <div>
-          <div className="text-sm text-white/50">@gptverse</div>
-          <h3 className="text-lg font-bold text-white">{AiModels.find(m => m.id === modelId)?.name}</h3>
-        </div>
+        
+        <Button 
+          className="rounded-full bg-[#00aeff] hover:bg-[#00aeff]/90 text-black font-medium px-4 py-2 text-sm flex items-center gap-2"
+        >
+          Chat with {currentModel?.name} <Send className="h-4 w-4 ml-1" />
+        </Button>
       </div>
       
-      <div className="flex-grow overflow-auto mb-4 p-4 bg-[#080d16] rounded-xl border border-white/5">
+      <div className="flex-grow overflow-auto p-4 bg-[#080d16]">
         {showFileUpload && modelId === 'pdf-reader' && (
-          <div className="flex-grow flex flex-col items-center justify-center bg-[#080d16] h-full rounded-xl border border-dashed border-white/20 p-8">
+          <div className="flex-grow flex flex-col items-center justify-center h-full rounded-xl border border-dashed border-white/20 p-8">
             <div className="mb-4 p-3 rounded-full bg-[#1e1e2f]">
               <FileText className="h-8 w-8 text-[#00aeff]" />
             </div>
@@ -136,7 +145,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
           <div className="flex-grow flex items-center justify-center">
             <div className="relative">
               <img 
-                src="/lovable-uploads/34d88fb3-36b5-4520-bcc1-f3546283ac9c.png" 
+                src="/lovable-uploads/aa4883fb-56f2-46d8-95f2-c7e2d19ba69d.png" 
                 alt="Generated" 
                 className="max-w-full max-h-[300px] rounded-lg border border-white/10 object-cover"
               />
@@ -187,26 +196,28 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         )}
       </div>
       
-      <form onSubmit={handleSubmit} className="relative">
-        <input
-          ref={inputRef}
-          type="text"
-          value={inputMessage}
-          onChange={(e) => setInputMessage(e.target.value)}
-          placeholder={modelId === 'image-generator' 
-            ? "Describe the image you want to create..."
-            : "Ask a question..."
-          }
-          className="w-full p-3 pl-4 pr-12 bg-[#0c1424] border border-white/10 rounded-full text-white focus:outline-none focus:border-white/30 transition-colors"
-        />
-        <button 
-          type="submit"
-          className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center rounded-full text-white"
-          style={getButtonColor()}
-          disabled={!inputMessage.trim()}
-        >
-          {modelId === 'image-generator' ? <ImageIcon className="h-4 w-4" /> : <Send className="h-4 w-4" />}
-        </button>
+      <form onSubmit={handleSubmit} className="p-4 border-t border-white/10">
+        <div className="relative">
+          <input
+            ref={inputRef}
+            type="text"
+            value={inputMessage}
+            onChange={(e) => setInputMessage(e.target.value)}
+            placeholder={modelId === 'image-generator' 
+              ? "Describe the image you want to create..."
+              : "Ask a question..."
+            }
+            className="w-full p-3 pl-4 pr-12 bg-[#0c1424] border border-white/10 rounded-full text-white focus:outline-none focus:border-white/30 transition-colors"
+          />
+          <button 
+            type="submit"
+            className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center rounded-full text-white"
+            style={getButtonColor()}
+            disabled={!inputMessage.trim()}
+          >
+            {modelId === 'image-generator' ? <ImageIcon className="h-4 w-4" /> : <Send className="h-4 w-4" />}
+          </button>
+        </div>
       </form>
     </div>
   );

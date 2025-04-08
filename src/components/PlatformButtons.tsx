@@ -30,26 +30,24 @@ const PlatformButtons = () => {
       {platforms.map((platform, index) => (
         <button
           key={index}
-          className="bg-gradient-to-br from-[#07211a]/70 to-[#041510]/90 backdrop-blur-xl
-                    border border-[#0ef34b]/30 rounded-lg
-                    px-4 py-3 hover:bg-[#071420]/80 transition-all duration-300
+          className="bg-[#040812]/60 backdrop-blur-md
+                    border border-white/10 rounded-lg
+                    px-4 py-3 hover:bg-[#040812]/80 transition-all duration-300
                     flex items-center justify-center gap-3 min-w-[180px]
                     relative overflow-hidden group flex-1"
         >
-          {/* Enhanced glassmorphism effects with green gradient and glow */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0ef34b]/10 to-transparent opacity-60"></div>
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/50 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/30 to-transparent"></div>
+          {/* Minimal glassmorphism effects */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30"></div>
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
           
-          {/* Inner glow effect */}
-          <div className="absolute inset-0 bg-[#0ef34b]/0 group-hover:bg-[#0ef34b]/10 transition-all duration-500 rounded-lg"></div>
-          <div className="absolute -inset-1 bg-gradient-to-r from-[#0ef34b]/30 via-transparent to-[#0ef34b]/20 blur-md rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          {/* Inner glow effect - reduced */}
+          <div className="absolute inset-0 bg-[#0ef34b]/0 group-hover:bg-[#0ef34b]/5 transition-all duration-500 rounded-lg"></div>
           
           {/* Button Content */}
           <div className="relative z-10 flex items-center justify-center gap-3 w-full">
-            <div className="w-12 h-12 bg-gradient-to-br from-[#072a1d] to-[#041510] rounded-full flex items-center justify-center 
-                          border border-[#0ef34b]/40 shadow-[0_0_15px_rgba(14,243,75,0.3)] 
-                          group-hover:shadow-[0_0_25px_rgba(14,243,75,0.5)] 
+            <div className="w-12 h-12 bg-[#040812]/80 rounded-full flex items-center justify-center 
+                          border border-white/20
                           transition-all duration-500 overflow-hidden p-1">
               <img 
                 src={platform.logo} 
@@ -59,7 +57,7 @@ const PlatformButtons = () => {
             </div>
             
             <span className="text-white font-mono">
-              <div className="text-xs text-[#0ef34b]/80">{platform.text}</div>
+              <div className="text-xs text-white/60">{platform.text}</div>
               <div className="font-bold tracking-wider">{platform.name}</div>
             </span>
           </div>

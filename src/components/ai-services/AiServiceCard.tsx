@@ -32,40 +32,40 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
   const renderButtons = () => {
     if (actionButtons) return actionButtons;
     
-    // Generate buttons based on the buttonType with glassmorphism
+    // Generate buttons based on the buttonType with minimal glassmorphism
     switch (buttonType) {
       case "ai-hub":
         return (
-          <Button className="backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/10 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
+          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
             Try AI HUB
           </Button>
         );
       case "language-tutor":
         return (
           <>
-            <Button className="backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/10 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
+            <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
               Try in AI HUB
             </Button>
-            <Button variant="outline" className="backdrop-blur-md bg-black/20 text-white border-white/10 hover:bg-white/5 flex items-center gap-2 transition-all duration-300">
+            <Button variant="outline" className="bg-[#040812]/60 text-white border-white/10 hover:bg-[#040812]/80 flex items-center gap-2 transition-all duration-300">
               <Play size={16} /> Watch Trailer
             </Button>
           </>
         );
       case "ai-persona":
         return (
-          <Button className="backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/10 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
+          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
             Learn More
           </Button>
         );
       case "fitness-coach":
         return (
-          <Button className="backdrop-blur-md bg-white/5 border border-white/20 hover:bg-white/10 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
+          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
             Start Training
           </Button>
         );
       case "receptionist":
         return (
-          <Button variant="outline" className="backdrop-blur-md bg-black/20 border-white/10 text-white hover:bg-white/5 font-medium px-6 py-2 rounded-lg transition-all duration-300">
+          <Button variant="outline" className="bg-[#040812]/60 border-white/10 text-white hover:bg-[#040812]/80 font-medium px-6 py-2 rounded-lg transition-all duration-300">
             Join Waitlist
           </Button>
         );
@@ -76,24 +76,24 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
 
   // Simplified icon for the glow effect
   const IconForLabel = () => {
-    if (buttonType === "ai-hub") return <Zap className="text-white opacity-10" size={120} />;
-    if (buttonType === "language-tutor") return <Globe className="text-white opacity-10" size={120} />;
-    if (buttonType === "ai-persona") return <Star className="text-white opacity-10" size={120} />;
-    if (buttonType === "fitness-coach") return <Shield className="text-white opacity-10" size={120} />;
-    return <Zap className="text-white opacity-10" size={120} />;
+    if (buttonType === "ai-hub") return <Zap className="text-white opacity-5" size={120} />;
+    if (buttonType === "language-tutor") return <Globe className="text-white opacity-5" size={120} />;
+    if (buttonType === "ai-persona") return <Star className="text-white opacity-5" size={120} />;
+    if (buttonType === "fitness-coach") return <Shield className="text-white opacity-5" size={120} />;
+    return <Zap className="text-white opacity-5" size={120} />;
   };
 
   return (
     <div className={`w-full h-full transition-all duration-500 transform ${isActive ? 'scale-105 z-10' : 'scale-95 opacity-80'}`}>
       <Card className="w-full h-full overflow-hidden border-0 bg-transparent">
-        <div className="w-full h-full backdrop-blur-xl bg-[#06101a]/30 border border-white/10 hover:border-white/20 rounded-xl overflow-hidden transition-all duration-300 shadow-lg relative group">
+        <div className="w-full h-full backdrop-blur-xl bg-[#040812]/40 border border-white/10 hover:border-white/20 rounded-xl overflow-hidden transition-all duration-300 shadow-lg relative group">
           {/* Subtle background ambient glow */}
-          <div className="absolute -bottom-10 -right-10 opacity-0 group-hover:opacity-50 transition-opacity duration-700">
+          <div className="absolute -bottom-10 -right-10 opacity-0 group-hover:opacity-20 transition-opacity duration-700">
             <IconForLabel />
           </div>
           
           {/* Reduced scanline effect */}
-          <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_0%,rgba(255,255,255,0.01)_50%,rgba(255,255,255,0)_100%)] bg-[length:100%_4px] animate-[pulse-slow_10s_linear_infinite] opacity-10"></div>
+          <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(to_bottom,rgba(255,255,255,0)_0%,rgba(255,255,255,0.01)_50%,rgba(255,255,255,0)_100%)] bg-[length:100%_4px] animate-[pulse-slow_10s_linear_infinite] opacity-5"></div>
           
           <div className="flex flex-col h-full">
             {/* Image container with subtle overlay */}
@@ -108,12 +108,12 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
               {/* Minimal holographic overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-[#040812]/5 to-[#040812]/5 mix-blend-overlay"></div>
               
-              {/* Status labels with glassmorphism style */}
+              {/* Status labels with subtle glassmorphism style - removing color variations */}
               <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-20">
                 {statusLabels.map((label, index) => (
                   <span 
                     key={index} 
-                    className="px-3 py-1 text-sm font-medium rounded-md backdrop-blur-md bg-black/20 border border-white/10 text-white"
+                    className="px-3 py-1 text-sm font-medium rounded-md backdrop-blur-md bg-[#040812]/60 border border-white/10 text-white"
                   >
                     {label.text}
                   </span>
@@ -141,7 +141,7 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
                 </div>
               </div>
               
-              {/* Action buttons with glassmorphism */}
+              {/* Action buttons with minimal glassmorphism */}
               <div className="flex flex-wrap gap-4 mt-auto">
                 {renderButtons()}
               </div>

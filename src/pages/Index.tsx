@@ -10,6 +10,7 @@ import Tokenomics from '../components/Tokenomics';
 import Roadmap from '../components/Roadmap';
 import Faq from '../components/Faq';
 import Partners from '../components/Partners';
+import ContactGPTVerse from '../components/ContactGPTVerse';
 
 const Index = () => {
   useEffect(() => {
@@ -46,6 +47,7 @@ const Index = () => {
           <Tokenomics />
           <Roadmap />
           <Partners />
+          <ContactGPTVerse />
           <Faq />
           
           <div id="overview" className="section-anchor pt-20"></div>

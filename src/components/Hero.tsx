@@ -65,42 +65,34 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-[#0ef34b]/20 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
       </div>
       
-      {/* Hexagon logo with alien-like appearance */}
+      {/* Updated logo */}
       <div className="relative z-10 mb-8">
         <div className="flex items-center justify-center mb-3">
           <div className="w-24 h-24 bg-gradient-to-br from-[#0ef34b] via-[#00d8ff] to-[#00aeff] flex items-center justify-center relative overflow-hidden rounded-full">
-            <div className="absolute inset-0 bg-[#040812] rounded-full transform scale-[0.96]"></div>
-            <div className="relative text-[#0ef34b] z-10">
-              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 16L7 12L12 8L17 12L12 16Z" fill="currentColor" />
-                <path d="M12 4L4 12L12 20L20 12L12 4Z" stroke="currentColor" strokeWidth="1.5" />
-                <path d="M12 2L2 12L12 22L22 12L12 2Z" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 1" />
-              </svg>
-            </div>
-            {/* Energy pulses */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="w-full h-full bg-[#0ef34b]/5 rounded-full animate-blip"></div>
-            </div>
+            <img 
+              src="/lovable-uploads/becd59a9-582c-40e3-822c-52261c79f955.png" 
+              alt="GPTVerse Logo" 
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
         </div>
         <div className="text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white flex items-center justify-center font-mono tracking-wider">
-            DORA.AI 
+            GPTVERSE.AI 
             <span className="ml-2 text-xs px-2 py-1 bg-[#0ef34b]/10 rounded-full text-[#0ef34b]/80 border border-[#0ef34b]/30">BETA</span>
           </h2>
         </div>
       </div>
       
       {/* Main heading with futuristic alien style */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 mb-16">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 font-mono tracking-tight">
-          <span className="text-white">Sites beyond </span>
-          <span className="bg-gradient-to-r from-[#0ef34b] to-[#00aeff] bg-clip-text text-transparent">imagination,</span>
-        </h1>
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 mb-12">
         <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold font-mono tracking-tight">
-          <span className="bg-gradient-to-r from-[#00aeff] to-[#0ef34b] bg-clip-text text-transparent">one prompt </span>
-          <span className="text-white">away.</span>
+          <span className="text-white">Multi platform </span>
+          <span className="bg-gradient-to-r from-[#0ef34b] to-[#00aeff] bg-clip-text text-transparent">AI Hub</span>
         </h1>
+        <p className="text-xl md:text-2xl text-white/80 mt-6 max-w-3xl mx-auto">
+          GPTVerse: Your AI Hub and Multi-Platform Gateway to a Next-Level Dapp!
+        </p>
       </div>
       
       {/* Alien-inspired search/prompt input */}
@@ -130,38 +122,7 @@ const Hero = () => {
         </div>
       </div>
       
-      {/* Feature cards with alien tech styling */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-4xl mx-auto px-4 mb-16">
-        <div className="glass-card group hover:border-[#0ef34b]/30 hover:shadow-[#0ef34b]/10 hover:shadow-lg transition-all duration-300">
-          <div className="p-6 flex flex-col items-center text-center">
-            <div className="w-10 h-10 rounded-full border border-[#0ef34b]/30 flex items-center justify-center mb-4 group-hover:bg-[#0ef34b]/10 transition-all">
-              <Zap className="text-[#0ef34b]" size={20} />
-            </div>
-            <h3 className="text-white font-mono font-bold mb-2">Ultra Fast</h3>
-            <p className="text-white/60">Generate sites in seconds with our quantum-powered engines</p>
-          </div>
-        </div>
-        
-        <div className="glass-card group hover:border-[#00aeff]/30 hover:shadow-[#00aeff]/10 hover:shadow-lg transition-all duration-300">
-          <div className="p-6 flex flex-col items-center text-center">
-            <div className="w-10 h-10 rounded-full border border-[#00aeff]/30 flex items-center justify-center mb-4 group-hover:bg-[#00aeff]/10 transition-all">
-              <BarChart3 className="text-[#00aeff]" size={20} />
-            </div>
-            <h3 className="text-white font-mono font-bold mb-2">AI Powered</h3>
-            <p className="text-white/60">Hyperintelligent algorithms adapt to your creative needs</p>
-          </div>
-        </div>
-        
-        <div className="glass-card group hover:border-[#d946ef]/30 hover:shadow-[#d946ef]/10 hover:shadow-lg transition-all duration-300">
-          <div className="p-6 flex flex-col items-center text-center">
-            <div className="w-10 h-10 rounded-full border border-[#d946ef]/30 flex items-center justify-center mb-4 group-hover:bg-[#d946ef]/10 transition-all">
-              <Sigma className="text-[#d946ef]" size={20} />
-            </div>
-            <h3 className="text-white font-mono font-bold mb-2">Neural Design</h3>
-            <p className="text-white/60">Abstract cognition models ensure unique dimensional outputs</p>
-          </div>
-        </div>
-      </div>
+      {/* Feature cards with alien tech styling - Removed */}
       
       {/* Watch video button with alien tech styling */}
       <div className="relative z-10 flex justify-center mb-16">

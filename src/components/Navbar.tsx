@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [glitchText, setGlitchText] = useState("dora");
+  const [glitchText, setGlitchText] = useState("GPTVerse");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,16 +25,16 @@ const Navbar = () => {
     // Occasional glitch effect for the logo text
     const glitchInterval = setInterval(() => {
       if (Math.random() > 0.9) {
-        const chars = "d0r4@#!";
-        const newText = Array.from({length: 4}, (_, i) => 
-          Math.random() > 0.7 ? chars[Math.floor(Math.random() * chars.length)] : "dora"[i]
+        const chars = "GPT¥Σrse@#!";
+        const newText = Array.from({length: 8}, (_, i) => 
+          Math.random() > 0.7 ? chars[Math.floor(Math.random() * chars.length)] : "GPTVerse"[i]
         ).join('');
         
         setGlitchText(newText);
         
         // Reset after brief glitch
         setTimeout(() => {
-          setGlitchText("dora");
+          setGlitchText("GPTVerse");
         }, 100);
       }
     }, 3000);

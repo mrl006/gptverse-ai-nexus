@@ -4,11 +4,10 @@ import { Headset, Monitor, Globe, Code, BrainCircuit } from 'lucide-react';
 
 const PlatformButtons = () => {
   const platforms = [
-    { name: 'Neural', icon: <BrainCircuit size={20} className="text-[#0ef34b]" /> },
-    { name: 'Virtual', icon: <Headset size={20} className="text-[#00aeff]" /> },
-    { name: 'Desktop', icon: <Monitor size={20} className="text-[#d946ef]" /> },
-    { name: 'Global', icon: <Globe size={20} className="text-[#ff7e33]" /> },
-    { name: 'Matrix', icon: <Code size={20} className="text-[#f5d038]" /> },
+    { name: 'AI HUB', icon: <BrainCircuit size={20} className="text-[#0ef34b]" /> },
+    { name: 'VR SIDEQUEST', icon: <Headset size={20} className="text-[#00aeff]" /> },
+    { name: 'WEBGL', icon: <Globe size={20} className="text-[#d946ef]" /> },
+    { name: 'WINDOWS', icon: <Monitor size={20} className="text-[#ff7e33]" /> },
   ];
 
   return (

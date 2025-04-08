@@ -1,10 +1,11 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Send, Sparkles, Bot, Mic } from 'lucide-react';
+import { Send, Sparkles, Bot, Mic, X } from 'lucide-react';
 
 const GptverseAssistant = () => {
   const [message, setMessage] = useState('');
+  const [isOpen, setIsOpen] = useState(false);
   const [chatHistory, setChatHistory] = useState<{role: string, content: string}[]>([
     { role: 'assistant', content: 'How can I help you with AI integration today? Ask me anything about GPTVerse!' }
   ]);
@@ -26,8 +27,19 @@ const GptverseAssistant = () => {
     setMessage('');
   };
 
+  if (!isOpen) {
+    return (
+      <div 
+        className="p-3 w-14 h-14 rounded-full bg-gradient-to-r from-gptv-neon-blue to-gptv-teal flex items-center justify-center shadow-lg shadow-gptv-neon-blue/20 border border-white/10 cursor-pointer hover:scale-105 transition-transform duration-200"
+        onClick={() => setIsOpen(true)}
+      >
+        <Bot size={24} className="text-white" />
+      </div>
+    );
+  }
+
   return (
-    <div className="glass-card p-4 rounded-2xl backdrop-blur-xl relative overflow-hidden transition-all shadow-lg shadow-gptv-neon-blue/20 border-2 border-white/5 h-[420px] flex flex-col">
+    <div className="glass-card p-4 rounded-2xl backdrop-blur-xl relative overflow-hidden transition-all shadow-lg shadow-gptv-neon-blue/20 border-2 border-white/5 w-[350px] h-[420px] flex flex-col">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gptv-blue via-gptv-teal to-gptv-magenta"></div>
       
       <div className="flex items-center justify-between mb-4">
@@ -42,8 +54,11 @@ const GptverseAssistant = () => {
             <span className="text-xs text-white/60">AI-powered support</span>
           </div>
         </div>
-        <div className="h-8 w-8 rounded-full bg-gptv-neon-violet/20 flex items-center justify-center cursor-pointer hover:bg-gptv-neon-violet/30 transition-colors">
-          <span className="text-white">⋮</span>
+        <div 
+          className="h-8 w-8 rounded-full bg-gptv-neon-violet/20 flex items-center justify-center cursor-pointer hover:bg-gptv-neon-violet/40 transition-colors"
+          onClick={() => setIsOpen(false)}
+        >
+          <X size={16} className="text-white" />
         </div>
       </div>
       

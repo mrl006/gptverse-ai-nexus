@@ -65,25 +65,39 @@ const Index = () => {
         </div>
       </div>
       
-      <div className="relative z-10">
+      {/* Main content wrapper with properly layered sections */}
+      <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />
-        <Hero />
-        <Explore />
-        <Features />
-        <Tokenomics />
-        <TokenUtility />
-        <Roadmap />
-        <Partners />
-        <Faq />
-        <About />
+        
+        {/* Main content sections */}
+        <div className="flex-grow">
+          <Hero />
+          
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 w-full">
+            <Explore />
+            <Features />
+            <Tokenomics />
+            <TokenUtility />
+            <Roadmap />
+            <Partners />
+            <Faq />
+            <About />
+          </div>
+        </div>
+        
         <Footer />
       </div>
       
-      {/* Mobile Assistant (for smaller screens) */}
+      {/* Fixed assistant button for mobile */}
       <div className="md:hidden fixed bottom-4 right-4 z-50">
         <button className="rounded-full w-14 h-14 bg-gradient-to-r from-gptv-neon-blue to-gptv-teal flex items-center justify-center shadow-lg shadow-gptv-neon-blue/20 border border-white/10">
           <Bot size={24} className="text-white" />
         </button>
+      </div>
+      
+      {/* Fixed assistant for desktop */}
+      <div className="hidden md:block fixed bottom-6 right-6 z-50">
+        <GptverseAssistant />
       </div>
     </div>
   );

@@ -2,7 +2,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
-import GptverseAssistant from './GptverseAssistant';
 import PlatformButtons from './PlatformButtons';
 
 const Hero = () => {
@@ -149,8 +148,24 @@ const Hero = () => {
             <PlatformButtons />
           </div>
           
-          <div className="hidden md:block">
-            <GptverseAssistant />
+          <div className="hidden md:flex md:justify-center lg:justify-end">
+            <div className="relative w-full max-w-md">
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-gptv-neon-blue to-gptv-teal rounded-2xl blur opacity-30 animate-pulse"></div>
+              <div className="glass-card p-6 rounded-2xl backdrop-blur-xl relative h-[380px]">
+                <img 
+                  src="/lovable-uploads/6acb1d46-209d-4450-b48e-5ec82fa59a10.png" 
+                  alt="GPTVerse Platform Preview" 
+                  className="w-full h-full object-cover rounded-lg"
+                />
+                
+                <div className="absolute bottom-6 left-6 right-6">
+                  <div className="bg-black/80 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+                    <h3 className="text-white font-medium mb-1">Experience GPTVerse</h3>
+                    <p className="text-white/70 text-sm">Advanced AI tools across multiple platforms</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -7,34 +7,8 @@ import DistributionTabContent from './DistributionTabContent';
 import VestingTabContent from './VestingTabContent';
 
 const TokenomicsPieChart = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [chartWidth, setChartWidth] = useState(700);
   const containerRef = useRef<HTMLDivElement>(null);
-
-  // Responsive chart sizing
-  useEffect(() => {
-    const updateSize = () => {
-      if (containerRef.current) {
-        const width = containerRef.current.clientWidth;
-        setChartWidth(width);
-      }
-    };
-
-    window.addEventListener('resize', updateSize);
-    updateSize();
-    return () => window.removeEventListener('resize', updateSize);
-  }, []);
-
-  const onPieEnter = (_: any, index: number) => {
-    setActiveIndex(index);
-    setSelectedCategory(tokenDistribution[index].name);
-  };
-
-  const onPieLeave = () => {
-    setActiveIndex(null);
-    setSelectedCategory(null);
-  };
 
   // Custom sort tokenDistribution by value (descending)
   const sortedTokenDistribution = [...tokenDistribution].sort((a, b) => b.value - a.value);
@@ -43,19 +17,12 @@ const TokenomicsPieChart = () => {
     <div ref={containerRef} className="w-full">
       <div className="neo-blur p-8 rounded-2xl border border-white/10 shadow-[0_10px_50px_rgba(139,92,246,0.1)] backdrop-blur-xl overflow-hidden transition-all duration-500 hover:shadow-[0_10px_50px_rgba(139,92,246,0.15)]">
         <div className="lg:grid lg:grid-cols-7 gap-8">
-          {/* Enlarged pie chart column */}
+          {/* Left side: Static image of the pie chart */}
           <div className="lg:col-span-4 relative flex items-center justify-center">
-            <div className="max-w-[600px] mx-auto transform transition-all duration-700 hover:scale-105">
-              <PieChartVisualization 
-                sortedTokenDistribution={sortedTokenDistribution}
-                activeIndex={activeIndex}
-                onPieEnter={onPieEnter}
-                onPieLeave={onPieLeave}
-              />
-            </div>
+            <PieChartVisualization />
           </div>
           
-          {/* Info column with glassmorphism */}
+          {/* Right side: Info column with glassmorphism */}
           <div className="lg:col-span-3 mt-8 lg:mt-0">
             <div className="neo-blur p-5 rounded-xl h-full border border-white/10 shadow-lg">
               <Tabs defaultValue="distribution" className="w-full">
@@ -77,8 +44,8 @@ const TokenomicsPieChart = () => {
                 <TabsContent value="distribution" className="h-[500px] overflow-y-auto pr-2 scrollbar-thin">
                   <DistributionTabContent 
                     sortedTokenDistribution={sortedTokenDistribution}
-                    activeIndex={activeIndex}
-                    setActiveIndex={setActiveIndex}
+                    activeIndex={null}
+                    setActiveIndex={() => {}}
                     selectedCategory={selectedCategory}
                     setSelectedCategory={setSelectedCategory}
                   />

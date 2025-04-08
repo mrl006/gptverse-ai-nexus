@@ -35,7 +35,7 @@ const Index = () => {
         <div className="flex-grow">
           <Hero />
           
-          <div className="relative z-20 w-full -mt-32 mb-16">
+          <div className="relative z-20 w-full mt-16 mb-24">
             <div className="max-w-[1400px] mx-auto">
               <PlatformButtons />
             </div>

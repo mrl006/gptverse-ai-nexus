@@ -37,24 +37,43 @@ const ChartConnectors: React.FC<ChartConnectorsProps> = ({ topDistributions, cha
               transform: 'translate(-50%, -50%)',
               overflow: 'visible'
             }}>
+              {/* Animated connector line */}
               <line
                 x1="0"
                 y1="0"
                 x2={(anchorX - posX) * 1.5}
                 y2={(anchorY - posY) * 1.5}
-                stroke="rgba(255,255,255,0.2)"
+                stroke={entry.color}
                 strokeWidth="1"
                 strokeDasharray="2,2"
+                strokeLinecap="round"
+                className="animate-pulse-slow"
+                style={{ animation: `pulse-slow ${3 + index * 0.5}s ease-in-out infinite` }}
               />
+              
+              {/* Small glow dot at connection point */}
+              <circle cx="0" cy="0" r="2" fill={entry.color} className="animate-blip">
+                <animate attributeName="opacity" from="1" to="0" dur="2s" repeatCount="indefinite" />
+              </circle>
             </svg>
-            <div className="absolute whitespace-nowrap" style={{
-              top: (anchorY - posY) * 1.5,
-              left: (anchorX - posX) * 1.5,
-              textAlign: textAlign as any,
-              transform: textAlign === 'left' ? 'translateX(10px)' : 'translateX(-110%)',
-            }}>
-              <div className="text-white font-medium text-sm">{entry.name}</div>
-              <div className="text-white/70 font-mono text-sm">{entry.value}%</div>
+            
+            {/* Label with glassmorphism */}
+            <div 
+              className="absolute whitespace-nowrap backdrop-blur-sm bg-black/30 px-3 py-1.5 rounded-lg border border-white/10 animate-fade-in"
+              style={{
+                top: (anchorY - posY) * 1.5,
+                left: (anchorX - posX) * 1.5,
+                textAlign: textAlign as any,
+                transform: textAlign === 'left' ? 'translateX(10px)' : 'translateX(-110%)',
+                boxShadow: `0 0 15px ${entry.color}20`,
+                animationDelay: `${index * 0.1}s`
+              }}
+            >
+              <div className="text-white font-medium text-sm flex items-center">
+                <span className="h-2 w-2 rounded-full mr-2" style={{ backgroundColor: entry.color }}></span>
+                <span>{entry.name}</span>
+              </div>
+              <div className="text-white/90 font-mono text-sm">{entry.value}%</div>
             </div>
           </div>
         );

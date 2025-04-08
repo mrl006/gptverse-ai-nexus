@@ -10,9 +10,12 @@ const PieChartTooltip = ({ active, payload }: CustomTooltipProps) => {
   if (active && payload && payload.length) {
     const data = payload[0].payload;
     return (
-      <div className="bg-black/80 p-3 rounded-lg border border-white/10 shadow-xl backdrop-blur-sm">
-        <div className="font-bold text-white mb-1">{data.name}</div>
-        <div className="text-white font-mono mb-1">{data.value}%</div>
+      <div className="neo-blur p-4 rounded-lg shadow-xl backdrop-blur-xl animate-fade-in">
+        <div className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-white/80 text-lg mb-2">{data.name}</div>
+        <div className="text-white font-mono text-xl mb-2 flex items-center">
+          <span className="mr-2 h-3 w-3 rounded-full" style={{ backgroundColor: data.color }}></span>
+          <span className="font-bold">{data.value}%</span>
+        </div>
         {data.description && (
           <div className="text-white/70 text-sm">{data.description}</div>
         )}

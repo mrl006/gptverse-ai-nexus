@@ -65,23 +65,11 @@ const Hero = () => {
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-[#0ef34b]/20 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
       </div>
       
-      {/* Updated logo */}
-      <div className="relative z-10 mb-8">
-        <div className="flex items-center justify-center mb-3">
-          <div className="w-24 h-24 bg-gradient-to-br from-[#0ef34b] via-[#00d8ff] to-[#00aeff] flex items-center justify-center relative overflow-hidden rounded-full">
-            <img 
-              src="/lovable-uploads/becd59a9-582c-40e3-822c-52261c79f955.png" 
-              alt="GPTVerse Logo" 
-              className="absolute inset-0 w-full h-full object-cover"
-            />
-          </div>
-        </div>
-        <div className="text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white flex items-center justify-center font-mono tracking-wider">
-            GPTVERSE.AI 
-            <span className="ml-2 text-xs px-2 py-1 bg-[#0ef34b]/10 rounded-full text-[#0ef34b]/80 border border-[#0ef34b]/30">BETA</span>
-          </h2>
-        </div>
+      {/* Title section with GPTVERSE.AI text */}
+      <div className="relative z-10 text-center mb-8">
+        <h2 className="text-3xl md:text-4xl font-bold text-white font-mono tracking-wider">
+          GPTVERSE.AI
+        </h2>
       </div>
       
       {/* Main heading with futuristic alien style */}
@@ -108,7 +96,7 @@ const Hero = () => {
             className="flex-grow py-4 px-4 bg-transparent text-white/90 outline-none font-mono"
           />
           <Button 
-            className="m-1 rounded-full bg-gradient-to-r from-[#0ef34b] to-[#00aeff] hover:brightness-110 text-black font-mono"
+            className="m-1 rounded-full bg-[#0ef34b] hover:brightness-110 text-black font-mono"
           >
             Generate <ArrowRight className="ml-1" size={16} />
           </Button>

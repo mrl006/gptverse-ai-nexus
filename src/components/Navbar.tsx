@@ -1,12 +1,11 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Sigma, Orbit, Globe, BrainCircuit, Zap } from 'lucide-react';
+import { Menu, X, ArrowRight, Orbit, Globe, BrainCircuit, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [glitchText, setGlitchText] = useState("GPTVerse");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,27 +20,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    // Occasional glitch effect for the logo text
-    const glitchInterval = setInterval(() => {
-      if (Math.random() > 0.9) {
-        const chars = "GPT¥Σrse@#!";
-        const newText = Array.from({length: 8}, (_, i) => 
-          Math.random() > 0.7 ? chars[Math.floor(Math.random() * chars.length)] : "GPTVerse"[i]
-        ).join('');
-        
-        setGlitchText(newText);
-        
-        // Reset after brief glitch
-        setTimeout(() => {
-          setGlitchText("GPTVerse");
-        }, 100);
-      }
-    }, 3000);
-    
-    return () => clearInterval(glitchInterval);
-  }, []);
-
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${
       isScrolled 
@@ -50,14 +28,15 @@ const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#" className="flex items-center space-x-2 group">
-          <div className="w-8 h-8 bg-gradient-to-br from-[#0ef34b] to-[#00aeff] rounded-full flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-[#040812] rounded-full transform scale-[0.85] group-hover:scale-[0.8] transition-transform"></div>
-            <div className="relative z-10 text-[#0ef34b] group-hover:scale-110 transition-transform">
-              <Sigma size={16} />
-            </div>
+          <div className="w-10 h-10 rounded-full flex items-center justify-center relative overflow-hidden">
+            <img 
+              src="/lovable-uploads/e322c390-0e26-442f-90b3-bc13622b55e6.png" 
+              alt="GPTVerse Logo" 
+              className="w-full h-full object-cover"
+            />
           </div>
           <span className="text-xl md:text-2xl font-bold text-white font-mono tracking-wider relative">
-            {glitchText}
+            GPTVerse
             <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-[#0ef34b] to-transparent transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
           </span>
         </a>
@@ -82,7 +61,7 @@ const Navbar = () => {
 
         {/* Desktop Action Button */}
         <div className="hidden md:flex">
-          <Button className="rounded-full bg-gradient-to-r from-[#0ef34b] to-[#00aeff] hover:brightness-110 text-black font-mono">
+          <Button className="rounded-full bg-[#0ef34b] hover:brightness-110 text-black font-mono">
             Access Portal <ArrowRight className="ml-1" size={16} />
           </Button>
         </div>
@@ -113,7 +92,7 @@ const Navbar = () => {
               <BrainCircuit size={16} /> FAQ
             </a>
             
-            <Button className="rounded-full bg-gradient-to-r from-[#0ef34b] to-[#00aeff] hover:brightness-110 text-black w-full font-mono">
+            <Button className="rounded-full bg-[#0ef34b] hover:brightness-110 text-black w-full font-mono">
               Access Portal <ArrowRight className="ml-1" size={16} />
             </Button>
           </div>

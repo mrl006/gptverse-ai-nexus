@@ -11,6 +11,7 @@ import {
   CarouselNext, 
   CarouselPrevious 
 } from './ui/carousel';
+import type { CarouselApi } from './ui/carousel';
 
 const AiServices = () => {
   const aiServices = getAiServices();
@@ -33,7 +34,7 @@ const AiServices = () => {
               loop: true,
             }}
             className="w-full"
-            onSelect={(api) => {
+            onSelect={(api: CarouselApi) => {
               if (api) {
                 setActiveIndex(api.selectedScrollSnap());
               }
@@ -56,8 +57,8 @@ const AiServices = () => {
               ))}
             </CarouselContent>
             
-            <CarouselPrevious className="hidden md:flex left-0 bg-[#040812]/70 border border-[#0ef34b]/20 text-[#0ef34b] hover:text-white hover:bg-[#0ef34b]/20 hover:border-[#0ef34b]/40" />
-            <CarouselNext className="hidden md:flex right-0 bg-[#040812]/70 border border-[#00aeff]/20 text-[#00aeff] hover:text-white hover:bg-[#00aeff]/20 hover:border-[#00aeff]/40" />
+            <CarouselPrevious className="hidden md:flex left-0 bg-[#040812]/70 backdrop-blur-md border border-white/10 text-white hover:text-white hover:bg-white/10 hover:border-white/30" />
+            <CarouselNext className="hidden md:flex right-0 bg-[#040812]/70 backdrop-blur-md border border-white/10 text-white hover:text-white hover:bg-white/10 hover:border-white/30" />
           </Carousel>
           
           {/* Carousel indicator dots */}

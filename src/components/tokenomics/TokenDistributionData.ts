@@ -1,3 +1,4 @@
+
 export interface TokenDistributionItem {
   name: string;
   value: number;
@@ -9,66 +10,78 @@ export const tokenDistribution: TokenDistributionItem[] = [
   { 
     name: 'Ecosystem Rewards', 
     value: 15, 
-    color: '#00F0B5',
+    color: '#8B5CF6',
+    description: 'Incentives for users, developers and community participants' 
   },
   { 
     name: 'Marketing', 
     value: 15, 
-    color: '#FF56F6',
+    color: '#D946EF',
+    description: 'Global marketing campaigns and partnerships'
   },
   { 
     name: 'Liquidity', 
     value: 15, 
-    color: '#FF56F6',
+    color: '#0FF5CE',
+    description: 'Exchange liquidity pools and market making'
   },
   { 
     name: 'Development & Research', 
     value: 10, 
-    color: '#00F0B5',
+    color: '#00AEFF',
+    description: 'Core platform development and AI research'
   },
   { 
     name: 'Team', 
     value: 12, 
-    color: '#FF56F6',
+    color: '#6E59A5',
+    description: 'Core team allocation with 2-year vesting'
   },
   { 
     name: 'DAO', 
     value: 9, 
-    color: '#FF56F6',
+    color: '#3B82F6',
+    description: 'Decentralized governance treasury'
   },
   { 
     name: 'Private', 
     value: 8, 
-    color: '#FFFFFF',
+    color: '#F0F0F0',
+    description: 'Strategic investors with 1-year vesting'
   },
   { 
     name: 'Public', 
     value: 5, 
-    color: '#FFFFFF',
+    color: '#F97316',
+    description: 'Public sale with no vesting'
   },
   { 
     name: 'Pre-Sale 2', 
     value: 5, 
-    color: '#00F0B5',
+    color: '#FF79C6',
+    description: 'Second pre-sale round with 6-month vesting'
   },
   { 
     name: 'Pre-Sale 1', 
-    value: 2, 
-    color: '#00F0B5',
+    value: 3, 
+    color: '#10B981',
+    description: 'First pre-sale round with 9-month vesting'
   },
   { 
     name: 'Advisors', 
-    value: 3, 
-    color: '#FF56F6',
+    value: 2, 
+    color: '#F43F5E',
+    description: 'Strategic advisors with 18-month vesting'
   },
   { 
     name: 'KOL Round', 
     value: 1, 
-    color: '#FF56F6',
+    color: '#06B6D4',
+    description: 'Key Opinion Leaders with 3-month vesting'
   },
 ];
 
-// We'll keep these for reference, but they won't be used in the new design
+// Unlock schedules for different allocation categories
 export const unlockSchedules = [
   { category: 'Team', months: 24, initialUnlock: 0, schedule: 'Linear unlock after 6-month cliff' },
   { category: 'Private Sale', months: 12, initialUnlock: 10, schedule: 'Linear unlock after 10% TGE' },

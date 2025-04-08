@@ -5,8 +5,6 @@ import Hero from '../components/Hero';
 import PlatformButtons from '../components/PlatformButtons';
 import ProductView from '../components/ProductView';
 import AiServices from '../components/AiServices';
-import Tokenomics from '../components/Tokenomics';
-import TokenUtility from '../components/TokenUtility';
 import Footer from '../components/Footer';
 import Explore from '../components/Explore';
 import AboutGPTVerse from '../components/AboutGPTVerse';
@@ -66,8 +64,6 @@ const Index = () => {
           <ProductView />
           <AiServices />
           <AboutGPTVerse />
-          <Tokenomics />
-          <TokenUtility />
           <Explore />
           
           <div id="overview" className="section-anchor pt-20"></div>

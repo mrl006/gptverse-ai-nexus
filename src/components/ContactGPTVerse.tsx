@@ -1,38 +1,87 @@
 
 import React from 'react';
-import { Twitter, Youtube, MessageSquare, Linkedin, Send } from 'lucide-react';
+import { Linkedin, Send } from 'lucide-react';
 import { Button } from "@/components/ui/button";
+import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
 
 const ContactGPTVerse = () => {
   // Social media links data with icons and URLs
   const socialLinks = [
-    { name: 'Twitter', icon: <Twitter className="h-5 w-5" />, url: 'https://twitter.com/' },
-    { name: 'YouTube', icon: <Youtube className="h-5 w-5" />, url: 'https://youtube.com/' },
-    { name: 'Discord', icon: 
-      <svg 
-        xmlns="http://www.w3.org/2000/svg" 
-        viewBox="0 0 24 24" 
-        fill="none" 
-        stroke="currentColor" 
-        strokeWidth="2" 
-        strokeLinecap="round" 
-        strokeLinejoin="round" 
-        className="h-5 w-5"
-      >
-        <circle cx="9" cy="12" r="1"/>
-        <circle cx="15" cy="12" r="1"/>
-        <path d="M7.5 7.2c.7-1 2-2.2 4.5-2.2s3.8 1.2 4.5 2.2"/>
-        <path d="M7.5 16.8c.7 1 2 2.2 4.5 2.2s3.8-1.2 4.5-2.2"/>
-        <path d="M3 9.5c-.7-1.5-.7-3 0-4.5"/>
-        <path d="M3 19c-.7-1.5-.7-3 0-4.5"/>
-        <path d="M21 9.5c.7-1.5.7-3 0-4.5"/>
-        <path d="M21 19c.7-1.5.7-3 0-4.5"/>
-      </svg>, 
+    { 
+      name: 'X (Twitter)', 
+      icon: 
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          className="h-5 w-5"
+        >
+          <path d="M4 4l11.5 11.5M4 20l7-7" />
+          <path d="M20 4L8.5 15.5" />
+          <path d="M13 15l7 5" />
+        </svg>, 
+      url: 'https://twitter.com/' 
+    },
+    { 
+      name: 'YouTube', 
+      icon: 
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          className="h-5 w-5"
+        >
+          <path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17" />
+          <path d="m10 15 5-3-5-3z" />
+        </svg>, 
+      url: 'https://youtube.com/' 
+    },
+    { 
+      name: 'Discord', 
+      icon: 
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          className="h-5 w-5"
+        >
+          <path d="M18 9a5 5 0 0 0-5-5H7a5 5 0 0 0-5 5v8a5 5 0 0 0 5 5h6a5 5 0 0 0 5-5V9Z" />
+          <path d="M13.5 15v-3a1.5 1.5 0 0 0-3 0v3" />
+          <path d="M9.5 12v3" />
+          <path d="M14.5 12v3" />
+        </svg>, 
       url: 'https://discord.com/' 
     },
-    { name: 'Telegram', icon: <MessageSquare className="h-5 w-5" />, url: 'https://t.me/' },
+    { 
+      name: 'Telegram', 
+      icon: 
+        <svg 
+          xmlns="http://www.w3.org/2000/svg" 
+          viewBox="0 0 24 24" 
+          fill="none" 
+          stroke="currentColor" 
+          strokeWidth="2" 
+          strokeLinecap="round" 
+          strokeLinejoin="round" 
+          className="h-5 w-5"
+        >
+          <path d="M21 5 2 12.5l7 1M21 5l-2.5 15L9 13.5M21 5 9 13.5M9 13.5v5.5l3.5-3.5" />
+        </svg>, 
+      url: 'https://t.me/' 
+    },
     { name: 'LinkedIn', icon: <Linkedin className="h-5 w-5" />, url: 'https://linkedin.com/' },
-    { name: 'Telegram', icon: <Send className="h-5 w-5" />, url: 'https://t.me/' },
   ];
   
   return (
@@ -65,37 +114,38 @@ const ContactGPTVerse = () => {
         {/* Social Media Icons Container */}
         <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-3xl mx-auto">
           {socialLinks.map((link, index) => (
-            <a 
-              key={index}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group"
-              aria-label={link.name}
-            >
-              <div 
-                className="w-16 h-16 md:w-20 md:h-20 rounded-xl backdrop-blur-xl bg-[#040812]/60 border border-[#0ef34b]/20
-                          flex items-center justify-center text-white/80 hover:text-white transition-all duration-500
-                          hover:border-[#0ef34b]/40 hover:shadow-[0_0_20px_rgba(14,243,75,0.15)] group-hover:scale-105"
-              >
-                {/* Glow effect overlay */}
-                <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/10 to-[#00aeff]/0"></div>
-                
-                {/* Icon */}
-                <div className="relative">
-                  {link.icon}
-                  
-                  {/* Animated ping effect */}
-                  <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-[#0ef34b] opacity-0 group-hover:opacity-75 group-hover:animate-ping"></span>
-                  <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-[#0ef34b] opacity-0 group-hover:opacity-100"></span>
-                </div>
-              </div>
-              
-              {/* Name tooltip that appears on hover */}
-              <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 mt-2 text-center text-white/70 text-sm">
+            <HoverCard key={index}>
+              <HoverCardTrigger asChild>
+                <a 
+                  href={link.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group"
+                  aria-label={link.name}
+                >
+                  <div 
+                    className="w-16 h-16 md:w-20 md:h-20 rounded-xl backdrop-blur-xl bg-[#040812]/60 border border-[#0ef34b]/20
+                              flex items-center justify-center text-white/80 hover:text-white transition-all duration-500
+                              hover:border-[#0ef34b]/40 hover:shadow-[0_0_20px_rgba(14,243,75,0.15)] group-hover:scale-105"
+                  >
+                    {/* Glow effect overlay */}
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/10 to-[#00aeff]/0"></div>
+                    
+                    {/* Icon */}
+                    <div className="relative">
+                      {link.icon}
+                      
+                      {/* Animated ping effect */}
+                      <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-[#0ef34b] opacity-0 group-hover:opacity-75 group-hover:animate-ping"></span>
+                      <span className="absolute -right-1 -top-1 h-2 w-2 rounded-full bg-[#0ef34b] opacity-0 group-hover:opacity-100"></span>
+                    </div>
+                  </div>
+                </a>
+              </HoverCardTrigger>
+              <HoverCardContent className="w-auto p-2 text-sm backdrop-blur-xl bg-[#040812]/90 border border-[#0ef34b]/20 text-white">
                 {link.name}
-              </div>
-            </a>
+              </HoverCardContent>
+            </HoverCard>
           ))}
         </div>
         

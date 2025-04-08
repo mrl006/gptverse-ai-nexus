@@ -47,8 +47,8 @@ const Index = () => {
           <Tokenomics />
           <Roadmap />
           <Partners />
-          <ContactGPTVerse />
           <Faq />
+          <ContactGPTVerse />
           
           <div id="overview" className="section-anchor pt-20"></div>
           <div id="features" className="section-anchor pt-20"></div>

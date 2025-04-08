@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { ArrowRight, FileText, ImageIcon } from 'lucide-react';
+
+import React, { useState, useEffect, useRef } from 'react';
+import { ArrowRight, FileText, ImageIcon, Send } from 'lucide-react';
 import { AiModels, demoMessages, getIconByName } from '@/data/aiModels';
 
 interface DemoPreviewProps {
@@ -10,20 +11,22 @@ interface DemoPreviewProps {
 
 const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponent }) => {
   const [messages, setMessages] = useState<{role: string, content: string}[]>([]);
+  const [inputMessage, setInputMessage] = useState('');
   const [isTyping, setIsTyping] = useState(false);
   const [showFileUpload, setShowFileUpload] = useState(modelId === 'pdf-reader');
   const [showGeneratedImage, setShowGeneratedImage] = useState(false);
-  const [currentStep, setCurrentStep] = useState(0);
+  const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
   
   const currentModel = AiModels.find(m => m.id === modelId);
   const modelIcon = currentModel ? getIconByName(currentModel.iconName) : iconComponent;
   
   useEffect(() => {
     setMessages([]);
+    setInputMessage('');
     setIsTyping(false);
     setShowFileUpload(modelId === 'pdf-reader');
     setShowGeneratedImage(false);
-    setCurrentStep(0);
     
     const timer = setTimeout(() => {
       startDemo();
@@ -32,6 +35,14 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
     return () => clearTimeout(timer);
   }, [modelId]);
   
+  useEffect(() => {
+    scrollToBottom();
+  }, [messages, isTyping]);
+  
+  const scrollToBottom = () => {
+    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
   const startDemo = () => {
     if (modelId === 'pdf-reader') {
       setTimeout(() => {
@@ -39,42 +50,61 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         setMessages([
           { role: 'assistant', content: 'I\'ve analyzed your PDF. What would you like to know about it?' }
         ]);
-        
-        setTimeout(() => {
-          if (demoMessages[modelId]?.length) {
-            setMessages(prev => [...prev, demoMessages[modelId][0]]);
-            setIsTyping(true);
-            
-            setTimeout(() => {
-              setIsTyping(false);
-              setMessages(prev => [...prev, demoMessages[modelId][1]]);
-            }, 2000);
-          }
-        }, 3000);
       }, 2000);
     } else if (modelId === 'image-generator') {
+      // For image generator, we don't auto-populate
+      return;
+    } else if (demoMessages[modelId]?.length) {
+      // Auto-populate first message for other models
       setTimeout(() => {
-        setMessages([{ role: 'user', content: 'Create a futuristic cityscape with flying cars and neon lights' }]);
+        setMessages([demoMessages[modelId][0]]);
         setIsTyping(true);
         
         setTimeout(() => {
           setIsTyping(false);
-          setShowGeneratedImage(true);
-        }, 3000);
+          setMessages(prev => [...prev, demoMessages[modelId][1]]);
+        }, 2000);
       }, 1000);
-    } else {
-      if (demoMessages[modelId]?.length) {
-        setTimeout(() => {
-          setMessages([demoMessages[modelId][0]]);
-          setIsTyping(true);
-          
-          setTimeout(() => {
-            setIsTyping(false);
-            setMessages(prev => [...prev, demoMessages[modelId][1]]);
-          }, 2000);
-        }, 1000);
-      }
     }
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!inputMessage.trim()) return;
+    
+    // Add user message
+    const userMessage = { role: 'user', content: inputMessage };
+    setMessages(prev => [...prev, userMessage]);
+    setInputMessage('');
+    setIsTyping(true);
+    
+    // Simulate AI response
+    setTimeout(() => {
+      setIsTyping(false);
+      
+      if (modelId === 'image-generator') {
+        setShowGeneratedImage(true);
+      } else {
+        // Find existing response or use a default
+        const modelResponses = demoMessages[modelId] || [];
+        const aiResponse = modelResponses.find(msg => msg.role === 'assistant')?.content || 
+          "I'm happy to help! Is there anything specific you'd like to know?";
+        
+        setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
+      }
+    }, 2000);
+    
+    // Focus input after sending
+    setTimeout(() => {
+      inputRef.current?.focus();
+    }, 100);
+  };
+
+  const getButtonColor = () => {
+    const buttonColor = currentModel?.buttonColor || '#0ef34b';
+    return {
+      backgroundColor: buttonColor
+    };
   };
 
   return (
@@ -134,7 +164,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
               <div key={index} className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}>
                 <div className={`max-w-[80%] rounded-lg p-3 ${
                   message.role === 'user' 
-                    ? `bg-[${AiModels.find(m => m.id === modelId)?.buttonColor}]/20 text-white` 
+                    ? `bg-[${currentModel?.buttonColor || '#0ef34b'}]/20 text-white` 
                     : 'bg-[#1e1e2f] text-white/80'
                 }`}>
                   {message.content}
@@ -152,26 +182,32 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
                 </div>
               </div>
             )}
+            <div ref={messagesEndRef} />
           </div>
         )}
       </div>
       
-      <div className="relative">
+      <form onSubmit={handleSubmit} className="relative">
         <input
+          ref={inputRef}
           type="text"
+          value={inputMessage}
+          onChange={(e) => setInputMessage(e.target.value)}
           placeholder={modelId === 'image-generator' 
             ? "Describe the image you want to create..."
             : "Ask a question..."
           }
-          className="w-full p-3 pl-4 pr-12 bg-[#0c1424] border border-white/10 rounded-full text-white/50 focus:outline-none"
-          disabled
+          className="w-full p-3 pl-4 pr-12 bg-[#0c1424] border border-white/10 rounded-full text-white focus:outline-none focus:border-white/30 transition-colors"
         />
-        <div 
-          className={`absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center rounded-full bg-[${AiModels.find(m => m.id === modelId)?.buttonColor}] text-white`}
+        <button 
+          type="submit"
+          className="absolute right-2 top-1/2 -translate-y-1/2 h-8 w-8 flex items-center justify-center rounded-full text-white"
+          style={getButtonColor()}
+          disabled={!inputMessage.trim()}
         >
-          {modelId === 'image-generator' ? <ImageIcon className="h-4 w-4" /> : <ArrowRight className="h-4 w-4" />}
-        </div>
-      </div>
+          {modelId === 'image-generator' ? <ImageIcon className="h-4 w-4" /> : <Send className="h-4 w-4" />}
+        </button>
+      </form>
     </div>
   );
 };

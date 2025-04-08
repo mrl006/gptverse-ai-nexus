@@ -9,7 +9,7 @@ import FileUploadPreview from './FileUploadPreview';
 import ImageGeneratorPreview from './ImageGeneratorPreview';
 import ChatInput from './ChatInput';
 import { ScrollArea } from '@/components/ui/scroll-area';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface DemoPreviewProps {
   modelId: string;
@@ -110,48 +110,55 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   };
 
   return (
-    <motion.div 
-      ref={containerRef}
-      className="flex flex-col h-full bg-[#06101a] rounded-xl overflow-hidden border border-white/10"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.3 }}
-    >
-      <DemoHeader 
-        modelId={modelId} 
-        iconBg={iconBg} 
-        iconComponent={iconComponent} 
-      />
-      
-      <ScrollArea className="flex-grow bg-[#080d16]" style={{ height: "400px" }}>
-        <div className="p-4">
-          {showFileUpload && modelId === 'pdf-reader' && (
-            <FileUploadPreview />
-          )}
-          
-          {modelId === 'image-generator' ? (
-            <ImageGeneratorPreview 
-              showGeneratedImage={showGeneratedImage} 
-              isTyping={isTyping} 
-            />
-          ) : (
-            <MessageList 
-              messages={messages} 
-              isTyping={isTyping}
-              modelColor={currentModel?.buttonColor || '#0ef34b'}
-            />
-          )}
-        </div>
-      </ScrollArea>
-      
-      <ChatInput 
-        inputMessage={inputMessage}
-        setInputMessage={setInputMessage}
-        handleSubmit={handleSubmit}
-        modelId={modelId}
-        buttonColor={currentModel?.buttonColor || '#0ef34b'}
-      />
-    </motion.div>
+    <AnimatePresence mode="wait">
+      <motion.div 
+        key={modelId}
+        ref={containerRef}
+        className="flex flex-col h-full bg-[#06101a] rounded-xl overflow-hidden border border-white/10 relative"
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.3 }}
+      >
+        {/* Glassmorphism accent */}
+        <div className="absolute inset-0 backdrop-blur-sm bg-gradient-to-br from-[#0ef34b]/5 via-transparent to-[#00aeff]/5 pointer-events-none"></div>
+        
+        <DemoHeader 
+          modelId={modelId} 
+          iconBg={iconBg} 
+          iconComponent={iconComponent} 
+        />
+        
+        <ScrollArea className="flex-grow bg-[#080d16]/70 backdrop-blur-md" style={{ height: "400px" }}>
+          <div className="p-4">
+            {showFileUpload && modelId === 'pdf-reader' && (
+              <FileUploadPreview />
+            )}
+            
+            {modelId === 'image-generator' ? (
+              <ImageGeneratorPreview 
+                showGeneratedImage={showGeneratedImage} 
+                isTyping={isTyping} 
+              />
+            ) : (
+              <MessageList 
+                messages={messages} 
+                isTyping={isTyping}
+                modelColor={currentModel?.buttonColor || '#0ef34b'}
+              />
+            )}
+          </div>
+        </ScrollArea>
+        
+        <ChatInput 
+          inputMessage={inputMessage}
+          setInputMessage={setInputMessage}
+          handleSubmit={handleSubmit}
+          modelId={modelId}
+          buttonColor={currentModel?.buttonColor || '#0ef34b'}
+        />
+      </motion.div>
+    </AnimatePresence>
   );
 };
 

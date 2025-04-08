@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { ArrowRight, Play, Zap, BarChart3, Sigma } from 'lucide-react';
+import { ArrowRight, Sigma } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Hero = () => {
@@ -96,7 +96,7 @@ const Hero = () => {
       </div>
       
       {/* Alien-inspired search/prompt input */}
-      <div className="relative z-10 w-full max-w-2xl mx-auto px-4 mb-12">
+      <div className="relative z-10 w-full max-w-2xl mx-auto px-4 mb-8">
         <div className="relative flex items-center bg-[#06101a]/80 backdrop-blur-md border border-[#0ef34b]/20 rounded-full overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-r from-[#0ef34b]/5 to-[#00aeff]/5 rounded-full"></div>
           <div className="flex-shrink-0 pl-5">
@@ -119,39 +119,6 @@ const Hero = () => {
           <div className="h-0.5 w-14 bg-gradient-to-r from-[#0ef34b]/50 to-[#0ef34b]/5"></div>
           <div className="h-0.5 w-8 bg-gradient-to-r from-[#00aeff]/50 to-[#00aeff]/5"></div>
           <div className="h-0.5 w-4 bg-gradient-to-r from-[#0ef34b]/50 to-[#0ef34b]/5"></div>
-        </div>
-      </div>
-      
-      {/* Feature cards with alien tech styling - Removed */}
-      
-      {/* Watch video button with alien tech styling */}
-      <div className="relative z-10 flex justify-center mb-16">
-        <Button 
-          variant="outline" 
-          className="rounded-full border-[#0ef34b]/30 bg-transparent text-white hover:bg-[#0ef34b]/10 font-mono group"
-        >
-          <div className="mr-2 w-6 h-6 rounded-full bg-[#0ef34b] flex items-center justify-center group-hover:scale-110 transition-transform">
-            <Play size={12} className="text-black ml-0.5" />
-          </div>
-          Watch demo
-        </Button>
-      </div>
-      
-      {/* Award badge with alien styled design */}
-      <div className="absolute bottom-8 right-8 z-10">
-        <div className="bg-[#06101a]/70 backdrop-blur-md border border-[#0ef34b]/20 rounded-xl px-5 py-3 hover:border-[#0ef34b]/40 transition-all duration-300">
-          <div className="flex items-center">
-            <div className="mr-2 text-[#0ef34b]">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 15L8.5 17L9.5 13L6.5 10L10.5 9.5L12 6L13.5 9.5L17.5 10L14.5 13L15.5 17L12 15Z" fill="currentColor" />
-                <path d="M12 18L6 21L7.5 14L2 9L9.5 8L12 2L14.5 8L22 9L16.5 14L18 21L12 18Z" stroke="currentColor" strokeWidth="0.5" strokeDasharray="1 1" />
-              </svg>
-            </div>
-            <div>
-              <div className="text-xs text-[#0ef34b]/70 font-mono">Golden Quantum Award</div>
-              <div className="text-lg font-bold text-white font-mono">2050</div>
-            </div>
-          </div>
         </div>
       </div>
     </section>

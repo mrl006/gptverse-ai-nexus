@@ -49,11 +49,11 @@ const Index = () => {
         <div className="flex-grow">
           <Hero />
           
-          <div id="overview" className="section-anchor pt-20"></div>
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 w-full">
             <PlatformButtons />
           </div>
           
+          <div id="overview" className="section-anchor pt-20"></div>
           <div id="features" className="section-anchor pt-20"></div>
           <div id="roadmap" className="section-anchor pt-20"></div>
           <div id="faq" className="section-anchor pt-20"></div>

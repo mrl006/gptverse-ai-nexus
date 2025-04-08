@@ -7,6 +7,7 @@ import ProductView from '../components/ProductView';
 import AiServices from '../components/AiServices';
 import Footer from '../components/Footer';
 import Explore from '../components/Explore';
+import AboutGPTVerse from '../components/AboutGPTVerse';
 
 const Index = () => {
   useEffect(() => {
@@ -62,13 +63,13 @@ const Index = () => {
           
           <ProductView />
           <AiServices />
+          <AboutGPTVerse />
           <Explore />
           
           <div id="overview" className="section-anchor pt-20"></div>
           <div id="features" className="section-anchor pt-20"></div>
           <div id="roadmap" className="section-anchor pt-20"></div>
           <div id="faq" className="section-anchor pt-20"></div>
-          <div id="about" className="section-anchor pt-20"></div>
         </div>
         
         <Footer />

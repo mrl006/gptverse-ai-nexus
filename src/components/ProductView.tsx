@@ -56,27 +56,6 @@ const ProductView = () => {
       </div>
       
       <div className="max-w-[1400px] mx-auto px-4 relative z-10">
-        {/* Creative Section Heading */}
-        <div className="mb-12 text-center">
-          <motion.div 
-            className="inline-block"
-            initial={{ y: 20, opacity: 0 }}
-            animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.7, delay: 0.1 }}
-          >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-3 font-mono tracking-tight">
-              <span className="bg-gradient-to-r from-[#0ef34b] via-[#00aeff] to-[#0ef34b] bg-clip-text text-transparent">
-                EXPLORE THE GPTVERSE
-              </span>
-            </h2>
-            <div className="flex justify-center space-x-3 items-center">
-              <div className="h-0.5 w-20 bg-gradient-to-r from-[#0ef34b]/80 to-transparent"></div>
-              <div className="text-[#0ef34b]/70 text-lg">NEXT-GEN AI POWERED TOOLS</div>
-              <div className="h-0.5 w-20 bg-gradient-to-r from-transparent to-[#00aeff]/80"></div>
-            </div>
-          </motion.div>
-        </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-[280px,1fr] gap-6">
           {/* Model List Sidebar */}
           <ModelList 

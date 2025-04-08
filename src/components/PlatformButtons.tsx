@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { VrHeadset, Monitor, Globe, Code } from 'lucide-react';
+import { Headset, Monitor, Globe, Code } from 'lucide-react';
 
 const PlatformButtons = () => {
   return (
@@ -10,7 +10,7 @@ const PlatformButtons = () => {
         className="platform-button bg-[#1D1849] rounded-xl overflow-hidden flex items-center p-0 transition-all hover:scale-105 hover:shadow-lg hover:shadow-green-500/20"
       >
         <div className="h-14 w-14 flex items-center justify-center bg-green-500/20">
-          <VrHeadset size={24} className="text-green-400" />
+          <Headset size={24} className="text-green-400" />
         </div>
         <div className="text-white text-left px-3">
           <div className="text-xs opacity-80">Get it on</div>

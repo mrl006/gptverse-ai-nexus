@@ -20,12 +20,12 @@ const Tokenomics = () => {
     { name: 'Development & Research', value: 10, color: '#00AEFF' },
     { name: 'Team', value: 12, color: '#8B5CF6' },
     { name: 'DAO', value: 9, color: '#3B82F6' },
-    { name: 'Private', value: 8, color: '#EC4899' },
-    { name: 'Public', value: 5, color: '#FFFFFF' },
-    { name: 'Pre-Sale 2', value: 5, color: '#F59E0B' },
-    { name: 'Pre-Sale 1', value: 3, color: '#FF79C6' },
-    { name: 'Advisors', value: 2, color: '#10B981' },
-    { name: 'KOL Round', value: 1, color: '#F43F5E' },
+    { name: 'Private', value: 8, color: '#FFFFFF' },
+    { name: 'Public', value: 5, color: '#F59E0B' },
+    { name: 'Pre-Sale 2', value: 5, color: '#FF79C6' },
+    { name: 'Pre-Sale 1', value: 3, color: '#10B981' },
+    { name: 'Advisors', value: 2, color: '#F43F5E' },
+    { name: 'KOL Round', value: 1, color: '#06B6D4' },
   ];
 
   // Add subtle rotation animation to the pie chart

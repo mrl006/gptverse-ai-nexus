@@ -16,6 +16,24 @@ import type { CarouselApi } from './ui/carousel';
 const AiServices = () => {
   const aiServices = getAiServices();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [api, setApi] = useState<CarouselApi | null>(null);
+
+  // Set up the onSelect handler when the API changes
+  React.useEffect(() => {
+    if (!api) return;
+    
+    const onSelect = () => {
+      setActiveIndex(api.selectedScrollSnap());
+    };
+    
+    // Add event listener
+    api.on("select", onSelect);
+    
+    // Cleanup
+    return () => {
+      api.off("select", onSelect);
+    };
+  }, [api]);
 
   return (
     <section id="ai-services" className="py-20 relative overflow-hidden">
@@ -34,11 +52,7 @@ const AiServices = () => {
               loop: true,
             }}
             className="w-full"
-            onSelect={(api: CarouselApi) => {
-              if (api) {
-                setActiveIndex(api.selectedScrollSnap());
-              }
-            }}
+            setApi={setApi}
           >
             <CarouselContent>
               {aiServices.map((service, index) => (

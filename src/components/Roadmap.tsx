@@ -1,6 +1,5 @@
-
 import React, { useEffect, useRef } from 'react';
-import { CalendarDays, GitBranch, Users, LeafyGreen, Box, Shield, Award, Rocket, Zap, Globe, HeartHandshake, Building, Library, Landmark, LineChart, Scale } from 'lucide-react';
+import { CalendarDays, GitBranch, Users, LeafyGreen, Box, Shield, Award, Rocket, Zap, Globe, HeartHandshake, Building, Library, Landmark, LineChart, Scale, Flame, Megaphone, Handshake, Brain, Users2, BadgeCheck, CreditCard } from 'lucide-react';
 import { Separator } from "@/components/ui/separator";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion } from "framer-motion";
@@ -165,6 +164,29 @@ const Roadmap = () => {
         "Develop and implement a community-driven governance framework that allows token holders to participate in decision-making processes",
         "Roll out advanced metaverse features, including enhanced interactivity, virtual economies, and social experiences",
         "Explore sustainability initiatives, such as carbon offset programs, to align with environmental goals"
+      ]
+    },
+    {
+      period: "Q1 2025",
+      title: "Strategic Growth & Engagement",
+      icon: <Flame size={24} />,
+      description: [
+        "🔥 Burn Campaign Launch",
+        "🎤 AMA Events",
+        "🤝 New Key Ecosystem Partnerships",
+        "🌐 Ambassador Program Launch",
+        "🧠 AI Market Analyser Launch on AI Hub"
+      ]
+    },
+    {
+      period: "Q2 2025",
+      title: "Community & Payment Solutions",
+      icon: <CreditCard size={24} />,
+      description: [
+        "🗣️ Get Community Feedbacks",
+        "🌍 Global KOL Campaigns",
+        "🔥 2nd Burn Campaign Announcement",
+        "💳 $GPTV Token Based Payment and Subscription System"
       ]
     }
   ];

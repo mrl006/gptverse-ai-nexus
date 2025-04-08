@@ -60,15 +60,15 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         setMessages([extendedDemoMessages['pdf-reader'][0]]);
         
         // Continue conversation faster
-        setTimeout(() => continueConversation(), 1000);
-      }, 1500);
+        setTimeout(() => continueConversation(), 900); // Faster response
+      }, 1000); // Faster initial load
     } else if (modelId === 'image-generator') {
       // For image generator, we show the preview directly
       setIsTyping(true);
       setTimeout(() => {
         setIsTyping(false);
         setShowGeneratedImage(true);
-      }, 2000);
+      }, 1500); // Faster image generation
     } else if (extendedDemoMessages[modelId]?.length) {
       // Start with first message immediately
       setMessages([extendedDemoMessages[modelId][0]]);
@@ -80,8 +80,8 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         setCurrentMessageIndex(2);
         
         // Continue conversation faster
-        setTimeout(() => continueConversation(), 1000);
-      }, 1200);
+        setTimeout(() => continueConversation(), 800); // Faster response
+      }, 900); // Faster typing simulation
     } else if (extendedDemoMessages['chatbot']?.length && !['pdf-reader', 'image-generator'].includes(modelId)) {
       // Fallback to chatbot extended messages if specific ones not available
       setMessages([extendedDemoMessages['chatbot'][0]]);
@@ -93,8 +93,8 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         setCurrentMessageIndex(2);
         
         // Continue conversation faster
-        setTimeout(() => continueConversation(), 1000);
-      }, 1200);
+        setTimeout(() => continueConversation(), 800); // Faster response
+      }, 900); // Faster typing simulation
     } else if (demoMessages[modelId]?.length) {
       // Last fallback to original demo messages
       setMessages([demoMessages[modelId][0]]);
@@ -103,7 +103,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
       setTimeout(() => {
         setIsTyping(false);
         setMessages(prev => [...prev, demoMessages[modelId][1]]);
-      }, 1200);
+      }, 900); // Faster typing simulation
     }
   };
   
@@ -121,9 +121,9 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
       if (currentMessageIndex + 1 < messagesForModel.length) {
         setCurrentMessageIndex(currentMessageIndex + 1);
         // Continue conversation faster
-        setTimeout(() => continueConversation(), 1500);
+        setTimeout(() => continueConversation(), 1000); // Faster next message
       }
-    }, 1200);
+    }, 800); // Faster typing simulation
   };
 
   // Dummy function for the input (not functional as requested)
@@ -138,7 +138,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
       className="flex flex-col h-full bg-[#06101a] rounded-xl overflow-hidden border border-white/10"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ duration: 0.5 }}
+      transition={{ duration: 0.3 }} // Faster animation
     >
       <DemoHeader 
         modelId={modelId} 

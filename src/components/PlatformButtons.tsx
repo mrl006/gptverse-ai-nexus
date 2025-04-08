@@ -26,7 +26,7 @@ const PlatformButtons = () => {
   ];
 
   return (
-    <div className="flex overflow-x-auto scrollbar-none py-2 mb-12 w-full max-w-6xl mx-auto px-4 gap-4">
+    <div className="flex overflow-x-auto scrollbar-none py-2 mb-6 w-full max-w-6xl mx-auto px-4 gap-4">
       {platforms.map((platform, index) => (
         <button
           key={index}

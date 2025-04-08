@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import PlatformButtons from '../components/PlatformButtons';
 import ProductView from '../components/ProductView';
+import AiServices from '../components/AiServices';
 import Footer from '../components/Footer';
 import Explore from '../components/Explore';
 
@@ -46,6 +47,7 @@ const Index = () => {
           </div>
           
           <ProductView />
+          <AiServices />
           <Explore />
           
           <div id="overview" className="section-anchor pt-20"></div>

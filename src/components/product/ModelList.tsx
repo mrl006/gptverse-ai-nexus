@@ -36,12 +36,20 @@ const ModelList: React.FC<ModelListProps> = ({
       
       {/* Sidebar Navigation */}
       <div className={`${showSidebar ? 'block' : 'hidden lg:block'} lg:border-r lg:border-white/10 pr-4 relative`}>
-        {/* Glassmorphism sidebar accent */}
-        <div className="absolute top-0 bottom-0 -left-4 w-full bg-gradient-to-r from-[#06101a]/60 to-transparent backdrop-blur-sm pointer-events-none"></div>
+        {/* Enhanced glassmorphism sidebar accent with stronger green glow */}
+        <div className="absolute -inset-4 bg-gradient-to-r from-[#06101a]/80 to-transparent backdrop-blur-md pointer-events-none z-0 rounded-2xl">
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute -left-20 top-1/4 w-40 h-40 bg-[#0ef34b]/15 rounded-full blur-3xl"></div>
+            <div className="absolute -right-20 bottom-1/4 w-40 h-40 bg-[#0ef34b]/10 rounded-full blur-3xl"></div>
+          </div>
+        </div>
         
         <div className="hidden lg:block mb-6 relative z-10">
-          <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#d946ef] via-[#8b5cf6] to-[#0ef34b]">
-            AI MODELS
+          <h2 className="text-2xl font-bold text-white drop-shadow-[0_2px_4px_rgba(14,243,75,0.4)]">
+            <span className="relative">
+              AI MODELS
+              <span className="absolute -inset-1 bg-gradient-to-r from-[#0ef34b]/20 to-transparent blur-sm rounded-lg -z-10"></span>
+            </span>
           </h2>
         </div>
         
@@ -50,9 +58,9 @@ const ModelList: React.FC<ModelListProps> = ({
             <motion.button 
               key={model.id}
               onClick={() => setSelectedModel(model.id)}
-              className={`w-full text-left p-3 rounded-lg flex items-center gap-3 transition-all backdrop-blur-sm ${
+              className={`w-full text-left p-3 rounded-lg flex items-center gap-3 transition-all ${
                 selectedModel === model.id 
-                  ? 'bg-[#1e1e2f]/80 border-l-2 border-[#0ef34b] relative' 
+                  ? 'bg-[#1e1e2f]/80 border-l-2 border-[#0ef34b] relative shadow-[0_0_15px_rgba(14,243,75,0.2)]' 
                   : 'hover:bg-white/5'
               }`}
               whileHover={{ x: 3 }}
@@ -64,7 +72,7 @@ const ModelList: React.FC<ModelListProps> = ({
             >
               {selectedModel === model.id && (
                 <motion.div 
-                  className="absolute inset-0 bg-gradient-to-r from-[#0ef34b]/10 to-transparent rounded-lg -z-10"
+                  className="absolute inset-0 bg-gradient-to-r from-[#0ef34b]/20 to-transparent rounded-lg -z-10"
                   layoutId="highlight"
                   transition={{ type: "spring", duration: 0.5 }}
                 />
@@ -76,9 +84,19 @@ const ModelList: React.FC<ModelListProps> = ({
               }`}>
                 {getIconByName(model.iconName)}
               </div>
-              <span className={selectedModel === model.id ? 'text-white' : 'text-gray-400'}>
+              <span className={selectedModel === model.id 
+                ? 'text-white font-medium' 
+                : 'text-gray-400'
+              }>
                 {model.name}
               </span>
+              
+              {/* Add glow effect for selected model */}
+              {selectedModel === model.id && (
+                <div className="absolute inset-0 -z-20 rounded-lg">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-[#0ef34b]/20 to-transparent opacity-60 blur-md rounded-lg"></div>
+                </div>
+              )}
             </motion.button>
           ))}
         </div>

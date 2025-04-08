@@ -1,6 +1,4 @@
-
 import { ReactNode } from 'react';
-import { IconProps } from 'lucide-react';
 
 interface AiService {
   title: string;

@@ -27,12 +27,18 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
     --radius: 0.75rem;
+    
+    /* Custom colors for the site */
+    --alien-green: 142.1 86.5% 50.6%;
+    --alien-blue: 198.4 100% 50%;
+    --alien-cyan: 180 100% 50%;
+    --alien-dark: 230 20% 6%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border selection:bg-[#8B5CF6]/20 selection:text-white;
+    @apply border-border selection:bg-[#0ef34b]/20 selection:text-white;
   }
   
   html {
@@ -47,24 +53,28 @@
 
 @layer components {
   .glass-card {
-    @apply backdrop-blur-xl bg-[#06101a]/40 border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
+    @apply backdrop-blur-xl bg-[#06101a]/40 border border-[#0ef34b]/20 rounded-xl shadow-lg relative overflow-hidden;
   }
   
   .glass-panel {
-    @apply backdrop-blur-md bg-[#06101a]/40 border border-white/20 rounded-xl shadow-lg;
+    @apply backdrop-blur-md bg-[#06101a]/40 border border-[#0ef34b]/20 rounded-xl shadow-lg;
   }
   
   .neo-blur {
-    @apply backdrop-blur-xl bg-black/25 border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    @apply backdrop-blur-xl bg-black/25 border border-[#0ef34b]/20 rounded-xl shadow-lg relative overflow-hidden;
+    box-shadow: 0 8px 32px 0 rgba(14, 243, 75, 0.1);
   }
   
   .neo-button {
-    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] hover:brightness-110 text-black hover:shadow-lg hover:shadow-[#8B5CF6]/20 active:scale-[0.98] font-mono;
+    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#0ef34b] to-[#00aeff] hover:brightness-110 text-black hover:shadow-lg hover:shadow-[#0ef34b]/20 active:scale-[0.98] font-mono;
   }
   
   .section-anchor {
     @apply scroll-mt-24;
+  }
+  
+  .heading-gradient {
+    @apply bg-gradient-to-r from-[#0ef34b] to-[#00aeff] bg-clip-text text-transparent font-bold;
   }
 }
 

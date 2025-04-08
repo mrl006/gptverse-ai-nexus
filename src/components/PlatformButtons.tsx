@@ -35,15 +35,16 @@ const PlatformButtons = () => {
           <button
             key={index}
             className={`bg-[#040812]/60 backdrop-blur-md
-                      border border-white/10 rounded-lg
+                      border border-[#0ef34b]/20 rounded-lg
                       px-4 py-3 hover:bg-[#040812]/80 transition-all duration-300
                       flex items-center justify-between gap-3 w-full
-                      relative overflow-hidden group platform-button`}
+                      relative overflow-hidden group platform-button
+                      hover:shadow-[0_0_15px_rgba(14,243,75,0.15)]`}
           >
             {/* Minimal glassmorphism effects */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30"></div>
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0ef34b]/5 to-transparent opacity-30"></div>
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/10 to-transparent"></div>
             
             {/* Inner glow effect - reduced */}
             <div className="absolute inset-0 bg-[#0ef34b]/0 group-hover:bg-[#0ef34b]/5 transition-all duration-500 rounded-lg"></div>
@@ -51,7 +52,7 @@ const PlatformButtons = () => {
             {/* Button Content */}
             <div className="relative z-10 flex items-center gap-3">
               <div className="w-10 h-10 bg-[#040812]/80 rounded-full flex items-center justify-center 
-                            border border-white/20
+                            border border-[#0ef34b]/20
                             transition-all duration-500 overflow-hidden p-1">
                 <img 
                   src={platform.logo} 

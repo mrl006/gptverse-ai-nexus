@@ -96,15 +96,15 @@ const ContactGPTVerse = () => {
       
       {/* Glowing orbs in background */}
       <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-[#0ef34b] rounded-full opacity-70 blur-sm animate-pulse"></div>
-      <div className="absolute top-2/3 right-1/4 w-2 h-2 bg-[#00aeff] rounded-full opacity-60 blur-sm animate-pulse" style={{animationDelay: '1.5s'}}></div>
-      <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-[#d946ef] rounded-full opacity-50 blur-sm animate-pulse" style={{animationDelay: '0.7s'}}></div>
+      <div className="absolute top-2/3 right-1/4 w-2 h-2 bg-[#0ef34b] rounded-full opacity-60 blur-sm animate-pulse" style={{animationDelay: '1.5s'}}></div>
+      <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-[#0ef34b] rounded-full opacity-50 blur-sm animate-pulse" style={{animationDelay: '0.7s'}}></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-[#0ef34b] uppercase tracking-wider text-sm font-mono mb-2">Connect With Us</h2>
           <div className="relative inline-block">
-            <h3 className="text-4xl md:text-5xl font-bold mb-6 relative z-10">
+            <h3 className="heading-gradient text-4xl md:text-5xl font-bold mb-6 relative z-10">
               CONTACT GPTVERSE
             </h3>
             <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b] to-[#0ef34b]/0"></div>
@@ -135,7 +135,7 @@ const ContactGPTVerse = () => {
                     `}
                   >
                     {/* Glow effect overlay */}
-                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/10 to-[#00aeff]/0"></div>
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/10 to-[#0ef34b]/0"></div>
                     
                     {/* Icon */}
                     <div className="relative">

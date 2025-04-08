@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { AiModels } from '@/data/aiModels';
+import { AiModels, getIconByName } from '@/data/aiModels';
 
 interface ModelListProps {
   selectedModel: string;
@@ -56,7 +56,7 @@ const ModelList: React.FC<ModelListProps> = ({
                   ? 'bg-[#0ef34b]/20 text-[#0ef34b]' 
                   : 'bg-gray-800/50 text-gray-400'
               }`}>
-                {model.icon}
+                {getIconByName(model.iconName)}
               </div>
               <span className={selectedModel === model.id ? 'text-white' : 'text-gray-400'}>
                 {model.name}

@@ -2,7 +2,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { AiModelProps } from '@/data/aiModels';
+import { AiModelProps, getIconByName } from '@/data/aiModels';
 
 interface ModelDetailsProps {
   currentModel: AiModelProps;
@@ -16,7 +16,7 @@ const ModelDetails: React.FC<ModelDetailsProps> = ({ currentModel }) => {
         <div className="flex items-center gap-4">
           <div className="h-16 w-16 rounded-full flex items-center justify-center bg-white">
             <div className={`h-10 w-10 rounded-full ${currentModel.color} flex items-center justify-center text-white`}>
-              {currentModel.icon}
+              {getIconByName(currentModel.iconName)}
             </div>
           </div>
           

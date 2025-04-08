@@ -1,12 +1,12 @@
 
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, FileText, ImageIcon } from 'lucide-react';
-import { AiModels, demoMessages } from '@/data/aiModels';
+import { AiModels, demoMessages, getIconByName } from '@/data/aiModels';
 
 interface DemoPreviewProps {
   modelId: string;
   iconBg: string;
-  iconComponent: React.ReactNode;
+  iconComponent?: React.ReactNode;
 }
 
 const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponent }) => {
@@ -15,6 +15,9 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   const [showFileUpload, setShowFileUpload] = useState(modelId === 'pdf-reader');
   const [showGeneratedImage, setShowGeneratedImage] = useState(false);
   const [currentStep, setCurrentStep] = useState(0);
+  
+  const currentModel = AiModels.find(m => m.id === modelId);
+  const modelIcon = currentModel ? getIconByName(currentModel.iconName) : iconComponent;
   
   // Reset animation on model change
   useEffect(() => {
@@ -85,7 +88,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
     <div className="flex flex-col h-full">
       <div className="flex items-center gap-4 mb-4">
         <div className={`h-10 w-10 ${iconBg} rounded-full flex items-center justify-center text-white`}>
-          {iconComponent}
+          {modelIcon}
         </div>
         <div>
           <div className="text-sm text-white/50">@gptverse</div>

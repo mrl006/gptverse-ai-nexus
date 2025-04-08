@@ -5,7 +5,7 @@ import { ArrowRight, BookOpen, FileText, HeartPulse, BrainCircuit, Laugh, Rocket
 export interface AiModelProps {
   id: string;
   name: string;
-  icon: React.ReactNode;
+  iconName: string;
   description: string;
   by: string;
   detailUrl?: string;
@@ -47,7 +47,7 @@ export const AiModels: AiModelProps[] = [
   {
     id: 'language-tutor',
     name: 'Language Tutor',
-    icon: <BookOpen className="h-5 w-5" />,
+    iconName: 'BookOpen',
     description: 'This AI specializes in teaching English through interactive lessons and personalized feedback, using advanced NLP to adapt to each learner\'s pace.',
     by: '@gptverse',
     detailUrl: 'https://hub.gptverse.org/ai/language-tutor',
@@ -57,7 +57,7 @@ export const AiModels: AiModelProps[] = [
   {
     id: 'pdf-reader',
     name: 'PDF Reader',
-    icon: <FileText className="h-5 w-5" />,
+    iconName: 'FileText',
     description: 'A sophisticated AI that reads and comprehends multiple PDFs, answering specific questions by extracting and summarizing content.',
     by: '@gptverse',
     detailUrl: 'https://hub.gptverse.org/ai/pdf-reader',
@@ -67,7 +67,7 @@ export const AiModels: AiModelProps[] = [
   {
     id: 'healty',
     name: 'Healty',
-    icon: <HeartPulse className="h-5 w-5" />,
+    iconName: 'HeartPulse',
     description: 'An advanced Health Assistant AI creating personalized wellness plans by analyzing real-time health data to meet your unique goals.',
     by: '@gptverse',
     detailUrl: 'https://hub.gptverse.org/ai/healty',
@@ -77,7 +77,7 @@ export const AiModels: AiModelProps[] = [
   {
     id: 'scriptwriter',
     name: 'Scriptwriter',
-    icon: <BrainCircuit className="h-5 w-5" />,
+    iconName: 'BrainCircuit',
     description: 'AI-powered scriptwriting assistant that helps you craft compelling narratives, dialogue, and story structures for various media formats.',
     by: '@gptverse',
     detailUrl: 'https://hub.gptverse.org/ai/scriptwriter',
@@ -87,7 +87,7 @@ export const AiModels: AiModelProps[] = [
   {
     id: 'comedian',
     name: 'Comedian',
-    icon: <Laugh className="h-5 w-5" />,
+    iconName: 'Laugh',
     description: 'An AI with a sense of humor, generating jokes, comedic stories, and witty responses customized to your preferred style of comedy.',
     by: '@gptverse',
     detailUrl: 'https://hub.gptverse.org/ai/comedian',
@@ -97,7 +97,7 @@ export const AiModels: AiModelProps[] = [
   {
     id: 'alien',
     name: 'Alien',
-    icon: <Rocket className="h-5 w-5" />,
+    iconName: 'Rocket',
     description: 'Communicates in unusual and extraterrestrial ways, offering unique perspectives and creative solutions from beyond human thinking.',
     by: '@gptverse',
     detailUrl: 'https://hub.gptverse.org/ai/alien',
@@ -107,7 +107,7 @@ export const AiModels: AiModelProps[] = [
   {
     id: 'image-generator',
     name: 'Image Generator',
-    icon: <ImageIcon className="h-5 w-5" />,
+    iconName: 'ImageIcon',
     description: 'Creates stunning, high-quality images from text descriptions using advanced AI image generation techniques and style controls.',
     by: '@gptverse',
     detailUrl: 'https://hub.gptverse.org/ai/image-generator',
@@ -115,3 +115,25 @@ export const AiModels: AiModelProps[] = [
     buttonColor: '#d946ef'
   }
 ];
+
+// Helper function to get the icon component by name
+export const getIconByName = (name: string): React.ReactNode => {
+  switch (name) {
+    case 'BookOpen':
+      return <BookOpen className="h-5 w-5" />;
+    case 'FileText':
+      return <FileText className="h-5 w-5" />;
+    case 'HeartPulse':
+      return <HeartPulse className="h-5 w-5" />;
+    case 'BrainCircuit':
+      return <BrainCircuit className="h-5 w-5" />;
+    case 'Laugh':
+      return <Laugh className="h-5 w-5" />;
+    case 'Rocket':
+      return <Rocket className="h-5 w-5" />;
+    case 'ImageIcon':
+      return <ImageIcon className="h-5 w-5" />;
+    default:
+      return <MessageSquare className="h-5 w-5" />;
+  }
+};

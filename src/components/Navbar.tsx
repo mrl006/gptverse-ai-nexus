@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Orbit, Globe, BrainCircuit, Zap } from 'lucide-react';
+import { Menu, X, ArrowRight, Orbit, Globe, BrainCircuit, Zap, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const Navbar = () => {
@@ -47,6 +47,9 @@ const Navbar = () => {
             <a href="#overview" className="text-white/70 hover:text-[#0ef34b] px-6 py-2 transition-colors flex items-center gap-2">
               <Orbit size={14} /> Overview
             </a>
+            <a href="#products" className="text-white/70 hover:text-[#0ef34b] px-6 py-2 transition-colors flex items-center gap-2">
+              <BookOpen size={14} /> Products
+            </a>
             <a href="#features" className="text-white/70 hover:text-[#0ef34b] px-6 py-2 transition-colors flex items-center gap-2">
               <Zap size={14} /> Features
             </a>
@@ -81,6 +84,9 @@ const Navbar = () => {
           <div className="container px-4 flex flex-col space-y-4">
             <a href="#overview" className="text-white/70 hover:text-[#0ef34b] py-2 transition-colors flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
               <Orbit size={16} /> Overview
+            </a>
+            <a href="#products" className="text-white/70 hover:text-[#0ef34b] py-2 transition-colors flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
+              <BookOpen size={16} /> Products
             </a>
             <a href="#features" className="text-white/70 hover:text-[#0ef34b] py-2 transition-colors flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
               <Zap size={16} /> Features

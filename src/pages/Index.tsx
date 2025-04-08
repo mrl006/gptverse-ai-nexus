@@ -1,17 +1,9 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
-import Explore from '../components/Explore';
-import Features from '../components/Features';
-import Tokenomics from '../components/Tokenomics';
-import TokenUtility from '../components/TokenUtility';
-import Roadmap from '../components/Roadmap';
-import Partners from '../components/Partners';
-import Faq from '../components/Faq';
-import About from '../components/About';
-import Footer from '../components/Footer';
 import PlatformButtons from '../components/PlatformButtons';
+import ProductView from '../components/ProductView';
+import Footer from '../components/Footer';
 
 const Index = () => {
   // Scroll to top on page load
@@ -60,6 +52,12 @@ const Index = () => {
             <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00aeff]/30 to-transparent"></div>
           </div>
           
+          {/* Product View Section */}
+          <div id="products" className="section-anchor">
+            <ProductView />
+          </div>
+          
+          {/* Section anchors */}
           <div id="overview" className="section-anchor pt-20"></div>
           <div id="features" className="section-anchor pt-20"></div>
           <div id="roadmap" className="section-anchor pt-20"></div>

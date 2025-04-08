@@ -11,8 +11,8 @@ interface ExploreCardProps {
 }
 
 const ExploreCard = ({ title, description, icon, comingSoon }: ExploreCardProps) => (
-  <Card className="glass-card h-full hover:translate-y-[-5px] transition-transform duration-300 shimmer group">
-    <CardHeader className="relative">
+  <Card className="glass-card h-full hover:translate-y-[-5px] transition-transform duration-300 shimmer group bg-gradient-to-br from-gptv-gray/20 to-gptv-gray/5 overflow-hidden">
+    <CardHeader className="relative border-b border-white/5">
       <div className="absolute top-4 right-4 text-gptv-neon-blue opacity-70 group-hover:opacity-100 transition-opacity">
         {icon}
       </div>
@@ -23,8 +23,14 @@ const ExploreCard = ({ title, description, icon, comingSoon }: ExploreCardProps)
         </span>
       )}
     </CardHeader>
-    <CardContent>
+    <CardContent className="pt-4">
       <CardDescription className="text-white/70">{description}</CardDescription>
+      
+      {/* Status indicators inspired by reference UI */}
+      <div className="flex gap-2 mt-4">
+        <span className="h-2 w-2 rounded-full bg-gptv-teal"></span>
+        <span className="text-xs text-white/60">Active</span>
+      </div>
     </CardContent>
   </Card>
 );
@@ -85,6 +91,27 @@ const Explore = () => {
               comingSoon={item.comingSoon}
             />
           ))}
+        </div>
+        
+        {/* App metrics panel inspired by reference UI */}
+        <div className="mt-16 p-6 glass-card rounded-xl">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-col">
+              <span className="text-white/60 text-sm mb-1">Daily Active Users</span>
+              <span className="text-2xl font-bold">16,432</span>
+              <span className="text-gptv-green text-sm mt-1">+11.2% this week</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-white/60 text-sm mb-1">AI Requests</span>
+              <span className="text-2xl font-bold">285K</span>
+              <span className="text-gptv-green text-sm mt-1">+24.6% this month</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-white/60 text-sm mb-1">Available AI Models</span>
+              <span className="text-2xl font-bold">12</span>
+              <span className="text-gptv-teal text-sm mt-1">3 new models coming soon</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>

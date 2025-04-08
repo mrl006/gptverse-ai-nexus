@@ -10,7 +10,7 @@ interface UtilityCardProps {
 }
 
 const UtilityCard = ({ icon, title, description }: UtilityCardProps) => (
-  <Card className="glass-card border-0 hover:scale-105 transition-transform duration-300 h-full shimmer">
+  <Card className="glass-card border-0 hover:scale-105 transition-transform duration-300 h-full shimmer bg-gradient-to-br from-gptv-gray/20 to-gptv-gray/10">
     <CardContent className="pt-6">
       <div className="bg-gradient-to-br from-gptv-neon-blue to-gptv-teal rounded-full w-14 h-14 flex items-center justify-center mb-5 breathe">
         {icon}
@@ -47,6 +47,7 @@ const TokenUtility = () => {
 
   return (
     <section className="section-padding bg-gptv-charcoal relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(0,194,255,0.15),transparent_70%)]"></div>
       <div className="absolute inset-0 bg-tech-grid opacity-20"></div>
       
       <div className="container mx-auto px-4 relative">
@@ -70,6 +71,51 @@ const TokenUtility = () => {
               description={item.description}
             />
           ))}
+        </div>
+        
+        {/* Token metrics display inspired by reference image */}
+        <div className="mt-16 glass-card p-8 rounded-xl">
+          <div className="flex flex-col md:flex-row gap-8 items-center">
+            <div className="flex-1">
+              <h3 className="text-2xl font-bold mb-4">$GPTV Token Metrics</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div className="p-4 rounded-lg bg-gptv-gray/30">
+                  <div className="text-sm text-white/60 mb-1">Market Cap</div>
+                  <div className="text-xl font-semibold">$12.5M</div>
+                </div>
+                <div className="p-4 rounded-lg bg-gptv-gray/30">
+                  <div className="text-sm text-white/60 mb-1">Price</div>
+                  <div className="text-xl font-semibold">$0.085</div>
+                </div>
+                <div className="p-4 rounded-lg bg-gptv-gray/30">
+                  <div className="text-sm text-white/60 mb-1">Circulating Supply</div>
+                  <div className="text-xl font-semibold">147M</div>
+                </div>
+                <div className="p-4 rounded-lg bg-gptv-gray/30">
+                  <div className="text-sm text-white/60 mb-1">Total Supply</div>
+                  <div className="text-xl font-semibold">1B</div>
+                </div>
+              </div>
+            </div>
+            <div className="flex-1 md:border-l border-white/10 pl-0 md:pl-8">
+              <div className="mb-4">
+                <div className="text-sm text-white/60 mb-1">TVL ($GPTV)</div>
+                <div className="text-3xl font-semibold text-gradient-animate">285,650.00</div>
+              </div>
+              <div className="flex -space-x-2 mb-4">
+                <div className="w-10 h-10 rounded-full bg-gptv-blue/50 border-2 border-gptv-charcoal"></div>
+                <div className="w-10 h-10 rounded-full bg-gptv-teal/50 border-2 border-gptv-charcoal"></div>
+                <div className="w-10 h-10 rounded-full bg-gptv-neon-violet/50 border-2 border-gptv-charcoal"></div>
+                <div className="w-10 h-10 rounded-full bg-gptv-green/50 border-2 border-gptv-charcoal"></div>
+                <div className="w-10 h-10 rounded-full bg-gptv-gray/50 border-2 border-gptv-charcoal flex items-center justify-center text-xs">
+                  +12
+                </div>
+              </div>
+              <div className="p-3 rounded-lg bg-gptv-teal/20 inline-block">
+                <span className="text-gptv-teal text-sm">Staking rewards at 14.2% APY</span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

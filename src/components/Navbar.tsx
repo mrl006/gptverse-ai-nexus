@@ -28,29 +28,28 @@ const Navbar = () => {
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#" className="flex items-center space-x-2">
+          <div className="w-8 h-8 rounded-md bg-gradient-to-r from-gptv-neon-blue to-gptv-teal flex items-center justify-center text-white font-bold">
+            G
+          </div>
           <span className="text-xl md:text-2xl font-bold text-gradient-animate">GPTVerse</span>
         </a>
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#explore" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
-            Explore
-          </a>
-          <a href="#features" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
-            Features
-          </a>
-          <a href="#tokenomics" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
-            Tokenomics
-          </a>
-          <a href="#roadmap" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
-            Roadmap
-          </a>
-          <a href="#partners" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
-            Partners
-          </a>
-          <a href="#faq" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
-            FAQ
-          </a>
+          <div className="px-5 py-2 backdrop-blur-md bg-white/5 border border-white/10 rounded-full flex items-center">
+            <a href="#explore" className="text-white/80 hover:text-white px-4 py-1 rounded-full hover:bg-white/5 transition-colors">
+              Explore
+            </a>
+            <a href="#features" className="text-white/80 hover:text-white px-4 py-1 rounded-full hover:bg-white/5 transition-colors">
+              Features
+            </a>
+            <a href="#tokenomics" className="text-white/80 hover:text-white px-4 py-1 rounded-full hover:bg-white/5 transition-colors">
+              Tokenomics
+            </a>
+            <a href="#roadmap" className="text-white/80 hover:text-white px-4 py-1 rounded-full hover:bg-white/5 transition-colors">
+              Roadmap
+            </a>
+          </div>
         </nav>
 
         {/* Desktop Action Buttons */}

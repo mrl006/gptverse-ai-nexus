@@ -32,8 +32,11 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
     setShowFileUpload(modelId === 'pdf-reader');
     setShowGeneratedImage(false);
     
-    // Start demo without scrolling the page
+    // Prevent page scroll when starting demo
+    const scrollPosition = window.scrollY;
     startDemo();
+    // Restore scroll position
+    window.scrollTo({top: scrollPosition});
   }, [modelId]);
   
   const startDemo = () => {

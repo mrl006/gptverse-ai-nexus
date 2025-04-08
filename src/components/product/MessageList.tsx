@@ -12,13 +12,15 @@ const MessageList: React.FC<MessageListProps> = ({ messages, isTyping, modelColo
   const messagesEndRef = useRef<HTMLDivElement>(null);
   
   useEffect(() => {
-    scrollToBottom();
+    // Instead of automatically scrolling, we'll only scroll within this component
+    if (messagesEndRef.current) {
+      const container = messagesEndRef.current.parentElement;
+      if (container) {
+        container.scrollTop = container.scrollHeight;
+      }
+    }
   }, [messages, isTyping]);
   
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="space-y-4">
       {messages.map((message, index) => (

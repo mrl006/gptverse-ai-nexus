@@ -14,12 +14,15 @@ const ProductView = () => {
 
   // Handle model selection without scrolling
   const handleModelSelect = (modelId: string) => {
-    // Prevent default behavior to avoid scrolling
+    // Prevent default scrolling behavior
     setSelectedModel(modelId);
     
-    // Set focus back to the container to avoid scrolling
+    // Set focus without scrolling
     if (viewRef.current) {
-      viewRef.current.focus();
+      const scrollPosition = window.scrollY;
+      viewRef.current.focus({preventScroll: true});
+      // Restore scroll position
+      window.scrollTo({top: scrollPosition});
     }
   };
 

@@ -8,6 +8,7 @@ import Footer from '../components/Footer';
 import AboutGPTVerse from '../components/AboutGPTVerse';
 import Tokenomics from '../components/Tokenomics';
 import Roadmap from '../components/Roadmap';
+import Faq from '../components/Faq';
 
 const Index = () => {
   useEffect(() => {
@@ -43,6 +44,7 @@ const Index = () => {
           <AboutGPTVerse />
           <Tokenomics />
           <Roadmap />
+          <Faq />
           
           <div id="overview" className="section-anchor pt-20"></div>
           <div id="features" className="section-anchor pt-20"></div>

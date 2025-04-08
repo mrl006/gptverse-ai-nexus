@@ -1,74 +1,106 @@
 
 import React from 'react';
-import PlatformButtons from './PlatformButtons';
+import { ArrowRight, Play } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const Hero = () => {
   return (
-    <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
-    >
-      {/* Enhanced Glassy Background Elements */}
+    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-20">
+      {/* Dark gradient background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-[#090919] to-[#111133] z-0"></div>
+      
+      {/* Stars background */}
       <div className="absolute inset-0 overflow-hidden">
-        {/* Dark gradient overlay with green tint */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-[#0A2A18]/80 to-black/60 z-0"></div>
-        
-        {/* Animated glass panels in background */}
-        <div className="absolute top-[30%] left-[15%] w-[300px] h-[300px] rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 rotate-12 opacity-20 animate-float"></div>
-        
-        <div className="absolute bottom-[20%] right-[10%] w-[250px] h-[250px] rounded-2xl bg-white/5 backdrop-blur-md border border-white/10 -rotate-6 opacity-30 animate-float animation-delay-2000"></div>
-        
-        {/* Glowing orbs with green tint */}
-        <div className="absolute top-[20%] right-[35%] w-[200px] h-[200px] rounded-full bg-green-500/10 blur-[80px] animate-pulse-slow"></div>
-        <div className="absolute bottom-[30%] left-[25%] w-[180px] h-[180px] rounded-full bg-green-400/10 blur-[60px] animate-pulse-slow animation-delay-2000"></div>
-        <div className="absolute top-[60%] right-[15%] w-[150px] h-[150px] rounded-full bg-emerald-500/10 blur-[70px] animate-pulse-slow animation-delay-4000"></div>
+        <div className="absolute top-[10%] left-[10%] w-1 h-1 bg-white rounded-full opacity-70"></div>
+        <div className="absolute top-[20%] left-[25%] w-1 h-1 bg-white rounded-full opacity-50"></div>
+        <div className="absolute top-[15%] right-[30%] w-1 h-1 bg-white rounded-full opacity-60"></div>
+        <div className="absolute top-[60%] left-[5%] w-1 h-1 bg-white rounded-full opacity-70"></div>
+        <div className="absolute bottom-[30%] right-[15%] w-1 h-1 bg-white rounded-full opacity-60"></div>
+        <div className="absolute bottom-[10%] left-[40%] w-1 h-1 bg-white rounded-full opacity-50"></div>
       </div>
       
-      {/* Main content area */}
-      <div className="container mx-auto px-4 z-10 pt-24 md:pt-16 relative">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="flex flex-col text-left max-w-lg">
-            <div className="mb-4 opacity-0 animate-text-reveal">
-              <span className="px-4 py-1 rounded-full bg-green-500/20 text-green-400 text-sm font-medium border border-green-500/30 backdrop-blur-sm">
-                🚀 Multi-platform AI Hub
-              </span>
+      {/* Large circular gradient in background */}
+      <div className="absolute top-[55%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[150vw] h-[150vw] rounded-full bg-gradient-to-b from-[#090919]/0 via-[#131347]/20 to-[#090919]/0 opacity-50"></div>
+      
+      {/* Logo and Beta tag */}
+      <div className="relative z-10 mb-8">
+        <div className="flex items-center justify-center mb-3">
+          <div className="w-24 h-24 rounded-full bg-gradient-to-br from-red-500 via-purple-600 to-blue-500 flex items-center justify-center">
+            <div className="text-white">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 16L7 12L12 8L17 12L12 16Z" fill="white" />
+                <path d="M12 4L4 12L12 20L20 12L12 4Z" stroke="white" strokeWidth="1.5" />
+              </svg>
             </div>
-            
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 opacity-0 animate-text-reveal-delay-1">
-              <span className="bg-gradient-to-r from-green-400 to-emerald-600 bg-clip-text text-transparent">GPTVerse</span>
-              <span className="block text-3xl md:text-4xl text-white/80 mt-2">AI-Driven Solutions</span>
-            </h1>
-            
-            <p className="text-lg md:text-xl text-white/80 mb-8 opacity-0 animate-text-reveal-delay-2">
-              Your AI Hub and Multi-Platform Gateway to a Next-Level Dapp
-            </p>
-            
-            <PlatformButtons />
           </div>
-          
-          <div className="hidden md:flex md:justify-center lg:justify-end">
-            <div className="relative w-full max-w-md">
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-green-400 to-emerald-500 rounded-2xl blur opacity-30 animate-pulse"></div>
-              <div className="glass-card p-6 rounded-2xl backdrop-blur-xl relative h-[380px]">
-                <img 
-                  src="/lovable-uploads/6acb1d46-209d-4450-b48e-5ec82fa59a10.png" 
-                  alt="GPTVerse Platform Preview" 
-                  className="w-full h-full object-cover rounded-lg"
-                />
-                
-                <div className="absolute bottom-6 left-6 right-6">
-                  <div className="bg-black/80 backdrop-blur-sm p-4 rounded-lg border border-white/10">
-                    <h3 className="text-white font-medium mb-1">Experience GPTVerse</h3>
-                    <p className="text-white/70 text-sm">Advanced AI tools across multiple platforms</p>
-                  </div>
-                </div>
-              </div>
+        </div>
+        <div className="text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white flex items-center justify-center">
+            GPTVerse AI 
+            <span className="ml-2 text-xs px-2 py-1 bg-white/10 rounded-full text-white/80">Beta</span>
+          </h2>
+        </div>
+      </div>
+      
+      {/* Main heading */}
+      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 mb-16">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4">
+          <span className="text-white">Sites beyond </span>
+          <span className="text-white/50">imagination,</span>
+        </h1>
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold">
+          <span className="text-white">one prompt </span>
+          <span className="text-white/50">away.</span>
+        </h1>
+      </div>
+      
+      {/* Search/prompt input */}
+      <div className="relative z-10 w-full max-w-2xl mx-auto px-4 mb-16">
+        <div className="flex items-center bg-[#13131f]/80 backdrop-blur-md border border-white/10 rounded-full overflow-hidden">
+          <div className="flex-shrink-0 pl-5">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 16L7 12L12 8L17 12L12 16Z" fill="white" />
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            placeholder="A modern art gallery, Magritte and Chagall style."
+            className="flex-grow py-4 px-4 bg-transparent text-white/90 outline-none"
+          />
+          <Button 
+            className="m-1 rounded-full bg-white hover:bg-white/90 text-black"
+          >
+            Generate <ArrowRight className="ml-1" size={16} />
+          </Button>
+        </div>
+      </div>
+      
+      {/* Watch video button */}
+      <div className="relative z-10 flex justify-center">
+        <Button 
+          variant="outline" 
+          className="rounded-full border-white/20 bg-transparent text-white hover:bg-white/10"
+        >
+          <Play size={18} className="mr-2" /> Watch the video
+        </Button>
+      </div>
+      
+      {/* Award badge */}
+      <div className="absolute bottom-8 right-8 z-10">
+        <div className="bg-[#13131f]/50 backdrop-blur-md border border-white/10 rounded-xl px-5 py-3">
+          <div className="flex items-center">
+            <div className="mr-2">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 15L8.5 17L9.5 13L6.5 10L10.5 9.5L12 6L13.5 9.5L17.5 10L14.5 13L15.5 17L12 15Z" fill="white" />
+              </svg>
+            </div>
+            <div>
+              <div className="text-xs text-white/70">Golden Kitty Awards</div>
+              <div className="text-lg font-bold text-white">2023</div>
             </div>
           </div>
         </div>
       </div>
-      
-      {/* Bottom horizontal line with enhanced glass effect */}
-      <div className="absolute bottom-0 left-0 w-full h-[2px] bg-gradient-to-r from-transparent via-green-500/40 to-transparent backdrop-blur-sm"></div>
     </section>
   );
 };

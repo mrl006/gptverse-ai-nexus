@@ -11,6 +11,7 @@ import Partners from '../components/Partners';
 import Faq from '../components/Faq';
 import About from '../components/About';
 import Footer from '../components/Footer';
+import GptverseAssistant from '../components/GptverseAssistant';
 
 const Index = () => {
   // Scroll to top on page load
@@ -19,15 +20,22 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gptv-navy text-white overflow-x-hidden tech-bg">
-      {/* Glassy background elements */}
+    <div className="min-h-screen bg-gradient-to-b from-black via-gptv-deep-navy to-black text-white overflow-x-hidden">
+      {/* Enhanced glassy background elements */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute top-[10%] left-[10%] w-[500px] h-[500px] rounded-full bg-gptv-neon-blue/10 blur-[100px]"></div>
-        <div className="absolute bottom-[20%] right-[15%] w-[400px] h-[400px] rounded-full bg-gptv-neon-violet/10 blur-[100px]"></div>
-        <div className="absolute top-[40%] right-[25%] w-[300px] h-[300px] rounded-full bg-gptv-teal/10 blur-[120px]"></div>
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gptv-deep-navy/90 to-black"></div>
         
-        {/* Animated wave lines in background inspired by the reference image */}
-        <div className="absolute inset-0 opacity-30">
+        {/* Geometric shapes with glass effect */}
+        <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] rounded-full bg-gptv-neon-blue/5 blur-[100px]"></div>
+        <div className="absolute bottom-[20%] right-[5%] w-[350px] h-[350px] rounded-full bg-gptv-neon-violet/5 blur-[100px]"></div>
+        <div className="absolute top-[40%] right-[15%] w-[300px] h-[300px] rounded-full bg-gptv-teal/5 blur-[120px]"></div>
+        
+        {/* Hexagon grid pattern overlay */}
+        <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMzAgMTVMMTUgMzBMMyA0NUgzMEw0NSAzMEw2MCAxNUgzMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')]"></div>
+        
+        {/* Animated wave lines in background */}
+        <div className="absolute inset-0 opacity-20">
           <svg viewBox="0 0 1440 800" className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 min-w-[140%] min-h-[140%]">
             <path d="M0,192L48,202.7C96,213,192,235,288,229.3C384,224,480,192,576,181.3C672,171,768,181,864,192C960,203,1056,213,1152,192C1248,171,1344,117,1392,90.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" 
               fill="url(#gradient1)" className="opacity-40 transform-gpu animate-pulse-slow">
@@ -68,6 +76,13 @@ const Index = () => {
         <Faq />
         <About />
         <Footer />
+      </div>
+      
+      {/* Mobile Assistant (for smaller screens) */}
+      <div className="md:hidden fixed bottom-4 right-4 z-50">
+        <button className="rounded-full w-14 h-14 bg-gradient-to-r from-gptv-neon-blue to-gptv-teal flex items-center justify-center shadow-lg shadow-gptv-neon-blue/20 border border-white/10">
+          <Bot size={24} className="text-white" />
+        </button>
       </div>
     </div>
   );

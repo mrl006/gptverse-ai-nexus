@@ -49,8 +49,15 @@ const Index = () => {
         <div className="flex-grow">
           <Hero />
           
-          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 w-full">
-            <PlatformButtons />
+          {/* Platform buttons in prominent position */}
+          <div className="relative z-20 w-full px-4 py-12 bg-[#030610]/80 backdrop-blur-sm border-y border-white/5">
+            <div className="max-w-[1400px] mx-auto">
+              <PlatformButtons />
+            </div>
+            
+            {/* Alien tech line decorations */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#0ef34b]/30 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-[#00aeff]/30 to-transparent"></div>
           </div>
           
           <div id="overview" className="section-anchor pt-20"></div>

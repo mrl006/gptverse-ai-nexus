@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { ArrowRight, ArrowUpRight, MessageSquare, BookOpen, FileText } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { AiModelProps } from '@/data/aiModels';
 
@@ -36,48 +36,6 @@ const ModelDetails: React.FC<ModelDetailsProps> = ({ currentModel }) => {
         <p className="text-white/80 text-lg leading-relaxed">
           {currentModel.description}
         </p>
-      </div>
-      
-      {/* Quick Action Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <div className="bg-[#1e1e2f]/50 p-6 rounded-xl border border-white/5 transition-all hover:border-[#0ef34b]/20 hover:bg-[#1e1e2f]/80">
-          <div className="flex flex-col h-full">
-            <div className="flex gap-3 items-center mb-3">
-              <MessageSquare className="h-5 w-5 text-[#0ef34b]" />
-              <span className="text-white/80 font-medium">Start Chat</span>
-            </div>
-            <p className="text-white/50 text-sm mb-4">Begin a conversation with this AI model</p>
-            <Button className="mt-auto rounded-lg border border-[#0ef34b]/20 bg-transparent text-[#0ef34b] hover:bg-[#0ef34b]/10">
-              Start <ArrowUpRight size={14} />
-            </Button>
-          </div>
-        </div>
-        
-        <div className="bg-[#1e1e2f]/50 p-6 rounded-xl border border-white/5 transition-all hover:border-[#d946ef]/20 hover:bg-[#1e1e2f]/80">
-          <div className="flex flex-col h-full">
-            <div className="flex gap-3 items-center mb-3">
-              <BookOpen className="h-5 w-5 text-[#d946ef]" />
-              <span className="text-white/80 font-medium">Documentation</span>
-            </div>
-            <p className="text-white/50 text-sm mb-4">Review capabilities and prompt examples</p>
-            <Button className="mt-auto rounded-lg border border-[#d946ef]/20 bg-transparent text-[#d946ef] hover:bg-[#d946ef]/10">
-              View <ArrowUpRight size={14} />
-            </Button>
-          </div>
-        </div>
-        
-        <div className="bg-[#1e1e2f]/50 p-6 rounded-xl border border-white/5 transition-all hover:border-[#00aeff]/20 hover:bg-[#1e1e2f]/80">
-          <div className="flex flex-col h-full">
-            <div className="flex gap-3 items-center mb-3">
-              <FileText className="h-5 w-5 text-[#00aeff]" />
-              <span className="text-white/80 font-medium">API Access</span>
-            </div>
-            <p className="text-white/50 text-sm mb-4">Integrate this AI into your applications</p>
-            <Button className="mt-auto rounded-lg border border-[#00aeff]/20 bg-transparent text-[#00aeff] hover:bg-[#00aeff]/10">
-              Get API <ArrowUpRight size={14} />
-            </Button>
-          </div>
-        </div>
       </div>
       
       {/* Mobile Action Button */}

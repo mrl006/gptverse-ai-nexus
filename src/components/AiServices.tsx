@@ -9,7 +9,7 @@ const AiServices = () => {
   const aiServices = getAiServices();
 
   return (
-    <section id="ai-services" className="py-24 relative overflow-hidden">
+    <section id="ai-services" className="py-20 relative overflow-hidden">
       {/* Background effects */}
       <AiServicesBackground />
       
@@ -17,7 +17,7 @@ const AiServices = () => {
         {/* Section Header */}
         <AiServicesHeader />
         
-        <div className="space-y-20">
+        <div className="space-y-12">
           {aiServices.map((service, index) => (
             <AiServiceCard
               key={index}

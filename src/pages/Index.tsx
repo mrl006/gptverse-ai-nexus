@@ -1,18 +1,18 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import PlatformButtons from '../components/PlatformButtons';
 import ProductView from '../components/ProductView';
 import Footer from '../components/Footer';
-import Explore from '../components/Explore';
-import Features from '../components/Features';
-import Tokenomics from '../components/Tokenomics';
-import TokenUtility from '../components/TokenUtility';
-import Roadmap from '../components/Roadmap';
-import Partners from '../components/Partners';
-import Faq from '../components/Faq';
-import About from '../components/About';
+// Import components but keep them commented out as they're not being used yet
+// import Explore from '../components/Explore';
+// import Features from '../components/Features';
+// import Tokenomics from '../components/Tokenomics';
+// import TokenUtility from '../components/TokenUtility';
+// import Roadmap from '../components/Roadmap';
+// import Partners from '../components/Partners';
+// import Faq from '../components/Faq';
+// import About from '../components/About';
 
 const Index = () => {
   // Scroll to top on page load
@@ -76,14 +76,15 @@ const Index = () => {
           {/* Comment out these sections for now as we're building the site gradually */}
           {/* 
           <div className="max-w-[1400px] mx-auto px-4 sm:px-6 w-full">
-            <Explore />
-            <Features />
-            <Tokenomics />
-            <TokenUtility />
-            <Roadmap />
-            <Partners />
-            <Faq />
-            <About />
+            These components are commented out as they'll be implemented later:
+            - Explore
+            - Features
+            - Tokenomics
+            - TokenUtility
+            - Roadmap
+            - Partners
+            - Faq
+            - About
           </div>
           */}
         </div>

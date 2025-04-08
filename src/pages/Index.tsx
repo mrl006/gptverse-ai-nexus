@@ -35,7 +35,7 @@ const Index = () => {
         <div className="flex-grow">
           <Hero />
           
-          <div className="relative z-20 w-full px-6 py-16 bg-[#030610]/80 backdrop-blur-sm border-y border-white/5">
+          <div className="relative z-20 w-full px-6 py-12 bg-[#030610]/80 backdrop-blur-sm border-y border-white/5">
             <div className="max-w-[1400px] mx-auto">
               <PlatformButtons />
             </div>

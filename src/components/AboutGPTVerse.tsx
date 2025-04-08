@@ -427,37 +427,6 @@ const AboutGPTVerse = () => {
             </Tabs>
           </motion.div>
         </div>
-        
-        {/* CTA Section - Simplified */}
-        <motion.div 
-          className="glass-card p-8 backdrop-blur-xl border border-white/10 bg-[#06101a]/40 rounded-2xl relative overflow-hidden"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <div className="absolute -top-40 -right-40 w-80 h-80 bg-[#0ef34b]/5 rounded-full blur-3xl"></div>
-          
-          <div className="max-w-2xl mx-auto text-center relative z-10">
-            <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-[#0ef34b] via-[#00aeff] to-[#d946ef] bg-clip-text text-transparent">
-              Join the Future Today
-            </h3>
-            
-            <p className="text-base text-white/80 mb-5">
-              Embrace the possibilities, unleash your creativity, and shape the future with GPTVerse's cutting-edge AI technologies.
-            </p>
-            
-            <div className="flex flex-wrap justify-center gap-3">
-              <button className="px-6 py-2.5 bg-gradient-to-r from-[#0ef34b] to-[#00aeff] rounded-lg text-black font-medium transition hover:brightness-110">
-                Enter the GPTVerse
-              </button>
-              
-              <button className="px-6 py-2.5 bg-transparent border border-[#d946ef]/50 rounded-lg text-white font-medium transition hover:bg-[#d946ef]/10">
-                Join Community
-              </button>
-            </div>
-          </div>
-        </motion.div>
       </div>
     </section>
   );

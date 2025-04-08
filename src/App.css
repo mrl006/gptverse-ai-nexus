@@ -1,8 +1,11 @@
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  min-height: 100vh; 
+  overflow-x: hidden;
 }
 
 .logo {
@@ -39,4 +42,40 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Mobile specific animations and styles */
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+  button, 
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .touch-target {
+    padding: 0.75rem;
+  }
+}
+
+/* Add bottom spacing for mobile viewports to account for browser chrome */
+@media (max-width: 768px) {
+  .mobile-pb {
+    padding-bottom: 5rem;
+  }
 }

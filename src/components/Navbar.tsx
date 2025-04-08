@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Orbit, Globe, BrainCircuit, Zap, BookOpen } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,10 +22,17 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu when switching to desktop view
+  useEffect(() => {
+    if (!isMobile && isMobileMenuOpen) {
+      setIsMobileMenuOpen(false);
+    }
+  }, [isMobile, isMobileMenuOpen]);
+
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled 
-        ? 'py-2 backdrop-blur-xl bg-[#040812]/90 border-b border-[#0ef34b]/10' 
+      isScrolled || isMobileMenuOpen
+        ? 'py-2 backdrop-blur-xl bg-[#040812]/90 border-b border-[#0ef34b]/10 shadow-lg' 
         : 'py-4 bg-transparent'
     }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
@@ -71,36 +80,85 @@ const Navbar = () => {
 
         {/* Mobile Menu Toggle */}
         <button 
-          className="md:hidden text-white hover:text-[#0ef34b] transition-colors"
+          className="md:hidden text-white hover:text-[#0ef34b] transition-colors p-1 bg-[#06101a]/40 rounded-lg backdrop-blur-md border border-[#0ef34b]/10"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* Mobile Menu with alien tech styling */}
+      {/* Mobile Menu with enhanced styling */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full backdrop-blur-xl bg-[#040812]/95 border-b border-[#0ef34b]/20 py-4 animate-fade-in shadow-lg">
-          <div className="container px-4 flex flex-col space-y-4">
-            <a href="#overview" className="text-white/70 hover:text-[#0ef34b] py-2 transition-colors flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-              <Orbit size={16} /> Overview
-            </a>
-            <a href="#products" className="text-white/70 hover:text-[#0ef34b] py-2 transition-colors flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-              <BookOpen size={16} /> Products
-            </a>
-            <a href="#features" className="text-white/70 hover:text-[#0ef34b] py-2 transition-colors flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-              <Zap size={16} /> Features
-            </a>
-            <a href="#roadmap" className="text-white/70 hover:text-[#0ef34b] py-2 transition-colors flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-              <Globe size={16} /> Roadmap
-            </a>
-            <a href="#faq" className="text-white/70 hover:text-[#0ef34b] py-2 transition-colors flex items-center gap-2" onClick={() => setIsMobileMenuOpen(false)}>
-              <BrainCircuit size={16} /> FAQ
-            </a>
+        <div className="md:hidden fixed top-[56px] left-0 w-full h-[calc(100vh-56px)] backdrop-blur-xl bg-[#040812]/98 z-50 border-b border-[#0ef34b]/20 animate-fade-in overflow-y-auto">
+          <div className="container px-4 pt-6 pb-24 flex flex-col h-full">
+            <div className="space-y-6">
+              <div className="bg-[#0ef34b]/5 p-4 rounded-xl border border-[#0ef34b]/20 mb-8">
+                <h2 className="font-mono text-[#0ef34b] mb-1 text-sm uppercase tracking-widest">Navigation</h2>
+                <div className="grid grid-cols-1 gap-4">
+                  <a 
+                    href="#overview" 
+                    className="flex items-center gap-3 bg-[#06101a]/50 p-4 rounded-lg border border-[#0ef34b]/10 hover:border-[#0ef34b]/30 transition-all" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className="bg-[#0ef34b]/10 p-2 rounded-lg">
+                      <Orbit size={20} className="text-[#0ef34b]" />
+                    </div>
+                    <span className="text-white font-medium">Overview</span>
+                  </a>
+                  
+                  <a 
+                    href="#products" 
+                    className="flex items-center gap-3 bg-[#06101a]/50 p-4 rounded-lg border border-[#0ef34b]/10 hover:border-[#0ef34b]/30 transition-all" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className="bg-[#0ef34b]/10 p-2 rounded-lg">
+                      <BookOpen size={20} className="text-[#0ef34b]" />
+                    </div>
+                    <span className="text-white font-medium">Products</span>
+                  </a>
+                  
+                  <a 
+                    href="#features" 
+                    className="flex items-center gap-3 bg-[#06101a]/50 p-4 rounded-lg border border-[#0ef34b]/10 hover:border-[#0ef34b]/30 transition-all" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className="bg-[#0ef34b]/10 p-2 rounded-lg">
+                      <Zap size={20} className="text-[#0ef34b]" />
+                    </div>
+                    <span className="text-white font-medium">Features</span>
+                  </a>
+                  
+                  <a 
+                    href="#roadmap" 
+                    className="flex items-center gap-3 bg-[#06101a]/50 p-4 rounded-lg border border-[#0ef34b]/10 hover:border-[#0ef34b]/30 transition-all" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className="bg-[#0ef34b]/10 p-2 rounded-lg">
+                      <Globe size={20} className="text-[#0ef34b]" />
+                    </div>
+                    <span className="text-white font-medium">Roadmap</span>
+                  </a>
+                  
+                  <a 
+                    href="#faq" 
+                    className="flex items-center gap-3 bg-[#06101a]/50 p-4 rounded-lg border border-[#0ef34b]/10 hover:border-[#0ef34b]/30 transition-all" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    <div className="bg-[#0ef34b]/10 p-2 rounded-lg">
+                      <BrainCircuit size={20} className="text-[#0ef34b]" />
+                    </div>
+                    <span className="text-white font-medium">FAQ</span>
+                  </a>
+                </div>
+              </div>
+            </div>
             
-            <Button className="rounded-full bg-[#0ef34b] hover:brightness-110 text-black w-full font-mono">
-              Access Portal <ArrowRight className="ml-1" size={16} />
-            </Button>
+            <div className="mt-auto pt-6 pb-6">
+              <Button className="w-full py-6 rounded-xl bg-gradient-to-r from-[#0ef34b] to-[#0ef34b]/80 hover:brightness-110 text-black font-mono text-lg">
+                Access Portal <ArrowRight className="ml-2" size={20} />
+              </Button>
+            </div>
           </div>
         </div>
       )}

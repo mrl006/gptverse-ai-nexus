@@ -1,7 +1,10 @@
 
 import React from 'react';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const PlatformButtons = () => {
+  const isMobile = useIsMobile();
+  
   const platforms = [
     { 
       name: 'WINDOWS', 
@@ -26,15 +29,15 @@ const PlatformButtons = () => {
   ];
 
   return (
-    <div className="flex overflow-x-auto scrollbar-none py-2 mb-6 w-full max-w-6xl mx-auto px-4 gap-4">
+    <div className={`flex ${isMobile ? 'flex-col' : 'overflow-x-auto scrollbar-none'} py-2 mb-6 w-full max-w-6xl mx-auto px-4 gap-4`}>
       {platforms.map((platform, index) => (
         <button
           key={index}
-          className="bg-[#040812]/60 backdrop-blur-md
+          className={`bg-[#040812]/60 backdrop-blur-md
                     border border-white/10 rounded-lg
                     px-4 py-3 hover:bg-[#040812]/80 transition-all duration-300
-                    flex items-center justify-center gap-3 min-w-[180px]
-                    relative overflow-hidden group flex-1"
+                    flex items-center ${isMobile ? 'justify-between' : 'justify-center'} gap-3 ${isMobile ? 'w-full' : 'min-w-[180px] flex-1'}
+                    relative overflow-hidden group`}
         >
           {/* Minimal glassmorphism effects */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30"></div>
@@ -45,7 +48,7 @@ const PlatformButtons = () => {
           <div className="absolute inset-0 bg-[#0ef34b]/0 group-hover:bg-[#0ef34b]/5 transition-all duration-500 rounded-lg"></div>
           
           {/* Button Content */}
-          <div className="relative z-10 flex items-center justify-center gap-3 w-full">
+          <div className="relative z-10 flex items-center gap-3">
             <div className="w-12 h-12 bg-[#040812]/80 rounded-full flex items-center justify-center 
                           border border-white/20
                           transition-all duration-500 overflow-hidden p-1">
@@ -61,6 +64,17 @@ const PlatformButtons = () => {
               <div className="font-bold tracking-wider">{platform.name}</div>
             </span>
           </div>
+          
+          {isMobile && (
+            <div className="relative z-10 pr-2">
+              <div className="w-6 h-6 rounded-full border border-[#0ef34b]/30 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#0ef34b]">
+                  <path d="M5 12h14"></path>
+                  <path d="m12 5 7 7-7 7"></path>
+                </svg>
+              </div>
+            </div>
+          )}
         </button>
       ))}
     </div>

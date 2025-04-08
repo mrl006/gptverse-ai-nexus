@@ -25,7 +25,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
   }, []);
 
   return (
-    <form onSubmit={handleSubmit} className="p-4 border-t border-white/10">
+    <form onSubmit={handleSubmit} className="p-4 border-t border-white/10 bg-[#080d16]">
       <div className="relative">
         <input
           ref={inputRef}
@@ -34,7 +34,7 @@ const ChatInput: React.FC<ChatInputProps> = ({
           onChange={(e) => setInputMessage(e.target.value)}
           placeholder={modelId === 'image-generator' 
             ? "Describe the image you want to create..."
-            : "Ask a question..."
+            : "Ask something..."
           }
           className="w-full p-3 pl-4 pr-12 bg-[#0c1424] border border-white/10 rounded-full text-white focus:outline-none focus:border-white/30 transition-colors"
         />

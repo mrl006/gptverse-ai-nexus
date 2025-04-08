@@ -19,22 +19,31 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   const [isTyping, setIsTyping] = useState(false);
   const [showFileUpload, setShowFileUpload] = useState(modelId === 'pdf-reader');
   const [showGeneratedImage, setShowGeneratedImage] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   
   const currentModel = AiModels.find(m => m.id === modelId);
   
   useEffect(() => {
+    // Reset state when model changes
     setMessages([]);
     setInputMessage('');
     setIsTyping(false);
     setShowFileUpload(modelId === 'pdf-reader');
     setShowGeneratedImage(false);
     
-    const timer = setTimeout(() => {
+    // Prevent scrolling to model when changing models
+    if (containerRef.current) {
+      const currentScrollPosition = window.scrollY;
+      
+      // Delay to allow for state updates
+      setTimeout(() => {
+        window.scrollTo(0, currentScrollPosition);
+        startDemo();
+      }, 100);
+    } else {
       startDemo();
-    }, 1000);
-    
-    return () => clearTimeout(timer);
+    }
   }, [modelId]);
   
   const startDemo = () => {
@@ -95,14 +104,17 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   };
 
   return (
-    <div className="flex flex-col h-full bg-[#06101a] rounded-xl overflow-hidden border border-white/10">
+    <div 
+      ref={containerRef}
+      className="flex flex-col h-full bg-[#06101a] rounded-xl overflow-hidden border border-white/10"
+    >
       <DemoHeader 
         modelId={modelId} 
         iconBg={iconBg} 
         iconComponent={iconComponent} 
       />
       
-      <div className="flex-grow overflow-auto p-4 bg-[#080d16]">
+      <div className="flex-grow overflow-auto p-4 bg-[#080d16]" style={{ minHeight: "400px" }}>
         {showFileUpload && modelId === 'pdf-reader' && (
           <FileUploadPreview />
         )}

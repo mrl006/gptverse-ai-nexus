@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { AiModels, getIconByName } from '@/data/aiModels';
 import ModelList from './product/ModelList';
 import DemoPreview from './product/DemoPreview';
@@ -8,11 +8,27 @@ import DemoPreview from './product/DemoPreview';
 const ProductView = () => {
   const [selectedModel, setSelectedModel] = useState<string>('pdf-reader');
   const [showSidebar, setShowSidebar] = useState(true);
+  const viewRef = useRef<HTMLDivElement>(null);
   
   const currentModel = AiModels.find(model => model.id === selectedModel) || AiModels[0];
 
+  // Handle model selection without scrolling
+  const handleModelSelect = (modelId: string) => {
+    if (viewRef.current) {
+      const currentScrollPosition = window.scrollY;
+      setSelectedModel(modelId);
+      
+      // Maintain scroll position
+      setTimeout(() => {
+        window.scrollTo(0, currentScrollPosition);
+      }, 50);
+    } else {
+      setSelectedModel(modelId);
+    }
+  };
+
   return (
-    <section id="products" className="section-anchor py-16 relative overflow-hidden">
+    <section ref={viewRef} id="products" className="section-anchor py-16 relative overflow-hidden">
       <div className="absolute inset-0 bg-[#040812] pointer-events-none"></div>
       
       <div className="max-w-[1400px] mx-auto px-4 relative z-10">
@@ -20,7 +36,7 @@ const ProductView = () => {
           {/* Model List Sidebar */}
           <ModelList 
             selectedModel={selectedModel}
-            setSelectedModel={setSelectedModel}
+            setSelectedModel={handleModelSelect}
             showSidebar={showSidebar}
             setShowSidebar={setShowSidebar}
           />

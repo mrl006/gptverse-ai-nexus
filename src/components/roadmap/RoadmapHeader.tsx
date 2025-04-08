@@ -20,7 +20,7 @@ const RoadmapHeader = () => {
         <p className="text-white/70 max-w-2xl mx-auto">
           Follow our journey from inception to the future as we build the AI ecosystem of tomorrow
         </p>
-        <Separator className="w-24 h-1 bg-gradient-to-r from-alien-neon/30 to-alien-blue/30 mx-auto mt-6" />
+        <Separator className="w-36 h-1 bg-gradient-to-r from-alien-neon/30 to-alien-blue/30 mx-auto mt-6" />
       </motion.div>
     </div>
   );

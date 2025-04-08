@@ -2,6 +2,7 @@
 import React from 'react';
 import RoadmapItem from './roadmap/RoadmapItem';
 import RoadmapHeader from './roadmap/RoadmapHeader';
+import { motion } from "framer-motion";
 
 const Roadmap = () => {
   const roadmapData = [
@@ -152,14 +153,24 @@ const Roadmap = () => {
   return (
     <section id="history" className="section-padding py-20 bg-[#020510] relative overflow-hidden">
       <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzBlZjM0YjsiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWZmOyIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9Im5vbmUiIC8+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBvcGFjaXR5PSIwLjA3NSIgLz48Y2lyY2xlIGN4PSIyIiBjeT0iMzAiIHI9IjIiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBvcGFjaXR5PSIwLjA3NSIgLz48Y2lyY2xlIGN4PSIzMCIgY3k9IjIiIHI9IjIiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBvcGFjaXR5PSIwLjA3NSIgLz48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIgb3BhY2l0eT0iMC4wNzUiIC8+PC9zdmc+')] bg-repeat"></div>
-      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_40%,rgba(14,243,75,0.1)_0%,transparent_60%)]"></div>
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_70%_60%,rgba(0,174,255,0.2)_0%,transparent_50%)]"></div>
+      
+      {/* Enhanced background effects */}
+      <div className="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_30%_40%,rgba(14,243,75,0.1)_0%,transparent_60%)]"></div>
+      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_70%_60%,rgba(0,174,255,0.2)_0%,transparent_50%)]"></div>
       
       <div className="container mx-auto px-4 relative">
         <RoadmapHeader />
         
-        <div className="max-w-4xl mx-auto">
-          <div className="space-y-4">
+        <motion.div 
+          className="max-w-4xl mx-auto"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="relative">
+            {/* Main timeline line */}
+            <div className="absolute left-7 top-0 bottom-0 w-0.5 bg-gradient-to-b from-alien-neon/30 via-alien-blue/20 to-white/5"></div>
+            
             {roadmapData.map((item, index) => (
               <RoadmapItem
                 key={index}
@@ -170,14 +181,24 @@ const Roadmap = () => {
               />
             ))}
             
-            <div className="text-center">
-              <div className="inline-block glass-card bg-[#040813]/50 backdrop-blur-md border border-white/5 px-6 py-3 rounded-xl">
-                <span className="text-alien-neon mr-2">•••</span>
-                <span className="text-white/70">More exciting milestones coming soon</span>
+            <motion.div 
+              className="text-center mt-16"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+            >
+              <div className="inline-block glass-card bg-gradient-to-r from-[#0c1632]/50 to-[#040813]/50 backdrop-blur-md border border-white/10 px-8 py-4 rounded-xl shadow-lg">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 rounded-full bg-alien-neon animate-pulse"></div>
+                  <div className="w-2 h-2 rounded-full bg-alien-blue animate-pulse" style={{animationDelay: '0.5s'}}></div>
+                  <div className="w-2 h-2 rounded-full bg-white/50 animate-pulse" style={{animationDelay: '1s'}}></div>
+                  <span className="text-white/70 font-medium">More exciting milestones coming soon</span>
+                </div>
               </div>
-            </div>
+            </motion.div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

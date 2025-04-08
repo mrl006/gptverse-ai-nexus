@@ -112,25 +112,30 @@ const Hero = () => {
         {platforms.map((platform, index) => (
           <button
             key={index}
-            className="bg-[#040812]/60 backdrop-blur-md
-                    border border-white/10 rounded-lg
-                    px-4 py-3 hover:bg-[#040812]/80 transition-all duration-300
+            className="backdrop-blur-md bg-[#040812]/40 border border-[#0ef34b]/30 rounded-lg
+                    px-4 py-3 hover:bg-[#040812]/60 transition-all duration-300
                     flex items-center justify-center gap-3 min-w-[180px]
-                    relative overflow-hidden group flex-1"
+                    relative overflow-hidden group flex-1 shadow-[0_0_15px_rgba(14,243,75,0.2)]"
           >
-            {/* Minimal glassmorphism effects */}
-            <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30"></div>
-            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+            {/* Enhanced glassmorphism effects with green glow */}
+            <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-30"></div>
+            <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/40 to-transparent"></div>
+            <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
             
-            {/* Inner glow effect - reduced */}
-            <div className="absolute inset-0 bg-[#0ef34b]/0 group-hover:bg-[#0ef34b]/5 transition-all duration-500 rounded-lg"></div>
+            {/* Enhanced inner glow effect */}
+            <div className="absolute inset-0 bg-[#0ef34b]/0 group-hover:bg-[#0ef34b]/10 transition-all duration-500 rounded-lg"></div>
+            
+            {/* Pulse glow animation on hover */}
+            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="absolute inset-0 animate-pulse-glow bg-[#0ef34b]/5 rounded-lg"></div>
+            </div>
             
             {/* Button Content */}
             <div className="relative z-10 flex items-center justify-center gap-3 w-full">
               <div className="w-12 h-12 bg-[#040812]/80 rounded-full flex items-center justify-center 
-                          border border-white/20
-                          transition-all duration-500 overflow-hidden p-1">
+                          border border-[#0ef34b]/30 group-hover:border-[#0ef34b]/50
+                          transition-all duration-500 overflow-hidden p-1
+                          shadow-[0_0_10px_rgba(14,243,75,0.3)]">
                 <img 
                   src={platform.logo} 
                   alt={platform.name} 
@@ -140,7 +145,7 @@ const Hero = () => {
               
               <span className="text-white font-mono">
                 <div className="text-xs text-white/60">{platform.text}</div>
-                <div className="font-bold tracking-wider">{platform.name}</div>
+                <div className="font-bold tracking-wider group-hover:text-[#0ef34b] transition-colors duration-300">{platform.name}</div>
               </span>
             </div>
           </button>

@@ -4,15 +4,12 @@ import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 import { TokenDistributionItem } from './TokenDistributionData';
 import PieChartActiveShape from './PieChartActiveShape';
 import PieChartTooltip from './PieChartTooltip';
-import ChartConnectors from './ChartConnectors';
 
 interface PieChartVisualizationProps {
   sortedTokenDistribution: TokenDistributionItem[];
   activeIndex: number | null;
   onPieEnter: (_: any, index: number) => void;
   onPieLeave: () => void;
-  topDistributions: TokenDistributionItem[];
-  chartWidth: number;
 }
 
 const PieChartVisualization: React.FC<PieChartVisualizationProps> = ({
@@ -20,8 +17,6 @@ const PieChartVisualization: React.FC<PieChartVisualizationProps> = ({
   activeIndex,
   onPieEnter,
   onPieLeave,
-  topDistributions,
-  chartWidth
 }) => {
   return (
     <div className="aspect-square mx-auto relative">
@@ -75,8 +70,6 @@ const PieChartVisualization: React.FC<PieChartVisualizationProps> = ({
           <Tooltip content={<PieChartTooltip />} />
         </PieChart>
       </ResponsiveContainer>
-      
-      <ChartConnectors topDistributions={topDistributions} chartWidth={chartWidth} />
     </div>
   );
 };

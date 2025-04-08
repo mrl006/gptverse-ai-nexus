@@ -24,10 +24,10 @@ const DistributionTabContent: React.FC<DistributionTabContentProps> = ({
         {sortedTokenDistribution.map((item, index) => (
           <div 
             key={index}
-            className={`flex items-center p-3 rounded-lg transition-all duration-300 ${
+            className={`flex items-center p-4 rounded-lg transition-all duration-300 ${
               activeIndex === index || selectedCategory === item.name
                 ? 'bg-[#8B5CF6]/10 shadow-sm border border-[#8B5CF6]/20'
-                : 'hover:bg-white/5 border border-transparent'
+                : 'hover:bg-white/5 border border-transparent hover:border-white/10'
             }`}
             onMouseEnter={() => {
               setActiveIndex(index);
@@ -39,7 +39,7 @@ const DistributionTabContent: React.FC<DistributionTabContentProps> = ({
             }}
           >
             <div 
-              className="w-3 h-3 rounded-full mr-3 flex-shrink-0"
+              className="w-4 h-4 rounded-full mr-4 flex-shrink-0"
               style={{ 
                 backgroundColor: item.color,
                 boxShadow: `0 0 10px ${item.color}80`
@@ -48,9 +48,11 @@ const DistributionTabContent: React.FC<DistributionTabContentProps> = ({
             <div className="flex-grow">
               <div className="flex justify-between items-center">
                 <span className="text-white font-medium">{item.name}</span>
-                <span className="text-[#8B5CF6] font-mono">{item.value}%</span>
+                <span className="text-[#8B5CF6] font-mono font-bold">{item.value}%</span>
               </div>
-              <div className="text-white/60 text-sm mt-1">{item.description}</div>
+              {item.description && (
+                <div className="text-white/60 text-sm mt-1">{item.description}</div>
+              )}
             </div>
           </div>
         ))}

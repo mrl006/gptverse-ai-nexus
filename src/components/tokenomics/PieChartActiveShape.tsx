@@ -11,7 +11,7 @@ const PieChartActiveShape = (props: any) => {
       <defs>
         <filter id={`glow-${fill.replace('#', '')}`} x="-30%" y="-30%" width="160%" height="160%">
           <feGaussianBlur stdDeviation="8" result="blur" />
-          <feFlood floodColor={fill} floodOpacity="0.5" result="coloredBlur" />
+          <feFlood floodColor={fill} floodOpacity="0.7" result="coloredBlur" />
           <feComposite in="SourceGraphic" in2="coloredBlur" operator="over" />
         </filter>
       </defs>
@@ -20,7 +20,7 @@ const PieChartActiveShape = (props: any) => {
         cx={cx}
         cy={cy}
         innerRadius={innerRadius}
-        outerRadius={outerRadius + 8}
+        outerRadius={outerRadius + 10}
         startAngle={startAngle}
         endAngle={endAngle}
         fill={fill}
@@ -29,7 +29,7 @@ const PieChartActiveShape = (props: any) => {
         strokeWidth={2}
         strokeLinecap="round"
         style={{
-          filter: `drop-shadow(0 0 8px ${fill})`,
+          filter: `drop-shadow(0 0 12px ${fill})`,
           transition: 'all 0.3s ease-out'
         }}
       />
@@ -40,10 +40,10 @@ const PieChartActiveShape = (props: any) => {
         cy={cy}
         startAngle={startAngle}
         endAngle={endAngle}
-        innerRadius={outerRadius + 10}
-        outerRadius={outerRadius + 12}
+        innerRadius={outerRadius + 12}
+        outerRadius={outerRadius + 15}
         fill={fill}
-        opacity={0.4}
+        opacity={0.5}
       />
     </g>
   );

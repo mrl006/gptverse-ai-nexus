@@ -10,7 +10,6 @@ const TokenomicsPieChart = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [chartWidth, setChartWidth] = useState(700);
-  const [chartHeight, setChartHeight] = useState(700);
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Responsive chart sizing
@@ -19,7 +18,6 @@ const TokenomicsPieChart = () => {
       if (containerRef.current) {
         const width = containerRef.current.clientWidth;
         setChartWidth(width);
-        setChartHeight(Math.min(800, width));
       }
     };
 
@@ -40,24 +38,19 @@ const TokenomicsPieChart = () => {
 
   // Custom sort tokenDistribution by value (descending)
   const sortedTokenDistribution = [...tokenDistribution].sort((a, b) => b.value - a.value);
-  
-  // Filter to show only the top 4 allocations
-  const topDistributions = sortedTokenDistribution.slice(0, 4);
 
   return (
     <div ref={containerRef} className="w-full">
       <div className="neo-blur p-8 rounded-2xl border border-white/10 shadow-[0_10px_50px_rgba(139,92,246,0.1)] backdrop-blur-xl overflow-hidden transition-all duration-500 hover:shadow-[0_10px_50px_rgba(139,92,246,0.15)]">
         <div className="lg:grid lg:grid-cols-7 gap-8">
           {/* Enlarged pie chart column */}
-          <div className="lg:col-span-4 relative">
-            <div className="transform transition-all duration-700 hover:scale-105">
+          <div className="lg:col-span-4 relative flex items-center justify-center">
+            <div className="max-w-[600px] mx-auto transform transition-all duration-700 hover:scale-105">
               <PieChartVisualization 
                 sortedTokenDistribution={sortedTokenDistribution}
                 activeIndex={activeIndex}
                 onPieEnter={onPieEnter}
                 onPieLeave={onPieLeave}
-                topDistributions={topDistributions}
-                chartWidth={chartWidth}
               />
             </div>
           </div>

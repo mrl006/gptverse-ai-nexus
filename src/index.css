@@ -189,4 +189,3 @@
 .pie-3d:hover {
   transform: perspective(1000px) rotateX(25deg) rotateZ(-2deg);
 }
-

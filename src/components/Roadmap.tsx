@@ -1,56 +1,15 @@
-import React, { useEffect, useRef } from 'react';
-import { CalendarDays, GitBranch, Users, LeafyGreen, Box, Shield, Award, Rocket, Zap, Globe, HeartHandshake, Building, Library, Landmark, LineChart, Scale, Flame, Megaphone, Handshake, Brain, Users2, BadgeCheck, CreditCard } from 'lucide-react';
-import { Separator } from "@/components/ui/separator";
-import { Card, CardContent } from "@/components/ui/card";
-import { motion } from "framer-motion";
 
-interface TimelineItemProps {
-  icon: React.ReactNode;
-  title: string;
-  description: string[];
-  period: string;
-  isLeft?: boolean;
-}
-
-const TimelineItem = ({ icon, title, description, period, isLeft = true }: TimelineItemProps) => {
-  const containerClasses = `timeline-item flex md:items-center ${isLeft ? 'md:flex-row' : 'md:flex-row-reverse'}`;
-
-  return (
-    <div className={containerClasses}>
-      <div className="hidden md:block md:w-1/2"></div>
-      <div className={`ml-16 md:ml-0 md:w-1/2 ${isLeft ? 'md:pl-8' : 'md:pr-8'}`}>
-        <motion.div 
-          className="glass-card p-6 hover:shadow-lg hover:shadow-gptv-teal/10 transition-all"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-        >
-          <span className="text-xs font-mono text-gptv-teal/80 mb-2 block">{period}</span>
-          <div className="flex items-center mb-4">
-            <div className="mr-3 text-gptv-teal">{icon}</div>
-            <h3 className="text-lg font-semibold">{title}</h3>
-          </div>
-          <ul className="space-y-2">
-            {description.map((item, index) => (
-              <li key={index} className="text-white/70 flex items-start">
-                <span className="inline-block w-1.5 h-1.5 rounded-full bg-gptv-teal/60 mt-1.5 mr-2"></span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-      </div>
-    </div>
-  );
-};
+import React from 'react';
+import RoadmapItem from './roadmap/RoadmapItem';
+import RoadmapHeader from './roadmap/RoadmapHeader';
+import RoadmapRobot from './roadmap/RoadmapRobot';
 
 const Roadmap = () => {
-  const timelineData = [
+  const roadmapData = [
     {
       period: "Q3 2022",
       title: "GPTVerse Founded",
-      icon: <Rocket size={24} />,
+      status: "shipped" as const,
       description: [
         "GPTVerse founded",
         "Initial focus on metaverse completion",
@@ -62,7 +21,7 @@ const Roadmap = () => {
     {
       period: "Q4 2022",
       title: "Metaverse Growth",
-      icon: <Building size={24} />,
+      status: "shipped" as const,
       description: [
         "Continued improvement of the metaverse experience",
         "Developer team expansion to support AI initiatives",
@@ -73,7 +32,7 @@ const Roadmap = () => {
     {
       period: "Q1 2023",
       title: "Rebranding & AI Focus",
-      icon: <Zap size={24} />,
+      status: "shipped" as const,
       description: [
         "Commencement of the rebranding process",
         "Shift towards the AI Hub identity with a focus on AI products",
@@ -85,7 +44,7 @@ const Roadmap = () => {
     {
       period: "Q2 2023",
       title: "AI Hub Development",
-      icon: <Box size={24} />,
+      status: "shipped" as const,
       description: [
         "Accelerated development of AI products",
         "Launch of the AI Hub website to showcase upcoming products",
@@ -96,7 +55,7 @@ const Roadmap = () => {
     {
       period: "Q3 2023",
       title: "Business Growth",
-      icon: <LineChart size={24} />,
+      status: "shipped" as const,
       description: [
         "Intensified business development efforts",
         "Participation in prominent blockchain events on behalf of GPTVerse",
@@ -109,7 +68,7 @@ const Roadmap = () => {
     {
       period: "Q4 2023",
       title: "AI Product Ecosystem",
-      icon: <Library size={24} />,
+      status: "shipped" as const,
       description: [
         "Launch and adoption of AI products within the AI Hub",
         "Launch AI product marketplace within GPTVerse ecosystem",
@@ -122,7 +81,7 @@ const Roadmap = () => {
     {
       period: "Q1 2024",
       title: "Product Expansion",
-      icon: <Award size={24} />,
+      status: "shipped" as const,
       description: [
         "Expansion of AI-powered products within the AI Hub",
         "Improving existing products and launching new ones tailored to various industries",
@@ -134,7 +93,7 @@ const Roadmap = () => {
     {
       period: "Q2 2024",
       title: "Token Launch",
-      icon: <Landmark size={24} />,
+      status: "in-progress" as const,
       description: [
         "Listing of GPTV Token on selected CEXs",
         "GPTV Staking Program",
@@ -146,7 +105,7 @@ const Roadmap = () => {
     {
       period: "Q3 2024",
       title: "Global Expansion",
-      icon: <Globe size={24} />,
+      status: "planned" as const,
       description: [
         "Expand GPTVerse's presence to a global audience",
         "Broaden the range of AI products to cater to diverse industries, including healthcare, finance, education, and more",
@@ -157,7 +116,7 @@ const Roadmap = () => {
     {
       period: "Q4 2024",
       title: "Chain & Governance",
-      icon: <GitBranch size={24} />,
+      status: "planned" as const,
       description: [
         "GPTVerse Chain Testnet",
         "Continue to expand the AI Hub ecosystem by onboarding more third-party developers and businesses",
@@ -169,7 +128,7 @@ const Roadmap = () => {
     {
       period: "Q1 2025",
       title: "Strategic Growth & Engagement",
-      icon: <Flame size={24} />,
+      status: "planned" as const,
       description: [
         "🔥 Burn Campaign Launch",
         "🎤 AMA Events",
@@ -181,7 +140,7 @@ const Roadmap = () => {
     {
       period: "Q2 2025",
       title: "Community & Payment Solutions",
-      icon: <CreditCard size={24} />,
+      status: "planned" as const,
       description: [
         "🗣️ Get Community Feedbacks",
         "🌍 Global KOL Campaigns",
@@ -192,37 +151,38 @@ const Roadmap = () => {
   ];
 
   return (
-    <section id="history" className="section-padding py-20 bg-gptv-dark relative overflow-hidden">
+    <section id="history" className="section-padding py-20 bg-[#020510] relative overflow-hidden">
+      <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9ImdyYWRpZW50IiB4MT0iMCUiIHkxPSIwJSIgeDI9IjEwMCUiIHkyPSIwJSI+PHN0b3Agb2Zmc2V0PSIwJSIgc3R5bGU9InN0b3AtY29sb3I6IzBlZjM0YjsiIC8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdHlsZT0ic3RvcC1jb2xvcjojMDBhZWZmOyIgLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9Im5vbmUiIC8+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBvcGFjaXR5PSIwLjA3NSIgLz48Y2lyY2xlIGN4PSIyIiBjeT0iMzAiIHI9IjIiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBvcGFjaXR5PSIwLjA3NSIgLz48Y2lyY2xlIGN4PSIzMCIgY3k9IjIiIHI9IjIiIGZpbGw9InVybCgjZ3JhZGllbnQpIiBvcGFjaXR5PSIwLjA3NSIgLz48Y2lyY2xlIGN4PSIzMCIgY3k9IjMwIiByPSIyIiBmaWxsPSJ1cmwoI2dyYWRpZW50KSIgb3BhY2l0eT0iMC4wNzUiIC8+PC9zdmc+')] bg-repeat"></div>
       <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_30%_40%,rgba(14,243,75,0.1)_0%,transparent_60%)]"></div>
       <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_70%_60%,rgba(0,174,255,0.2)_0%,transparent_50%)]"></div>
       
       <div className="container mx-auto px-4 relative">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-gradient-animate">GPTVerse Timeline</span>
-          </h2>
-          <p className="text-white/80 max-w-2xl mx-auto">
-            Tracing our journey from inception to our ambitious future roadmap
-          </p>
-          <Separator className="w-24 h-1 bg-gradient-to-r from-[#0ef34b]/30 to-[#00aeff]/30 mx-auto mt-6" />
-        </div>
+        <RoadmapHeader />
         
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute top-0 bottom-0 left-8 md:left-1/2 w-[2px] bg-gradient-to-b from-[#0ef34b]/60 via-[#00aeff]/40 to-[#d946ef]/20"></div>
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          <div className="lg:col-span-4">
+            <RoadmapRobot />
+          </div>
           
-          {/* Timeline content */}
-          <div className="space-y-16 md:space-y-20 relative z-10">
-            {timelineData.map((item, index) => (
-              <TimelineItem
-                key={index}
-                icon={item.icon}
-                title={item.title}
-                description={item.description}
-                period={item.period}
-                isLeft={index % 2 === 0}
-              />
-            ))}
+          <div className="lg:col-span-8">
+            <div className="space-y-4">
+              {roadmapData.map((item, index) => (
+                <RoadmapItem
+                  key={index}
+                  title={item.title}
+                  description={item.description}
+                  period={item.period}
+                  status={item.status}
+                />
+              ))}
+              
+              <div className="text-center">
+                <div className="inline-block glass-card bg-[#040813]/50 backdrop-blur-md border border-white/5 px-6 py-3 rounded-xl">
+                  <span className="text-alien-neon mr-2">•••</span>
+                  <span className="text-white/70">More exciting milestones coming soon</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

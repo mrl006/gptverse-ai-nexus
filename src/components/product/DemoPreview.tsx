@@ -6,6 +6,7 @@ import MessageList from './MessageList';
 import FileUploadPreview from './FileUploadPreview';
 import ImageGeneratorPreview from './ImageGeneratorPreview';
 import ChatInput from './ChatInput';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 interface DemoPreviewProps {
   modelId: string;
@@ -20,7 +21,6 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   const [showFileUpload, setShowFileUpload] = useState(modelId === 'pdf-reader');
   const [showGeneratedImage, setShowGeneratedImage] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
   
   const currentModel = AiModels.find(m => m.id === modelId);
   
@@ -32,18 +32,8 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
     setShowFileUpload(modelId === 'pdf-reader');
     setShowGeneratedImage(false);
     
-    // Prevent scrolling to model when changing models
-    if (containerRef.current) {
-      const currentScrollPosition = window.scrollY;
-      
-      // Delay to allow for state updates
-      setTimeout(() => {
-        window.scrollTo(0, currentScrollPosition);
-        startDemo();
-      }, 100);
-    } else {
-      startDemo();
-    }
+    // Start demo without scrolling the page
+    startDemo();
   }, [modelId]);
   
   const startDemo = () => {
@@ -55,10 +45,12 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         ]);
       }, 2000);
     } else if (modelId === 'image-generator') {
-      // For image generator, we don't auto-populate
-      return;
+      // For image generator, we show the preview directly
+      setTimeout(() => {
+        setShowGeneratedImage(true);
+      }, 1000);
     } else if (demoMessages[modelId]?.length) {
-      // Auto-populate first message for other models
+      // Auto-populate messages for other models
       setTimeout(() => {
         setMessages([demoMessages[modelId][0]]);
         setIsTyping(true);
@@ -71,36 +63,10 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
     }
   };
 
+  // Dummy function for the input (not functional as requested)
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!inputMessage.trim()) return;
-    
-    // Add user message
-    const userMessage = { role: 'user', content: inputMessage };
-    setMessages(prev => [...prev, userMessage]);
-    setInputMessage('');
-    setIsTyping(true);
-    
-    // Simulate AI response
-    setTimeout(() => {
-      setIsTyping(false);
-      
-      if (modelId === 'image-generator') {
-        setShowGeneratedImage(true);
-      } else {
-        // Find existing response or use a default
-        const modelResponses = demoMessages[modelId] || [];
-        const aiResponse = modelResponses.find(msg => msg.role === 'assistant')?.content || 
-          "I'm happy to help! Is there anything specific you'd like to know?";
-        
-        setMessages(prev => [...prev, { role: 'assistant', content: aiResponse }]);
-      }
-    }, 2000);
-    
-    // Focus input after sending
-    setTimeout(() => {
-      inputRef.current?.focus();
-    }, 100);
+    // No functionality as requested
   };
 
   return (
@@ -114,24 +80,26 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         iconComponent={iconComponent} 
       />
       
-      <div className="flex-grow overflow-auto p-4 bg-[#080d16]" style={{ minHeight: "400px" }}>
-        {showFileUpload && modelId === 'pdf-reader' && (
-          <FileUploadPreview />
-        )}
-        
-        {modelId === 'image-generator' ? (
-          <ImageGeneratorPreview 
-            showGeneratedImage={showGeneratedImage} 
-            isTyping={isTyping} 
-          />
-        ) : (
-          <MessageList 
-            messages={messages} 
-            isTyping={isTyping}
-            modelColor={currentModel?.buttonColor || '#0ef34b'}
-          />
-        )}
-      </div>
+      <ScrollArea className="flex-grow bg-[#080d16]" style={{ height: "400px" }}>
+        <div className="p-4">
+          {showFileUpload && modelId === 'pdf-reader' && (
+            <FileUploadPreview />
+          )}
+          
+          {modelId === 'image-generator' ? (
+            <ImageGeneratorPreview 
+              showGeneratedImage={showGeneratedImage} 
+              isTyping={isTyping} 
+            />
+          ) : (
+            <MessageList 
+              messages={messages} 
+              isTyping={isTyping}
+              modelColor={currentModel?.buttonColor || '#0ef34b'}
+            />
+          )}
+        </div>
+      </ScrollArea>
       
       <ChatInput 
         inputMessage={inputMessage}

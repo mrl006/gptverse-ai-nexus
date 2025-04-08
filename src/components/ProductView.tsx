@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { AiModels, getIconByName } from '@/data/aiModels';
 import ModelList from './product/ModelList';
 import DemoPreview from './product/DemoPreview';
@@ -14,21 +14,22 @@ const ProductView = () => {
 
   // Handle model selection without scrolling
   const handleModelSelect = (modelId: string) => {
+    // Prevent default behavior to avoid scrolling
+    setSelectedModel(modelId);
+    
+    // Set focus back to the container to avoid scrolling
     if (viewRef.current) {
-      const currentScrollPosition = window.scrollY;
-      setSelectedModel(modelId);
-      
-      // Maintain scroll position
-      setTimeout(() => {
-        window.scrollTo(0, currentScrollPosition);
-      }, 50);
-    } else {
-      setSelectedModel(modelId);
+      viewRef.current.focus();
     }
   };
 
   return (
-    <section ref={viewRef} id="products" className="section-anchor py-16 relative overflow-hidden">
+    <section 
+      ref={viewRef} 
+      id="products" 
+      className="section-anchor py-16 relative overflow-hidden outline-none" 
+      tabIndex={-1}
+    >
       <div className="absolute inset-0 bg-[#040812] pointer-events-none"></div>
       
       <div className="max-w-[1400px] mx-auto px-4 relative z-10">

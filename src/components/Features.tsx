@@ -107,7 +107,7 @@ const Features = () => {
               <span className="text-[#0ef34b] font-medium">ADVANCED FEATURES</span>
             </div>
             
-            <h3 className="text-2xl md:text-3xl font-bold mb-6">
+            <h3 className="heading-gradient text-2xl md:text-3xl mb-6">
               The Ultimate All-in-One AI Ecosystem
             </h3>
             

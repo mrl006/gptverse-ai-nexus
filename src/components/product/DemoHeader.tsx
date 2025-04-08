@@ -30,7 +30,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({ modelId, iconBg, iconComponent 
         </div>
         <div>
           <div className="text-sm text-white/50">@gptverse</div>
-          <h3 className="text-lg font-bold text-white drop-shadow-sm">{currentModel?.name}</h3>
+          <h3 className="text-lg font-bold heading-gradient drop-shadow-sm">{currentModel?.name}</h3>
         </div>
       </div>
       

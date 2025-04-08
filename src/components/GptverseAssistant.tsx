@@ -30,7 +30,7 @@ const GptverseAssistant = () => {
   if (!isOpen) {
     return (
       <div 
-        className="p-3 w-14 h-14 rounded-full bg-gradient-to-r from-gptv-neon-blue to-gptv-teal flex items-center justify-center shadow-lg shadow-gptv-neon-blue/20 border border-white/10 cursor-pointer hover:scale-105 transition-transform duration-200"
+        className="p-3 w-14 h-14 rounded-full bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center shadow-lg shadow-green-500/20 border border-white/10 cursor-pointer hover:scale-105 transition-transform duration-200"
         onClick={() => setIsOpen(true)}
       >
         <Bot size={24} className="text-white" />
@@ -39,23 +39,23 @@ const GptverseAssistant = () => {
   }
 
   return (
-    <div className="glass-card p-4 rounded-2xl backdrop-blur-xl relative overflow-hidden transition-all shadow-lg shadow-gptv-neon-blue/20 border-2 border-white/5 w-[350px] h-[420px] flex flex-col">
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-gptv-blue via-gptv-teal to-gptv-magenta"></div>
+    <div className="glass-card p-4 rounded-2xl backdrop-blur-xl relative overflow-hidden transition-all shadow-lg shadow-green-500/20 border-2 border-white/5 w-[350px] h-[420px] flex flex-col">
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-green-500 via-emerald-400 to-green-300"></div>
       
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-3">
-          <div className="w-10 h-10 rounded-full bg-gptv-neon-blue/30 flex items-center justify-center text-white">
+          <div className="w-10 h-10 rounded-full bg-green-500/30 flex items-center justify-center text-white">
             <Bot size={20} />
           </div>
           <div>
             <span className="font-medium flex items-center">
-              GPTVerse Assistant <Sparkles size={16} className="ml-2 text-gptv-neon-blue" />
+              GPTVerse Assistant <Sparkles size={16} className="ml-2 text-green-400" />
             </span>
             <span className="text-xs text-white/60">AI-powered support</span>
           </div>
         </div>
         <div 
-          className="h-8 w-8 rounded-full bg-gptv-neon-violet/20 flex items-center justify-center cursor-pointer hover:bg-gptv-neon-violet/40 transition-colors"
+          className="h-8 w-8 rounded-full bg-green-500/20 flex items-center justify-center cursor-pointer hover:bg-green-500/40 transition-colors"
           onClick={() => setIsOpen(false)}
         >
           <X size={16} className="text-white" />
@@ -67,8 +67,8 @@ const GptverseAssistant = () => {
           <div key={index} className={`mb-3 ${chat.role === 'user' ? 'text-right' : 'text-left'}`}>
             <div className={`inline-block p-3 rounded-lg max-w-[80%] ${
               chat.role === 'user' 
-                ? 'bg-gptv-neon-blue/20 text-white rounded-tr-none' 
-                : 'bg-gptv-deep-navy/70 text-white/90 rounded-tl-none'
+                ? 'bg-green-500/20 text-white rounded-tr-none' 
+                : 'bg-[#0A2A18]/70 text-white/90 rounded-tl-none'
             }`}>
               {chat.content}
             </div>
@@ -76,7 +76,7 @@ const GptverseAssistant = () => {
         ))}
       </div>
       
-      <div className="bg-gptv-deep-navy/50 rounded-xl p-2 flex items-center border border-white/5">
+      <div className="bg-[#0A2A18]/50 rounded-xl p-2 flex items-center border border-white/5">
         <input 
           type="text" 
           placeholder="Ask GPTVerse Assistant..." 
@@ -86,11 +86,11 @@ const GptverseAssistant = () => {
           onKeyDown={(e) => e.key === 'Enter' && handleSendMessage()}
         />
         <div className="flex">
-          <button className="h-9 w-9 rounded-full flex items-center justify-center text-white/70 hover:text-gptv-neon-blue transition-colors">
+          <button className="h-9 w-9 rounded-full flex items-center justify-center text-white/70 hover:text-green-400 transition-colors">
             <Mic size={18} />
           </button>
           <button 
-            className="h-9 w-9 rounded-full bg-gradient-to-r from-gptv-neon-blue to-gptv-teal flex items-center justify-center text-white"
+            className="h-9 w-9 rounded-full bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center text-white"
             onClick={handleSendMessage}
           >
             <Send size={16} />
@@ -99,16 +99,16 @@ const GptverseAssistant = () => {
       </div>
       
       <div className="mt-4 grid grid-cols-2 gap-2">
-        <Button variant="outline" className="text-xs border-gptv-neon-blue/40 text-white hover:bg-gptv-neon-blue/20">
+        <Button variant="outline" className="text-xs border-green-500/40 text-white hover:bg-green-500/20">
           AI Features
         </Button>
-        <Button variant="outline" className="text-xs border-gptv-neon-blue/40 text-white hover:bg-gptv-neon-blue/20">
+        <Button variant="outline" className="text-xs border-green-500/40 text-white hover:bg-green-500/20">
           Tokenomics
         </Button>
-        <Button variant="outline" className="text-xs border-gptv-neon-blue/40 text-white hover:bg-gptv-neon-blue/20">
+        <Button variant="outline" className="text-xs border-green-500/40 text-white hover:bg-green-500/20">
           dApp Integrations
         </Button>
-        <Button variant="outline" className="text-xs border-gptv-neon-blue/40 text-white hover:bg-gptv-neon-blue/20">
+        <Button variant="outline" className="text-xs border-green-500/40 text-white hover:bg-green-500/20">
           GPTVerse Chain
         </Button>
       </div>

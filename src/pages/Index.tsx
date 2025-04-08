@@ -21,19 +21,16 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-black via-gptv-deep-navy to-black text-white overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-black via-[#0A2A18] to-black text-white overflow-x-hidden">
       {/* Enhanced glassy background elements */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Dark gradient overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gptv-deep-navy/90 to-black"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-[#0A2A18]/90 to-black"></div>
         
         {/* Geometric shapes with glass effect */}
-        <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] rounded-full bg-gptv-neon-blue/5 blur-[100px]"></div>
-        <div className="absolute bottom-[20%] right-[5%] w-[350px] h-[350px] rounded-full bg-gptv-neon-violet/5 blur-[100px]"></div>
-        <div className="absolute top-[40%] right-[15%] w-[300px] h-[300px] rounded-full bg-gptv-teal/5 blur-[120px]"></div>
-        
-        {/* Hexagon grid pattern overlay */}
-        <div className="absolute inset-0 opacity-5 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMzAgMTVMMTUgMzBMMyA0NUgzMEw0NSAzMEw2MCAxNUgzMHoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')]"></div>
+        <div className="absolute top-[10%] left-[5%] w-[400px] h-[400px] rounded-full bg-green-500/5 blur-[100px]"></div>
+        <div className="absolute bottom-[20%] right-[5%] w-[350px] h-[350px] rounded-full bg-emerald-400/5 blur-[100px]"></div>
+        <div className="absolute top-[40%] right-[15%] w-[300px] h-[300px] rounded-full bg-green-300/5 blur-[120px]"></div>
         
         {/* Animated wave lines in background */}
         <div className="absolute inset-0 opacity-20">
@@ -49,16 +46,16 @@ const Index = () => {
             </path>
             <defs>
               <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style={{ stopColor: 'rgb(0, 174, 255)', stopOpacity: 1 }}></stop>
-                <stop offset="100%" style={{ stopColor: 'rgb(14, 243, 75)', stopOpacity: 1 }}></stop>
+                <stop offset="0%" style={{ stopColor: 'rgb(16, 185, 129)', stopOpacity: 1 }}></stop>
+                <stop offset="100%" style={{ stopColor: 'rgb(5, 150, 105)', stopOpacity: 1 }}></stop>
               </linearGradient>
               <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style={{ stopColor: 'rgb(157, 78, 221)', stopOpacity: 1 }}></stop>
-                <stop offset="100%" style={{ stopColor: 'rgb(0, 174, 255)', stopOpacity: 1 }}></stop>
+                <stop offset="0%" style={{ stopColor: 'rgb(4, 120, 87)', stopOpacity: 1 }}></stop>
+                <stop offset="100%" style={{ stopColor: 'rgb(16, 185, 129)', stopOpacity: 1 }}></stop>
               </linearGradient>
               <linearGradient id="gradient3" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" style={{ stopColor: 'rgb(14, 243, 75)', stopOpacity: 1 }}></stop>
-                <stop offset="100%" style={{ stopColor: 'rgb(157, 78, 221)', stopOpacity: 1 }}></stop>
+                <stop offset="0%" style={{ stopColor: 'rgb(5, 150, 105)', stopOpacity: 1 }}></stop>
+                <stop offset="100%" style={{ stopColor: 'rgb(4, 120, 87)', stopOpacity: 1 }}></stop>
               </linearGradient>
             </defs>
           </svg>
@@ -90,7 +87,7 @@ const Index = () => {
       
       {/* Fixed assistant button for mobile */}
       <div className="md:hidden fixed bottom-4 right-4 z-50">
-        <button className="rounded-full w-14 h-14 bg-gradient-to-r from-gptv-neon-blue to-gptv-teal flex items-center justify-center shadow-lg shadow-gptv-neon-blue/20 border border-white/10">
+        <button className="rounded-full w-14 h-14 bg-gradient-to-r from-green-500 to-emerald-400 flex items-center justify-center shadow-lg shadow-green-500/20 border border-white/10">
           <Bot size={24} className="text-white" />
         </button>
       </div>

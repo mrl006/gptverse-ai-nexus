@@ -8,10 +8,10 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import React from 'react';
 
-// Create a client outside of the component
-const queryClient = new QueryClient();
-
 const App = () => {
+  // Create the client inside the component
+  const [queryClient] = React.useState(() => new QueryClient());
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>

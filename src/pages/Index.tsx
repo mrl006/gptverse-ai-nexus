@@ -5,6 +5,7 @@ import Hero from '../components/Hero';
 import PlatformButtons from '../components/PlatformButtons';
 import ProductView from '../components/ProductView';
 import Footer from '../components/Footer';
+import Explore from '../components/Explore';
 
 const Index = () => {
   useEffect(() => {
@@ -45,6 +46,7 @@ const Index = () => {
           </div>
           
           <ProductView />
+          <Explore />
           
           <div id="overview" className="section-anchor pt-20"></div>
           <div id="features" className="section-anchor pt-20"></div>

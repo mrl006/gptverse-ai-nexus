@@ -1,5 +1,6 @@
+
 import React, { useState } from 'react';
-import { AiModels } from '@/data/aiModels';
+import { AiModels, getIconByName } from '@/data/aiModels';
 import ModelList from './product/ModelList';
 import ModelDetails from './product/ModelDetails';
 import DemoPreview from './product/DemoPreview';

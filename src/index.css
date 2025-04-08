@@ -85,6 +85,14 @@
   .glass-tab-active {
     @apply bg-black/40 border-[#0ef34b]/30 shadow-[0_0_20px_rgba(14,243,75,0.15)];
   }
+
+  .animate-glow-pulse {
+    @apply transition-all duration-500;
+  }
+  
+  .animate-glow-pulse.glow-active {
+    @apply shadow-[0_0_20px_rgba(14,243,75,0.4)] border-[#0ef34b]/40;
+  }
 }
 
 .timeline-container::after {

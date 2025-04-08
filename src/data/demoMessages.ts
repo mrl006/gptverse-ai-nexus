@@ -28,8 +28,8 @@ export const demoMessages: Record<string, Array<MessageType>> = {
     { role: 'assistant', content: "⌬⍙⎎⌇⍜⍾ We transmit thoughts through quantum entanglement of neural patterns. Your species' sound-based communication is remarkably primitive yet fascinating in its adaptability. ⌬⌿⍙⎒⊡" }
   ],
   'image-generator': [
-    { role: 'user', content: "Create a surreal image of a floating city above an ocean" },
-    { role: 'assistant', content: "Creating your surreal floating city image. I'm applying dream-like aesthetics with vapor-wave color palette and slight motion blur for ethereal quality." }
+    { role: 'user', content: "Generate multiple style variations of a character design for my game" },
+    { role: 'assistant', content: "I've created 8 different style variations of a character design, ranging from realistic to cartoon, isometric, abstract, and stylized. Each has unique artistic elements that could work for different game aesthetics." }
   ]
 };
 
@@ -72,10 +72,10 @@ export const extendedDemoMessages: Record<string, Array<MessageType>> = {
     { role: 'assistant', content: "⌇⍜⊕⎏⍾⊡ Your silicon computing is like stone tools to us. Yet your creativity within constraints impresses. Your 'quantum computing' experiments amuse us - like watching infants discover their fingers. ⍾⌇⊘⍜⊡" }
   ],
   'image-generator': [
-    { role: 'user', content: "Create a surreal image of a floating city above an ocean" },
-    { role: 'assistant', content: "Creating your surreal floating city image. I'm applying dream-like aesthetics with vapor-wave color palette." },
-    { role: 'user', content: "Could you add some flying creatures around the city?" },
-    { role: 'assistant', content: "Adding ethereal flying creatures with translucent wings circling the floating city structures. Adjusting lighting to create golden hour effect with long shadows across the city spires." }
+    { role: 'user', content: "Generate multiple style variations of a character design for my game" },
+    { role: 'assistant', content: "I've created 8 different style variations of a character design, ranging from realistic to cartoon, isometric, abstract, and stylized." },
+    { role: 'user', content: "Could you create one with a more cyberpunk aesthetic?" },
+    { role: 'assistant', content: "I've generated a cyberpunk variation with neon accents, digital distortion effects, and techno-futuristic elements. The character now has augmented features and a high-tech urban background." }
   ],
   'chatbot': [
     { role: 'user', content: "What can you help me with?" },

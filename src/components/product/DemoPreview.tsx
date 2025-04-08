@@ -23,7 +23,6 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   const [isTyping, setIsTyping] = useState(false);
   const [showFileUpload, setShowFileUpload] = useState(modelId === 'pdf-reader');
   const [showGeneratedImage, setShowGeneratedImage] = useState(false);
-  const [currentMessageIndex, setCurrentMessageIndex] = useState(0);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollPosition = useRef(0);
   
@@ -45,7 +44,6 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
     setIsTyping(false);
     setShowFileUpload(modelId === 'pdf-reader');
     setShowGeneratedImage(false);
-    setCurrentMessageIndex(0);
     
     // Restore scroll position
     if (window) {
@@ -72,16 +70,22 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         }, 800);
       }, 1000);
     } else if (modelId === 'image-generator') {
-      // For image generator, we show the user message first
-      setMessages([demoMessages['image-generator'][0]]);
+      // For image generator, show a more specific user prompt
+      setMessages([{
+        role: 'user',
+        content: "Generate multiple style variations of a character design for my game"
+      }]);
       
-      // Then show typing indicator and generated image
+      // Then show typing indicator and generated image sequence
       setTimeout(() => {
         setIsTyping(true);
         setTimeout(() => {
           setIsTyping(false);
           setShowGeneratedImage(true);
-          setMessages(prev => [...prev, demoMessages['image-generator'][1]]);
+          setMessages(prev => [...prev, {
+            role: 'assistant',
+            content: "I've created 8 different style variations of a character design, ranging from realistic to cartoon, isometric, abstract, and stylized. Each has unique artistic elements that could work for different game aesthetics."
+          }]);
         }, 1500);
       }, 800);
     } else if (demoMessages[modelId]?.length) {

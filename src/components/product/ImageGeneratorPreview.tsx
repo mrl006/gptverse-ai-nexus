@@ -11,31 +11,64 @@ const ImageGeneratorPreview: React.FC<ImageGeneratorPreviewProps> = ({
   showGeneratedImage, 
   isTyping 
 }) => {
-  const [randomImage, setRandomImage] = useState<string>("");
+  const [currentImageIndex, setCurrentImageIndex] = useState<number>(0);
   const [imgLoaded, setImgLoaded] = useState(false);
+  const [showingImages, setShowingImages] = useState(false);
   
-  // Enhanced set of images
+  // Enhanced set of images using the uploaded collage
   const imageSources = [
-    "/lovable-uploads/aa4883fb-56f2-46d8-95f2-c7e2d19ba69d.png", // Futuristic city
-    "/lovable-uploads/939e5c07-6b47-4f15-a272-e60eef74ee1f.png", // Space scene
-    "/lovable-uploads/e322c390-0e26-442f-90b3-bc13622b55e6.png", // Fantasy creature
-    "/lovable-uploads/becd59a9-582c-40e3-822c-52261c79f955.png", // Landscape
-    "/lovable-uploads/dba72d8f-2091-4bb0-898a-3e7b02d665ce.png", // Additional image
-    "/lovable-uploads/e5ebce5d-7c0d-44be-9b2f-c0219df5d657.png", // Additional image
-    "/lovable-uploads/6acb1d46-209d-4450-b48e-5ec82fa59a10.png", // Additional image
-    "/lovable-uploads/27ee7e18-ad05-4a4d-b4a4-2b12e35ff8d3.png"  // Additional image
+    "/lovable-uploads/28e04e4f-cace-4c3d-a467-d7c5b5afa839.png#sprite=0",
+    "/lovable-uploads/28e04e4f-cace-4c3d-a467-d7c5b5afa839.png#sprite=1",
+    "/lovable-uploads/28e04e4f-cace-4c3d-a467-d7c5b5afa839.png#sprite=2",
+    "/lovable-uploads/28e04e4f-cace-4c3d-a467-d7c5b5afa839.png#sprite=3",
+    "/lovable-uploads/28e04e4f-cace-4c3d-a467-d7c5b5afa839.png#sprite=4",
+    "/lovable-uploads/28e04e4f-cace-4c3d-a467-d7c5b5afa839.png#sprite=5",
+    "/lovable-uploads/28e04e4f-cace-4c3d-a467-d7c5b5afa839.png#sprite=6",
+    "/lovable-uploads/28e04e4f-cace-4c3d-a467-d7c5b5afa839.png#sprite=7"
   ];
   
+  // Captions for each generated image
+  const imageCaptions = [
+    "Cozy reading corner with coffee",
+    "3D character portrait with expressions",
+    "Colorful fantasy child character",
+    "Vibrant geometric wolf illustration",
+    "Futuristic armored warrior concept",
+    "Isometric technology gadgets",
+    "Abstract portrait with nature elements",
+    "Cute cartoon monkey character"
+  ];
+
+  // Reset state when showGeneratedImage changes
   useEffect(() => {
     if (showGeneratedImage) {
-      // Select a random image from available options
-      const randomIndex = Math.floor(Math.random() * imageSources.length);
-      setRandomImage(imageSources[randomIndex]);
-      
-      // Reset image loaded state
       setImgLoaded(false);
+      setCurrentImageIndex(0);
+      setShowingImages(true);
+    } else {
+      setShowingImages(false);
     }
   }, [showGeneratedImage]);
+  
+  // Advance through images
+  useEffect(() => {
+    let imageInterval: ReturnType<typeof setTimeout>;
+    
+    if (showingImages && imgLoaded) {
+      imageInterval = setTimeout(() => {
+        setImgLoaded(false);
+        setTimeout(() => {
+          setCurrentImageIndex((prev) => 
+            prev < imageSources.length - 1 ? prev + 1 : prev
+          );
+        }, 300);
+      }, 3000); // Show each image for 3 seconds
+    }
+    
+    return () => {
+      if (imageInterval) clearTimeout(imageInterval);
+    };
+  }, [showingImages, imgLoaded, currentImageIndex, imageSources.length]);
   
   const handleImageLoad = () => {
     setImgLoaded(true);
@@ -44,7 +77,7 @@ const ImageGeneratorPreview: React.FC<ImageGeneratorPreviewProps> = ({
   if (showGeneratedImage) {
     return (
       <motion.div 
-        className="flex-grow flex items-center justify-center py-3"
+        className="flex-grow flex flex-col items-center justify-center py-3"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5 }}
@@ -52,7 +85,7 @@ const ImageGeneratorPreview: React.FC<ImageGeneratorPreviewProps> = ({
         <div className="relative group max-w-[90%] mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
-              key={randomImage}
+              key={currentImageIndex}
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ 
                 opacity: imgLoaded ? 1 : 0,
@@ -64,8 +97,8 @@ const ImageGeneratorPreview: React.FC<ImageGeneratorPreviewProps> = ({
               className="relative overflow-hidden rounded-lg"
             >
               <motion.img 
-                src={randomImage} 
-                alt="AI Generated artwork" 
+                src={imageSources[currentImageIndex]} 
+                alt={`AI Generated ${imageCaptions[currentImageIndex]}`} 
                 className="max-w-full rounded-lg border border-white/10 object-cover shadow-lg"
                 style={{ maxHeight: "280px" }}
                 onLoad={handleImageLoad}
@@ -92,16 +125,54 @@ const ImageGeneratorPreview: React.FC<ImageGeneratorPreviewProps> = ({
           </AnimatePresence>
           
           {imgLoaded && (
-            <motion.div 
-              className="absolute bottom-3 right-3 bg-black/80 px-3 py-1 rounded text-xs text-white/90 backdrop-blur-sm border border-white/10"
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-            >
-              AI Generated
-            </motion.div>
+            <>
+              <motion.div 
+                className="absolute bottom-3 right-3 bg-black/80 px-3 py-1 rounded text-xs text-white/90 backdrop-blur-sm border border-white/10"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                AI Generated
+              </motion.div>
+              
+              <motion.div 
+                className="absolute bottom-3 left-3 bg-black/80 px-3 py-1 rounded text-xs text-white/90 backdrop-blur-sm border border-white/10"
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.5 }}
+              >
+                {imageCaptions[currentImageIndex]}
+              </motion.div>
+              
+              <div className="absolute top-3 right-3 flex gap-1.5">
+                {imageSources.map((_, index) => (
+                  <motion.div
+                    key={index}
+                    className={`h-1.5 w-1.5 rounded-full ${
+                      index === currentImageIndex 
+                        ? 'bg-white' 
+                        : 'bg-white/40'
+                    }`}
+                    initial={{ scale: index === currentImageIndex ? 1.2 : 1 }}
+                    animate={{ scale: index === currentImageIndex ? 1.2 : 1 }}
+                    transition={{ duration: 0.3 }}
+                  />
+                ))}
+              </div>
+            </>
           )}
         </div>
+        
+        <motion.div 
+          className="mt-4 text-center max-w-md"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: imgLoaded ? 1 : 0 }}
+          transition={{ delay: 0.3 }}
+        >
+          <p className="text-white/80 text-sm">
+            Generating variant {currentImageIndex + 1} of {imageSources.length}
+          </p>
+        </motion.div>
       </motion.div>
     );
   }
@@ -150,7 +221,7 @@ const ImageGeneratorPreview: React.FC<ImageGeneratorPreviewProps> = ({
             animate={{ opacity: [0.8, 1, 0.8] }}
             transition={{ duration: 2, repeat: Infinity }}
           >
-            Creating your masterpiece...
+            Creating image variations...
           </motion.p>
           
           <motion.p 
@@ -159,7 +230,7 @@ const ImageGeneratorPreview: React.FC<ImageGeneratorPreviewProps> = ({
             animate={{ opacity: 1 }}
             transition={{ delay: 0.3 }}
           >
-            Applying neural style transfer
+            Analyzing your prompt and generating styles
           </motion.p>
           
           <div className="mt-4 flex gap-1.5 justify-center">

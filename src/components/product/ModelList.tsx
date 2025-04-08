@@ -23,7 +23,7 @@ const ModelList: React.FC<ModelListProps> = ({
       {/* Mobile Header & Toggle */}
       <div className="lg:hidden mb-6 flex flex-col gap-4">
         <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#d946ef] via-[#8b5cf6] to-[#0ef34b]">
-          AI MODELS
+          AI HUB
         </h2>
         <Button 
           variant="outline" 
@@ -47,7 +47,7 @@ const ModelList: React.FC<ModelListProps> = ({
         <div className="hidden lg:block mb-6 relative z-10">
           <h2 className="text-2xl font-bold text-white drop-shadow-[0_2px_4px_rgba(14,243,75,0.4)]">
             <span className="relative">
-              AI MODELS
+              AI HUB
               <span className="absolute -inset-1 bg-gradient-to-r from-[#0ef34b]/20 to-transparent blur-sm rounded-lg -z-10"></span>
             </span>
           </h2>

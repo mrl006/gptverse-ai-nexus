@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { AiModels } from '@/data/aiModels';
 import ModelList from './product/ModelList';
@@ -42,7 +41,7 @@ const ProductView = () => {
                     <DemoPreview 
                       modelId={currentModel.id} 
                       iconBg={currentModel.color} 
-                      iconComponent={currentModel.icon}
+                      iconComponent={currentModel.iconName ? getIconByName(currentModel.iconName) : undefined}
                     />
                   </div>
                 </div>

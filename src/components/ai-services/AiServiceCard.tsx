@@ -12,6 +12,7 @@ interface AiServiceCardProps {
   statusLabels: Array<{text: string, color: string}>;
   flipped?: boolean;
   actionButtons?: React.ReactNode;
+  buttonType?: string;
 }
 
 const AiServiceCard: React.FC<AiServiceCardProps> = ({ 
@@ -21,22 +22,23 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
   image, 
   statusLabels, 
   flipped = false,
-  actionButtons
+  actionButtons,
+  buttonType
 }) => {
   
-  // Render service-specific buttons based on the title
+  // Render service-specific buttons based on the buttonType
   const renderButtons = () => {
     if (actionButtons) return actionButtons;
     
-    // Generate buttons based on the service type
-    switch (title) {
-      case "AI" && subtitle === "Hub":
+    // Generate buttons based on the buttonType
+    switch (buttonType) {
+      case "ai-hub":
         return (
           <Button className="bg-[#0070f3] hover:bg-[#0070f3]/90 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0070f3]/20">
             Try AI HUB
           </Button>
         );
-      case "AI Education":
+      case "language-tutor":
         return (
           <>
             <Button className="bg-[#0ef34b] hover:bg-[#0ef34b]/90 text-black font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0ef34b]/20">
@@ -47,19 +49,19 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
             </Button>
           </>
         );
-      case "AI" && subtitle === "Persona":
+      case "ai-persona":
         return (
           <Button className="bg-gradient-to-r from-[#d946ef] to-[#00aeff] hover:opacity-90 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#d946ef]/20">
             Learn More
           </Button>
         );
-      case "AI" && subtitle === "Fitness Coach":
+      case "fitness-coach":
         return (
           <Button className="bg-[#0ef34b] hover:bg-[#0ef34b]/90 text-black font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-[#0ef34b]/20">
             Start Training
           </Button>
         );
-      case "AI" && subtitle === "Receptionist":
+      case "receptionist":
         return (
           <Button variant="outline" className="border-[#f43f5e]/30 text-[#f43f5e] hover:bg-[#f43f5e]/10 font-medium px-6 py-2 rounded-lg transition-all duration-300 hover:-translate-y-1">
             Join Waitlist

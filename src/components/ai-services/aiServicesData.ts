@@ -9,10 +9,10 @@ interface AiService {
   statusLabels: Array<{text: string, color: string}>;
   flipped?: boolean;
   actionButtons?: ReactNode;
+  buttonType?: string; // Adding a buttonType property to help generate buttons in the AiServiceCard
 }
 
 // This function returns the AI services data
-// We'll define the actionButtons later in React components
 const getAiServices = (): AiService[] => {
   return [
     {
@@ -24,8 +24,7 @@ const getAiServices = (): AiService[] => {
         { text: "On Live", color: "bg-[#0ef34b]/20 text-[#0ef34b]" },
         { text: "MVP Ready", color: "bg-[#00aeff]/20 text-[#00aeff]" }
       ],
-      // We'll pass the actual ReactNode buttons from the AiServiceCard component
-      actionButtons: null
+      buttonType: "ai-hub"
     },
     {
       title: "AI Education",
@@ -37,7 +36,7 @@ const getAiServices = (): AiService[] => {
         { text: "Integrated", color: "bg-[#f0db4f]/20 text-[#f0db4f]" }
       ],
       flipped: true,
-      actionButtons: null
+      buttonType: "language-tutor"
     },
     {
       title: "AI",
@@ -47,7 +46,7 @@ const getAiServices = (): AiService[] => {
       statusLabels: [
         { text: "MVP Ready", color: "bg-[#00aeff]/20 text-[#00aeff]" }
       ],
-      actionButtons: null
+      buttonType: "ai-persona"
     },
     {
       title: "AI",
@@ -58,7 +57,7 @@ const getAiServices = (): AiService[] => {
         { text: "On Live", color: "bg-[#0ef34b]/20 text-[#0ef34b]" }
       ],
       flipped: true,
-      actionButtons: null
+      buttonType: "fitness-coach"
     },
     {
       title: "AI",
@@ -69,7 +68,7 @@ const getAiServices = (): AiService[] => {
         { text: "Coming Soon", color: "bg-[#f43f5e]/20 text-[#f43f5e]" },
         { text: "MVP Ready", color: "bg-[#00aeff]/20 text-[#00aeff]" }
       ],
-      actionButtons: null
+      buttonType: "receptionist"
     }
   ];
 };

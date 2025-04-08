@@ -17,9 +17,14 @@ const AiServicesHeader: React.FC = () => {
           <div className="h-px w-12 bg-gradient-to-r from-transparent to-[#00aeff]/50"></div>
         </div>
         
-        <p className="max-w-2xl text-white/60 text-lg">
-          EXPLORE THE GPTVERSE NEXT-GEN AI POWERED TOOLS
-        </p>
+        <div className="max-w-2xl text-center">
+          <p className="text-white/60 text-lg font-semibold">
+            EXPLORE THE GPTVERSE
+          </p>
+          <p className="text-white/60 text-lg">
+            NEXT-GEN AI POWERED TOOLS
+          </p>
+        </div>
         
         <div className="mt-6 h-px w-24 bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
       </div>

@@ -18,17 +18,17 @@ const ProductView = () => {
 
   // Handle model selection without scrolling
   const handleModelSelect = (modelId: string) => {
-    // Prevent default scrolling behavior
+    // Save scroll position
     const scrollPosition = window.scrollY;
     setSelectedModel(modelId);
     
-    // Make sure we maintain the scroll position
+    // Restore scroll position
     setTimeout(() => {
       window.scrollTo({top: scrollPosition});
-    }, 0);
+    }, 10);
   };
 
-  // Auto-rotate through models every 3 seconds only on desktop
+  // Auto-rotate through models only on desktop
   useEffect(() => {
     if (isMobile) return; // Don't auto-rotate on mobile
     
@@ -60,7 +60,7 @@ const ProductView = () => {
       </div>
       
       <div className="max-w-[1400px] mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[280px,1fr] gap-6">
+        <div className={`grid ${isMobile ? 'grid-cols-1 gap-4' : 'grid-cols-[280px,1fr] gap-6'}`}>
           {/* Model List Sidebar */}
           <ModelList 
             selectedModel={selectedModel}
@@ -70,7 +70,7 @@ const ProductView = () => {
           />
           
           {/* Main Content Area - Only Interactive Demo */}
-          <div className={`${isMobile ? 'min-h-[450px]' : 'min-h-[600px]'}`}>
+          <div className={`${isMobile ? 'min-h-[500px]' : 'min-h-[600px]'} w-full`}>
             <motion.div 
               className="glass-card p-4 md:p-6 backdrop-blur-xl border border-white/20 bg-[#06101a]/40 rounded-2xl overflow-hidden h-full shadow-lg relative"
               initial={{ y: 20, opacity: 0 }}

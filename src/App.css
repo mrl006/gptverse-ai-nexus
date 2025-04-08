@@ -74,7 +74,11 @@
   
   /* Fix for platform buttons display */
   .platform-button {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+    height: auto;
+    min-height: 80px;
+    width: 100% !important;
+    display: flex !important;
   }
   
   /* Ensure no horizontal overflow */

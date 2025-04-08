@@ -1,6 +1,8 @@
 
 import React, { useState, useEffect, useRef } from 'react';
-import { AiModels, demoMessages, extendedDemoMessages } from '@/data/aiModels';
+import { AiModels } from '@/data/aiModels';
+import { demoMessages, extendedDemoMessages } from '@/data/demoMessages';
+import { getIconByName } from '@/utils/iconUtils';
 import DemoHeader from './DemoHeader';
 import MessageList from './MessageList';
 import FileUploadPreview from './FileUploadPreview';

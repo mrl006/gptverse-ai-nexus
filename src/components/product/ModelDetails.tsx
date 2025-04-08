@@ -2,7 +2,8 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-import { AiModelProps, getIconByName } from '@/data/aiModels';
+import { AiModelProps } from '@/types/aiModel.types';
+import { getIconByName } from '@/utils/iconUtils';
 
 interface ModelDetailsProps {
   currentModel: AiModelProps;

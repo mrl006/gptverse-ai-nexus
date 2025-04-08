@@ -1,19 +1,8 @@
-import React from 'react';
-import { ArrowRight, BookOpen, FileText, HeartPulse, BrainCircuit, Laugh, Rocket, ImageIcon, ArrowUpRight, MessageSquare } from 'lucide-react';
 
-export interface AiModelProps {
-  id: string;
-  name: string;
-  iconName: string;
-  description: string;
-  by: string;
-  detailUrl?: string;
-  color: string;
-  buttonColor: string;
-}
+import { MessageType } from '@/types/aiModel.types';
 
 // Short, focused demo messages for each AI model
-export const demoMessages: Record<string, Array<{role: string, content: string}>> = {
+export const demoMessages: Record<string, Array<MessageType>> = {
   'language-tutor': [
     { role: 'user', content: "How can I improve my English pronunciation?" },
     { role: 'assistant', content: "Focus on these three key techniques:\n1) Listen to native speakers regularly\n2) Practice the 'th' sound by placing your tongue between your teeth\n3) Record yourself and compare with native speech" }
@@ -42,7 +31,7 @@ export const demoMessages: Record<string, Array<{role: string, content: string}>
 };
 
 // Extended but more focused demo messages for a better experience
-export const extendedDemoMessages: Record<string, Array<{role: string, content: string}>> = {
+export const extendedDemoMessages: Record<string, Array<MessageType>> = {
   'chatbot': [
     { role: 'user', content: 'Explain quantum computing simply' },
     { role: 'assistant', content: 'Quantum computing uses qubits that exist in multiple states simultaneously (unlike regular 0s and 1s). This allows for solving certain complex problems exponentially faster than classical computers.' },
@@ -98,100 +87,4 @@ export const extendedDemoMessages: Record<string, Array<{role: string, content: 
     { role: 'user', content: 'How do I make it more persuasive?' },
     { role: 'assistant', content: 'To increase persuasiveness:\n• Open with shared value/goal\n• Use specific data points\n• Address potential concerns\n• Highlight clear benefits\n• Create mild urgency\n• Make requested action simple' }
   ]
-};
-
-// AI Models array with colors for styling
-export const AiModels: AiModelProps[] = [
-  {
-    id: 'language-tutor',
-    name: 'Language Tutor',
-    iconName: 'BookOpen',
-    description: 'This AI specializes in teaching English through interactive lessons and personalized feedback, using advanced NLP to adapt to each learner\'s pace.',
-    by: '@gptverse',
-    detailUrl: 'https://hub.gptverse.org/ai/language-tutor',
-    color: 'bg-blue-800',
-    buttonColor: '#0ef34b'
-  },
-  {
-    id: 'pdf-reader',
-    name: 'PDF Reader',
-    iconName: 'FileText',
-    description: 'A sophisticated AI that reads and comprehends multiple PDFs, answering specific questions by extracting and summarizing content.',
-    by: '@gptverse',
-    detailUrl: 'https://hub.gptverse.org/ai/pdf-reader',
-    color: 'bg-orange-700',
-    buttonColor: '#00aeff'
-  },
-  {
-    id: 'healty',
-    name: 'Healty',
-    iconName: 'HeartPulse',
-    description: 'An advanced Health Assistant AI creating personalized wellness plans by analyzing real-time health data to meet your unique goals.',
-    by: '@gptverse',
-    detailUrl: 'https://hub.gptverse.org/ai/healty',
-    color: 'bg-teal-700',
-    buttonColor: '#0ef34b'
-  },
-  {
-    id: 'scriptwriter',
-    name: 'Scriptwriter',
-    iconName: 'BrainCircuit',
-    description: 'AI-powered scriptwriting assistant that helps you craft compelling narratives, dialogue, and story structures for various media formats.',
-    by: '@gptverse',
-    detailUrl: 'https://hub.gptverse.org/ai/scriptwriter',
-    color: 'bg-indigo-700',
-    buttonColor: '#8b5cf6'
-  },
-  {
-    id: 'comedian',
-    name: 'Comedian',
-    iconName: 'Laugh',
-    description: 'An AI with a sense of humor, generating jokes, comedic stories, and witty responses customized to your preferred style of comedy.',
-    by: '@gptverse',
-    detailUrl: 'https://hub.gptverse.org/ai/comedian',
-    color: 'bg-yellow-600',
-    buttonColor: '#d946ef'
-  },
-  {
-    id: 'alien',
-    name: 'Alien',
-    iconName: 'Rocket',
-    description: 'Communicates in unusual and extraterrestrial ways, offering unique perspectives and creative solutions from beyond human thinking.',
-    by: '@gptverse',
-    detailUrl: 'https://hub.gptverse.org/ai/alien',
-    color: 'bg-green-700',
-    buttonColor: '#00aeff'
-  },
-  {
-    id: 'image-generator',
-    name: 'Image Generator',
-    iconName: 'ImageIcon',
-    description: 'Creates stunning, high-quality images from text descriptions using advanced AI image generation techniques and style controls.',
-    by: '@gptverse',
-    detailUrl: 'https://hub.gptverse.org/ai/image-generator',
-    color: 'bg-purple-700',
-    buttonColor: '#d946ef'
-  }
-];
-
-// Helper function to get the icon component by name
-export const getIconByName = (name: string): React.ReactNode => {
-  switch (name) {
-    case 'BookOpen':
-      return <BookOpen className="h-5 w-5" />;
-    case 'FileText':
-      return <FileText className="h-5 w-5" />;
-    case 'HeartPulse':
-      return <HeartPulse className="h-5 w-5" />;
-    case 'BrainCircuit':
-      return <BrainCircuit className="h-5 w-5" />;
-    case 'Laugh':
-      return <Laugh className="h-5 w-5" />;
-    case 'Rocket':
-      return <Rocket className="h-5 w-5" />;
-    case 'ImageIcon':
-      return <ImageIcon className="h-5 w-5" />;
-    default:
-      return <MessageSquare className="h-5 w-5" />;
-  }
 };

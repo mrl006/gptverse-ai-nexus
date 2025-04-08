@@ -1,6 +1,7 @@
 
 import React, { useState, useRef } from 'react';
-import { AiModels, getIconByName } from '@/data/aiModels';
+import { AiModels } from '@/data/aiModels';
+import { getIconByName } from '@/utils/iconUtils';
 import ModelList from './product/ModelList';
 import DemoPreview from './product/DemoPreview';
 import { motion } from 'framer-motion';

@@ -1,7 +1,7 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
-import { AiModels, getIconByName } from '@/data/aiModels';
+import { AiModels } from '@/data/aiModels';
+import { getIconByName } from '@/utils/iconUtils';
 
 interface ModelListProps {
   selectedModel: string;

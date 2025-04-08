@@ -1,6 +1,7 @@
 
 import React, { useRef, useEffect, useState } from 'react';
 import { Card } from "@/components/ui/card";
+import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
 
 const Partners = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -129,36 +130,35 @@ const Partners = () => {
           ref={containerRef}
           className="relative overflow-hidden"
         >
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 lg:gap-8">
             {(activeCategory === 'strategic' ? strategicPartners : mediaPartners).map((partner, index) => (
-              <div 
-                key={index}
-                className="group"
-              >
-                <Card
-                  className="relative h-28 backdrop-blur-xl bg-[#06101a]/40 border border-[#0ef34b]/10 rounded-xl overflow-hidden
-                           hover:border-[#0ef34b]/30 transition-all duration-500 flex items-center justify-center
-                           shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(14,243,75,0.15)]"
-                >
-                  <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/20 to-[#00aeff]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
-                  
-                  <div className="flex flex-col items-center justify-center p-4 text-center">
-                    <div className="mb-2 h-12 flex items-center justify-center">
-                      <img 
-                        src={partner.logo} 
-                        alt={partner.name} 
-                        className="max-h-10 max-w-full filter brightness-0 invert opacity-80 group-hover:opacity-100 transition-all duration-300"
-                      />
-                    </div>
-                    <p className="font-medium text-white group-hover:text-[#0ef34b] transition-colors duration-300 text-sm">
-                      {partner.name}
-                    </p>
+              <HoverCard key={index}>
+                <HoverCardTrigger asChild>
+                  <div className="group cursor-pointer">
+                    <Card
+                      className="relative h-32 backdrop-blur-xl bg-[#06101a]/40 border border-[#0ef34b]/10 rounded-xl overflow-hidden
+                               hover:border-[#0ef34b]/30 transition-all duration-500 flex items-center justify-center
+                               shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(14,243,75,0.15)]"
+                    >
+                      <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/20 to-[#00aeff]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                      
+                      <div className="flex items-center justify-center p-4">
+                        <img 
+                          src={partner.logo} 
+                          alt={partner.name} 
+                          className="max-h-16 max-w-full brightness-100 invert opacity-90 group-hover:opacity-100 transition-all duration-300"
+                        />
+                      </div>
+                      
+                      {/* Corner dot */}
+                      <div className="absolute top-2 right-2 w-1 h-1 rounded-full bg-[#0ef34b]/50 group-hover:bg-[#0ef34b] transition-colors duration-300" />
+                    </Card>
                   </div>
-                  
-                  {/* Corner dot */}
-                  <div className="absolute top-2 right-2 w-1 h-1 rounded-full bg-[#0ef34b]/50 group-hover:bg-[#0ef34b] transition-colors duration-300" />
-                </Card>
-              </div>
+                </HoverCardTrigger>
+                <HoverCardContent className="w-auto p-2 backdrop-blur-xl bg-[#06101a]/90 border border-[#0ef34b]/20 text-white">
+                  {partner.name}
+                </HoverCardContent>
+              </HoverCard>
             ))}
           </div>
         </div>

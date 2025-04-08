@@ -42,8 +42,8 @@ const ChartConnectors: React.FC<ChartConnectorsProps> = ({ topDistributions, cha
                 y1="0"
                 x2={(anchorX - posX) * 1.5}
                 y2={(anchorY - posY) * 1.5}
-                stroke={entry.color}
-                strokeWidth="1.5"
+                stroke="rgba(255,255,255,0.2)"
+                strokeWidth="1"
                 strokeDasharray="2,2"
               />
             </svg>
@@ -53,8 +53,8 @@ const ChartConnectors: React.FC<ChartConnectorsProps> = ({ topDistributions, cha
               textAlign: textAlign as any,
               transform: textAlign === 'left' ? 'translateX(10px)' : 'translateX(-110%)',
             }}>
-              <div className="text-white font-bold text-sm">{entry.name}</div>
-              <div className="text-[#8B5CF6] font-mono text-sm">{entry.value}%</div>
+              <div className="text-white font-medium text-sm">{entry.name}</div>
+              <div className="text-white/70 font-mono text-sm">{entry.value}%</div>
             </div>
           </div>
         );

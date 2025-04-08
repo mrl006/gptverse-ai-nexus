@@ -2,7 +2,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { tokenDistribution } from './TokenDistributionData';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { ChartContainer } from "@/components/ui/chart";
 import PieChartVisualization from './PieChartVisualization';
 import DistributionTabContent from './DistributionTabContent';
 import VestingTabContent from './VestingTabContent';
@@ -10,8 +9,8 @@ import VestingTabContent from './VestingTabContent';
 const TokenomicsPieChart = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
-  const [chartWidth, setChartWidth] = useState(600);
-  const [chartHeight, setChartHeight] = useState(600);
+  const [chartWidth, setChartWidth] = useState(700); // Increased default size
+  const [chartHeight, setChartHeight] = useState(700); // Increased default size
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Responsive chart sizing
@@ -20,7 +19,7 @@ const TokenomicsPieChart = () => {
       if (containerRef.current) {
         const width = containerRef.current.clientWidth;
         setChartWidth(width);
-        setChartHeight(Math.min(600, width));
+        setChartHeight(Math.min(700, width)); // Increased max height
       }
     };
 
@@ -42,14 +41,15 @@ const TokenomicsPieChart = () => {
   // Custom sort tokenDistribution by value (descending)
   const sortedTokenDistribution = [...tokenDistribution].sort((a, b) => b.value - a.value);
   
-  // Filter to show only the top 4 allocations on smaller screens
+  // Filter to show only the top 4 allocations
   const topDistributions = sortedTokenDistribution.slice(0, 4);
 
   return (
     <div ref={containerRef} className="w-full">
-      <div className="neo-blur rounded-xl border border-white/10 p-6 md:p-8 backdrop-blur-xl overflow-hidden">
-        <div className="lg:grid lg:grid-cols-5 gap-8">
-          <div className="lg:col-span-3 relative">
+      <div className="bg-black/40 rounded-xl border border-white/10 p-6 backdrop-blur-sm overflow-hidden">
+        <div className="lg:grid lg:grid-cols-3 gap-8">
+          {/* Larger pie chart column */}
+          <div className="lg:col-span-2 relative">
             <PieChartVisualization 
               sortedTokenDistribution={sortedTokenDistribution}
               activeIndex={activeIndex}
@@ -60,15 +60,16 @@ const TokenomicsPieChart = () => {
             />
           </div>
           
-          <div className="lg:col-span-2 mt-8 lg:mt-0">
-            <div className="neo-blur p-6 rounded-xl backdrop-blur-md border border-white/10 h-full">
+          {/* Info column */}
+          <div className="lg:col-span-1 mt-8 lg:mt-0">
+            <div className="bg-black/40 p-4 rounded-xl backdrop-blur-sm border border-white/10 h-full">
               <Tabs defaultValue="distribution" className="w-full">
-                <TabsList className="w-full mb-6 bg-black/40 border border-white/5">
-                  <TabsTrigger value="distribution" className="flex-1 data-[state=active]:bg-[#8B5CF6]/20 data-[state=active]:text-white">Distribution</TabsTrigger>
-                  <TabsTrigger value="vesting" className="flex-1 data-[state=active]:bg-[#8B5CF6]/20 data-[state=active]:text-white">Vesting Schedule</TabsTrigger>
+                <TabsList className="w-full mb-4 bg-black/40 border border-white/5">
+                  <TabsTrigger value="distribution" className="flex-1">Distribution</TabsTrigger>
+                  <TabsTrigger value="vesting" className="flex-1">Vesting Schedule</TabsTrigger>
                 </TabsList>
                 
-                <TabsContent value="distribution">
+                <TabsContent value="distribution" className="h-[500px] overflow-y-auto pr-2 scrollbar-thin">
                   <DistributionTabContent 
                     sortedTokenDistribution={sortedTokenDistribution}
                     activeIndex={activeIndex}
@@ -78,7 +79,7 @@ const TokenomicsPieChart = () => {
                   />
                 </TabsContent>
                 
-                <TabsContent value="vesting">
+                <TabsContent value="vesting" className="h-[500px] overflow-y-auto pr-2 scrollbar-thin">
                   <VestingTabContent />
                 </TabsContent>
               </Tabs>

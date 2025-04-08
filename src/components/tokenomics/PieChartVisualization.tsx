@@ -25,53 +25,26 @@ const PieChartVisualization: React.FC<PieChartVisualizationProps> = ({
 }) => {
   return (
     <div className="aspect-square mx-auto relative">
-      {/* Dark overlay for better contrast */}
-      <div className="absolute inset-0 rounded-full bg-black/30 backdrop-blur-md transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[80%] h-[80%]"></div>
-      
-      {/* Glowing background effect */}
-      <div className="absolute inset-0 blur-[80px] opacity-30">
-        {sortedTokenDistribution.map((entry, index) => (
-          <div 
-            key={`glow-${index}`}
-            className="absolute rounded-full"
-            style={{
-              backgroundColor: entry.color,
-              width: `${entry.value * 4}%`,
-              height: `${entry.value * 4}%`,
-              top: `${20 + Math.sin(index) * 30}%`,
-              left: `${20 + Math.cos(index) * 30}%`,
-              opacity: 0.3,
-              filter: 'blur(40px)',
-            }}
-          />
-        ))}
-      </div>
+      {/* Clean, subtle background */}
+      <div className="absolute inset-0 rounded-full bg-black/30 backdrop-blur-sm transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2 w-[80%] h-[80%]"></div>
       
       <ResponsiveContainer width="100%" height="100%">
         <PieChart>
-          {/* SVG Filters for glow effects */}
-          <defs>
-            <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur stdDeviation="5" result="blur" />
-              <feComposite in="SourceGraphic" in2="blur" operator="over" />
-            </filter>
-          </defs>
-          
-          {/* Main pie chart */}
+          {/* Main pie chart with simpler design */}
           <Pie
             activeIndex={activeIndex !== null ? activeIndex : undefined}
             activeShape={PieChartActiveShape}
             data={sortedTokenDistribution}
             cx="50%"
             cy="50%"
-            innerRadius="38%"
-            outerRadius="70%"
+            innerRadius="40%"
+            outerRadius="75%"
             paddingAngle={1}
             dataKey="value"
             onMouseEnter={onPieEnter}
             onMouseLeave={onPieLeave}
-            stroke="rgba(0,0,0,0.5)"
-            strokeWidth={2}
+            stroke="rgba(0,0,0,0.2)"
+            strokeWidth={1}
           >
             {sortedTokenDistribution.map((entry, index) => (
               <Cell
@@ -79,7 +52,7 @@ const PieChartVisualization: React.FC<PieChartVisualizationProps> = ({
                 fill={entry.color}
                 style={{
                   filter: activeIndex === index 
-                    ? `drop-shadow(0 0 8px ${entry.color})`
+                    ? `drop-shadow(0 0 4px ${entry.color})`
                     : 'none',
                   transition: 'all 0.3s ease',
                 }}
@@ -87,9 +60,9 @@ const PieChartVisualization: React.FC<PieChartVisualizationProps> = ({
             ))}
           </Pie>
           
-          {/* Center logo */}
+          {/* Center logo - simplified */}
           <foreignObject x="35%" y="35%" width="30%" height="30%">
-            <div className="w-full h-full rounded-full flex flex-col items-center justify-center bg-[#06101a] border-2 border-[#8B5CF6]/30 shadow-lg shadow-[#8B5CF6]/10">
+            <div className="w-full h-full rounded-full flex flex-col items-center justify-center bg-[#06101a] border border-white/10 shadow-lg">
               <span className="text-white text-xs font-medium opacity-70">MAX SUPPLY</span>
               <span className="text-white text-sm md:text-base font-bold">1,000,000,000</span>
             </div>

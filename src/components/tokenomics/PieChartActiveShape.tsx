@@ -11,24 +11,23 @@ const PieChartActiveShape = (props: any) => {
         cx={cx}
         cy={cy}
         innerRadius={innerRadius}
-        outerRadius={outerRadius + 8}
+        outerRadius={outerRadius + 5}
         startAngle={startAngle}
         endAngle={endAngle}
         fill={fill}
         stroke={fill}
-        strokeWidth={2}
+        strokeWidth={1}
         strokeLinecap="round"
-        filter="url(#glow)"
       />
       <Sector
         cx={cx}
         cy={cy}
         startAngle={startAngle}
         endAngle={endAngle}
-        innerRadius={outerRadius + 10}
-        outerRadius={outerRadius + 14}
+        innerRadius={outerRadius + 7}
+        outerRadius={outerRadius + 10}
         fill={fill}
-        filter="url(#glow)"
+        opacity={0.6}
       />
     </g>
   );

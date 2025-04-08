@@ -1,56 +1,36 @@
 
 import React, { useRef, useEffect, useState } from 'react';
-import { Shield, Globe, Building2, Award, ExternalLink } from 'lucide-react';
 import { Card } from "@/components/ui/card";
 
 const Partners = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState<'strategic' | 'media'>('strategic');
   
-  // Strategic partners data
+  // Strategic partners data with logo paths
   const strategicPartners = [
-    { name: 'BNB Chain', category: 'blockchain' },
-    { name: 'SKALE', category: 'blockchain' },
-    { name: 'NEAR', category: 'blockchain' },
-    { name: 'Psalms Capital', category: 'investor' },
-    { name: 'Mises Browser', category: 'app' },
-    { name: 'Dmail', category: 'app' },
-    { name: 'GPT360', category: 'ai' },
-    { name: 'MAR3.AI', category: 'ai' },
-    { name: 'HeLa', category: 'tech' },
-    { name: 'TekTias', category: 'tech' },
-    { name: 'Dot.Gaming', category: 'gaming' },
-    { name: 'Collably Network', category: 'network' },
-    { name: 'Eesee', category: 'app' },
-    { name: 'List My Project', category: 'service' },
+    { name: 'BNB Chain', logo: '/lovable-uploads/7465b83d-7726-4b8b-b81e-746efde99eab.png' },
+    { name: 'SKALE', logo: '/lovable-uploads/ac74e1a5-170c-423f-ad5d-a55f457eb113.png' },
+    { name: 'NEAR', logo: '/lovable-uploads/bd6d7324-fe18-46a0-a9d0-8c50071a8861.png' },
+    { name: 'Psalms Capital', logo: '/lovable-uploads/e685e754-e9df-4f76-8c58-57db9313ec8d.png' },
+    { name: 'Mises Browser', logo: '/lovable-uploads/e0137b19-a304-4537-9ef3-e39e89f1d6a4.png' },
+    { name: 'Dmail', logo: '/lovable-uploads/90260616-99d1-4348-a347-ac152303bc6b.png' },
+    { name: 'GPT360', logo: '/lovable-uploads/9bc5b5b3-20a2-4c3a-b06d-f9cf0479ead2.png' },
+    { name: 'MAR3.AI', logo: '/lovable-uploads/878d2669-549c-4215-89d4-f3c4ea26f522.png' },
+    { name: 'HeLa', logo: '/lovable-uploads/7584ec3b-992e-4e52-b21c-bf84eea5d450.png' },
+    { name: 'TekTias', logo: '/lovable-uploads/96d8563f-3960-4b65-80a2-8287211f6469.png' },
+    { name: 'Dot.Gaming', logo: '/lovable-uploads/6632b75b-7b80-417a-9064-768f4ab4d5cf.png' },
+    { name: 'Collably Network', logo: '/lovable-uploads/238acd87-6b66-45b2-b6f4-7b70533a1f13.png' },
+    { name: 'Eesee', logo: '/lovable-uploads/f4739a85-77c7-4402-8528-3d16afca1259.png' },
+    { name: 'List My Project', logo: '/lovable-uploads/6acb1d46-209d-4450-b48e-5ec82fa59a10.png' },
   ];
   
-  // Media partners data
+  // Media partners data with logo paths
   const mediaPartners = [
-    { name: 'Cassava', category: 'media' },
-    { name: 'Trend3', category: 'media' },
-    { name: 'Port3', category: 'media' },
-    { name: 'Fomein', category: 'media' },
+    { name: 'Cassava', logo: '/lovable-uploads/0f079dac-6a27-4f29-973c-e59b2510eaee.png' },
+    { name: 'Trend3', logo: '/lovable-uploads/36844903-9eb1-456c-8520-ce13cd802585.png' },
+    { name: 'Port3', logo: '/lovable-uploads/7e5ce84b-bf10-48c0-8606-2f3aac895e43.png' },
+    { name: 'Fomein', logo: '/lovable-uploads/b5628de2-4f1b-4aad-920d-f7d0bc64f191.png' },
   ];
-  
-  const getPartnerIcon = (category: string) => {
-    switch(category) {
-      case 'blockchain':
-        return <Shield className="h-5 w-5 text-[#0ef34b]" />;
-      case 'investor':
-        return <Award className="h-5 w-5 text-[#00aeff]" />;
-      case 'app':
-      case 'service':
-        return <ExternalLink className="h-5 w-5 text-[#d946ef]" />;
-      case 'ai':
-      case 'tech':
-        return <Building2 className="h-5 w-5 text-[#0ef34b]" />;
-      case 'media':
-      case 'network':
-      default:
-        return <Globe className="h-5 w-5 text-[#00aeff]" />;
-    }
-  };
   
   useEffect(() => {
     if (!containerRef.current) return;
@@ -163,10 +143,16 @@ const Partners = () => {
                   <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/20 to-[#00aeff]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                   
                   <div className="flex flex-col items-center justify-center p-4 text-center">
-                    <div className="mb-2">
-                      {getPartnerIcon(partner.category)}
+                    <div className="mb-2 h-12 flex items-center justify-center">
+                      <img 
+                        src={partner.logo} 
+                        alt={partner.name} 
+                        className="max-h-10 max-w-full filter brightness-0 invert opacity-80 group-hover:opacity-100 transition-all duration-300"
+                      />
                     </div>
-                    <p className="font-medium text-white group-hover:text-[#0ef34b] transition-colors duration-300 text-sm md:text-base">{partner.name}</p>
+                    <p className="font-medium text-white group-hover:text-[#0ef34b] transition-colors duration-300 text-sm">
+                      {partner.name}
+                    </p>
                   </div>
                   
                   {/* Corner dot */}

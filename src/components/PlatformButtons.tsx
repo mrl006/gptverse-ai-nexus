@@ -29,7 +29,7 @@ const PlatformButtons = () => {
   ];
 
   return (
-    <div className={`flex ${isMobile ? 'flex-col' : 'overflow-x-auto scrollbar-none'} py-2 mb-6 w-full max-w-6xl mx-auto px-4 gap-4`}>
+    <div className={`flex ${isMobile ? 'grid grid-cols-2' : 'overflow-x-auto scrollbar-none'} py-2 mb-6 w-full max-w-6xl mx-auto px-4 gap-4`}>
       {platforms.map((platform, index) => (
         <button
           key={index}
@@ -37,7 +37,7 @@ const PlatformButtons = () => {
                     border border-white/10 rounded-lg
                     px-4 py-3 hover:bg-[#040812]/80 transition-all duration-300
                     flex items-center ${isMobile ? 'justify-between' : 'justify-center'} gap-3 ${isMobile ? 'w-full' : 'min-w-[180px] flex-1'}
-                    relative overflow-hidden group`}
+                    relative overflow-hidden group mb-3`}
         >
           {/* Minimal glassmorphism effects */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30"></div>
@@ -49,7 +49,7 @@ const PlatformButtons = () => {
           
           {/* Button Content */}
           <div className="relative z-10 flex items-center gap-3">
-            <div className="w-12 h-12 bg-[#040812]/80 rounded-full flex items-center justify-center 
+            <div className="w-10 h-10 bg-[#040812]/80 rounded-full flex items-center justify-center 
                           border border-white/20
                           transition-all duration-500 overflow-hidden p-1">
               <img 
@@ -61,7 +61,7 @@ const PlatformButtons = () => {
             
             <span className="text-white font-mono">
               <div className="text-xs text-white/60">{platform.text}</div>
-              <div className="font-bold tracking-wider">{platform.name}</div>
+              <div className="text-sm font-bold tracking-wider">{platform.name}</div>
             </span>
           </div>
           

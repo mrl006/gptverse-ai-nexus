@@ -33,7 +33,7 @@ const ModelList: React.FC<ModelListProps> = ({
   return (
     <>
       {/* Mobile Header & Toggle */}
-      <div className="lg:hidden mb-6 flex flex-col gap-4">
+      <div className="lg:hidden mb-4 flex flex-col gap-4">
         <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#d946ef] via-[#8b5cf6] to-[#0ef34b]">
           AI HUB
         </h2>
@@ -47,9 +47,9 @@ const ModelList: React.FC<ModelListProps> = ({
       </div>
       
       {/* Sidebar Navigation */}
-      {(!isMobile || showSidebar) && (
+      {(showSidebar || !isMobile) && (
         <motion.div 
-          className={`${isMobile ? 'border-b border-white/10 pb-6 mb-6' : 'lg:border-r lg:border-white/10 pr-4'} relative`}
+          className={`${isMobile ? 'border-b border-white/10 pb-4 mb-6' : 'lg:border-r lg:border-white/10 pr-4'} relative`}
           variants={isMobile ? containerVariants : {}}
           initial={isMobile ? "hidden" : "visible"}
           animate="visible"

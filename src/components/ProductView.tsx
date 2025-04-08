@@ -5,12 +5,14 @@ import { getIconByName } from '@/utils/iconUtils';
 import ModelList from './product/ModelList';
 import DemoPreview from './product/DemoPreview';
 import { motion } from 'framer-motion';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 // Main ProductView component
 const ProductView = () => {
   const [selectedModel, setSelectedModel] = useState<string>('pdf-reader');
   const [showSidebar, setShowSidebar] = useState(true);
   const viewRef = useRef<HTMLDivElement>(null);
+  const isMobile = useIsMobile();
   
   const currentModel = AiModels.find(model => model.id === selectedModel) || AiModels[0];
 
@@ -26,8 +28,10 @@ const ProductView = () => {
     }, 0);
   };
 
-  // Auto-rotate through models every 3 seconds
+  // Auto-rotate through models every 3 seconds only on desktop
   useEffect(() => {
+    if (isMobile) return; // Don't auto-rotate on mobile
+    
     const autoRotateInterval = setInterval(() => {
       const currentIndex = AiModels.findIndex(model => model.id === selectedModel);
       const nextIndex = (currentIndex + 1) % AiModels.length;
@@ -35,13 +39,13 @@ const ProductView = () => {
     }, 3000);
     
     return () => clearInterval(autoRotateInterval);
-  }, [selectedModel]);
+  }, [selectedModel, isMobile]);
 
   return (
     <motion.section 
       ref={viewRef} 
       id="products" 
-      className="section-anchor py-16 relative overflow-hidden outline-none" 
+      className="section-anchor py-8 md:py-16 relative overflow-hidden outline-none" 
       tabIndex={-1}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
@@ -66,9 +70,9 @@ const ProductView = () => {
           />
           
           {/* Main Content Area - Only Interactive Demo */}
-          <div className="min-h-[600px]">
+          <div className={`${isMobile ? 'min-h-[450px]' : 'min-h-[600px]'}`}>
             <motion.div 
-              className="glass-card p-6 backdrop-blur-xl border border-white/20 bg-[#06101a]/40 rounded-2xl overflow-hidden h-full shadow-lg relative"
+              className="glass-card p-4 md:p-6 backdrop-blur-xl border border-white/20 bg-[#06101a]/40 rounded-2xl overflow-hidden h-full shadow-lg relative"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}

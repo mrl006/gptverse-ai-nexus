@@ -10,7 +10,7 @@ export const tokenDistribution: TokenDistributionItem[] = [
   { 
     name: 'Ecosystem Rewards', 
     value: 15, 
-    color: '#0EF34B',
+    color: '#8B5CF6',
     description: 'Incentives for users, developers and community participants' 
   },
   { 
@@ -34,7 +34,7 @@ export const tokenDistribution: TokenDistributionItem[] = [
   { 
     name: 'Team', 
     value: 12, 
-    color: '#8B5CF6',
+    color: '#6E59A5',
     description: 'Core team allocation with 2-year vesting'
   },
   { 
@@ -46,13 +46,13 @@ export const tokenDistribution: TokenDistributionItem[] = [
   { 
     name: 'Private', 
     value: 8, 
-    color: '#FFFFFF',
+    color: '#F0F0F0',
     description: 'Strategic investors with 1-year vesting'
   },
   { 
     name: 'Public', 
     value: 5, 
-    color: '#F59E0B',
+    color: '#F97316',
     description: 'Public sale with no vesting'
   },
   { 

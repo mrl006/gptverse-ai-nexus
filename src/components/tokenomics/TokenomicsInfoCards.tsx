@@ -4,9 +4,9 @@ import React from 'react';
 const TokenomicsInfoCards = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
-      <div className="glass-card bg-[rgba(14,243,75,0.05)] p-6 border border-[#0ef34b]/20 hover:border-[#0ef34b]/40 transition-colors duration-300 backdrop-blur-md rounded-2xl">
+      <div className="neo-blur p-6 border border-[#8B5CF6]/20 hover:border-[#8B5CF6]/40 transition-colors duration-300 backdrop-blur-md rounded-2xl">
         <h3 className="text-xl font-semibold text-white/90 mb-4 flex items-center">
-          <span className="inline-block w-8 h-8 rounded-full bg-[#0ef34b]/20 text-[#0ef34b] flex items-center justify-center mr-3">
+          <span className="inline-block w-8 h-8 rounded-full bg-[#8B5CF6]/20 text-[#8B5CF6] flex items-center justify-center mr-3">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/>
               <path d="M12 14v3"/>
@@ -36,9 +36,9 @@ const TokenomicsInfoCards = () => {
         </div>
       </div>
       
-      <div className="glass-card bg-[rgba(0,174,255,0.05)] p-6 border border-[#00aeff]/20 hover:border-[#00aeff]/40 transition-colors duration-300 backdrop-blur-md rounded-2xl">
+      <div className="neo-blur p-6 border border-[#D946EF]/20 hover:border-[#D946EF]/40 transition-colors duration-300 backdrop-blur-md rounded-2xl">
         <h3 className="text-xl font-semibold text-white/90 mb-4 flex items-center">
-          <span className="inline-block w-8 h-8 rounded-full bg-[#00aeff]/20 text-[#00aeff] flex items-center justify-center mr-3">
+          <span className="inline-block w-8 h-8 rounded-full bg-[#D946EF]/20 text-[#D946EF] flex items-center justify-center mr-3">
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
               <line x1="12" y1="20" x2="12" y2="10"/>
               <line x1="18" y1="20" x2="18" y2="4"/>

@@ -32,7 +32,7 @@
 
 @layer base {
   * {
-    @apply border-border selection:bg-[#0ef34b]/20 selection:text-white;
+    @apply border-border selection:bg-[#8B5CF6]/20 selection:text-white;
   }
   
   html {
@@ -54,8 +54,13 @@
     @apply backdrop-blur-md bg-[#06101a]/40 border border-white/20 rounded-xl shadow-lg;
   }
   
+  .neo-blur {
+    @apply backdrop-blur-xl bg-black/25 border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  
   .neo-button {
-    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#0ef34b] to-[#00aeff] hover:brightness-110 text-black hover:shadow-lg hover:shadow-[#0ef34b]/20 active:scale-[0.98] font-mono;
+    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#8B5CF6] to-[#D946EF] hover:brightness-110 text-black hover:shadow-lg hover:shadow-[#8B5CF6]/20 active:scale-[0.98] font-mono;
   }
   
   .section-anchor {
@@ -174,3 +179,14 @@
 .animate-pulse-slow {
   animation: pulse-slow 10s ease-in-out infinite;
 }
+
+/* 3D effect for pie chart */
+.pie-3d {
+  transform: perspective(1000px) rotateX(30deg) rotateZ(-5deg);
+  transition: transform 0.5s ease;
+}
+
+.pie-3d:hover {
+  transform: perspective(1000px) rotateX(25deg) rotateZ(-2deg);
+}
+

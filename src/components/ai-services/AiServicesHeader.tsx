@@ -3,11 +3,11 @@ import React from 'react';
 
 const AiServicesHeader: React.FC = () => {
   return (
-    <div className="text-center mb-12 relative">
+    <div className="text-center mb-8 relative">
       <div className="flex flex-col items-center">
         <h2 className="text-4xl md:text-5xl font-bold mb-4 relative">
           <span className="bg-gradient-to-r from-[#0ef34b] via-[#00aeff] to-[#d946ef] bg-clip-text text-transparent">
-            AI SERVICES
+            AI SERVICES ROADMAP
           </span>
         </h2>
         
@@ -18,15 +18,10 @@ const AiServicesHeader: React.FC = () => {
         </div>
         
         <div className="max-w-2xl text-center">
-          <p className="text-white/60 text-lg font-semibold">
-            EXPLORE THE GPTVERSE
-          </p>
-          <p className="text-white/60 text-lg">
-            NEXT-GEN AI POWERED TOOLS
+          <p className="text-white/80 text-lg">
+            Our comprehensive plan for building the next generation of AI services
           </p>
         </div>
-        
-        <div className="mt-6 h-px w-24 bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
       </div>
     </div>
   );

@@ -94,16 +94,6 @@ const Tokenomics = () => {
           </div>
         </div>
       </div>
-
-      {/* Add neo-blur utility class to index.css */}
-      <style jsx global>{`
-        .neo-blur {
-          background: rgba(0, 0, 0, 0.25);
-          backdrop-filter: blur(20px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-        }
-      `}</style>
     </section>
   );
 };

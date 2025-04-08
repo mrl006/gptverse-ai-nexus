@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,16 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				gptv: {
+					'blue': '#00AEFF',
+					'teal': '#0FF5CE',
+					'magenta': '#D946EF',
+					'green': '#0EF34B',
+					'dark': '#0A0A0F',
+					'darker': '#050508',
+					'gray': '#1E1E26',
+					'light-gray': '#2C2C38'
 				}
 			},
 			borderRadius: {
@@ -70,27 +81,69 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' },
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' },
+				},
+				'float': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'50%': { transform: 'translateY(-10px)' },
+				},
+				'pulse-glow': {
+					'0%, 100%': { 
+						opacity: '1',
+						filter: 'brightness(1)',
 					},
-					to: {
-						height: '0'
-					}
-				}
+					'50%': { 
+						opacity: '0.8',
+						filter: 'brightness(1.2)',
+					},
+				},
+				'rotate-slow': {
+					'0%': { transform: 'rotate(0deg)' },
+					'100%': { transform: 'rotate(360deg)' },
+				},
+				'text-reveal': {
+					'0%': { transform: 'translateY(20px)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' },
+				},
+				'gradient-background': {
+					'0%': { backgroundPosition: '0% 50%' },
+					'50%': { backgroundPosition: '100% 50%' },
+					'100%': { backgroundPosition: '0% 50%' },
+				},
+				'text-gradient': {
+					to: { backgroundPosition: '200% center' },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-glow': 'pulse-glow 4s ease-in-out infinite',
+				'rotate-slow': 'rotate-slow 12s linear infinite',
+				'text-reveal': 'text-reveal 0.8s ease forwards',
+				'text-reveal-delay-1': 'text-reveal 0.8s 0.2s ease forwards',
+				'text-reveal-delay-2': 'text-reveal 0.8s 0.4s ease forwards',
+				'gradient-background': 'gradient-background 15s ease infinite',
+				'text-gradient': 'text-gradient 3s ease infinite',
+			},
+			fontFamily: {
+				'poppins': ['Poppins', 'sans-serif'],
+			},
+			backgroundImage: {
+				'hero-pattern': 'radial-gradient(circle at 30% 30%, rgba(14, 243, 75, 0.15) 0%, transparent 30%), radial-gradient(circle at 70% 60%, rgba(217, 70, 239, 0.1) 0%, transparent 30%), radial-gradient(circle at 50% 50%, rgba(0, 174, 255, 0.05) 0%, rgba(10, 10, 15, 1) 70%)',
+				'card-gradient': 'linear-gradient(135deg, rgba(30, 30, 38, 0.5) 0%, rgba(46, 46, 56, 0.2) 100%)',
+				'blue-gradient': 'linear-gradient(90deg, #00AEFF 0%, #0FF5CE 100%)',
+				'magenta-gradient': 'linear-gradient(90deg, #D946EF 0%, #FF6B6B 100%)',
+				'button-gradient': 'linear-gradient(90deg, rgba(14, 243, 75, 0.8) 0%, rgba(0, 174, 255, 0.8) 100%)',
+				'text-gradient': 'linear-gradient(90deg, #0FF5CE, #00AEFF, #D946EF, #0FF5CE)',
 			}
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
 } satisfies Config;
+

@@ -2,7 +2,6 @@
 import React from 'react';
 import RoadmapItem from './roadmap/RoadmapItem';
 import RoadmapHeader from './roadmap/RoadmapHeader';
-import RoadmapRobot from './roadmap/RoadmapRobot';
 
 const Roadmap = () => {
   const roadmapData = [
@@ -130,11 +129,11 @@ const Roadmap = () => {
       title: "Strategic Growth & Engagement",
       status: "planned" as const,
       description: [
-        "🔥 Burn Campaign Launch",
-        "🎤 AMA Events",
-        "🤝 New Key Ecosystem Partnerships",
-        "🌐 Ambassador Program Launch",
-        "🧠 AI Market Analyser Launch on AI Hub"
+        "Burn Campaign Launch",
+        "AMA Events",
+        "New Key Ecosystem Partnerships",
+        "Ambassador Program Launch",
+        "AI Market Analyser Launch on AI Hub"
       ]
     },
     {
@@ -142,10 +141,10 @@ const Roadmap = () => {
       title: "Community & Payment Solutions",
       status: "planned" as const,
       description: [
-        "🗣️ Get Community Feedbacks",
-        "🌍 Global KOL Campaigns",
-        "🔥 2nd Burn Campaign Announcement",
-        "💳 $GPTV Token Based Payment and Subscription System"
+        "Get Community Feedbacks",
+        "Global KOL Campaigns",
+        "2nd Burn Campaign Announcement",
+        "$GPTV Token Based Payment and Subscription System"
       ]
     }
   ];
@@ -159,28 +158,22 @@ const Roadmap = () => {
       <div className="container mx-auto px-4 relative">
         <RoadmapHeader />
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
-          <div className="lg:col-span-4">
-            <RoadmapRobot />
-          </div>
-          
-          <div className="lg:col-span-8">
-            <div className="space-y-4">
-              {roadmapData.map((item, index) => (
-                <RoadmapItem
-                  key={index}
-                  title={item.title}
-                  description={item.description}
-                  period={item.period}
-                  status={item.status}
-                />
-              ))}
-              
-              <div className="text-center">
-                <div className="inline-block glass-card bg-[#040813]/50 backdrop-blur-md border border-white/5 px-6 py-3 rounded-xl">
-                  <span className="text-alien-neon mr-2">•••</span>
-                  <span className="text-white/70">More exciting milestones coming soon</span>
-                </div>
+        <div className="max-w-4xl mx-auto">
+          <div className="space-y-4">
+            {roadmapData.map((item, index) => (
+              <RoadmapItem
+                key={index}
+                title={item.title}
+                description={item.description}
+                period={item.period}
+                status={item.status}
+              />
+            ))}
+            
+            <div className="text-center">
+              <div className="inline-block glass-card bg-[#040813]/50 backdrop-blur-md border border-white/5 px-6 py-3 rounded-xl">
+                <span className="text-alien-neon mr-2">•••</span>
+                <span className="text-white/70">More exciting milestones coming soon</span>
               </div>
             </div>
           </div>

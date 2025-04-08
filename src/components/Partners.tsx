@@ -2,27 +2,30 @@
 import React, { useRef, useEffect, useState } from 'react';
 import { Card } from "@/components/ui/card";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
+import { Skeleton } from "@/components/ui/skeleton";
 
 const Partners = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [activeCategory, setActiveCategory] = useState<'strategic' | 'media'>('strategic');
+  const [imagesLoaded, setImagesLoaded] = useState(false);
   
-  // Strategic partners data with logo paths
+  // Strategic partners data with logo paths (in the specified order)
   const strategicPartners = [
-    { name: 'BNB Chain', logo: '/lovable-uploads/7465b83d-7726-4b8b-b81e-746efde99eab.png' },
-    { name: 'SKALE', logo: '/lovable-uploads/ac74e1a5-170c-423f-ad5d-a55f457eb113.png' },
-    { name: 'NEAR', logo: '/lovable-uploads/bd6d7324-fe18-46a0-a9d0-8c50071a8861.png' },
-    { name: 'Psalms Capital', logo: '/lovable-uploads/e685e754-e9df-4f76-8c58-57db9313ec8d.png' },
-    { name: 'Mises Browser', logo: '/lovable-uploads/e0137b19-a304-4537-9ef3-e39e89f1d6a4.png' },
-    { name: 'Dmail', logo: '/lovable-uploads/90260616-99d1-4348-a347-ac152303bc6b.png' },
-    { name: 'GPT360', logo: '/lovable-uploads/9bc5b5b3-20a2-4c3a-b06d-f9cf0479ead2.png' },
-    { name: 'MAR3.AI', logo: '/lovable-uploads/878d2669-549c-4215-89d4-f3c4ea26f522.png' },
-    { name: 'HeLa', logo: '/lovable-uploads/7584ec3b-992e-4e52-b21c-bf84eea5d450.png' },
-    { name: 'TekTias', logo: '/lovable-uploads/96d8563f-3960-4b65-80a2-8287211f6469.png' },
-    { name: 'Dot.Gaming', logo: '/lovable-uploads/6632b75b-7b80-417a-9064-768f4ab4d5cf.png' },
-    { name: 'Collably Network', logo: '/lovable-uploads/238acd87-6b66-45b2-b6f4-7b70533a1f13.png' },
-    { name: 'Eesee', logo: '/lovable-uploads/f4739a85-77c7-4402-8528-3d16afca1259.png' },
-    { name: 'List My Project', logo: '/lovable-uploads/6acb1d46-209d-4450-b48e-5ec82fa59a10.png' },
+    { name: 'BNB Chain', logo: '/lovable-uploads/6d854a68-604d-472f-8dbe-4e6b7d475e7a.png' },
+    { name: 'SKALE', logo: '/lovable-uploads/d8a647fd-5f31-4013-b469-097d203a60fd.png' },
+    { name: 'NEAR', logo: '/lovable-uploads/317b56f0-d28a-4c8a-ab0c-42ab95055aa8.png' },
+    { name: 'MAR3.AI', logo: '/lovable-uploads/a935d826-7054-473c-aacc-e875e4d9804c.png' },
+    { name: 'HeLa', logo: '/lovable-uploads/12d550aa-d6cf-4f07-b0a8-2120445d6a43.png' },
+    { name: 'Dot.Gaming', logo: '/lovable-uploads/a39e0e99-9dbf-49ca-82d5-a3495f70bc94.png' },
+    { name: 'GPT360', logo: '/lovable-uploads/fe5e44f5-b63d-4cc9-9fe6-2a469d3202fc.png' },
+    { name: 'Microsoft', logo: '/lovable-uploads/35e47c68-5561-4e66-b795-7a9a33ac4e3d.png' },
+    { name: 'Dmail', logo: '/lovable-uploads/9639b11a-56fd-495c-9d4a-08734d2726ec.png' },
+    { name: 'Mises Browser', logo: '/lovable-uploads/3ce93ed8-1d38-4bc9-b587-902d5d692ba8.png' },
+    { name: 'TekTias', logo: '/lovable-uploads/7c8de1ed-8d26-4b86-a4f7-db09b5cfc022.png' },
+    { name: 'Collably Network', logo: '/lovable-uploads/bd9dd7a7-42a6-4830-847e-06ae935509b1.png' },
+    { name: 'Psalms Capital', logo: '/lovable-uploads/62e7d3bd-0b41-49f8-b500-5e4f45fe3514.png' },
+    { name: 'List My Project', logo: '/lovable-uploads/1e5eee3e-a8a9-4eb9-9efd-a4897f4178d4.png' },
+    { name: 'Eesee', logo: '/lovable-uploads/30ba900d-446a-4c45-b435-b8d41893f15d.png' },
   ];
   
   // Media partners data with logo paths
@@ -32,6 +35,16 @@ const Partners = () => {
     { name: 'Port3', logo: '/lovable-uploads/7e5ce84b-bf10-48c0-8606-2f3aac895e43.png' },
     { name: 'Fomein', logo: '/lovable-uploads/b5628de2-4f1b-4aad-920d-f7d0bc64f191.png' },
   ];
+
+  useEffect(() => {
+    // Set imagesLoaded to true when component mounts
+    // In a real app, you'd want to track each image load
+    const timer = setTimeout(() => {
+      setImagesLoaded(true);
+    }, 800);
+    
+    return () => clearTimeout(timer);
+  }, []);
   
   useEffect(() => {
     if (!containerRef.current) return;
@@ -142,13 +155,21 @@ const Partners = () => {
                     >
                       <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/20 to-[#00aeff]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                       
-                      <div className="flex items-center justify-center p-4">
-                        <img 
-                          src={partner.logo} 
-                          alt={partner.name} 
-                          className="max-h-16 max-w-full brightness-100 invert opacity-90 group-hover:opacity-100 transition-all duration-300"
-                        />
-                      </div>
+                      {!imagesLoaded ? (
+                        <Skeleton className="h-16 w-24 bg-gray-700/30" />
+                      ) : (
+                        <div className="flex items-center justify-center p-4">
+                          <img 
+                            src={partner.logo} 
+                            alt={partner.name} 
+                            className="max-h-16 max-w-full brightness-100 invert opacity-90 group-hover:opacity-100 transition-all duration-300"
+                            style={{ 
+                              filter: "brightness(0) invert(1)",
+                              objectFit: "contain" 
+                            }}
+                          />
+                        </div>
+                      )}
                       
                       {/* Corner dot */}
                       <div className="absolute top-2 right-2 w-1 h-1 rounded-full bg-[#0ef34b]/50 group-hover:bg-[#0ef34b] transition-colors duration-300" />
@@ -176,3 +197,4 @@ const Partners = () => {
 };
 
 export default Partners;
+

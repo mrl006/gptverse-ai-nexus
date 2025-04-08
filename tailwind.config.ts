@@ -63,21 +63,15 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				gptv: {
-					'blue': '#00AEFF',
-					'teal': '#0FF5CE',
-					'magenta': '#D946EF',
-					'green': '#0EF34B',
-					'dark': '#0A0A0F',
-					'darker': '#050508',
-					'navy': '#101028',
-					'deep-navy': '#080818',
-					'charcoal': '#12121A',
-					'gray': '#1E1E26',
-					'light-gray': '#2C2C38',
-					'neon-blue': '#00C2FF',
-					'neon-cyan': '#00FFEA',
-					'neon-violet': '#9D4EDD'
+				alien: {
+					'neon': '#0ef34b',
+					'blue': '#00aeff',
+					'cyan': '#0FF5CE',
+					'magenta': '#d946ef',
+					'dark': '#040812',
+					'darker': '#03060a',
+					'navy': '#06101a',
+					'deep-navy': '#051118',
 				}
 			},
 			borderRadius: {
@@ -135,10 +129,10 @@ export default {
 				},
 				'breath': {
 					'0%, 100%': { 
-						boxShadow: '0 0 25px rgba(0, 194, 255, 0.4)'
+						boxShadow: '0 0 25px rgba(14, 243, 75, 0.4)'
 					},
 					'50%': { 
-						boxShadow: '0 0 60px rgba(0, 194, 255, 0.6)'
+						boxShadow: '0 0 60px rgba(14, 243, 75, 0.6)'
 					},
 				},
 				'blip': {
@@ -160,6 +154,32 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'glitch': {
+					'0%': {
+						clipPath: 'inset(40% 0 61% 0)',
+						transform: 'translate(-2px, 2px)'
+					},
+					'20%': {
+						clipPath: 'inset(92% 0 1% 0)',
+						transform: 'translate(1px, 1px)'
+					},
+					'40%': {
+						clipPath: 'inset(43% 0 1% 0)',
+						transform: 'translate(3px, 1px)'
+					},
+					'60%': {
+						clipPath: 'inset(25% 0 58% 0)',
+						transform: 'translate(1px, -1px)'
+					},
+					'80%': {
+						clipPath: 'inset(54% 0 7% 0)',
+						transform: 'translate(-2px, -2px)'
+					},
+					'100%': {
+						clipPath: 'inset(58% 0 43% 0)',
+						transform: 'translate(2px, -1px)'
+					}
 				}
 			},
 			animation: {
@@ -177,25 +197,23 @@ export default {
 				'shimmer': 'shimmer 3s linear infinite',
 				'breath': 'breath 4s ease-in-out infinite',
 				'blip': 'blip 2s infinite',
-				'fade-in': 'fade-in 0.5s ease-out'
+				'fade-in': 'fade-in 0.5s ease-out',
+				'glitch': 'glitch 1s linear infinite'
 			},
 			fontFamily: {
 				'poppins': ['Poppins', 'sans-serif'],
 				'inter': ['Inter', 'sans-serif'],
 				'roboto': ['Roboto', 'sans-serif'],
+				'mono': ['Space Mono', 'monospace']
 			},
 			backgroundImage: {
-				'hero-pattern': 'radial-gradient(circle at 30% 30%, rgba(14, 243, 75, 0.15) 0%, transparent 30%), radial-gradient(circle at 70% 60%, rgba(217, 70, 239, 0.1) 0%, transparent 30%), radial-gradient(circle at 50% 50%, rgba(0, 174, 255, 0.05) 0%, rgba(10, 10, 15, 1) 70%)',
-				'modern-gradient': 'linear-gradient(135deg, rgba(8, 8, 24, 0.8) 0%, rgba(16, 16, 40, 0.8) 100%)',
-				'glass-gradient': 'linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%)',
-				'card-gradient': 'linear-gradient(135deg, rgba(30, 30, 38, 0.5) 0%, rgba(46, 46, 56, 0.2) 100%)',
-				'blue-gradient': 'linear-gradient(90deg, #00AEFF 0%, #0FF5CE 100%)',
-				'magenta-gradient': 'linear-gradient(90deg, #D946EF 0%, #FF6B6B 100%)',
-				'button-gradient': 'linear-gradient(90deg, rgba(14, 243, 75, 0.8) 0%, rgba(0, 174, 255, 0.8) 100%)',
-				'text-gradient': 'linear-gradient(90deg, #0FF5CE, #00AEFF, #D946EF, #0FF5CE)',
-				'tech-grid': 'radial-gradient(rgba(0, 194, 255, 0.15) 2px, transparent 2px)',
-				'glass-card': 'linear-gradient(135deg, rgba(255, 255, 255, 0.12) 0%, rgba(255, 255, 255, 0.03) 100%)',
-				'glass-border': 'linear-gradient(135deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.05) 100%)'
+				'hero-pattern': 'radial-gradient(circle at 30% 30%, rgba(14, 243, 75, 0.15) 0%, transparent 30%), radial-gradient(circle at 70% 60%, rgba(217, 70, 239, 0.1) 0%, transparent 30%), radial-gradient(circle at 50% 50%, rgba(0, 174, 255, 0.05) 0%, rgba(4, 8, 18, 1) 70%)',
+				'alien-gradient': 'linear-gradient(135deg, rgba(4, 8, 18, 0.8) 0%, rgba(6, 16, 26, 0.8) 100%)',
+				'glass-gradient': 'linear-gradient(135deg, rgba(14, 243, 75, 0.05) 0%, rgba(0, 174, 255, 0.05) 100%)',
+				'card-gradient': 'linear-gradient(135deg, rgba(6, 16, 26, 0.5) 0%, rgba(10, 24, 38, 0.2) 100%)',
+				'neon-gradient': 'linear-gradient(90deg, #0ef34b 0%, #00aeff 100%)',
+				'magenta-gradient': 'linear-gradient(90deg, #d946ef 0%, #00aeff 100%)',
+				'alien-tech-grid': 'radial-gradient(rgba(14, 243, 75, 0.15) 2px, transparent 2px)',
 			}
 		}
 	},

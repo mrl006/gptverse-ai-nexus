@@ -1,5 +1,5 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -36,21 +36,29 @@
   }
   
   html {
-    @apply scroll-smooth font-poppins;
+    @apply scroll-smooth font-inter;
   }
   
   body {
-    @apply bg-gptv-dark text-foreground antialiased overflow-x-hidden;
+    @apply bg-gptv-navy text-foreground antialiased overflow-x-hidden;
   }
 }
 
 @layer components {
   .glass-card {
-    @apply backdrop-blur-xl bg-card-gradient border border-white/10 rounded-xl shadow-lg;
+    @apply backdrop-blur-xl bg-glass-gradient border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
+  }
+  
+  .glass-card::before {
+    @apply content-[''] absolute inset-0 bg-glass-border opacity-30 rounded-xl pointer-events-none;
+  }
+  
+  .glass-panel {
+    @apply backdrop-blur-md bg-white/5 border border-white/20 rounded-xl shadow-lg;
   }
   
   .neo-button {
-    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-button-gradient hover:brightness-110 hover:shadow-lg hover:shadow-gptv-teal/20 active:scale-[0.98];
+    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-button-gradient hover:brightness-110 hover:shadow-lg hover:shadow-gptv-neon-blue/20 active:scale-[0.98];
   }
   
   .text-gradient-animate {
@@ -62,7 +70,23 @@
   }
   
   .glow::after {
-    @apply content-[''] absolute inset-0 -z-10 rounded-xl opacity-60 blur-xl bg-gradient-to-r from-gptv-blue/20 to-gptv-teal/20;
+    @apply content-[''] absolute inset-0 -z-10 rounded-xl opacity-60 blur-xl bg-gradient-to-r from-gptv-neon-blue/20 to-gptv-teal/20;
+  }
+  
+  .shimmer {
+    @apply relative overflow-hidden;
+  }
+  
+  .shimmer::before {
+    @apply content-[''] absolute top-0 -left-[100%] w-[150%] h-full bg-gradient-to-r from-transparent via-white/10 to-transparent skew-x-[-25deg] animate-shimmer;
+  }
+  
+  .breathe {
+    @apply animate-breath;
+  }
+  
+  .blip {
+    @apply absolute rounded-full bg-gptv-neon-blue/50 animate-blip;
   }
   
   .section-padding {
@@ -71,6 +95,10 @@
   
   .particle {
     @apply absolute rounded-full opacity-70 animate-float;
+  }
+  
+  .tech-bg {
+    @apply bg-tech-grid bg-[length:30px_30px];
   }
 }
 
@@ -124,7 +152,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: theme('colors.gptv.dark');
+  background: theme('colors.gptv.deep-navy');
 }
 
 ::-webkit-scrollbar-thumb {

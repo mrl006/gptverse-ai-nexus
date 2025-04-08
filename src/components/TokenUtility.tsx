@@ -10,9 +10,9 @@ interface UtilityCardProps {
 }
 
 const UtilityCard = ({ icon, title, description }: UtilityCardProps) => (
-  <Card className="glass-card border-0 hover:scale-105 transition-transform duration-300 h-full">
+  <Card className="glass-card border-0 hover:scale-105 transition-transform duration-300 h-full shimmer">
     <CardContent className="pt-6">
-      <div className="bg-gradient-to-br from-gptv-blue to-gptv-teal rounded-full w-14 h-14 flex items-center justify-center mb-5">
+      <div className="bg-gradient-to-br from-gptv-neon-blue to-gptv-teal rounded-full w-14 h-14 flex items-center justify-center mb-5 breathe">
         {icon}
       </div>
       <h3 className="text-xl font-semibold mb-3">{title}</h3>
@@ -46,14 +46,16 @@ const TokenUtility = () => {
   ];
 
   return (
-    <section className="section-padding bg-gptv-darker relative">
-      <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_bottom,transparent,rgba(0,174,255,0.1)_50%,transparent)]"></div>
+    <section className="section-padding bg-gptv-charcoal relative">
+      <div className="absolute inset-0 bg-tech-grid opacity-20"></div>
       
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative">
         <div className="flex flex-col items-center text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-gradient-animate">💸 About the $GPTV Token</span>
-          </h2>
+          <div className="glass-panel py-3 px-6 mb-4 rounded-full">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              <span className="text-gradient-animate">💸 About the $GPTV Token</span>
+            </h2>
+          </div>
           <p className="text-white/80 max-w-2xl">
             The $GPTV token powers the entire GPTVerse ecosystem, offering multiple utilities and benefits to holders.
           </p>

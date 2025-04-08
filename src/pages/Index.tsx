@@ -19,18 +19,27 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gptv-dark text-white overflow-x-hidden">
-      <Navbar />
-      <Hero />
-      <Explore />
-      <Features />
-      <Tokenomics />
-      <TokenUtility />
-      <Roadmap />
-      <Partners />
-      <Faq />
-      <About />
-      <Footer />
+    <div className="min-h-screen bg-gptv-navy text-white overflow-x-hidden tech-bg">
+      {/* Glassy background elements */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <div className="absolute top-[10%] left-[10%] w-[500px] h-[500px] rounded-full bg-gptv-neon-blue/10 blur-[100px]"></div>
+        <div className="absolute bottom-[20%] right-[15%] w-[400px] h-[400px] rounded-full bg-gptv-neon-violet/10 blur-[100px]"></div>
+        <div className="absolute top-[40%] right-[25%] w-[300px] h-[300px] rounded-full bg-gptv-teal/10 blur-[120px]"></div>
+      </div>
+      
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <Explore />
+        <Features />
+        <Tokenomics />
+        <TokenUtility />
+        <Roadmap />
+        <Partners />
+        <Faq />
+        <About />
+        <Footer />
+      </div>
     </div>
   );
 };

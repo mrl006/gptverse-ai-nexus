@@ -11,14 +11,14 @@ interface ExploreCardProps {
 }
 
 const ExploreCard = ({ title, description, icon, comingSoon }: ExploreCardProps) => (
-  <Card className="glass-card glow border-0 bg-opacity-10 h-full hover:translate-y-[-5px] transition-transform duration-300">
+  <Card className="glass-card h-full hover:translate-y-[-5px] transition-transform duration-300 shimmer group">
     <CardHeader className="relative">
-      <div className="absolute top-4 right-4 text-gptv-teal opacity-60 animate-pulse-glow">
+      <div className="absolute top-4 right-4 text-gptv-neon-blue opacity-70 group-hover:opacity-100 transition-opacity">
         {icon}
       </div>
       <CardTitle className="text-white text-lg sm:text-xl">{title}</CardTitle>
       {comingSoon && (
-        <span className="absolute top-4 left-4 px-2 py-0.5 bg-gptv-magenta/20 border border-gptv-magenta/40 text-gptv-magenta text-xs font-medium rounded-full">
+        <span className="absolute top-4 left-4 px-2 py-0.5 bg-gptv-neon-violet/20 border border-gptv-neon-violet/40 text-gptv-neon-violet text-xs font-medium rounded-full backdrop-blur-sm">
           Coming Soon
         </span>
       )}
@@ -60,12 +60,16 @@ const Explore = () => {
   ];
 
   return (
-    <section id="explore" className="section-padding bg-gptv-darker">
-      <div className="container mx-auto px-4">
+    <section id="explore" className="section-padding bg-gptv-deep-navy relative">
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_rgba(0,194,255,0.1),transparent_70%)]"></div>
+      
+      <div className="container mx-auto px-4 relative">
         <div className="flex flex-col items-center text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            <span className="text-gradient-animate">Explore GPTVerse</span>
-          </h2>
+          <div className="glass-panel py-3 px-6 mb-6 rounded-full">
+            <h2 className="text-3xl md:text-4xl font-bold">
+              <span className="text-gradient-animate">Explore GPTVerse</span>
+            </h2>
+          </div>
           <p className="text-white/80 max-w-2xl">
             Discover our suite of AI-powered tools and applications designed to revolutionize your digital experience.
           </p>

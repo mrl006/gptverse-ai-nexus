@@ -21,30 +21,49 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${isScrolled ? 'py-3 bg-gptv-darker/80 backdrop-blur-lg' : 'py-5 bg-transparent'}`}>
+    <header className={`fixed w-full z-50 transition-all duration-300 ${
+      isScrolled 
+        ? 'py-3 backdrop-blur-xl bg-gptv-deep-navy/80 border-b border-white/5 shadow-lg' 
+        : 'py-5 bg-transparent'
+    }`}>
       <div className="container mx-auto px-4 flex justify-between items-center">
         <a href="#" className="flex items-center space-x-2">
           <span className="text-xl md:text-2xl font-bold text-gradient-animate">GPTVerse</span>
         </a>
         
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          <a href="#explore" className="text-white/80 hover:text-white transition-colors">Explore</a>
-          <a href="#features" className="text-white/80 hover:text-white transition-colors">Features</a>
-          <a href="#tokenomics" className="text-white/80 hover:text-white transition-colors">Tokenomics</a>
-          <a href="#roadmap" className="text-white/80 hover:text-white transition-colors">Roadmap</a>
-          <a href="#partners" className="text-white/80 hover:text-white transition-colors">Partners</a>
-          <a href="#faq" className="text-white/80 hover:text-white transition-colors">FAQ</a>
+          <a href="#explore" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
+            Explore
+          </a>
+          <a href="#features" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
+            Features
+          </a>
+          <a href="#tokenomics" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
+            Tokenomics
+          </a>
+          <a href="#roadmap" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
+            Roadmap
+          </a>
+          <a href="#partners" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
+            Partners
+          </a>
+          <a href="#faq" className="text-white/80 hover:text-white hover:text-gptv-neon-blue transition-colors">
+            FAQ
+          </a>
         </nav>
 
+        {/* Desktop Action Buttons */}
         <div className="hidden md:flex items-center space-x-4">
-          <Button variant="outline" className="border-gptv-blue text-white hover:bg-gptv-blue/20">
+          <Button variant="outline" className="border-gptv-neon-blue text-white hover:bg-gptv-neon-blue/20 backdrop-blur-sm">
             Login
           </Button>
-          <Button className="bg-gradient-to-r from-gptv-blue to-gptv-teal hover:brightness-110 text-white">
+          <Button className="bg-gradient-to-r from-gptv-neon-blue to-gptv-teal hover:brightness-110 text-white">
             Get Started
           </Button>
         </div>
 
+        {/* Mobile Menu Toggle */}
         <button 
           className="md:hidden text-white"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -55,20 +74,20 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-gptv-darker/95 backdrop-blur-lg py-4 animate-fade-in">
+        <div className="md:hidden absolute top-full left-0 w-full backdrop-blur-xl bg-gptv-deep-navy/95 border-b border-white/10 py-4 animate-fade-in shadow-lg">
           <div className="container px-4 flex flex-col space-y-4">
-            <a href="#explore" className="text-white/80 hover:text-white py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Explore</a>
-            <a href="#features" className="text-white/80 hover:text-white py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
-            <a href="#tokenomics" className="text-white/80 hover:text-white py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Tokenomics</a>
-            <a href="#roadmap" className="text-white/80 hover:text-white py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Roadmap</a>
-            <a href="#partners" className="text-white/80 hover:text-white py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Partners</a>
-            <a href="#faq" className="text-white/80 hover:text-white py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
+            <a href="#explore" className="text-white/80 hover:text-gptv-neon-blue py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Explore</a>
+            <a href="#features" className="text-white/80 hover:text-gptv-neon-blue py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
+            <a href="#tokenomics" className="text-white/80 hover:text-gptv-neon-blue py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Tokenomics</a>
+            <a href="#roadmap" className="text-white/80 hover:text-gptv-neon-blue py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Roadmap</a>
+            <a href="#partners" className="text-white/80 hover:text-gptv-neon-blue py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>Partners</a>
+            <a href="#faq" className="text-white/80 hover:text-gptv-neon-blue py-2 transition-colors" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
             
             <div className="flex flex-col space-y-3 pt-2">
-              <Button variant="outline" className="border-gptv-blue text-white hover:bg-gptv-blue/20 w-full">
+              <Button variant="outline" className="border-gptv-neon-blue text-white hover:bg-gptv-neon-blue/20 w-full backdrop-blur-sm">
                 Login
               </Button>
-              <Button className="bg-gradient-to-r from-gptv-blue to-gptv-teal hover:brightness-110 text-white w-full">
+              <Button className="bg-gradient-to-r from-gptv-neon-blue to-gptv-teal hover:brightness-110 text-white w-full breathe">
                 Get Started
               </Button>
             </div>

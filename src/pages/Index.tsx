@@ -1,9 +1,18 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import PlatformButtons from '../components/PlatformButtons';
 import ProductView from '../components/ProductView';
 import Footer from '../components/Footer';
+import Explore from '../components/Explore';
+import Features from '../components/Features';
+import Tokenomics from '../components/Tokenomics';
+import TokenUtility from '../components/TokenUtility';
+import Roadmap from '../components/Roadmap';
+import Partners from '../components/Partners';
+import Faq from '../components/Faq';
+import About from '../components/About';
 
 const Index = () => {
   // Scroll to top on page load
@@ -64,19 +73,19 @@ const Index = () => {
           <div id="faq" className="section-anchor pt-20"></div>
           <div id="about" className="section-anchor pt-20"></div>
           
-          {/* Hide these sections for now as they don't appear in the reference image */}
-          <div className="hidden">
-            <div className="max-w-[1400px] mx-auto px-4 sm:px-6 w-full">
-              <Explore />
-              <Features />
-              <Tokenomics />
-              <TokenUtility />
-              <Roadmap />
-              <Partners />
-              <Faq />
-              <About />
-            </div>
+          {/* Comment out these sections for now as we're building the site gradually */}
+          {/* 
+          <div className="max-w-[1400px] mx-auto px-4 sm:px-6 w-full">
+            <Explore />
+            <Features />
+            <Tokenomics />
+            <TokenUtility />
+            <Roadmap />
+            <Partners />
+            <Faq />
+            <About />
           </div>
+          */}
         </div>
         
         <Footer />

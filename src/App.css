@@ -15,10 +15,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #0ef34baa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #0ef34baa);
 }
 
 @keyframes logo-spin {
@@ -42,6 +42,26 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Consistent green glow glassmorphism styles */
+.green-glassmorphism {
+  background: rgba(6, 16, 26, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(14, 243, 75, 0.2);
+  box-shadow: 0 8px 32px rgba(14, 243, 75, 0.1);
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #0ef34b, #00aeff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 /* Mobile specific animations and styles */
@@ -71,11 +91,61 @@
   .touch-target {
     padding: 0.75rem;
   }
+  
+  /* Fix for platform buttons display */
+  .platform-button {
+    margin-bottom: 0.5rem;
+    height: auto;
+    min-height: 80px;
+    width: 100% !important;
+    display: flex !important;
+  }
+  
+  /* Ensure no horizontal overflow */
+  .container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-x: hidden;
+  }
+  
+  /* Enhance scrolling */
+  html, body {
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* Improve AI Hub section */
+  .mobile-models-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
 }
 
 /* Add bottom spacing for mobile viewports to account for browser chrome */
 @media (max-width: 768px) {
   .mobile-pb {
     padding-bottom: 5rem;
+  }
+  
+  /* Better spacing for mobile sections */
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Improved text scaling */
+  h1 {
+    font-size: 2.25rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  /* Fix mobile scroll anchors */
+  .section-anchor {
+    scroll-margin-top: 5rem;
   }
 }

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import ExploreHeader from './explore/ExploreHeader';
 import { Button } from '@/components/ui/button';
@@ -35,7 +36,7 @@ const Explore = () => {
     {
       title: 'GPT Companion',
       description: 'Your personal AI assistant that learns and adapts to your needs',
-      icon: <Bot className="text-[#d946ef]" />,
+      icon: <Bot className="text-[#0ef34b]" />,
       category: 'productivity',
       featured: true,
       comingSoon: false
@@ -59,7 +60,7 @@ const Explore = () => {
     {
       title: 'Knowledge Nexus',
       description: 'Advanced learning platform with personalized AI tutoring',
-      icon: <Brain className="text-[#d946ef]" />,
+      icon: <Brain className="text-[#0ef34b]" />,
       category: 'education',
       featured: false,
       comingSoon: true
@@ -119,7 +120,7 @@ const Explore = () => {
                   )}
                 </div>
                 
-                <h3 className="text-xl font-bold text-white mb-2">{item.title}</h3>
+                <h3 className="text-xl font-bold heading-gradient mb-2">{item.title}</h3>
                 <p className="text-white/60 mb-6 flex-grow">{item.description}</p>
                 
                 <Button 

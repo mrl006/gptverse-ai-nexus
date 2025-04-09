@@ -15,7 +15,7 @@ const ModelDetails: React.FC<ModelDetailsProps> = ({ currentModel }) => {
       {/* Model Logo/Icon */}
       <div className="flex justify-between items-start mb-6">
         <div className="flex items-center gap-4">
-          <div className="h-16 w-16 rounded-full flex items-center justify-center bg-white">
+          <div className="h-16 w-16 rounded-full flex items-center justify-center bg-[#06101a]/60 border border-[#0ef34b]/20">
             <div className={`h-10 w-10 rounded-full ${currentModel.color} flex items-center justify-center text-white`}>
               {getIconByName(currentModel.iconName)}
             </div>

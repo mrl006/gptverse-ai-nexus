@@ -7,16 +7,16 @@ const TokenomicsHeading = () => {
       <div className="inline-block">
         <div className="relative">
           <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight animate-text-reveal">
-            <span className="heading-gradient">
+            <span className="bg-gradient-to-r from-[#8B5CF6] via-white to-[#D946EF] bg-clip-text text-transparent drop-shadow-sm animate-text-gradient">
               TOKENOMICS
             </span>
           </h2>
           
           {/* Glowing underline */}
-          <div className="absolute -bottom-3 left-0 h-1 w-full bg-gradient-to-r from-[#0ef34b]/20 via-[#00aeff] to-[#0ef34b]/20 animate-shimmer"></div>
+          <div className="absolute -bottom-3 left-0 h-1 w-full bg-gradient-to-r from-[#8B5CF6]/20 via-[#D946EF] to-[#8B5CF6]/20 animate-shimmer"></div>
           
           {/* Glow effect */}
-          <div className="absolute -bottom-4 left-0 h-3 w-full blur-md bg-gradient-to-r from-[#0ef34b]/30 via-[#00aeff]/20 to-[#0ef34b]/30 animate-shimmer"></div>
+          <div className="absolute -bottom-4 left-0 h-3 w-full blur-md bg-gradient-to-r from-[#8B5CF6]/30 via-[#D946EF]/20 to-[#8B5CF6]/30 animate-shimmer"></div>
         </div>
       </div>
       

@@ -10,7 +10,6 @@ import ImageGeneratorPreview from './ImageGeneratorPreview';
 import ChatInput from './ChatInput';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { motion, AnimatePresence } from 'framer-motion';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 interface DemoPreviewProps {
   modelId: string;
@@ -26,7 +25,6 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   const [showGeneratedImage, setShowGeneratedImage] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollPosition = useRef(0);
-  const isMobile = useIsMobile();
   
   const currentModel = AiModels.find(m => m.id === modelId);
   
@@ -131,7 +129,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
           iconComponent={iconComponent} 
         />
         
-        <ScrollArea className="flex-grow bg-[#080d16]/70 backdrop-blur-md" style={{ height: isMobile ? "300px" : "400px" }}>
+        <ScrollArea className="flex-grow bg-[#080d16]/70 backdrop-blur-md" style={{ height: "400px" }}>
           <div className="p-4">
             {showFileUpload && modelId === 'pdf-reader' && (
               <FileUploadPreview />

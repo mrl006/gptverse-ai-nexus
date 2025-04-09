@@ -10,7 +10,7 @@ const AiServicesHeader: React.FC = () => {
       <div className="flex flex-col items-center">
         {/* Main title with minimalist styling */}
         <div className="mb-5 justify-center">
-          <h2 className="text-4xl md:text-5xl font-bold heading-gradient">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#0ef34b]">
             AI SERVICES
           </h2>
         </div>

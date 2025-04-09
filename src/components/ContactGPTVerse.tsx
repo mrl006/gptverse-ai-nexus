@@ -3,8 +3,11 @@ import React from 'react';
 import { Linkedin, Send } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const ContactGPTVerse = () => {
+  const isMobile = useIsMobile();
+  
   // Social media links data with icons and URLs
   const socialLinks = [
     { 
@@ -111,8 +114,8 @@ const ContactGPTVerse = () => {
           </p>
         </div>
         
-        {/* Social Media Icons Container */}
-        <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-3xl mx-auto">
+        {/* Social Media Icons Container - Responsive Grid Layout */}
+        <div className={`${isMobile ? 'grid grid-cols-3 gap-4' : 'flex flex-wrap justify-center gap-4 md:gap-6'} max-w-3xl mx-auto`}>
           {socialLinks.map((link, index) => (
             <HoverCard key={index}>
               <HoverCardTrigger asChild>
@@ -120,13 +123,16 @@ const ContactGPTVerse = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group"
+                  className="group flex justify-center"
                   aria-label={link.name}
                 >
                   <div 
-                    className="w-16 h-16 md:w-20 md:h-20 rounded-xl backdrop-blur-xl bg-[#040812]/60 border border-[#0ef34b]/20
-                              flex items-center justify-center text-white/80 hover:text-white transition-all duration-500
-                              hover:border-[#0ef34b]/40 hover:shadow-[0_0_20px_rgba(14,243,75,0.15)] group-hover:scale-105"
+                    className={`
+                      ${isMobile ? 'w-full max-w-[90px] aspect-square' : 'w-16 h-16 md:w-20 md:h-20'} 
+                      rounded-xl backdrop-blur-xl bg-[#040812]/60 border border-[#0ef34b]/20
+                      flex items-center justify-center text-white/80 hover:text-white transition-all duration-500
+                      hover:border-[#0ef34b]/40 hover:shadow-[0_0_20px_rgba(14,243,75,0.15)] group-hover:scale-105
+                    `}
                   >
                     {/* Glow effect overlay */}
                     <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/10 to-[#00aeff]/0"></div>
@@ -149,9 +155,14 @@ const ContactGPTVerse = () => {
           ))}
         </div>
         
-        {/* Contact Us Button */}
+        {/* Contact Us Button - Full Width on Mobile */}
         <div className="text-center mt-12">
-          <Button className="bg-[#040812]/60 hover:bg-[#040812]/80 text-white border border-[#0ef34b]/30 rounded-lg px-8 py-2.5 shadow-[0_0_15px_rgba(14,243,75,0.2)] group transition-all duration-300 backdrop-blur-md">
+          <Button className={`
+            ${isMobile ? 'w-full py-6' : ''} 
+            bg-[#040812]/60 hover:bg-[#040812]/80 text-white border border-[#0ef34b]/30 
+            rounded-lg px-8 py-2.5 shadow-[0_0_15px_rgba(14,243,75,0.2)] 
+            group transition-all duration-300 backdrop-blur-md
+          `}>
             <span className="mr-2 text-lg">Get in Touch</span>
             <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>

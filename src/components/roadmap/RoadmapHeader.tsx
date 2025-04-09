@@ -13,14 +13,14 @@ const RoadmapHeader = () => {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-alien-neon via-alien-blue to-alien-cyan animate-text-gradient bg-[length:200%_auto]">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto]">
             Development Roadmap
           </span>
         </h2>
-        <p className="text-white/70 max-w-2xl mx-auto">
-          Follow our journey from inception to the future as we build the AI ecosystem of tomorrow
+        <p className="text-white/80 max-w-2xl mx-auto mb-5 leading-relaxed">
+          Follow our strategic journey from inception to future milestones as we build the enterprise AI ecosystem of tomorrow
         </p>
-        <Separator className="w-36 h-1 bg-gradient-to-r from-alien-neon/30 to-alien-blue/30 mx-auto mt-6" />
+        <Separator className="w-36 h-1 bg-gradient-to-r from-[#0B3954]/40 to-[#0CF574]/40 mx-auto mt-2" />
       </motion.div>
     </div>
   );

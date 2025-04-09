@@ -1,36 +1,41 @@
 
 import * as React from "react"
 
+// More precise mobile breakpoint constant
 const MOBILE_BREAKPOINT = 768
 
 export function useIsMobile() {
-  const [windowWidth, setWindowWidth] = React.useState<number | undefined>(undefined)
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
+  const [isMobile, setIsMobile] = React.useState<boolean>(false)
+  const [windowWidth, setWindowWidth] = React.useState<number>(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  )
 
   React.useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth
-      setWindowWidth(width)
-      setIsMobile(width < MOBILE_BREAKPOINT)
-    }
-
-    // Set initial values
-    handleResize()
-
-    // Add event listener
-    window.addEventListener('resize', handleResize)
+    // Only run on client side
+    if (typeof window === 'undefined') return;
     
-    // Clean up
-    return () => window.removeEventListener('resize', handleResize)
+    // Initial check for mobile
+    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+    setWindowWidth(window.innerWidth)
+    
+    // More efficient resize handler with debounce
+    let timeoutId: ReturnType<typeof setTimeout>;
+    
+    const handleResize = () => {
+      clearTimeout(timeoutId);
+      
+      timeoutId = setTimeout(() => {
+        setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+        setWindowWidth(window.innerWidth)
+      }, 100); // Debounce for better performance
+    }
+    
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+      clearTimeout(timeoutId);
+    }
   }, [])
 
-  // Create a proper object instead of trying to attach properties to a boolean
-  const result = {
-    value: !!isMobile,
-    isMobile: !!isMobile,
-    windowWidth: windowWidth || 0
-  }
-  
-  // Return the object that has a value property and can be used in boolean contexts
-  return result
+  return { isMobile, windowWidth }
 }

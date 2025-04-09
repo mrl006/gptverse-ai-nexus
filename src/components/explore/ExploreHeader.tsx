@@ -1,26 +1,34 @@
 
 import React from 'react';
+import { motion } from "framer-motion";
 
 const ExploreHeader: React.FC = () => {
   return (
     <div className="text-center mb-16 relative">
-      <div className="flex flex-col items-center">
-        {/* Main title with gradient effect */}
-        <h2 className="text-4xl md:text-5xl font-bold mb-3">
-          <span className="text-[#0ef34b]">EXPLORE</span>
-          <span className="text-white mx-3">THE</span>
-          <span className="text-[#00aeff]">GPTVERSE</span>
-        </h2>
-        
-        {/* Subtitle with minimal separator */}
-        <div className="relative">
-          <div className="absolute -top-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/30 to-transparent"></div>
-          <p className="text-[#0ef34b]/60 text-lg font-mono uppercase tracking-wider mt-4">
-            NEXT-GEN AI POWERED TOOLS
-          </p>
-          <div className="absolute -bottom-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00aeff]/30 to-transparent"></div>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="flex flex-col items-center">
+          {/* Corporate-oriented title with consistent gradient effect */}
+          <h2 className="text-4xl md:text-5xl font-bold mb-5">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto]">
+              EXPLORE THE GPTVERSE
+            </span>
+          </h2>
+          
+          {/* Refined subtitle with minimal separator */}
+          <div className="relative">
+            <div className="absolute -top-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#087E8B]/30 to-transparent"></div>
+            <p className="text-[#0CF574]/80 text-lg font-mono uppercase tracking-wider mt-4 max-w-2xl mx-auto">
+              ENTERPRISE-GRADE AI POWERED SOLUTIONS
+            </p>
+            <div className="absolute -bottom-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#087E8B]/30 to-transparent"></div>
+          </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

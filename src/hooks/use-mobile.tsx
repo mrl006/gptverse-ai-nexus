@@ -24,12 +24,13 @@ export function useIsMobile() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  // Create a result value that's both a boolean and has properties
-  const result = !!isMobile as boolean & { isMobile: boolean, windowWidth: number }
+  // Create a proper object instead of trying to attach properties to a boolean
+  const result = {
+    value: !!isMobile,
+    isMobile: !!isMobile,
+    windowWidth: windowWidth || 0
+  }
   
-  // Attach properties to the boolean
-  result.isMobile = !!isMobile
-  result.windowWidth = windowWidth || 0
-  
+  // Return the object that has a value property and can be used in boolean contexts
   return result
 }

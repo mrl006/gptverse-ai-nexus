@@ -5,7 +5,8 @@ import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Hero = () => {
-  const isMobile = useIsMobile();
+  const mobileData = useIsMobile();
+  const isMobile = mobileData.isMobile;
   const [glitchText, setGlitchText] = useState('');
   const originalText = "Unlock the Power of AI — Anytime, Anywhere, on Any Device.";
   

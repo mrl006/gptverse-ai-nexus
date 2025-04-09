@@ -1,42 +1,30 @@
 
 import React from 'react';
-import { motion } from "framer-motion";
 
 const AiServicesHeader: React.FC = () => {
   return (
-    <motion.div 
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="text-center mb-12 relative"
-    >
-      {/* Professional corporate decoration */}
-      <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-[radial-gradient(circle_at_center,rgba(8,126,139,0.05)_0%,rgba(8,126,139,0)_70%)]"></div>
+    <div className="text-center mb-12 relative">
+      {/* Simplified alien tech decoration */}
+      <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-[radial-gradient(circle_at_center,rgba(14,243,75,0.05)_0%,rgba(14,243,75,0)_70%)]"></div>
       
       <div className="flex flex-col items-center">
-        {/* Corporate-styled title with consistent branding */}
+        {/* Main title with minimalist styling */}
         <div className="mb-5 justify-center">
-          <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto]">
-            ENTERPRISE AI SOLUTIONS
+          <h2 className="text-4xl md:text-5xl font-bold heading-gradient">
+            AI SERVICES
           </h2>
         </div>
         
-        {/* Refined corporate banner with subtle dividers */}
+        {/* Minimal powered by banner with subtle line dividers */}
         <div className="flex items-center gap-5 mb-6">
-          <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#087E8B]/20 to-transparent"></div>
-          <p className="text-[#0CF574]/70 text-sm font-sans uppercase tracking-wider">
-            POWERED BY GPTVERSE ENTERPRISE
+          <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
+          <p className="text-[#0ef34b]/60 text-sm font-mono uppercase tracking-wider">
+            POWERED BY GPTVERSE
           </p>
-          <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#087E8B]/20 to-transparent"></div>
+          <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
         </div>
       </div>
-      
-      {/* Professional subtitle */}
-      <p className="text-white/70 max-w-2xl mx-auto mt-4">
-        Cutting-edge AI solutions designed specifically for enterprise needs, offering scalable, secure, and efficient business intelligence
-      </p>
-    </motion.div>
+    </div>
   );
 };
 

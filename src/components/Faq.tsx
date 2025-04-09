@@ -52,7 +52,7 @@ const Faq = () => {
         {/* FAQ Header */}
         <div className="text-center mb-16">
           <h2 className="text-[#0ef34b] uppercase tracking-wider text-sm font-mono mb-3">FAQ</h2>
-          <h3 className="text-4xl md:text-5xl font-bold mb-6">Got questions?</h3>
+          <h3 className="heading-gradient text-4xl md:text-5xl font-bold mb-6">Got questions?</h3>
           <p className="text-3xl md:text-4xl font-bold mb-8">Join the community.</p>
           <p className="text-white/70 max-w-2xl mx-auto mb-6">
             Our Discord community and staff are here to help!<br />

@@ -8,7 +8,6 @@
   overflow-x: hidden;
 }
 
-/* Professional corporate logo styling */
 .logo {
   height: 6em;
   padding: 1.5em;
@@ -16,10 +15,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em rgba(8, 126, 139, 0.7));
+  filter: drop-shadow(0 0 2em #0ef34baa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em rgba(8, 126, 139, 0.7));
+  filter: drop-shadow(0 0 2em #0ef34baa);
 }
 
 @keyframes logo-spin {
@@ -37,30 +36,35 @@
   }
 }
 
-/* Corporate card styling */
 .card {
   padding: 2em;
-  background: rgba(6, 16, 26, 0.4);
-  border-radius: 8px;
-  border: 1px solid rgba(8, 126, 139, 0.1);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(8px);
-  transition: all 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  border-color: rgba(8, 126, 139, 0.3);
 }
 
 .read-the-docs {
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 0.9em;
-  margin-top: 2em;
+  color: #888;
 }
 
-/* Professional mobile animations and styles */
+/* Consistent green glow glassmorphism styles */
+.green-glassmorphism {
+  background: rgba(6, 16, 26, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(14, 243, 75, 0.2);
+  box-shadow: 0 8px 32px rgba(14, 243, 75, 0.1);
+}
+
+.section-heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #0ef34b, #00aeff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Mobile specific animations and styles */
 @keyframes slide-up {
   from {
     transform: translateY(20px);
@@ -74,45 +78,6 @@
 
 .mobile-slide-up {
   animation: slide-up 0.4s ease-out forwards;
-}
-
-/* Enterprise-level button styling */
-.enterprise-button {
-  background: linear-gradient(135deg, #0B3954 0%, #087E8B 100%);
-  color: white;
-  border: 1px solid rgba(8, 126, 139, 0.3);
-  padding: 0.75rem 1.5rem;
-  border-radius: 0.5rem;
-  font-weight: 600;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.enterprise-button:hover {
-  background: linear-gradient(135deg, #0B3954 30%, #087E8B 100%);
-  transform: translateY(-2px);
-  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-.enterprise-button:active {
-  transform: translateY(1px);
-}
-
-/* Enhanced corporate form controls */
-.input-corporate {
-  background: rgba(6, 16, 26, 0.3);
-  border: 1px solid rgba(8, 126, 139, 0.2);
-  border-radius: 0.5rem;
-  padding: 0.75rem 1rem;
-  color: white;
-  width: 100%;
-  transition: all 0.3s ease;
-}
-
-.input-corporate:focus {
-  border-color: rgba(8, 126, 139, 0.5);
-  box-shadow: 0 0 0 2px rgba(8, 126, 139, 0.2);
-  outline: none;
 }
 
 /* Improve touch targets on mobile */
@@ -129,7 +94,11 @@
   
   /* Fix for platform buttons display */
   .platform-button {
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+    height: auto;
+    min-height: 80px;
+    width: 100% !important;
+    display: flex !important;
   }
   
   /* Ensure no horizontal overflow */
@@ -146,7 +115,7 @@
     position: relative;
   }
   
-  /* Improve AI Hub section for mobile */
+  /* Improve AI Hub section */
   .mobile-models-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -154,7 +123,7 @@
   }
 }
 
-/* Add bottom spacing for mobile viewports */
+/* Add bottom spacing for mobile viewports to account for browser chrome */
 @media (max-width: 768px) {
   .mobile-pb {
     padding-bottom: 5rem;
@@ -166,7 +135,7 @@
     padding-bottom: 2rem;
   }
   
-  /* Improved text scaling for mobile */
+  /* Improved text scaling */
   h1 {
     font-size: 2.25rem !important;
   }
@@ -179,89 +148,4 @@
   .section-anchor {
     scroll-margin-top: 5rem;
   }
-}
-
-/* Enhanced corporate data visualization styling */
-.data-viz-container {
-  position: relative;
-  border-radius: 12px;
-  overflow: hidden;
-  padding: 1.5rem;
-  background: rgba(6, 16, 26, 0.6);
-  border: 1px solid rgba(8, 126, 139, 0.2);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
-}
-
-.data-viz-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.9);
-}
-
-/* Professional tooltip styling */
-.corporate-tooltip {
-  background: rgba(6, 16, 26, 0.9);
-  border: 1px solid rgba(8, 126, 139, 0.3);
-  border-radius: 6px;
-  padding: 0.75rem 1rem;
-  font-size: 0.875rem;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-  z-index: 100;
-}
-
-/* Corporate-level loading indicators */
-.loading-spinner {
-  width: 3rem;
-  height: 3rem;
-  border: 3px solid rgba(8, 126, 139, 0.1);
-  border-top: 3px solid rgba(8, 126, 139, 0.8);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-/* Professional badge styling */
-.corporate-badge {
-  display: inline-flex;
-  align-items: center;
-  padding: 0.25rem 0.75rem;
-  font-size: 0.75rem;
-  font-weight: 500;
-  border-radius: 9999px;
-  background: rgba(8, 126, 139, 0.1);
-  color: #0CF574;
-  border: 1px solid rgba(8, 126, 139, 0.3);
-}
-
-/* Enterprise alert styling */
-.corporate-alert {
-  padding: 1rem;
-  border-radius: 8px;
-  border-left: 4px solid;
-  margin-bottom: 1rem;
-}
-
-.corporate-alert-info {
-  background: rgba(8, 126, 139, 0.1);
-  border-left-color: #087E8B;
-}
-
-.corporate-alert-success {
-  background: rgba(12, 245, 116, 0.1);
-  border-left-color: #0CF574;
-}
-
-.corporate-alert-warning {
-  background: rgba(255, 171, 64, 0.1);
-  border-left-color: #FFAB40;
-}
-
-.corporate-alert-error {
-  background: rgba(255, 82, 82, 0.1);
-  border-left-color: #FF5252;
 }

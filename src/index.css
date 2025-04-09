@@ -27,12 +27,18 @@
     --input: 240 3.7% 15.9%;
     --ring: 240 4.9% 83.9%;
     --radius: 0.75rem;
+    
+    /* Custom colors for the site */
+    --alien-green: 142.1 86.5% 50.6%;
+    --alien-blue: 198.4 100% 50%;
+    --alien-cyan: 180 100% 50%;
+    --alien-dark: 230 20% 6%;
   }
 }
 
 @layer base {
   * {
-    @apply border-border selection:bg-[#087E8B]/20 selection:text-white;
+    @apply border-border selection:bg-[#0ef34b]/20 selection:text-white;
   }
   
   html {
@@ -46,54 +52,37 @@
 }
 
 @layer components {
-  /* Professional glass card styling */
   .glass-card {
-    @apply backdrop-blur-xl bg-[#06101a]/40 border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
+    @apply backdrop-blur-xl bg-[#06101a]/40 border border-[#0ef34b]/20 rounded-xl shadow-lg relative overflow-hidden;
   }
   
-  /* Corporate panel styling */
   .glass-panel {
-    @apply backdrop-blur-md bg-[#06101a]/40 border border-white/20 rounded-xl shadow-lg;
+    @apply backdrop-blur-md bg-[#06101a]/40 border border-[#0ef34b]/20 rounded-xl shadow-lg;
   }
   
-  /* Enhanced blur effect for professional UI */
   .neo-blur {
-    @apply backdrop-blur-xl bg-black/25 border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    @apply backdrop-blur-xl bg-black/25 border border-[#0ef34b]/20 rounded-xl shadow-lg relative overflow-hidden;
+    box-shadow: 0 8px 32px 0 rgba(14, 243, 75, 0.1);
   }
   
-  /* Corporate button styling */
   .neo-button {
-    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#0B3954] to-[#087E8B] hover:brightness-110 text-white hover:shadow-lg hover:shadow-[#087E8B]/20 active:scale-[0.98] font-sans;
+    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#0ef34b] to-[#00aeff] hover:brightness-110 text-black hover:shadow-lg hover:shadow-[#0ef34b]/20 active:scale-[0.98] font-mono;
   }
   
-  /* Section anchor styling */
   .section-anchor {
     @apply scroll-mt-24;
   }
   
-  /* Corporate heading gradient */
-  .corporate-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto];
-  }
-  
-  /* Shadow effects for cards */
-  .card-shadow {
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  }
-  
-  /* Card hover effect for interactive elements */
-  .card-hover {
-    @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg;
+  .heading-gradient {
+    @apply bg-gradient-to-r from-[#0ef34b] to-[#00aeff] bg-clip-text text-transparent font-bold;
   }
 }
 
-/* Timeline styling for roadmap */
 .timeline-container::after {
   content: '';
   position: absolute;
   width: 2px;
-  background: linear-gradient(180deg, rgba(12, 245, 116, 0.4) 0%, rgba(11, 57, 84, 0.1) 100%);
+  background: linear-gradient(180deg, rgba(14, 243, 75, 0.4) 0%, rgba(0, 174, 255, 0.1) 100%);
   top: 0;
   bottom: 0;
   left: 50%;
@@ -116,14 +105,14 @@
   position: absolute;
   width: 16px;
   height: 16px;
-  background-color: #0CF574;
+  background-color: #0ef34b;
   border: 4px solid #040812;
   top: 15px;
   border-radius: 50%;
   z-index: 1;
   left: 50%;
   margin-left: -8px;
-  box-shadow: 0 0 10px rgba(12, 245, 116, 0.5);
+  box-shadow: 0 0 10px rgba(14, 243, 75, 0.5);
 }
 
 @media (max-width: 768px) {
@@ -132,7 +121,7 @@
   }
 }
 
-/* Professional scrollbar */
+/* Custom scrollbar */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -144,12 +133,12 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(8, 126, 139, 0.3);
+  background: rgba(14, 243, 75, 0.2);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(8, 126, 139, 0.5);
+  background: rgba(14, 243, 75, 0.4);
 }
 
 /* Thin scrollbar for smaller elements */
@@ -166,7 +155,7 @@
   min-height: 100vh;
 }
 
-/* Corporate-oriented animations */
+/* Add sci-fi alien-inspired animations */
 @keyframes blip {
   0% {
     transform: scale(0);
@@ -201,7 +190,7 @@
   animation: pulse-slow 10s ease-in-out infinite;
 }
 
-/* Refined 3D effect for professional charts */
+/* 3D effect for pie chart */
 .pie-3d {
   transform: perspective(1000px) rotateX(30deg) rotateZ(-5deg);
   transition: transform 0.5s ease;
@@ -209,74 +198,4 @@
 
 .pie-3d:hover {
   transform: perspective(1000px) rotateX(25deg) rotateZ(-2deg);
-}
-
-/* Typography refinements for corporate display */
-.heading-large {
-  @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
-}
-
-.heading-medium {
-  @apply text-2xl md:text-3xl font-semibold tracking-tight;
-}
-
-.heading-small {
-  @apply text-xl md:text-2xl font-medium tracking-tight;
-}
-
-.paragraph-large {
-  @apply text-lg leading-relaxed;
-}
-
-.paragraph-medium {
-  @apply text-base leading-relaxed;
-}
-
-/* Corporate button animations */
-@keyframes button-glow {
-  0%, 100% {
-    box-shadow: 0 0 5px rgba(8, 126, 139, 0.5);
-  }
-  50% {
-    box-shadow: 0 0 20px rgba(8, 126, 139, 0.8);
-  }
-}
-
-.button-glow {
-  animation: button-glow 2s ease-in-out infinite;
-}
-
-/* Professional loading animations */
-@keyframes pulse-dot {
-  0% {
-    transform: scale(0.7);
-    opacity: 0.5;
-  }
-  50% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0.7);
-    opacity: 0.5;
-  }
-}
-
-.loading-dot {
-  animation: pulse-dot 1.5s ease-in-out infinite;
-}
-
-/* Responsive typography adjustments */
-@media (max-width: 768px) {
-  .heading-large {
-    @apply text-2xl md:text-3xl;
-  }
-  
-  .heading-medium {
-    @apply text-xl md:text-2xl;
-  }
-  
-  .heading-small {
-    @apply text-lg md:text-xl;
-  }
 }

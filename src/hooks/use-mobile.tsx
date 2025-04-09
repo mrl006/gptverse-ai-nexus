@@ -1,43 +1,28 @@
 
 import * as React from "react"
 
-// More precise mobile breakpoint constant
 const MOBILE_BREAKPOINT = 768
 
 export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean>(false)
-  const [windowWidth, setWindowWidth] = React.useState<number>(
-    typeof window !== 'undefined' ? window.innerWidth : 0
+  const [isMobile, setIsMobile] = React.useState<boolean>(
+    typeof window !== 'undefined' ? window.innerWidth < MOBILE_BREAKPOINT : false
   )
 
   React.useEffect(() => {
-    // Only run on client side
-    if (typeof window === 'undefined') return;
-    
-    // Initial check for mobile
+    // Set initial value
     setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    setWindowWidth(window.innerWidth)
     
-    // More efficient resize handler with debounce
-    let timeoutId: ReturnType<typeof setTimeout>;
-    
+    // Update on resize with debounce
     const handleResize = () => {
-      clearTimeout(timeoutId);
-      
-      timeoutId = setTimeout(() => {
-        setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-        setWindowWidth(window.innerWidth)
-      }, 100); // Debounce for better performance
+      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
     }
     
+    // Add event listener
     window.addEventListener("resize", handleResize)
-    return () => {
-      window.removeEventListener("resize", handleResize)
-      clearTimeout(timeoutId);
-    }
+    
+    // Clean up
+    return () => window.removeEventListener("resize", handleResize)
   }, [])
 
-  // Return both the boolean and the object with both values
-  // This allows backward compatibility
-  return Object.assign(isMobile, { isMobile, windowWidth })
+  return isMobile
 }

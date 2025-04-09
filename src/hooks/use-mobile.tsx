@@ -37,5 +37,7 @@ export function useIsMobile() {
     }
   }, [])
 
-  return { isMobile, windowWidth }
+  // Return both the boolean and the object with both values
+  // This allows backward compatibility
+  return Object.assign(isMobile, { isMobile, windowWidth })
 }

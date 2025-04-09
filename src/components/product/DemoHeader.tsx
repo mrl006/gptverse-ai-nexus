@@ -14,7 +14,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({ modelId, iconBg, iconComponent 
   const currentModel = AiModels.find(m => m.id === modelId);
   
   return (
-    <div className="flex items-center justify-between p-4 border-b border-[#0ef34b]/10 relative overflow-hidden">
+    <div className="flex items-center justify-between p-4 border-b border-white/10 relative overflow-hidden">
       {/* Enhanced glassmorphism background */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#06101a]/90 to-[#06101a]/70 backdrop-blur-md -z-10"></div>
       
@@ -30,12 +30,12 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({ modelId, iconBg, iconComponent 
         </div>
         <div>
           <div className="text-sm text-white/50">@gptverse</div>
-          <h3 className="text-lg font-bold heading-gradient drop-shadow-sm">{currentModel?.name}</h3>
+          <h3 className="text-lg font-bold text-white drop-shadow-sm">{currentModel?.name}</h3>
         </div>
       </div>
       
       <Button 
-        className="rounded-full bg-[#0ef34b] hover:bg-[#0ef34b]/90 text-black font-medium px-4 py-2 text-sm flex items-center gap-2 shadow-[0_0_10px_rgba(14,243,75,0.3)]"
+        className="rounded-full bg-[#00aeff] hover:bg-[#00aeff]/90 text-black font-medium px-4 py-2 text-sm flex items-center gap-2 shadow-[0_0_10px_rgba(0,174,255,0.3)]"
       >
         Chat with {currentModel?.name} <Send className="h-4 w-4 ml-1" />
       </Button>

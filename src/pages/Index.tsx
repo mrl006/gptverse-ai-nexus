@@ -11,56 +11,27 @@ import Roadmap from '../components/Roadmap';
 import Faq from '../components/Faq';
 import Partners from '../components/Partners';
 import ContactGPTVerse from '../components/ContactGPTVerse';
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const Index = () => {
-  const isMobile = useIsMobile();
-  
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    // Add smooth scrolling for anchor links
-    const handleAnchorClick = (e: MouseEvent) => {
-      const target = e.target as HTMLElement;
-      const anchor = target.closest('a');
-      
-      if (anchor && anchor.hash && anchor.hash.startsWith('#')) {
-        e.preventDefault();
-        const targetElement = document.querySelector(anchor.hash);
-        if (targetElement) {
-          const navbarHeight = 72; // Approximate navbar height
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
-          
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
-      }
-    };
-    
-    document.addEventListener('click', handleAnchorClick);
-    return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
   return (
-    <div className={`min-h-screen bg-[#040812] text-white ${isMobile ? '' : 'overflow-x-hidden'}`}>
-      {/* Consistent green glow glassmorphism background */}
+    <div className="min-h-screen bg-[#040812] text-white overflow-x-hidden">
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwaDQwdjQwSDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoMXY0MEgweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMTAgMGgxdjQwSDEweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMjAgMGgxdjQwSDIweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMzAgMGgxdjQwSDMweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMCAwdjFoNDBWMHoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PHBhdGggZD0iTTAgMTB2MWg0MHYtMXoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PHBhdGggZD0iTTAgMjB2MWg0MHYtMXoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PHBhdGggZD0iTTAgMzB2MWg0MHYtMXoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PC9zdmc+')] opacity-30"></div>
         
-        {/* Consistent glowing dots */}
         <div className="absolute top-[10%] left-[15%] w-1 h-1 bg-[#0ef34b] rounded-full opacity-40 animate-pulse"></div>
-        <div className="absolute top-[25%] left-[40%] w-1 h-1 bg-[#0ef34b] rounded-full opacity-30 animate-pulse" style={{animationDelay: '1.5s'}}></div>
-        <div className="absolute top-[70%] left-[20%] w-1 h-1 bg-[#0ef34b] rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-[25%] left-[40%] w-1 h-1 bg-[#00aeff] rounded-full opacity-30 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-[70%] left-[20%] w-1 h-1 bg-[#d946ef] rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
         <div className="absolute top-[30%] right-[25%] w-1 h-1 bg-[#0ef34b] rounded-full opacity-30 animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-[60%] right-[10%] w-1 h-1 bg-[#0ef34b] rounded-full opacity-40 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        <div className="absolute top-[60%] right-[10%] w-1 h-1 bg-[#00aeff] rounded-full opacity-40 animate-pulse" style={{animationDelay: '0.5s'}}></div>
         
-        {/* Global radial gradients */}
         <div className="absolute h-full w-full opacity-10">
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_center,rgba(14,243,75,0.1)_0%,rgba(14,243,75,0)_70%)] animate-pulse-slow" style={{transformOrigin: '30% 30%'}}></div>
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_center,rgba(0,174,255,0.1)_0%,rgba(0,174,255,0)_70%)] animate-pulse-slow" style={{transformOrigin: '70% 60%', animationDelay: '2s'}}></div>
-          <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_center,rgba(14,243,75,0.05)_0%,rgba(14,243,75,0)_70%)] animate-pulse-slow" style={{transformOrigin: '50% 50%', animationDelay: '4s'}}></div>
+          <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_center,rgba(217,70,239,0.05)_0%,rgba(217,70,239,0)_70%)] animate-pulse-slow" style={{transformOrigin: '50% 50%', animationDelay: '4s'}}></div>
         </div>
       </div>
       

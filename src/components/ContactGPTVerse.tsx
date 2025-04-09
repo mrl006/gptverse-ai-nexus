@@ -3,11 +3,8 @@ import React from 'react';
 import { Linkedin, Send } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card";
-import { useIsMobile } from '@/hooks/use-mobile';
 
 const ContactGPTVerse = () => {
-  const isMobile = useIsMobile();
-  
   // Social media links data with icons and URLs
   const socialLinks = [
     { 
@@ -96,15 +93,15 @@ const ContactGPTVerse = () => {
       
       {/* Glowing orbs in background */}
       <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-[#0ef34b] rounded-full opacity-70 blur-sm animate-pulse"></div>
-      <div className="absolute top-2/3 right-1/4 w-2 h-2 bg-[#0ef34b] rounded-full opacity-60 blur-sm animate-pulse" style={{animationDelay: '1.5s'}}></div>
-      <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-[#0ef34b] rounded-full opacity-50 blur-sm animate-pulse" style={{animationDelay: '0.7s'}}></div>
+      <div className="absolute top-2/3 right-1/4 w-2 h-2 bg-[#00aeff] rounded-full opacity-60 blur-sm animate-pulse" style={{animationDelay: '1.5s'}}></div>
+      <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-[#d946ef] rounded-full opacity-50 blur-sm animate-pulse" style={{animationDelay: '0.7s'}}></div>
       
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-[#0ef34b] uppercase tracking-wider text-sm font-mono mb-2">Connect With Us</h2>
           <div className="relative inline-block">
-            <h3 className="heading-gradient text-4xl md:text-5xl font-bold mb-6 relative z-10">
+            <h3 className="text-4xl md:text-5xl font-bold mb-6 relative z-10">
               CONTACT GPTVERSE
             </h3>
             <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b] to-[#0ef34b]/0"></div>
@@ -114,8 +111,8 @@ const ContactGPTVerse = () => {
           </p>
         </div>
         
-        {/* Social Media Icons Container - Responsive Grid Layout */}
-        <div className={`${isMobile ? 'grid grid-cols-3 gap-4' : 'flex flex-wrap justify-center gap-4 md:gap-6'} max-w-3xl mx-auto`}>
+        {/* Social Media Icons Container */}
+        <div className="flex flex-wrap justify-center gap-4 md:gap-6 max-w-3xl mx-auto">
           {socialLinks.map((link, index) => (
             <HoverCard key={index}>
               <HoverCardTrigger asChild>
@@ -123,19 +120,16 @@ const ContactGPTVerse = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group flex justify-center"
+                  className="group"
                   aria-label={link.name}
                 >
                   <div 
-                    className={`
-                      ${isMobile ? 'w-full max-w-[90px] aspect-square' : 'w-16 h-16 md:w-20 md:h-20'} 
-                      rounded-xl backdrop-blur-xl bg-[#040812]/60 border border-[#0ef34b]/20
-                      flex items-center justify-center text-white/80 hover:text-white transition-all duration-500
-                      hover:border-[#0ef34b]/40 hover:shadow-[0_0_20px_rgba(14,243,75,0.15)] group-hover:scale-105
-                    `}
+                    className="w-16 h-16 md:w-20 md:h-20 rounded-xl backdrop-blur-xl bg-[#040812]/60 border border-[#0ef34b]/20
+                              flex items-center justify-center text-white/80 hover:text-white transition-all duration-500
+                              hover:border-[#0ef34b]/40 hover:shadow-[0_0_20px_rgba(14,243,75,0.15)] group-hover:scale-105"
                   >
                     {/* Glow effect overlay */}
-                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/10 to-[#0ef34b]/0"></div>
+                    <div className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/10 to-[#00aeff]/0"></div>
                     
                     {/* Icon */}
                     <div className="relative">
@@ -155,14 +149,9 @@ const ContactGPTVerse = () => {
           ))}
         </div>
         
-        {/* Contact Us Button - Full Width on Mobile */}
+        {/* Contact Us Button */}
         <div className="text-center mt-12">
-          <Button className={`
-            ${isMobile ? 'w-full py-6' : ''} 
-            bg-[#040812]/60 hover:bg-[#040812]/80 text-white border border-[#0ef34b]/30 
-            rounded-lg px-8 py-2.5 shadow-[0_0_15px_rgba(14,243,75,0.2)] 
-            group transition-all duration-300 backdrop-blur-md
-          `}>
+          <Button className="bg-[#040812]/60 hover:bg-[#040812]/80 text-white border border-[#0ef34b]/30 rounded-lg px-8 py-2.5 shadow-[0_0_15px_rgba(14,243,75,0.2)] group transition-all duration-300 backdrop-blur-md">
             <span className="mr-2 text-lg">Get in Touch</span>
             <Send className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
           </Button>

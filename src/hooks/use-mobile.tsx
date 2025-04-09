@@ -1,23 +1,41 @@
 
 import * as React from "react"
 
+// More precise mobile breakpoint constant
 const MOBILE_BREAKPOINT = 768
 
 export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean>(false)
+  const [windowWidth, setWindowWidth] = React.useState<number>(
+    typeof window !== 'undefined' ? window.innerWidth : 0
+  )
 
   React.useEffect(() => {
-    // Set initial value
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+    // Only run on client side
+    if (typeof window === 'undefined') return;
     
-    // Update on resize
+    // Initial check for mobile
+    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+    setWindowWidth(window.innerWidth)
+    
+    // More efficient resize handler with debounce
+    let timeoutId: ReturnType<typeof setTimeout>;
+    
     const handleResize = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+      clearTimeout(timeoutId);
+      
+      timeoutId = setTimeout(() => {
+        setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+        setWindowWidth(window.innerWidth)
+      }, 100); // Debounce for better performance
     }
     
     window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+      clearTimeout(timeoutId);
+    }
   }, [])
 
-  return isMobile
+  return { isMobile, windowWidth }
 }

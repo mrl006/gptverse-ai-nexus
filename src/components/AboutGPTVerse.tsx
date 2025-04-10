@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -120,7 +121,7 @@ const AboutGPTVerse = () => {
     }
   };
   
-  // Floating icon animation
+  // Floating icon animation - fixed to use Infinity instead of component
   const floatAnimation = {
     y: [0, -10, 0],
     rotate: [0, 5, 0, -5, 0],

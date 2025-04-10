@@ -299,15 +299,7 @@ const AboutGPTVerse = () => {
                     <motion.div 
                       className="mb-4 p-3 rounded-full bg-[#06101a] border"
                       style={{ borderColor: `${item.color}40` }}
-                      animate={{
-                        y: [0, -10, 0],
-                        rotate: [0, 5, 0, -5, 0],
-                        transition: {
-                          duration: 5,
-                          repeat: Infinity,
-                          ease: "easeInOut"
-                        }
-                      }}
+                      animate={floatAnimation}
                     >
                       {item.icon}
                     </motion.div>

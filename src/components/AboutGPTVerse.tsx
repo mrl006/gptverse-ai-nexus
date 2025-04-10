@@ -299,7 +299,15 @@ const AboutGPTVerse = () => {
                     <motion.div 
                       className="mb-4 p-3 rounded-full bg-[#06101a] border"
                       style={{ borderColor: `${item.color}40` }}
-                      animate={floatAnimation}
+                      animate={{
+                        y: [0, -10, 0],
+                        rotate: [0, 5, 0, -5, 0],
+                        transition: {
+                          duration: 5,
+                          repeat: Infinity,
+                          ease: "easeInOut"
+                        }
+                      }}
                     >
                       {item.icon}
                     </motion.div>
@@ -659,13 +667,13 @@ const AboutGPTVerse = () => {
                             <div className="flex flex-col items-center text-center gap-3 relative z-10">
                               <motion.div 
                                 className="p-3 bg-[#06101a]/60 rounded-full border border-white/10"
-                                animate={{ 
-                                  rotate: [0, 5, 0, -5, 0], 
-                                  scale: [1, 1.05, 1] 
+                                animate={{
+                                  rotate: [0, 5, 0, -5, 0],
+                                  scale: [1, 1.05, 1]
                                 }}
-                                transition={{ 
-                                  duration: 5, 
-                                  repeat: Infinity, 
+                                transition={{
+                                  duration: 5,
+                                  repeat: Infinity,
                                   delay: index
                                 }}
                               >

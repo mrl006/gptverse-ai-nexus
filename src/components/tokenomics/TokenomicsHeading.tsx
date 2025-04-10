@@ -1,28 +1,27 @@
 
 import React from 'react';
+import { Separator } from "@/components/ui/separator";
+import { motion } from "framer-motion";
 
 const TokenomicsHeading = () => {
   return (
-    <div className="w-full space-y-8 text-center">
-      <div className="inline-block">
-        <div className="relative">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight animate-text-reveal">
-            <span className="bg-gradient-to-r from-[#8B5CF6] via-white to-[#D946EF] bg-clip-text text-transparent drop-shadow-sm animate-text-gradient">
-              TOKENOMICS
-            </span>
-          </h2>
-          
-          {/* Glowing underline */}
-          <div className="absolute -bottom-3 left-0 h-1 w-full bg-gradient-to-r from-[#8B5CF6]/20 via-[#D946EF] to-[#8B5CF6]/20 animate-shimmer"></div>
-          
-          {/* Glow effect */}
-          <div className="absolute -bottom-4 left-0 h-3 w-full blur-md bg-gradient-to-r from-[#8B5CF6]/30 via-[#D946EF]/20 to-[#8B5CF6]/30 animate-shimmer"></div>
-        </div>
-      </div>
-      
-      <p className="text-white/80 text-lg max-w-2xl mx-auto animate-text-reveal-delay-1 leading-relaxed">
-        Our token distribution strategy is designed for long-term sustainable growth while ensuring fair allocation across our ecosystem.
-      </p>
+    <div className="text-center mb-16">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto]">
+            TOKENOMICS
+          </span>
+        </h2>
+        <p className="text-white/80 max-w-2xl mx-auto mb-5 leading-relaxed">
+          Our token distribution strategy is designed for long-term sustainable growth while ensuring fair allocation across our ecosystem.
+        </p>
+        <Separator className="w-36 h-1 bg-gradient-to-r from-[#0B3954]/40 to-[#0CF574]/40 mx-auto mt-2" />
+      </motion.div>
     </div>
   );
 };

@@ -36,36 +36,36 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
     switch (buttonType) {
       case "ai-hub":
         return (
-          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
+          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 whitespace-nowrap">
             Try AI HUB
           </Button>
         );
       case "language-tutor":
         return (
           <>
-            <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
+            <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 whitespace-nowrap">
               Try in AI HUB
             </Button>
-            <Button variant="outline" className="bg-[#040812]/60 text-white border-white/10 hover:bg-[#040812]/80 flex items-center gap-2 transition-all duration-300">
+            <Button variant="outline" className="bg-[#040812]/60 text-white border-white/10 hover:bg-[#040812]/80 flex items-center gap-2 transition-all duration-300 whitespace-nowrap">
               <Play size={16} /> Watch Trailer
             </Button>
           </>
         );
       case "ai-persona":
         return (
-          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
+          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 whitespace-nowrap">
             Learn More
           </Button>
         );
       case "fitness-coach":
         return (
-          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300">
+          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-6 py-2 rounded-lg transition-all duration-300 whitespace-nowrap">
             Start Training
           </Button>
         );
       case "receptionist":
         return (
-          <Button variant="outline" className="bg-[#040812]/60 border-white/10 text-white hover:bg-[#040812]/80 font-medium px-6 py-2 rounded-lg transition-all duration-300">
+          <Button variant="outline" className="bg-[#040812]/60 border-white/10 text-white hover:bg-[#040812]/80 font-medium px-6 py-2 rounded-lg transition-all duration-300 whitespace-nowrap">
             Join Waitlist
           </Button>
         );
@@ -113,7 +113,7 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
                 {statusLabels.map((label, index) => (
                   <span 
                     key={index} 
-                    className="px-3 py-1 text-sm font-medium rounded-md backdrop-blur-md bg-[#040812]/60 border border-white/10 text-white"
+                    className="px-3 py-1 text-sm font-medium rounded-md backdrop-blur-md bg-[#040812]/60 border border-white/10 text-white whitespace-nowrap"
                   >
                     {label.text}
                   </span>
@@ -124,18 +124,18 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
             <div className="p-6 flex-grow flex flex-col justify-between">
               {/* Title section with minimal styling */}
               <div>
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-1">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-1 truncate">
                   {title}
                 </h2>
                 
-                <h3 className="text-xl md:text-2xl font-bold text-white/70 mb-4">
+                <h3 className="text-xl md:text-2xl font-bold text-white/70 mb-4 truncate">
                   {subtitle}
                 </h3>
                 
                 {/* Simplified description section */}
                 <div className="relative">
                   <div className="absolute -left-2 top-0 w-px h-full bg-white/10"></div>
-                  <p className="text-white/60 mb-6 pl-4">
+                  <p className="text-white/60 mb-6 pl-4 line-clamp-4">
                     {description}
                   </p>
                 </div>

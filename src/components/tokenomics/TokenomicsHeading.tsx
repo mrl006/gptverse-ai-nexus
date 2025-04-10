@@ -17,6 +17,16 @@ const TokenomicsHeading = () => {
             TOKENOMICS
           </span>
         </h2>
+        
+        {/* Refined corporate banner with subtle dividers - matches other sections */}
+        <div className="flex items-center justify-center gap-5 mb-5">
+          <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#087E8B]/20 to-transparent"></div>
+          <p className="text-[#0CF574]/70 text-sm font-sans uppercase tracking-wider">
+            ECONOMIC MODEL
+          </p>
+          <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#087E8B]/20 to-transparent"></div>
+        </div>
+        
         <p className="text-white/80 max-w-2xl mx-auto mb-5 leading-relaxed">
           Our token distribution strategy is designed for long-term sustainable growth while ensuring fair allocation across our ecosystem.
         </p>

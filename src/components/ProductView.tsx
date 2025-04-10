@@ -12,7 +12,7 @@ const ProductView = () => {
   const [selectedModel, setSelectedModel] = useState<string>('pdf-reader');
   const [showSidebar, setShowSidebar] = useState(true);
   const viewRef = useRef<HTMLDivElement>(null);
-  const isMobile = useIsMobile();
+  const { isMobile } = useIsMobile();
   
   const currentModel = AiModels.find(model => model.id === selectedModel) || AiModels[0];
 
@@ -60,8 +60,8 @@ const ProductView = () => {
       </div>
       
       <div className="max-w-[1400px] mx-auto px-4 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[280px,1fr] gap-6">
-          {/* Model List Sidebar */}
+        <div className="grid grid-cols-1 lg:grid-cols-[300px,1fr] gap-6">
+          {/* Model List Sidebar - Widened for better text display */}
           <ModelList 
             selectedModel={selectedModel}
             setSelectedModel={handleModelSelect}

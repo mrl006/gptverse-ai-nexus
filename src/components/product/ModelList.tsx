@@ -19,7 +19,7 @@ const ModelList: React.FC<ModelListProps> = ({
   showSidebar, 
   setShowSidebar 
 }) => {
-  const isMobile = useIsMobile();
+  const { isMobile } = useIsMobile();
   
   const containerVariants = {
     hidden: { opacity: 0, height: 0 },
@@ -106,7 +106,7 @@ const ModelList: React.FC<ModelListProps> = ({
                 </div>
                 <span className={`${selectedModel === model.id 
                   ? 'text-white font-medium' 
-                  : 'text-gray-400'} ${isMobile ? 'text-sm' : ''}`}>
+                  : 'text-gray-400'} ${isMobile ? 'text-sm' : ''} whitespace-nowrap overflow-hidden text-ellipsis`}>
                   {model.name}
                 </span>
                 

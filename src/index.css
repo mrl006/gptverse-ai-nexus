@@ -192,38 +192,12 @@
   }
 }
 
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@keyframes reverse-spin {
-  from {
-    transform: rotate(360deg);
-  }
-  to {
-    transform: rotate(0deg);
-  }
-}
-
 .animate-blip {
   animation: blip 2s infinite;
 }
 
 .animate-pulse-slow {
   animation: pulse-slow 10s ease-in-out infinite;
-}
-
-.animate-spin-slow {
-  animation: spin-slow 30s linear infinite;
-}
-
-.animate-reverse-spin {
-  animation: reverse-spin 25s linear infinite;
 }
 
 /* Refined 3D effect for professional charts */
@@ -660,30 +634,4 @@
 .corporate-alert-error {
   background: rgba(255, 82, 82, 0.1);
   border-left-color: #FF5252;
-}
-
-/* Hexagonal clip path for the hexagon cards */
-.clip-hexagon {
-  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  aspect-ratio: 0.866;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Add text gradient animation */
-@keyframes text-gradient {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-
-.animate-text-gradient {
-  animation: text-gradient 3s ease infinite;
 }

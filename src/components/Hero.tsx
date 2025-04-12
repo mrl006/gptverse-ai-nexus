@@ -1,12 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Sigma } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
 const Hero = () => {
   const [glitchText, setGlitchText] = useState('');
   const originalText = "A modern art gallery, Magritte and Chagall style.";
-  
   useEffect(() => {
     const glitchInterval = setInterval(() => {
       if (Math.random() > 0.8) {
@@ -20,45 +17,36 @@ const Hero = () => {
           }
         }
         setGlitchText(result);
-        
+
         // Reset after brief glitch
         setTimeout(() => {
           setGlitchText(originalText);
         }, 100);
       }
     }, 2000);
-    
     setGlitchText(originalText);
-    
     return () => clearInterval(glitchInterval);
   }, []);
 
   // Platform buttons data
-  const platforms = [
-    { 
-      name: 'WINDOWS', 
-      logo: "/lovable-uploads/6eca13b2-a069-4441-bf8c-22a4e9a8fe86.png",
-      text: "Get it on",
-    },
-    { 
-      name: 'VR SIDEQUEST', 
-      logo: "/lovable-uploads/45ae9a90-7bdf-4333-8369-846d93de1cf0.png",
-      text: "Get it on",
-    },
-    { 
-      name: 'WEBGL', 
-      logo: "/lovable-uploads/4dbe8711-87c1-4255-9585-24d3145300d6.png",
-      text: "Get it on",
-    },
-    { 
-      name: 'AI HUB', 
-      logo: "/lovable-uploads/053c9a26-917a-46cd-a510-68db71cf90ab.png",
-      text: "Get it on",
-    },
-  ];
-
-  return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-20">
+  const platforms = [{
+    name: 'WINDOWS',
+    logo: "/lovable-uploads/6eca13b2-a069-4441-bf8c-22a4e9a8fe86.png",
+    text: "Get it on"
+  }, {
+    name: 'VR SIDEQUEST',
+    logo: "/lovable-uploads/45ae9a90-7bdf-4333-8369-846d93de1cf0.png",
+    text: "Get it on"
+  }, {
+    name: 'WEBGL',
+    logo: "/lovable-uploads/4dbe8711-87c1-4255-9585-24d3145300d6.png",
+    text: "Get it on"
+  }, {
+    name: 'AI HUB',
+    logo: "/lovable-uploads/053c9a26-917a-46cd-a510-68db71cf90ab.png",
+    text: "Get it on"
+  }];
+  return <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-20">
       {/* Alien-inspired background with geometric patterns */}
       <div className="absolute inset-0 bg-gradient-to-b from-[#040812] via-[#081019] to-[#0a1a20] z-0"></div>
       
@@ -67,26 +55,26 @@ const Hero = () => {
       
       {/* Animated particles */}
       <div className="absolute inset-0 z-0">
-        {Array.from({ length: 20 }).map((_, index) => (
-          <div 
-            key={index}
-            className="absolute w-1 h-1 bg-[#0ef34b] rounded-full animate-pulse-slow"
-            style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 5}s`,
-              animationDuration: `${5 + Math.random() * 15}s`,
-              opacity: 0.4,
-            }}
-          />
-        ))}
+        {Array.from({
+        length: 20
+      }).map((_, index) => <div key={index} className="absolute w-1 h-1 bg-[#0ef34b] rounded-full animate-pulse-slow" style={{
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+        animationDelay: `${Math.random() * 5}s`,
+        animationDuration: `${5 + Math.random() * 15}s`,
+        opacity: 0.4
+      }} />)}
       </div>
       
       {/* Energy pulse rings */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-0">
         <div className="w-[500px] h-[500px] rounded-full border border-[#0ef34b]/10 animate-pulse-slow"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-[#0ef34b]/15 animate-pulse-slow" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-[#0ef34b]/20 animate-pulse-slow" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full border border-[#0ef34b]/15 animate-pulse-slow" style={{
+        animationDelay: '1s'
+      }}></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[300px] h-[300px] rounded-full border border-[#0ef34b]/20 animate-pulse-slow" style={{
+        animationDelay: '2s'
+      }}></div>
       </div>
       
       {/* Title section with GPTVERSE.AI text */}
@@ -102,21 +90,15 @@ const Hero = () => {
           <span className="text-white">Multi platform </span>
           <span className="bg-gradient-to-r from-[#0ef34b] to-[#00aeff] bg-clip-text text-transparent">AI Hub</span>
         </h1>
-        <p className="text-xl md:text-2xl text-white/80 mt-6 max-w-3xl mx-auto">
-          GPTVERSE.AI: Your AI Hub and Multi-Platform Gateway to a Next-Level Dapp!
-        </p>
+        <p className="text-xl md:text-2xl text-white/80 mt-6 max-w-3xl mx-auto">Your AI Hub and Multi-Platform Gateway to a Next-Level Dapp!</p>
       </div>
       
       {/* Platform buttons - Moved here to be below the heading */}
       <div className="flex overflow-x-auto scrollbar-none py-2 mb-6 w-full max-w-6xl mx-auto px-4 gap-4 z-10">
-        {platforms.map((platform, index) => (
-          <button
-            key={index}
-            className="backdrop-blur-md bg-[#040812]/40 border border-[#0ef34b]/30 rounded-lg
+        {platforms.map((platform, index) => <button key={index} className="backdrop-blur-md bg-[#040812]/40 border border-[#0ef34b]/30 rounded-lg
                     px-4 py-3 hover:bg-[#040812]/60 transition-all duration-300
                     flex items-center justify-center gap-3 min-w-[180px]
-                    relative overflow-hidden group flex-1 shadow-[0_0_15px_rgba(14,243,75,0.2)]"
-          >
+                    relative overflow-hidden group flex-1 shadow-[0_0_15px_rgba(14,243,75,0.2)]">
             {/* Enhanced glassmorphism effects with green glow */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-30"></div>
             <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/40 to-transparent"></div>
@@ -136,11 +118,7 @@ const Hero = () => {
                           border border-[#0ef34b]/30 group-hover:border-[#0ef34b]/50
                           transition-all duration-500 overflow-hidden p-1
                           shadow-[0_0_10px_rgba(14,243,75,0.3)]">
-                <img 
-                  src={platform.logo} 
-                  alt={platform.name} 
-                  className="w-full h-full object-contain"
-                />
+                <img src={platform.logo} alt={platform.name} className="w-full h-full object-contain" />
               </div>
               
               <span className="text-white font-mono">
@@ -148,8 +126,7 @@ const Hero = () => {
                 <div className="font-bold tracking-wider group-hover:text-[#0ef34b] transition-colors duration-300">{platform.name}</div>
               </span>
             </div>
-          </button>
-        ))}
+          </button>)}
       </div>
       
       {/* Alien tech indicators */}
@@ -158,8 +135,6 @@ const Hero = () => {
         <div className="h-0.5 w-8 bg-gradient-to-r from-[#00aeff]/50 to-[#00aeff]/5"></div>
         <div className="h-0.5 w-4 bg-gradient-to-r from-[#0ef34b]/50 to-[#0ef34b]/5"></div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;

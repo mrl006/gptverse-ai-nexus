@@ -218,7 +218,7 @@ export default {
 		}
 	},
 	plugins: [
-		require("tailwindcss-animate"),
-		require("tailwind-scrollbar")
+		require("tailwindcss-animate")
+		// Removing tailwind-scrollbar plugin to avoid dependency conflicts
 	],
 } satisfies Config;

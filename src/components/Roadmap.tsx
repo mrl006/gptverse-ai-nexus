@@ -128,7 +128,7 @@ const Roadmap = () => {
     {
       period: "Q1 2025",
       title: "Strategic Growth & Engagement",
-      status: "planned" as const,
+      status: "in-progress" as const,
       description: [
         "Burn Campaign Launch",
         "AMA Events",

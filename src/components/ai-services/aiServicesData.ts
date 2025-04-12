@@ -68,16 +68,6 @@ const getAiServices = (): AiService[] => {
         { text: "MVP Ready", color: "bg-[#00aeff]/20 text-[#00aeff]" }
       ],
       buttonType: "receptionist"
-    },
-    {
-      title: "AI",
-      subtitle: "Generated 3D",
-      description: "Generate true 3D sites with 3D assets using our powerful AI technology. Create immersive experiences for your users with just a few clicks.",
-      image: "/lovable-uploads/3808c426-ddc0-4d85-a636-1d1dee05a33c.png",
-      statusLabels: [
-        { text: "In Progress", color: "bg-[#f0db4f]/20 text-[#f0db4f]" }
-      ],
-      buttonType: "ai-hub"
     }
   ];
 };

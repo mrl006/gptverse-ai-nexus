@@ -15,10 +15,10 @@ const AiServicesHeader: React.FC = () => {
       <div className="absolute -top-10 left-1/2 -translate-x-1/2 w-40 h-40 bg-[radial-gradient(circle_at_center,rgba(8,126,139,0.05)_0%,rgba(8,126,139,0)_70%)]"></div>
       
       <div className="flex flex-col items-center">
-        {/* Corporate-styled title with consistent branding */}
+        {/* Cosmic-themed title with consistent branding */}
         <div className="mb-5 justify-center">
           <h2 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto]">
-            ENTERPRISE AI SOLUTIONS
+            STELLAR AI INNOVATIONS
           </h2>
         </div>
         
@@ -26,15 +26,15 @@ const AiServicesHeader: React.FC = () => {
         <div className="flex items-center gap-5 mb-6">
           <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#087E8B]/20 to-transparent"></div>
           <p className="text-[#0CF574]/70 text-sm font-sans uppercase tracking-wider">
-            POWERED BY GPTVERSE ENTERPRISE
+            POWERED BY GPTVERSE.AI ENTERPRISE
           </p>
           <div className="h-px w-16 bg-gradient-to-r from-transparent via-[#087E8B]/20 to-transparent"></div>
         </div>
       </div>
       
-      {/* Professional subtitle */}
+      {/* Enhanced creative subtitle */}
       <p className="text-white/70 max-w-2xl mx-auto mt-4">
-        Cutting-edge AI solutions designed specifically for enterprise needs, offering scalable, secure, and efficient business intelligence
+        Quantum-edge AI solutions architected for enterprise excellence, delivering unparalleled intelligence across dimensions
       </p>
     </motion.div>
   );

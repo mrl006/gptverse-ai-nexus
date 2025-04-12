@@ -103,7 +103,7 @@ const Hero = () => {
           <span className="bg-gradient-to-r from-[#0ef34b] to-[#00aeff] bg-clip-text text-transparent">AI Hub</span>
         </h1>
         <p className="text-xl md:text-2xl text-white/80 mt-6 max-w-3xl mx-auto">
-          GPTVerse: Your AI Hub and Multi-Platform Gateway to a Next-Level Dapp!
+          GPTVERSE.AI: Your AI Hub and Multi-Platform Gateway to a Next-Level Dapp!
         </p>
       </div>
       

@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { Button } from '@/components/ui/button';
 
 const PlatformButtons = () => {
   const isMobile = useIsMobile();
@@ -31,13 +32,13 @@ const PlatformButtons = () => {
   return (
     <div className={`flex ${isMobile ? 'grid grid-cols-2' : 'overflow-x-auto scrollbar-none'} py-2 mb-6 w-full max-w-6xl mx-auto px-4 gap-4`}>
       {platforms.map((platform, index) => (
-        <button
+        <Button
           key={index}
-          className={`bg-[#040812]/60 backdrop-blur-md
-                    border border-white/10 rounded-lg
-                    px-4 py-3 hover:bg-[#040812]/80 transition-all duration-300
-                    flex items-center ${isMobile ? 'justify-between' : 'justify-center'} gap-3 ${isMobile ? 'w-full' : 'min-w-[180px] flex-1'}
-                    relative overflow-hidden group mb-3`}
+          variant="glassy"
+          className={`px-4 py-3 hover:bg-[#040812]/80 transition-all duration-300
+                    flex items-center ${isMobile ? 'justify-between' : 'justify-center'} gap-3 
+                    ${isMobile ? 'w-full' : 'min-w-[180px] flex-1'}
+                    relative overflow-hidden group mb-3 h-auto`}
         >
           {/* Minimal glassmorphism effects */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30"></div>
@@ -75,7 +76,7 @@ const PlatformButtons = () => {
               </div>
             </div>
           )}
-        </button>
+        </Button>
       ))}
     </div>
   );

@@ -13,6 +13,8 @@ const toggleVariants = cva(
         default: "bg-transparent",
         outline:
           "border border-input bg-transparent hover:bg-accent hover:text-accent-foreground",
+        glassy: 
+          "bg-[#040812]/60 backdrop-blur-md border border-white/10 text-white hover:bg-[#040812]/80 hover:border-white/20 data-[state=on]:bg-[#0ef34b]/20 data-[state=on]:border-[#0ef34b]/30",
       },
       size: {
         default: "h-10 px-3",

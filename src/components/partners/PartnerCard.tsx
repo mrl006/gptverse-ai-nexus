@@ -18,8 +18,9 @@ const PartnerCard: React.FC<PartnerCardProps> = ({ partner, imagesLoaded }) => {
       <HoverCardTrigger asChild>
         <div className="group cursor-pointer">
           <Card
-            className="relative h-32 backdrop-blur-xl bg-[#06101a]/40 border border-[#0ef34b]/10 rounded-xl overflow-hidden
-                     hover:border-[#0ef34b]/30 transition-all duration-500 flex items-center justify-center
+            variant="glassy"
+            className="relative h-32 flex items-center justify-center
+                     hover:border-[#0ef34b]/30 transition-all duration-500
                      shadow-[0_0_15px_rgba(0,0,0,0.2)] hover:shadow-[0_0_20px_rgba(14,243,75,0.15)]"
           >
             <div className="absolute -inset-[1px] rounded-xl bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b]/20 to-[#00aeff]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />

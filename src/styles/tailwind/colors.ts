@@ -1,3 +1,4 @@
+
 const colors = {
   colors: {
     border: 'hsl(var(--border))',
@@ -6,12 +7,12 @@ const colors = {
     background: 'hsl(var(--background))',
     foreground: 'hsl(var(--foreground))',
     primary: {
-      DEFAULT: 'hsl(142, 89%, 50%)',
-      foreground: 'hsl(240, 5.9%, 10%)'
+      DEFAULT: 'hsl(var(--primary))',
+      foreground: 'hsl(var(--primary-foreground))'
     },
     secondary: {
-      DEFAULT: 'hsl(199, 92%, 56%)',
-      foreground: 'hsl(0, 0%, 98%)'
+      DEFAULT: 'hsl(var(--secondary))',
+      foreground: 'hsl(var(--secondary-foreground))'
     },
     destructive: {
       DEFAULT: 'hsl(var(--destructive))',
@@ -52,8 +53,6 @@ const colors = {
       'darker': '#03060a',
       'navy': '#06101a',
       'deep-navy': '#051118',
-      'neon-green': '#0ef34b',
-      'sky-blue': '#33C3F0'
     }
   },
 };

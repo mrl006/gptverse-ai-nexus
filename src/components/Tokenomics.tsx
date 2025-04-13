@@ -42,22 +42,22 @@ const Tokenomics = () => {
           
           {/* Main visualization section - Cleaner layout */}
           <div className="flex flex-col lg:flex-row items-start gap-12 w-full max-w-6xl mx-auto mt-10">
-            {/* Left side - Glass morphism visualization with no color */}
-            <div className="w-full lg:w-7/12 backdrop-blur-xl border border-white/10 rounded-2xl 
-                            shadow-[0_8px_32px_rgba(255,255,255,0.03)] p-6 bg-white/5">
+            {/* Left side - Enhanced pie chart visualization with green glossy morphism */}
+            <div className="w-full lg:w-7/12 backdrop-blur-xl border border-alien-neon/10 rounded-2xl 
+                            shadow-[0_8px_32px_rgba(14,243,75,0.05)] p-6 bg-black/10">
               <h3 className="text-center text-2xl font-bold text-white mb-6">Token Allocation</h3>
               <PieChartVisualization />
             </div>
             
             {/* Right side - Improved tabbed information with green morphism theme */}
-            <div className="w-full lg:w-5/12 backdrop-blur-xl border border-white/10 rounded-2xl 
-                           shadow-[0_8px_32px_rgba(255,255,255,0.03)] p-6 bg-white/5">
+            <div className="w-full lg:w-5/12 backdrop-blur-xl border border-alien-neon/10 rounded-2xl 
+                           shadow-[0_8px_32px_rgba(14,243,75,0.05)] p-6 bg-black/10">
               <Tabs defaultValue="distribution" className="w-full">
-                <TabsList className="mb-6 w-full grid grid-cols-2 bg-black/30 border border-white/10">
-                  <TabsTrigger value="distribution" className="data-[state=active]:bg-white/10 data-[state=active]:text-white">
+                <TabsList className="mb-6 w-full grid grid-cols-2 bg-black/30 border border-alien-neon/10">
+                  <TabsTrigger value="distribution" className="data-[state=active]:bg-alien-neon/10 data-[state=active]:text-alien-neon">
                     Distribution
                   </TabsTrigger>
-                  <TabsTrigger value="vesting" className="data-[state=active]:bg-white/10 data-[state=active]:text-white">
+                  <TabsTrigger value="vesting" className="data-[state=active]:bg-alien-neon/10 data-[state=active]:text-alien-neon">
                     Vesting Schedule
                   </TabsTrigger>
                 </TabsList>

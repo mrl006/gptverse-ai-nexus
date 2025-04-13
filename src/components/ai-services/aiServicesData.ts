@@ -2,7 +2,6 @@
 import { ReactNode } from 'react';
 
 interface AiService {
-  id: string;
   title: string;
   subtitle: string;
   description: string;
@@ -16,7 +15,6 @@ interface AiService {
 const getAiServices = (): AiService[] => {
   return [
     {
-      id: "ai-hub",
       title: "AI",
       subtitle: "Hub",
       description: "AI Hub is a multi-platform solution that allows you to access multiple AI services with a single account and payment method. It consolidates various distributed AI services under one roof, supported and enhanced by three core feeders: GPTVerse, Partners, Community",
@@ -28,7 +26,6 @@ const getAiServices = (): AiService[] => {
       buttonType: "ai-hub"
     },
     {
-      id: "language-tutor",
       title: "AI Education",
       subtitle: "Language Tutor",
       description: "With the AI Language Tutor, you can learn any language, assess your proficiency level, and enhance your conversational skills through interactive chats. Utilize AI HUB for text-based interactions and GPTVerse Multiverse for voice-based communication.",
@@ -41,7 +38,6 @@ const getAiServices = (): AiService[] => {
       buttonType: "language-tutor"
     },
     {
-      id: "ai-persona",
       title: "AI",
       subtitle: "Persona",
       description: "Would you like to personalize artificial intelligence? It's now possible to characterize AI by adding features such as name, emotion, life story, and more. With AI Persona, limited only by your imagination, create your own artificial intelligence character.",
@@ -52,7 +48,6 @@ const getAiServices = (): AiService[] => {
       buttonType: "ai-persona"
     },
     {
-      id: "fitness-coach",
       title: "AI",
       subtitle: "Fitness Coach",
       description: "AI Fitness Coach is the first character developed with our AI persona product. Ready to assist you in the realms of a healthy lifestyle and fitness through our AI Hub and Multiverse platforms.",
@@ -64,7 +59,6 @@ const getAiServices = (): AiService[] => {
       buttonType: "fitness-coach"
     },
     {
-      id: "receptionist",
       title: "AI",
       subtitle: "Receptionist",
       description: "Let artificial intelligence track and organize your appointments on your behalf. As your most loyal assistant, it will always be by your side to support business development. Its customizable structure allows it to understand your business model and tailor its services to your unique needs.",

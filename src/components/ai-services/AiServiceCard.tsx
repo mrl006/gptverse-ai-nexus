@@ -118,8 +118,8 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
           <div className="absolute bottom-0 right-0 w-5 h-5 border-b-2 border-r-2 border-white/10 rounded-br-lg"></div>
           
           <div className="flex flex-col h-full">
-            {/* Image container with equal height - adjusted for proportion */}
-            <div className="relative overflow-hidden h-60">
+            {/* Image container with subtle overlay */}
+            <div className="relative overflow-hidden h-48">
               <div className="absolute inset-0 bg-gradient-to-t from-[#040812]/90 via-transparent to-transparent z-10"></div>
               <motion.img 
                 src={image} 
@@ -136,7 +136,7 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
               
               {/* Status labels with subtle glassmorphism style */}
               <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-20">
-                {statusLabels && statusLabels.map((label, index) => (
+                {statusLabels.map((label, index) => (
                   <motion.span 
                     key={index} 
                     className={`px-3 py-1 text-sm font-medium rounded-md backdrop-blur-md ${
@@ -166,8 +166,7 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
               </div>
             </div>
             
-            {/* Content area with equal height to balance with image */}
-            <div className="p-6 flex-grow flex flex-col justify-between h-60">
+            <div className="p-6 flex-grow flex flex-col justify-between">
               {/* Title section with minimal styling */}
               <div>
                 <motion.h2 
@@ -192,19 +191,19 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
                   {subtitle}
                 </motion.h3>
                 
-                {/* Simplified description section with scrollable content for overflow */}
+                {/* Simplified description section */}
                 <div className="relative">
                   <div className="absolute -left-2 top-0 w-px h-full bg-white/10"></div>
-                  <motion.div 
-                    className="text-white/60 pl-4 max-h-28 overflow-y-auto scrollbar-thin"
+                  <motion.p 
+                    className="text-white/60 mb-6 pl-4 line-clamp-4"
                     animate={{ 
                       opacity: isHovered ? 0.8 : 0.6,
                       y: isHovered ? -2 : 0 
                     }}
                     transition={{ duration: 0.3, delay: 0.1 }}
                   >
-                    <p>{description}</p>
-                  </motion.div>
+                    {description}
+                  </motion.p>
                 </div>
               </div>
               

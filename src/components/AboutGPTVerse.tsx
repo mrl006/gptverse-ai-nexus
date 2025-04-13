@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
@@ -24,6 +23,7 @@ import {
 } from "@/components/ui/carousel";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
+import AboutHeader from './about/AboutHeader';
 
 const AboutGPTVerse = () => {
   const [activeTab, setActiveTab] = useState("vision");
@@ -113,35 +113,7 @@ const AboutGPTVerse = () => {
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header with improved design */}
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="text-3xl md:text-5xl font-bold mb-3 relative inline-block">
-            <span className="relative">
-              <span className="absolute -top-2 -left-6 w-5 h-5 border-t-2 border-l-2 border-[#0ef34b]/50"></span>
-              <span className="text-[#0ef34b]">ABOUT</span>
-            </span>
-            <span className="text-white mx-2">THE</span>
-            <span className="relative">
-              <span className="text-[#00aeff]">GPTVERSE</span>
-              <span className="absolute -bottom-2 -right-6 w-5 h-5 border-b-2 border-r-2 border-[#00aeff]/50"></span>
-            </span>
-          </h2>
-          
-          <div className="max-w-3xl mx-auto">
-            <div className="relative mt-6">
-              <div className="absolute -top-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
-              <p className="text-[#0ef34b]/70 text-sm md:text-base font-mono uppercase tracking-wider">
-                EXPLORE THE FUTURE OF AI TECHNOLOGY
-              </p>
-              <div className="absolute -bottom-2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00aeff]/20 to-transparent"></div>
-            </div>
-          </div>
-        </motion.div>
+        <AboutHeader />
 
         {/* New split layout with selectable tabs */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">

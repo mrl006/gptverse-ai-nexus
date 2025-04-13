@@ -26,15 +26,15 @@ const renderCustomizedLabel = ({
     </text>;
 };
 
-// Enhanced tooltip with green morphism style
+// Glass morphism tooltip with minimalist style
 const CustomTooltip = ({
   active,
   payload
 }: any) => {
   if (active && payload && payload.length) {
-    return <div className="backdrop-blur-lg bg-white/10 p-4 rounded-xl border border-alien-neon/20 shadow-xl">
+    return <div className="backdrop-blur-lg bg-white/10 p-4 rounded-xl border border-white/20 shadow-xl">
         <p className="text-white font-medium text-base">{payload[0].name}</p>
-        <p className="text-alien-neon font-mono text-lg">{`${payload[0].value}%`}</p>
+        <p className="text-white font-mono text-lg">{`${payload[0].value}%`}</p>
         {payload[0].payload.description && <p className="text-white/80 text-sm mt-2 max-w-[240px]">
             {payload[0].payload.description}
           </p>}
@@ -42,26 +42,25 @@ const CustomTooltip = ({
   }
   return null;
 };
+
 const PieChartVisualization: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
   return <div className="w-full h-full flex flex-col items-center justify-center">
       <div className="w-full h-[500px] max-w-[800px] mx-auto relative">
         {/* Glossy background effect */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-alien-neon/5 to-transparent pointer-events-none" />
+        <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
         
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <defs>
-              {/* Green-themed glow filters for cells */}
+              {/* Glass morphism filters for cells */}
               {tokenDistribution.map((entry, index) => {
-                // Convert all colors to green hues
-                const greenColor = index % 3 === 0 ? '#0ef34b' : // bright green
-                                   index % 3 === 1 ? '#0FF5CE' : // teal
-                                                    '#00AEFF'; // blue
+                // Various shades of white/gray for glass effect
+                const glassColor = `rgba(255, 255, 255, ${0.3 + (index % 3) * 0.1})`;
                 return (
                   <filter key={`glow-${index}`} id={`glow-${index}`} x="-50%" y="-50%" width="200%" height="200%">
                     <feGaussianBlur stdDeviation="6" result="blur" />
-                    <feFlood floodColor={greenColor} floodOpacity="0.3" result="coloredBlur" />
+                    <feFlood floodColor="white" floodOpacity="0.1" result="coloredBlur" />
                     <feComposite in="SourceGraphic" in2="coloredBlur" operator="over" />
                   </filter>
                 );
@@ -69,8 +68,8 @@ const PieChartVisualization: React.FC = () => {
               
               {/* Glossy gradient for pie */}
               <linearGradient id="glossGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="#0ef34b" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="#0ef34b" stopOpacity="0.05" />
+                <stop offset="0%" stopColor="white" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="white" stopOpacity="0.05" />
               </linearGradient>
             </defs>
             
@@ -90,18 +89,16 @@ const PieChartVisualization: React.FC = () => {
               onMouseLeave={() => setActiveIndex(null)}
             >
               {tokenDistribution.map((entry, index) => {
-                // Convert all colors to green hues for a consistent theme
-                const greenColor = index % 3 === 0 ? '#0ef34b' : // bright green
-                                  index % 3 === 1 ? '#0FF5CE' : // teal
-                                                  '#00AEFF'; // blue accent
+                // Different shades of white/gray for a glass look
+                const glassShade = `rgba(255, 255, 255, ${0.2 + (index % 5) * 0.05})`;
                 return (
                   <Cell 
                     key={`cell-${index}`} 
-                    fill={greenColor} 
-                    stroke="rgba(255,255,255,0.2)" 
+                    fill={glassShade} 
+                    stroke="rgba(255,255,255,0.4)" 
                     filter={activeIndex === index ? `url(#glow-${index})` : undefined} 
                     style={{
-                      filter: activeIndex === index ? `drop-shadow(0 0 10px ${greenColor}80)` : undefined,
+                      filter: activeIndex === index ? `drop-shadow(0 0 10px rgba(255,255,255,0.3))` : undefined,
                       transition: 'all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
                       transformOrigin: 'center center',
                       transform: activeIndex === index ? 'scale(1.03)' : 'scale(1)'
@@ -113,7 +110,7 @@ const PieChartVisualization: React.FC = () => {
             
             <Tooltip content={<CustomTooltip />} />
             
-            {/* Minimalist legend with green styling */}
+            {/* Minimalist legend with glass styling */}
             <Legend layout="vertical" verticalAlign="middle" align="right" wrapperStyle={{
             paddingLeft: "20px",
             maxHeight: "400px",
@@ -122,17 +119,13 @@ const PieChartVisualization: React.FC = () => {
             opacity: 0.9
           }} content={({
             payload
-          }) => <div className="flex flex-col gap-2 text-xs backdrop-blur-md bg-black/10 p-3 rounded-lg border border-alien-neon/10">
+          }) => <div className="flex flex-col gap-2 text-xs backdrop-blur-md bg-white/5 p-3 rounded-lg border border-white/10">
                   {payload?.map((entry, index) => {
-                    // Convert all colors to green hues for legend
-                    const greenColor = index % 3 === 0 ? '#0ef34b' : // bright green
-                                      index % 3 === 1 ? '#0FF5CE' : // teal
-                                                      '#00AEFF'; // blue accent
                     return (
                       <div key={`legend-${index}`} className="flex items-center space-x-2">
                         <div className="w-3 h-3 rounded-full" style={{
-                          backgroundColor: greenColor,
-                          boxShadow: `0 0 5px ${greenColor}80`
+                          backgroundColor: `rgba(255, 255, 255, ${0.4 + (index % 5) * 0.1})`,
+                          boxShadow: `0 0 5px rgba(255, 255, 255, 0.2)`
                         }} />
                         <span className="text-white/80">{entry.value}</span>
                       </div>
@@ -142,14 +135,15 @@ const PieChartVisualization: React.FC = () => {
           </PieChart>
         </ResponsiveContainer>
         
-        {/* Centered indicator with green accent */}
+        {/* Centered indicator with glass morphism styling */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="rounded-full bg-black/30 backdrop-blur-md p-6 border border-alien-neon/20 shadow-[0_0_15px_rgba(14,243,75,0.2)]">
-            <div className="text-alien-neon font-mono text-xl font-bold">100%</div>
+          <div className="rounded-full bg-black/20 backdrop-blur-md p-6 border border-white/20 shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+            <div className="text-white font-mono text-xl font-bold">100%</div>
             <div className="text-white/70 text-sm">Total Supply</div>
           </div>
         </div>
       </div>
     </div>;
 };
+
 export default PieChartVisualization;

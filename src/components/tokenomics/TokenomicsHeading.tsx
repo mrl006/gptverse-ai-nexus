@@ -14,7 +14,7 @@ const TokenomicsHeading = () => {
         <h2 className="text-[#0ef34b] uppercase tracking-wider text-sm font-mono mb-2">Tokenomics Framework</h2>
         <div className="relative inline-block">
           <h3 className="text-5xl font-bold mb-6 relative z-10 bg-clip-text text-transparent bg-gradient-to-r from-white via-white to-white/80">
-            TOKEN MAP
+            TOKEN ALLOCATION
           </h3>
           <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b] to-[#0ef34b]/0"></div>
         </div>

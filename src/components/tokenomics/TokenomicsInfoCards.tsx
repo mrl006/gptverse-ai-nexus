@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Coins, LineChart, Clock } from 'lucide-react';
+import { Coins, LineChart, Clock, Wallet } from 'lucide-react';
 
 const TokenomicsInfoCards = () => {
   const cardVariants = {
@@ -14,7 +14,7 @@ const TokenomicsInfoCards = () => {
   };
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {/* Total Supply Card */}
       <motion.div 
         variants={cardVariants}
@@ -86,6 +86,31 @@ const TokenomicsInfoCards = () => {
               Q2 2025
             </div>
             <p className="text-sm text-white/60">Estimated TGE date</p>
+          </div>
+        </div>
+      </motion.div>
+      
+      {/* Initial Token Price Card */}
+      <motion.div 
+        variants={cardVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true }}
+        transition={{ delay: 0.4 }}
+        className="border border-white/10 rounded-xl p-6 backdrop-blur-sm bg-black/20 hover:bg-black/30 transition-all relative overflow-hidden group"
+      >
+        <div className="absolute inset-0 bg-gradient-to-br from-[#8B5CF6]/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        
+        <div className="flex items-start gap-4">
+          <div className="p-3 rounded-lg bg-[#8B5CF6]/10 border border-[#8B5CF6]/20">
+            <Wallet className="w-6 h-6 text-[#8B5CF6]" />
+          </div>
+          <div className="space-y-1">
+            <h3 className="text-lg font-semibold text-white">Initial Price</h3>
+            <div className="font-mono text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-[#8B5CF6] to-[#00aeff]">
+              $0.0085
+            </div>
+            <p className="text-sm text-white/60">Public sale price</p>
           </div>
         </div>
       </motion.div>

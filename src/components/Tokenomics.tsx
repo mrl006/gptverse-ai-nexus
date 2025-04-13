@@ -1,15 +1,16 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { tokenDistribution } from './tokenomics/TokenDistributionData';
 import PieChartVisualization from './tokenomics/PieChartVisualization';
+import TokenomicsHeading from './tokenomics/TokenomicsHeading';
+import TokenomicsInfoCards from './tokenomics/TokenomicsInfoCards';
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from 'framer-motion';
 
 const Tokenomics = () => {
   // Sort token distribution data by value (descending)
   const sortedTokenDistribution = [...tokenDistribution].sort((a, b) => b.value - a.value);
   
-  // Get top 5 distributions for labels
-  const topDistributions = sortedTokenDistribution.slice(0, 5);
-
   return (
     <section id="tokenomics" className="relative py-28 overflow-hidden">
       {/* Enhanced background with more depth */}
@@ -22,13 +23,27 @@ const Tokenomics = () => {
       
       {/* Main content container */}
       <div className="container mx-auto px-4 relative z-10">
+        {/* Section heading */}
+        <TokenomicsHeading />
+        
         <div className="flex flex-col space-y-16">
-          {/* Main visualization section - Only pie chart */}
-          <div className="max-w-3xl mx-auto w-full backdrop-blur-xl border border-white/10 rounded-2xl 
-                          shadow-[0_8px_32px_rgba(0,0,0,0.2)] p-6 bg-black/10">
-            <h3 className="text-center text-2xl font-bold text-white mb-6">Token Allocation</h3>
-            <PieChartVisualization />
-          </div>
+          {/* Info cards section */}
+          <TokenomicsInfoCards />
+          
+          {/* Main visualization section */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.3 }}
+            className="max-w-5xl mx-auto w-full"
+          >
+            <Card className="backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.2)] p-6 bg-black/10">
+              <CardContent className="p-4">
+                <PieChartVisualization />
+              </CardContent>
+            </Card>
+          </motion.div>
         </div>
       </div>
     </section>

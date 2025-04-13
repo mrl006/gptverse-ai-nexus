@@ -1,4 +1,3 @@
-
 import React, { useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
@@ -14,18 +13,17 @@ import ContactGPTVerse from '../components/ContactGPTVerse';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Toaster } from '@/components/ui/toaster';
 import { motion } from 'framer-motion';
+import GlassyBackground from '../components/GlassyBackground';
 
 const Index = () => {
   const { isMobile } = useIsMobile();
   
   useEffect(() => {
-    // Improved scroll performance by preventing painting during scroll
     let isScrolling: ReturnType<typeof setTimeout>;
     const body = document.body;
     
     window.scrollTo(0, 0);
     
-    // Add smooth scrolling for anchor links
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a');
@@ -34,7 +32,7 @@ const Index = () => {
         e.preventDefault();
         const targetElement = document.querySelector(anchor.hash);
         if (targetElement) {
-          const navbarHeight = 80; // Adjusted for more accurate navbar height
+          const navbarHeight = 80;
           const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
           
           window.scrollTo({
@@ -47,7 +45,6 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
-    // Optimize for mobile performance
     if (isMobile) {
       const handleScrollStart = () => {
         clearTimeout(isScrolling);
@@ -74,7 +71,6 @@ const Index = () => {
     return () => document.removeEventListener('click', handleAnchorClick);
   }, [isMobile]);
 
-  // Define common section fade-in animation
   const sectionVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { 
@@ -85,24 +81,8 @@ const Index = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-[#040812] text-white ${isMobile ? '' : 'overflow-x-hidden'}`}>
-      {/* Common background for the entire site */}
-      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-tech-grid opacity-10"></div>
-        
-        {/* Subtle glow effects */}
-        <div className="absolute top-[10%] left-[15%] w-1 h-1 bg-[#087E8B] rounded-full opacity-30 animate-pulse"></div>
-        <div className="absolute top-[25%] left-[40%] w-1 h-1 bg-[#0CF574] rounded-full opacity-20 animate-pulse" style={{animationDelay: '1.5s'}}></div>
-        <div className="absolute top-[70%] left-[20%] w-1 h-1 bg-[#0B3954] rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-[30%] right-[25%] w-1 h-1 bg-[#087E8B] rounded-full opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-[60%] right-[10%] w-1 h-1 bg-[#0CF574] rounded-full opacity-30 animate-pulse" style={{animationDelay: '0.5s'}}></div>
-        
-        {/* Ambient glow */}
-        <div className="absolute h-full w-full opacity-10">
-          <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_center,rgba(8,126,139,0.1)_0%,rgba(8,126,139,0)_70%)] animate-pulse-slow" style={{transformOrigin: '30% 30%'}}></div>
-          <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_center,rgba(12,245,116,0.1)_0%,rgba(12,245,116,0)_70%)] animate-pulse-slow" style={{transformOrigin: '70% 60%', animationDelay: '2s'}}></div>
-        </div>
-      </div>
+    <div className={`min-h-screen bg-[#040812] text-white ${isMobile ? '' : 'overflow-x-hidden'} relative`}>
+      <GlassyBackground />
       
       <div className="relative z-10 flex flex-col min-h-screen">
         <Navbar />

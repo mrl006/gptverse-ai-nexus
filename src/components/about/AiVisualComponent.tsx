@@ -22,11 +22,11 @@ const AiVisualComponent: React.FC = () => {
         duration: 0.7
       }}
     >
-      <div className="relative max-w-md mx-auto h-full flex items-center">
+      <div className="relative max-w-md mx-auto h-full w-full flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/10 via-[#00aeff]/5 to-transparent rounded-3xl blur-2xl"></div>
         
         {/* Main image with animated elements */}
-        <div className="relative glass-card p-8 rounded-2xl border border-[#0ef34b]/20 overflow-hidden group h-full">
+        <div className="relative glass-card p-8 rounded-2xl border border-[#0ef34b]/20 overflow-hidden group h-full w-full flex flex-col justify-center">
           <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/10 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-300"></div>
           
           <img alt="Neural Core AI Robot" className="w-full mx-auto transform transition-all duration-700 hover:scale-105 z-10 relative" src="/lovable-uploads/28b4f259-14ca-4c5f-95b8-7ec2c00d4c7f.png" />

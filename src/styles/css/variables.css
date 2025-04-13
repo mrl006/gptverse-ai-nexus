@@ -1,0 +1,11 @@
+
+@layer base {
+  :root {
+    --primary: 142 89% 50%;  /* Vibrant green */
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 199 92% 56%;  /* Light sky blue */
+    --secondary-foreground: 0 0% 98%;
+    --accent: 142 89% 50%;  /* Green accent */
+    --ring: 199 92% 56%;  /* Sky blue ring */
+  }
+}

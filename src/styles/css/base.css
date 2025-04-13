@@ -1,0 +1,45 @@
+
+@layer base {
+  * {
+    @apply border-border selection:bg-[#33C3F0]/20 selection:text-white;
+  }
+  
+  body {
+    @apply bg-[#040812] text-foreground antialiased overflow-x-hidden font-sans;
+  }
+
+  #root {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    min-height: 100vh; 
+    overflow-x: hidden;
+  }
+  
+  /* Professional scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: rgba(6, 16, 26, 0.6);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: rgba(8, 126, 139, 0.3);
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(8, 126, 139, 0.5);
+  }
+  
+  /* Thin scrollbar for smaller elements */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+}

@@ -47,14 +47,12 @@ const colors = {
     alien: {
       'neon': '#0ef34b',
       'blue': '#00aeff',
-      'sky': '#33C3F0',  // Added light sky blue color
       'cyan': '#0FF5CE',
       'magenta': '#d946ef',
       'dark': '#040812',
       'darker': '#03060a',
       'navy': '#06101a',
       'deep-navy': '#051118',
-      'soft-green': '#F2FCE2',  // Added soft green color
     }
   },
 };

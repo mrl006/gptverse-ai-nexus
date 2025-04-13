@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip, Legend } from 'recharts';
 import { tokenDistribution } from './TokenDistributionData';
@@ -17,7 +16,7 @@ const renderCustomizedLabel = ({
   const radius = innerRadius + (outerRadius - innerRadius) * 0.65;
   const x = cx + radius * Math.cos(-midAngle * RADIAN);
   const y = cy + radius * Math.sin(-midAngle * RADIAN);
-  return <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central" className="text-xs font-montserrat" style={{
+  return <text x={x} y={y} fill="white" textAnchor={x > cx ? 'start' : 'end'} dominantBaseline="central" className="text-xs font-mono" style={{
     textShadow: '0 0 8px rgba(0,0,0,0.5)',
     fontWeight: 600,
     opacity: 0.9
@@ -32,7 +31,7 @@ const CustomTooltip = ({
   payload
 }: any) => {
   if (active && payload && payload.length) {
-    return <div className="backdrop-blur-lg bg-white/10 p-4 rounded-xl border border-white/20 shadow-xl font-montserrat">
+    return <div className="backdrop-blur-lg bg-white/10 p-4 rounded-xl border border-white/20 shadow-xl">
         <p className="text-white font-medium text-base">{payload[0].name}</p>
         <p className="text-white font-mono text-lg">{`${payload[0].value}%`}</p>
         {payload[0].payload.description && <p className="text-white/80 text-sm mt-2 max-w-[240px]">
@@ -86,7 +85,7 @@ const PieChartVisualization: React.FC = () => {
             opacity: 0.9
           }} content={({
             payload
-          }) => <div className="flex flex-col gap-2 text-xs backdrop-blur-md bg-black/10 p-3 rounded-lg border border-white/10 font-montserrat">
+          }) => <div className="flex flex-col gap-2 text-xs backdrop-blur-md bg-black/10 p-3 rounded-lg border border-white/10">
                   {payload?.map((entry, index) => <div key={`legend-${index}`} className="flex items-center space-x-2">
                       <div className="w-3 h-3 rounded-full" style={{
                 backgroundColor: entry.color,
@@ -99,12 +98,7 @@ const PieChartVisualization: React.FC = () => {
         </ResponsiveContainer>
         
         {/* Centered indicator */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[120px] h-[120px] rounded-full flex items-center justify-center backdrop-blur-xl bg-gradient-to-br from-[#33C3F0]/20 to-[#0ef34b]/20 border border-white/10 shadow-lg">
-          <div className="text-white text-center">
-            <p className="text-xs text-white/60 font-montserrat mb-1">Total Supply</p>
-            <p className="text-lg font-bold font-montserrat bg-clip-text text-transparent bg-gradient-to-r from-[#33C3F0] to-[#0ef34b]">1,000,000,000</p>
-          </div>
-        </div>
+        
       </div>
     </div>;
 };

@@ -136,7 +136,7 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
               
               {/* Status labels with subtle glassmorphism style */}
               <div className="absolute top-4 left-4 flex flex-wrap gap-2 z-20">
-                {statusLabels.map((label, index) => (
+                {statusLabels && statusLabels.map((label, index) => (
                   <motion.span 
                     key={index} 
                     className={`px-3 py-1 text-sm font-medium rounded-md backdrop-blur-md ${

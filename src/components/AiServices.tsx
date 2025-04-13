@@ -44,11 +44,17 @@ const AiServices = () => {
             className="w-full"
           >
             <CarouselContent className="-ml-2 md:-ml-4">
-              {aiServices.map((service, index) => (
+              {aiServices.map((service) => (
                 <CarouselItem key={service.id} className="pl-2 md:pl-4 sm:basis-1/1 md:basis-1/2 lg:basis-1/3">
                   <AiServiceCard 
-                    service={service} 
-                    isActive={activeIndex === index}
+                    title={service.title}
+                    subtitle={service.subtitle}
+                    description={service.description}
+                    image={service.image}
+                    statusLabels={service.statusLabels}
+                    flipped={service.flipped}
+                    buttonType={service.buttonType}
+                    isActive={activeIndex === aiServices.indexOf(service)}
                   />
                 </CarouselItem>
               ))}

@@ -1,4 +1,10 @@
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @layer base {
   :root {
     --primary: 142 89% 50%;  /* Vibrant green */
@@ -16,6 +22,6 @@
   }
   
   body {
-    @apply bg-[#040812] text-foreground antialiased overflow-x-hidden;
+    @apply bg-[#040812] text-foreground antialiased overflow-x-hidden font-sans;
   }
 }

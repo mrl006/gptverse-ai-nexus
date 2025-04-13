@@ -26,7 +26,7 @@ const AboutGPTVerse: React.FC = () => {
         <AboutHeader />
 
         {/* Split layout with AI visual and tabs */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 h-auto items-stretch">
           {/* Left Side - AI Robot Image with Animated Effects */}
           <AiVisualComponent />
           

@@ -23,10 +23,11 @@ const AboutTabs: React.FC = () => {
         duration: 0.7,
         delay: 0.2
       }}
+      className="h-full flex items-center justify-center"
     >
-      <Tabs defaultValue="vision" className="w-full">
-        <div className="bg-gradient-to-br from-[#06101a]/80 to-[#040813]/80 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-lg">
-          <TabsContent value="vision" className="mt-0 data-[state=active]:animate-fade-in">
+      <Tabs defaultValue="vision" className="w-full h-full flex flex-col">
+        <div className="bg-gradient-to-br from-[#06101a]/80 to-[#040813]/80 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-lg h-full flex flex-col justify-center">
+          <TabsContent value="vision" className="mt-0 data-[state=active]:animate-fade-in h-full flex items-center">
             <VisionTabContent />
           </TabsContent>
         </div>

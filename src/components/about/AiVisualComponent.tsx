@@ -1,23 +1,32 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Network, CheckCircle } from 'lucide-react';
+
 const AiVisualComponent: React.FC = () => {
-  return <motion.div className="relative flex items-center justify-center" initial={{
-    opacity: 0,
-    x: -30
-  }} whileInView={{
-    opacity: 1,
-    x: 0
-  }} viewport={{
-    once: true
-  }} transition={{
-    duration: 0.7
-  }}>
-      <div className="relative max-w-md mx-auto">
+  return (
+    <motion.div 
+      className="relative flex items-center justify-center h-full" 
+      initial={{
+        opacity: 0,
+        x: -30
+      }} 
+      whileInView={{
+        opacity: 1,
+        x: 0
+      }} 
+      viewport={{
+        once: true
+      }} 
+      transition={{
+        duration: 0.7
+      }}
+    >
+      <div className="relative max-w-md mx-auto h-full flex items-center">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/10 via-[#00aeff]/5 to-transparent rounded-3xl blur-2xl"></div>
         
         {/* Main image with animated elements */}
-        <div className="relative glass-card p-8 rounded-2xl border border-[#0ef34b]/20 overflow-hidden group">
+        <div className="relative glass-card p-8 rounded-2xl border border-[#0ef34b]/20 overflow-hidden group h-full">
           <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/10 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-300"></div>
           
           <img alt="Neural Core AI Robot" className="w-full mx-auto transform transition-all duration-700 hover:scale-105 z-10 relative" src="/lovable-uploads/28b4f259-14ca-4c5f-95b8-7ec2c00d4c7f.png" />
@@ -59,6 +68,8 @@ const AiVisualComponent: React.FC = () => {
           </div>
         </div>
       </div>
-    </motion.div>;
+    </motion.div>
+  );
 };
+
 export default AiVisualComponent;

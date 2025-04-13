@@ -79,7 +79,7 @@ const Hero = () => {
       
       {/* Title section with GPTVERSE.AI text */}
       <div className="relative z-10 text-center mb-8">
-        <h2 className="text-3xl md:text-4xl font-bold text-white font-mono tracking-wider">GPTVERSE</h2>
+        
       </div>
       
       {/* Main heading with futuristic alien style */}

@@ -3,7 +3,6 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import VisionTabContent from './VisionTabContent';
-import { ScrollArea } from "@/components/ui/scroll-area";
 
 const AboutTabs: React.FC = () => {
   return (
@@ -23,9 +22,10 @@ const AboutTabs: React.FC = () => {
         duration: 0.7,
         delay: 0.2
       }}
+      className="h-full flex items-center"
     >
-      <Tabs defaultValue="vision" className="w-full">
-        <div className="bg-gradient-to-br from-[#06101a]/80 to-[#040813]/80 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-lg">
+      <Tabs defaultValue="vision" className="w-full h-full">
+        <div className="bg-gradient-to-br from-[#06101a]/80 to-[#040813]/80 backdrop-blur-md border border-white/10 rounded-xl p-6 shadow-lg h-full flex flex-col justify-center">
           <TabsContent value="vision" className="mt-0 data-[state=active]:animate-fade-in">
             <VisionTabContent />
           </TabsContent>

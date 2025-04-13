@@ -6,6 +6,7 @@ import ModelList from './product/ModelList';
 import DemoPreview from './product/DemoPreview';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
+import UnifiedBackground from './UnifiedBackground';
 
 // Main ProductView component
 const ProductView = () => {
@@ -51,12 +52,7 @@ const ProductView = () => {
       animate={{ opacity: 1 }}
       transition={{ duration: isSmallMobile ? 0.2 : 0.4 }}
     >
-      <div className="absolute inset-0 bg-[#040812] pointer-events-none">
-        {/* Simplified single glow background */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#0ef34b]/5 blur-[150px] animate-pulse-slow"></div>
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#00aeff]/20 to-transparent"></div>
-      </div>
+      <UnifiedBackground />
       
       <div className="max-w-[1400px] mx-auto px-3 md:px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[300px,1fr] gap-3 md:gap-6">

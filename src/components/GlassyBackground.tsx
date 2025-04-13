@@ -3,30 +3,21 @@ import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const GlassyBackground: React.FC = () => {
-  const { isMobile, isSmallMobile } = useIsMobile();
+  const { isMobile } = useIsMobile();
   
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
       {/* Base dark background */}
       <div className="absolute inset-0 bg-[#040812]"></div>
       
-      {/* Subtle tech grid */}
-      <div className="absolute inset-0 bg-tech-grid opacity-8"></div>
-      
-      {/* Main centered glow - larger on desktop, smaller on mobile */}
+      {/* Simplified central glow - adjusts size based on device */}
       <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 ${
-        isMobile ? 'w-[600px] h-[600px]' : 'w-[1200px] h-[1200px]'
+        isMobile ? 'w-[800px] h-[800px]' : 'w-[1200px] h-[1200px]'
       } rounded-full bg-[#0ef34b]/5 blur-[200px] animate-pulse-slow`}></div>
       
-      {/* Secondary accent glow - only on desktop */}
-      {!isMobile && (
-        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full bg-[#00aeff]/5 blur-[150px] animate-pulse-slow" 
-             style={{animationDelay: '2s'}}></div>
-      )}
-      
-      {/* Edge decorations */}
-      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/15 to-transparent"></div>
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#00aeff]/15 to-transparent"></div>
+      {/* Minimal edge decorations */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/10 to-transparent"></div>
+      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/10 to-transparent"></div>
     </div>
   );
 };

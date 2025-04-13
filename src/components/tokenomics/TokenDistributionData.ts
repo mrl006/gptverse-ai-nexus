@@ -3,6 +3,7 @@ export interface TokenDistributionItem {
   name: string;
   value: number;
   color: string;
+  description?: string; // Added description as optional property
 }
 
 export const tokenDistribution: TokenDistributionItem[] = [
@@ -18,4 +19,38 @@ export const tokenDistribution: TokenDistributionItem[] = [
   { name: 'Pre-Sale 1', value: 3, color: '#10B981' },
   { name: 'Advisors', value: 2, color: '#F43F5E' },
   { name: 'KOL Round', value: 1, color: '#06B6D4' },
+];
+
+// Adding unlockSchedules data that's missing but referenced in VestingTabContent
+export const unlockSchedules = [
+  {
+    category: 'Team',
+    months: 24,
+    initialUnlock: 0,
+    schedule: 'Linear unlock after 12 months cliff'
+  },
+  {
+    category: 'Advisors',
+    months: 18,
+    initialUnlock: 5,
+    schedule: 'Linear unlock after 6 months cliff'
+  },
+  {
+    category: 'Private Sale',
+    months: 12,
+    initialUnlock: 10,
+    schedule: 'Linear unlock after 3 months cliff'
+  },
+  {
+    category: 'Public Sale',
+    months: 6,
+    initialUnlock: 25,
+    schedule: 'Linear unlock over 6 months'
+  },
+  {
+    category: 'Ecosystem',
+    months: 36,
+    initialUnlock: 5,
+    schedule: 'Linear unlock based on milestones'
+  }
 ];

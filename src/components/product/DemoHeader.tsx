@@ -16,7 +16,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({ modelId, iconBg, iconComponent 
   return (
     <div className="flex items-center justify-between p-4 border-b border-white/10 relative overflow-hidden">
       {/* Enhanced glassmorphism background */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#06101a]/90 to-[#06101a]/70 backdrop-blur-md -z-10"></div>
+      <div className="absolute inset-0 bg-[#040812]/60 backdrop-blur-md -z-10"></div>
       
       {/* Green glow accent */}
       <div className="absolute -top-10 -left-10 w-48 h-48 bg-[#0ef34b]/10 rounded-full blur-3xl -z-5"></div>
@@ -35,7 +35,7 @@ const DemoHeader: React.FC<DemoHeaderProps> = ({ modelId, iconBg, iconComponent 
       </div>
       
       <Button 
-        className="rounded-full bg-[#00aeff] hover:bg-[#00aeff]/90 text-black font-medium px-4 py-2 text-sm flex items-center gap-2 shadow-[0_0_10px_rgba(0,174,255,0.3)]"
+        className="rounded-full bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white font-medium px-4 py-2 text-sm flex items-center gap-2 shadow-[0_0_10px_rgba(14,243,75,0.2)]"
       >
         Chat with {currentModel?.name} <Send className="h-4 w-4 ml-1" />
       </Button>

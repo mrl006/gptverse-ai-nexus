@@ -9,7 +9,7 @@ interface PartnerTabsProps {
 const PartnerTabs: React.FC<PartnerTabsProps> = ({ activeCategory, setActiveCategory }) => {
   return (
     <div className="flex justify-center mb-10">
-      <div className="glass-card p-1 flex rounded-lg backdrop-blur-md bg-[#040812]/40 border border-[#0ef34b]/20">
+      <div className="p-1 flex rounded-lg backdrop-blur-md bg-[#040812]/60 border border-[#0ef34b]/20">
         <button 
           onClick={() => setActiveCategory('strategic')}
           className={`px-6 py-2 rounded-md transition-all duration-300 ${

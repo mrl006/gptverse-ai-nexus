@@ -11,7 +11,7 @@ interface FeatureCardProps {
 
 const FeatureCard: React.FC<FeatureCardProps> = ({ icon, title, description }) => {
   return (
-    <Card className="glass-card overflow-hidden border-white/10 bg-transparent hover:border-[#00aeff]/30 transition-all duration-300">
+    <Card className="overflow-hidden border-white/10 bg-[#040812]/60 backdrop-blur-md hover:border-[#00aeff]/30 transition-all duration-300 shadow-sm">
       <CardContent className="p-4">
         <div className="flex items-center gap-4">
           <div className="p-3 bg-[#06101a]/60 rounded-lg border border-white/10">

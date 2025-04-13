@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { Separator } from "@/components/ui/separator";
 import { motion } from "framer-motion";
 
 const RoadmapHeader = () => {
@@ -12,12 +11,13 @@ const RoadmapHeader = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto]">
-            Cosmic Path
-          </span>
-        </h2>
-        <Separator className="w-36 h-1 bg-gradient-to-r from-[#0B3954]/40 to-[#0CF574]/40 mx-auto mt-2" />
+        <h2 className="text-[#0ef34b] uppercase tracking-wider text-sm font-mono mb-2">Timeline</h2>
+        <div className="relative inline-block">
+          <h3 className="text-5xl font-bold mb-6 relative z-10">
+            COSMIC PATH
+          </h3>
+          <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b] to-[#0ef34b]/0"></div>
+        </div>
       </motion.div>
     </div>
   );

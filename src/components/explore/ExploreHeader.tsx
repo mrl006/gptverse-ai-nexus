@@ -11,20 +11,12 @@ const ExploreHeader: React.FC = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <div className="flex flex-col items-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-5">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto]">
-              QUANTUM VERSE
-            </span>
-          </h2>
-          
-          <div className="relative">
-            <div className="absolute -top-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#087E8B]/30 to-transparent"></div>
-            <p className="text-[#0CF574]/80 text-lg font-mono uppercase tracking-wider mt-4 max-w-2xl mx-auto">
-              AI HORIZON
-            </p>
-            <div className="absolute -bottom-3 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#087E8B]/30 to-transparent"></div>
-          </div>
+        <h2 className="text-[#0ef34b] uppercase tracking-wider text-sm font-mono mb-2">AI Horizon</h2>
+        <div className="relative inline-block">
+          <h3 className="text-5xl font-bold mb-6 relative z-10">
+            QUANTUM VERSE
+          </h3>
+          <div className="absolute -bottom-3 left-0 right-0 h-1 bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b] to-[#0ef34b]/0"></div>
         </div>
       </motion.div>
     </div>

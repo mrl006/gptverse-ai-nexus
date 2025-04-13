@@ -22,6 +22,14 @@ const Index = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
     
+    // Remove any listeners that might affect scroll
+    const cleanupListeners = () => {
+      document.querySelectorAll('*').forEach(element => {
+        element.onscroll = null;
+      });
+    };
+    
+    // Simple anchor handling - no smooth scrolling on mobile
     const handleAnchorClick = (e: MouseEvent) => {
       const target = e.target as HTMLElement;
       const anchor = target.closest('a');
@@ -30,37 +38,39 @@ const Index = () => {
         e.preventDefault();
         const targetElement = document.querySelector(anchor.hash);
         if (targetElement) {
-          const navbarHeight = 80;
+          const navbarHeight = 70;
           const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
           
+          // No smooth scrolling on mobile - instant for better performance
           window.scrollTo({
             top: targetPosition,
-            behavior: isMobile ? 'auto' : 'smooth' // Use auto for mobile for better performance
+            behavior: 'auto'
           });
         }
       }
     };
     
-    document.addEventListener('click', handleAnchorClick);
+    // Cleanup first
+    cleanupListeners();
     
-    return () => document.removeEventListener('click', handleAnchorClick);
+    // Then add simplified event listener
+    document.addEventListener('click', handleAnchorClick, { passive: false });
+    
+    return () => {
+      document.removeEventListener('click', handleAnchorClick);
+      cleanupListeners();
+    };
   }, [isMobile]);
 
-  // Super optimized animation variants for mobile
+  // Ultra-minimal animation for mobile
   const sectionVariants = {
-    hidden: { opacity: 0, y: isSmallMobile ? 0 : (isMobile ? 3 : 15) },
+    hidden: { opacity: 0, y: 0 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { 
-        duration: isSmallMobile ? 0.1 : (isMobile ? 0.2 : 0.4),
-        ease: "easeOut"
-      }
+      transition: { duration: 0.2, ease: "easeOut" }
     }
   };
-
-  // Minimize viewport margin for mobile to improve scrolling performance
-  const viewportMargin = isSmallMobile ? "0px" : (isMobile ? "-5px" : "-40px");
 
   return (
     <div className="min-h-screen bg-[#040812] text-white relative">
@@ -72,77 +82,93 @@ const Index = () => {
         <div className="flex-grow">
           <Hero />
           
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={sectionVariants}
-          >
-            <ProductView />
-          </motion.div>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={sectionVariants}
-          >
-            <AiServices />
-          </motion.div>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={sectionVariants}
-          >
-            <AboutGPTVerse />
-          </motion.div>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={sectionVariants}
-          >
-            <Tokenomics />
-          </motion.div>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={sectionVariants}
-          >
-            <Roadmap />
-          </motion.div>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={sectionVariants}
-          >
-            <Partners />
-          </motion.div>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={sectionVariants}
-          >
-            <Faq />
-          </motion.div>
-          
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: viewportMargin }}
-            variants={sectionVariants}
-          >
-            <ContactGPTVerse />
-          </motion.div>
+          {/* Convert to regular divs on mobile for better performance */}
+          {isMobile ? (
+            <>
+              <div><ProductView /></div>
+              <div><AiServices /></div>
+              <div><AboutGPTVerse /></div>
+              <div><Tokenomics /></div>
+              <div><Roadmap /></div>
+              <div><Partners /></div>
+              <div><Faq /></div>
+              <div><ContactGPTVerse /></div>
+            </>
+          ) : (
+            <>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={sectionVariants}
+              >
+                <ProductView />
+              </motion.div>
+              
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={sectionVariants}
+              >
+                <AiServices />
+              </motion.div>
+              
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={sectionVariants}
+              >
+                <AboutGPTVerse />
+              </motion.div>
+              
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={sectionVariants}
+              >
+                <Tokenomics />
+              </motion.div>
+              
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={sectionVariants}
+              >
+                <Roadmap />
+              </motion.div>
+              
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={sectionVariants}
+              >
+                <Partners />
+              </motion.div>
+              
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={sectionVariants}
+              >
+                <Faq />
+              </motion.div>
+              
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-40px" }}
+                variants={sectionVariants}
+              >
+                <ContactGPTVerse />
+              </motion.div>
+            </>
+          )}
           
           <div id="overview" className="section-anchor pt-16"></div>
           <div id="features" className="section-anchor pt-16"></div>

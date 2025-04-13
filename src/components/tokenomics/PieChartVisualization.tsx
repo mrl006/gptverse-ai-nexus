@@ -38,11 +38,6 @@ const CustomTooltip = ({ active, payload }: any) => {
       <div className="backdrop-blur-lg bg-white/10 p-4 rounded-xl border border-white/20 shadow-xl">
         <p className="text-white font-medium text-base">{payload[0].name}</p>
         <p className="text-white font-mono text-lg">{`${payload[0].value}%`}</p>
-        {payload[0].payload.description && (
-          <p className="text-white/80 text-sm mt-2 max-w-[240px]">
-            {payload[0].payload.description}
-          </p>
-        )}
       </div>
     );
   }
@@ -142,7 +137,7 @@ const PieChartVisualization: React.FC = () => {
           </PieChart>
         </ResponsiveContainer>
         
-        {/* Center indicator */}
+        {/* Replace text with GPTVerse logo */}
         <motion.div 
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           initial={{ opacity: 0, scale: 0.9 }}
@@ -150,9 +145,11 @@ const PieChartVisualization: React.FC = () => {
           transition={{ delay: 0.5, duration: 0.5 }}
         >
           <div className="text-center backdrop-blur-md bg-black/30 p-4 rounded-full border border-white/10 w-32 h-32 flex flex-col items-center justify-center">
-            <div className="text-[#0ef34b] font-mono text-lg font-bold">100%</div>
-            <div className="text-white/70 text-sm">Total Supply</div>
-            <div className="text-white/50 text-xs mt-1">1B GPTV</div>
+            <div className="relative w-24 h-24 flex items-center justify-center">
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b] to-[#0085ff] opacity-30 rounded-full animate-pulse-slow"></div>
+              <div className="text-[#0ef34b] font-bold text-xl">GPT</div>
+              <div className="text-white font-bold text-xl">Verse</div>
+            </div>
           </div>
         </motion.div>
       </div>

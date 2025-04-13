@@ -1,24 +1,24 @@
 
 @layer components {
-  /* Professional glass card styling */
+  /* Professional glass card styling with improved transparency */
   .glass-card {
-    @apply backdrop-blur-xl bg-[#06101a]/40 border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
+    @apply backdrop-blur-xl bg-[#06101a]/30 border border-white/15 rounded-xl shadow-lg relative overflow-hidden;
   }
   
-  /* Corporate panel styling */
+  /* Corporate panel styling with better transparency */
   .glass-panel {
-    @apply backdrop-blur-md bg-[#06101a]/40 border border-white/20 rounded-xl shadow-lg;
+    @apply backdrop-blur-md bg-[#06101a]/30 border border-white/20 rounded-xl shadow-lg;
   }
   
-  /* Enhanced blur effect for professional UI */
+  /* Enhanced blur effect for professional UI with improved transparency */
   .neo-blur {
-    @apply backdrop-blur-xl bg-black/25 border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    @apply backdrop-blur-xl bg-black/20 border border-white/15 rounded-xl shadow-lg relative overflow-hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   }
   
   /* Corporate button styling */
   .neo-button {
-    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#0B3954] to-[#087E8B] hover:brightness-110 text-white hover:shadow-lg hover:shadow-[#087E8B]/20 active:scale-[0.98] font-sans;
+    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#0B3954]/90 to-[#087E8B]/90 hover:brightness-110 text-white hover:shadow-lg hover:shadow-[#087E8B]/20 active:scale-[0.98] font-sans;
   }
   
   /* Section anchor styling */
@@ -33,7 +33,7 @@
   
   /* Shadow effects for cards */
   .card-shadow {
-    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
   }
   
   /* Card hover effect for interactive elements */
@@ -49,7 +49,7 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(6, 16, 26, 0.6);
+  background: rgba(6, 16, 26, 0.4);
   border-radius: 4px;
 }
 

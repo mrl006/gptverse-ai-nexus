@@ -34,6 +34,7 @@
   100% { transform: rotate(360deg); }
 }
 
+/* Optimized vertical motion animation */
 @keyframes moveVertical {
   0% {
     transform: translateY(-100%);
@@ -43,6 +44,7 @@
   }
 }
 
+/* Optimized float animations with will-change for better performance */
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -87,27 +89,28 @@
   }
 }
 
+/* Reduced intensity for pulse animations */
 @keyframes pulse-slow {
   0% {
     transform: translateY(0) scale(1);
-    opacity: 0.4;
+    opacity: 0.3;
   }
   50% {
-    transform: translateY(-10px) scale(1.05);
-    opacity: 0.5;
+    transform: translateY(-8px) scale(1.03);
+    opacity: 0.4;
   }
   100% {
     transform: translateY(0) scale(1);
-    opacity: 0.4;
+    opacity: 0.3;
   }
 }
 
 @keyframes button-glow {
   0%, 100% {
-    box-shadow: 0 0 5px rgba(8, 126, 139, 0.5);
+    box-shadow: 0 0 5px rgba(8, 126, 139, 0.3);
   }
   50% {
-    box-shadow: 0 0 20px rgba(8, 126, 139, 0.8);
+    box-shadow: 0 0 15px rgba(8, 126, 139, 0.5);
   }
 }
 
@@ -128,50 +131,56 @@
 
 @keyframes borderFlow {
   0% {
-    border-image-source: linear-gradient(to right, rgba(14, 243, 75, 0), rgba(14, 243, 75, 0.6), rgba(0, 174, 255, 0.6), rgba(0, 174, 255, 0));
+    border-image-source: linear-gradient(to right, rgba(14, 243, 75, 0), rgba(14, 243, 75, 0.4), rgba(0, 174, 255, 0.4), rgba(0, 174, 255, 0));
     border-image-slice: 1;
   }
   50% {
-    border-image-source: linear-gradient(to right, rgba(0, 174, 255, 0), rgba(0, 174, 255, 0.6), rgba(14, 243, 75, 0.6), rgba(14, 243, 75, 0));
+    border-image-source: linear-gradient(to right, rgba(0, 174, 255, 0), rgba(0, 174, 255, 0.4), rgba(14, 243, 75, 0.4), rgba(14, 243, 75, 0));
     border-image-slice: 1;
   }
   100% {
-    border-image-source: linear-gradient(to right, rgba(14, 243, 75, 0), rgba(14, 243, 75, 0.6), rgba(0, 174, 255, 0.6), rgba(0, 174, 255, 0));
+    border-image-source: linear-gradient(to right, rgba(14, 243, 75, 0), rgba(14, 243, 75, 0.4), rgba(0, 174, 255, 0.4), rgba(0, 174, 255, 0));
     border-image-slice: 1;
   }
 }
 
-/* Animation utility classes */
+/* Animation utility classes with will-change property for better performance */
 .animate-blip {
   animation: blip 2s infinite;
+  will-change: transform, opacity;
 }
 
 .animate-pulse-slow {
-  animation: pulse-slow 10s ease-in-out infinite;
+  animation: pulse-slow 15s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .animate-float {
-  animation: float 6s ease-in-out infinite;
+  animation: float 8s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-float-slow {
-  animation: float-slow 10s ease-in-out infinite;
+  animation: float-slow 12s ease-in-out infinite;
+  will-change: transform;
 }
 
 .animate-rotate-slow {
-  animation: rotate-slow 15s linear infinite;
+  animation: rotate-slow 20s linear infinite;
+  will-change: transform;
 }
 
 .button-glow {
-  animation: button-glow 2s ease-in-out infinite;
+  animation: button-glow 3s ease-in-out infinite;
 }
 
 .loading-dot {
   animation: pulse-dot 1.5s ease-in-out infinite;
+  will-change: transform, opacity;
 }
 
 .animate-border {
   border-width: 1px;
   border-style: solid;
-  animation: borderFlow 6s ease infinite;
+  animation: borderFlow 8s ease infinite;
 }

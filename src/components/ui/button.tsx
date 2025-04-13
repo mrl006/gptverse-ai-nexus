@@ -19,9 +19,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        glassy: "bg-[#040812]/30 backdrop-blur-xl border border-[#0ef34b]/15 text-white hover:border-[#0ef34b]/30 shadow-sm transition-all duration-300 hover:shadow-[0_0_15px_rgba(14,243,75,0.2)]",
-        "glassy-glow": "bg-[#040812]/30 backdrop-blur-xl border border-[#0ef34b]/20 text-white hover:border-[#0ef34b]/40 shadow-[0_0_10px_rgba(14,243,75,0.15)] hover:shadow-[0_0_20px_rgba(14,243,75,0.3)] group",
-        "gradient": "bg-gradient-to-r from-[#0ef34b] to-[#00aeff] text-black font-semibold border-none hover:brightness-110 hover:shadow-[0_0_20px_rgba(14,243,75,0.4)]",
+        glassy: "bg-[#040812]/20 backdrop-blur-xl border border-[#0ef34b]/15 text-white hover:border-[#0ef34b]/30 shadow-sm transition-all duration-300 hover:shadow-[0_0_15px_rgba(14,243,75,0.2)]",
+        "glassy-glow": "bg-[#040812]/20 backdrop-blur-xl border border-[#0ef34b]/20 text-white hover:border-[#0ef34b]/40 shadow-[0_0_10px_rgba(14,243,75,0.15)] hover:shadow-[0_0_20px_rgba(14,243,75,0.3)] group",
+        "gradient": "bg-gradient-to-r from-[#0ef34b]/90 to-[#00aeff]/90 text-black font-semibold border-none hover:brightness-110 hover:shadow-[0_0_20px_rgba(14,243,75,0.4)]",
       },
       size: {
         default: "h-10 px-4 py-2",

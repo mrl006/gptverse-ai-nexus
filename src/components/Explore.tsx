@@ -1,8 +1,10 @@
+
 import React from 'react';
 import ExploreHeader from './explore/ExploreHeader';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Cpu, Zap, Brain, Bot, Sparkles } from 'lucide-react';
 import { Toggle } from '@/components/ui/toggle';
+import UnifiedBackground from './UnifiedBackground';
 
 const Explore = () => {
   const [activeCategory, setActiveCategory] = React.useState('all');
@@ -72,9 +74,8 @@ const Explore = () => {
 
   return (
     <section id="explore" className="relative py-20 overflow-hidden">
-      {/* Background effects similar to home page */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040812] via-[#081019] to-[#0a1a20] z-0"></div>
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwaDQwdjQwSDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoMXY0MEgweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMTAgMGgxdjQwSDEweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMjAgMGgxdjQwSDIweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMzAgMGgxdjQwSDMweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMCAwdjFoNDBWMHoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PHBhdGggZD0iTTAgMTB2MWg0MHYtMXoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PHBhdGggZD0iTTAgMjB2MWg0MHYtMXoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PHBhdGggZD0iTTAgMzB2MWg0MHYtMXoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PC9zdmc+')] opacity-20"></div>
+      {/* Enhanced background */}
+      <UnifiedBackground />
       
       <div className="container mx-auto px-4 relative z-10">
         <ExploreHeader />
@@ -87,7 +88,7 @@ const Explore = () => {
               pressed={activeCategory === category.id}
               onPressedChange={() => setActiveCategory(category.id)}
               variant="outline"
-              className="bg-[#040812]/60 backdrop-blur-md border border-white/10 text-white hover:bg-[#040812]/80 hover:text-white data-[state=on]:bg-[#0ef34b]/20 data-[state=on]:text-white data-[state=on]:border-[#0ef34b]/30"
+              className="bg-[#061018]/60 backdrop-blur-md border border-white/10 text-white hover:bg-[#061018]/80 hover:text-white data-[state=on]:bg-[#0ef34b]/20 data-[state=on]:text-white data-[state=on]:border-[#0ef34b]/30"
             >
               {category.label}
             </Toggle>
@@ -99,10 +100,10 @@ const Explore = () => {
           {filteredItems.map((item, index) => (
             <div 
               key={index}
-              className={`backdrop-blur-xl bg-[#040812]/40 border border-white/10 hover:border-white/20 rounded-xl overflow-hidden transition-all duration-300 shadow-lg relative group
+              className={`backdrop-blur-xl bg-[#061018]/40 border border-white/10 hover:border-[#0ef34b]/20 rounded-xl overflow-hidden transition-all duration-300 shadow-lg relative group
                 ${item.featured ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
-              {/* Subtle background glow */}
+              {/* Enhanced glow background */}
               <div className="absolute inset-0 bg-gradient-to-br from-transparent to-[#0ef34b]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
               
               {/* Content */}
@@ -136,7 +137,7 @@ const Explore = () => {
         
         {/* View all button */}
         <div className="flex justify-center mt-12">
-          <Button className="bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white px-8">
+          <Button className="bg-[#061018]/60 backdrop-blur-md border border-white/10 hover:bg-[#061018]/80 hover:border-[#0ef34b]/30 text-white px-8 transition-all duration-300">
             View All GPTVerse Tools <ArrowRight size={16} />
           </Button>
         </div>

@@ -29,7 +29,7 @@ const ProductView = () => {
     }, 0);
   };
 
-  // Auto-rotate through models only on desktop - disable on mobile for better performance
+  // Auto-rotate through models only on desktop
   useEffect(() => {
     if (isMobile) return; // Don't auto-rotate on mobile
     
@@ -67,7 +67,7 @@ const ProductView = () => {
           {/* Main Content Area - Only Interactive Demo */}
           <div className={`${isSmallMobile ? 'min-h-[320px]' : (isMobile ? 'min-h-[360px]' : 'min-h-[600px]')}`}>
             <motion.div 
-              className="glass-card p-2 md:p-6 backdrop-blur-xl border border-white/20 bg-[#06101a]/40 rounded-xl md:rounded-2xl overflow-hidden h-full shadow-lg relative"
+              className="glass-card p-2 md:p-6 backdrop-blur-xl border border-white/20 bg-[#061018]/40 rounded-xl md:rounded-2xl overflow-hidden h-full shadow-lg relative"
               initial={{ y: 5, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: isSmallMobile ? 0.2 : 0.4 }}

@@ -1,10 +1,11 @@
+
 import React, { useState, useEffect } from 'react';
 import PartnersHeader from './partners/PartnersHeader';
 import PartnerTabs from './partners/PartnerTabs';
 import PartnerGrid from './partners/PartnerGrid';
 import PartnerTabIndicators from './partners/PartnerTabIndicators';
 import { strategicPartners, mediaPartners } from './partners/partnersData';
-import UnifiedBackground from './UnifiedBackground';  // Changed from { UnifiedBackground }
+import UnifiedBackground from './UnifiedBackground';
 
 const Partners = () => {
   const [activeCategory, setActiveCategory] = useState<'strategic' | 'media'>('strategic');

@@ -13,6 +13,12 @@ export default defineConfig(({ mode }) => ({
   build: {
     // Enable optimizations for production
     minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
     // Improve compatibility for hosting platforms
     target: 'es2015',
     outDir: 'dist',
@@ -34,5 +40,8 @@ export default defineConfig(({ mode }) => ({
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
+  },
+  optimizeDeps: {
+    include: ['recharts', '@radix-ui/react-tabs'],
   },
 }));

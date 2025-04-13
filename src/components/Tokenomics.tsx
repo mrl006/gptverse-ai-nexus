@@ -30,7 +30,7 @@ const Tokenomics = () => {
           {/* Info cards section */}
           <TokenomicsInfoCards />
           
-          {/* Main visualization section */}
+          {/* Main visualization section with enhanced glassmorphism and glow effects */}
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -38,8 +38,15 @@ const Tokenomics = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
             className="max-w-5xl mx-auto w-full"
           >
-            <Card className="backdrop-blur-xl border border-white/10 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.2)] p-6 bg-black/10">
-              <CardContent className="p-4">
+            <Card className="relative backdrop-blur-xl border border-[#0ef34b]/20 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.2),0_0_20px_rgba(14,243,75,0.15)] p-6 bg-black/10 overflow-hidden">
+              {/* Green glow ambient effects */}
+              <div className="absolute -top-20 -left-20 w-40 h-40 bg-[#0ef34b]/10 rounded-full blur-[60px] animate-pulse-slow"></div>
+              <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-[#0ef34b]/10 rounded-full blur-[60px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
+              
+              {/* Subtle gradient overlay for depth */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 to-transparent opacity-40 mix-blend-overlay"></div>
+              
+              <CardContent className="p-4 relative z-10">
                 <PieChartVisualization />
               </CardContent>
             </Card>

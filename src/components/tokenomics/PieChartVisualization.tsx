@@ -50,28 +50,8 @@ const PieChartVisualization: React.FC = () => {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       <div className="w-full h-[500px] max-w-[800px] mx-auto relative">
-        {/* Glossy background effect */}
-        <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/5 to-transparent pointer-events-none" />
-        
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
-            <defs>
-              {/* Enhanced glow filters for cells */}
-              {tokenDistribution.map((entry, index) => (
-                <filter key={`glow-${index}`} id={`glow-${index}`} x="-50%" y="-50%" width="200%" height="200%">
-                  <feGaussianBlur stdDeviation="6" result="blur" />
-                  <feFlood floodColor={entry.color} floodOpacity="0.3" result="coloredBlur" />
-                  <feComposite in="SourceGraphic" in2="coloredBlur" operator="over" />
-                </filter>
-              ))}
-              
-              {/* Glossy gradient for pie */}
-              <linearGradient id="glossGradient" x1="0" y1="0" x2="0" y2="1">
-                <stop offset="0%" stopColor="white" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="white" stopOpacity="0.05" />
-              </linearGradient>
-            </defs>
-            
             <Pie
               data={tokenDistribution}
               cx="50%"
@@ -144,11 +124,11 @@ const PieChartVisualization: React.FC = () => {
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <div className="w-32 h-32 bg-[#0ef34b] rounded-full flex items-center justify-center shadow-lg">
+          <div className="text-center">
             <img 
-              src="/lovable-uploads/c8a2351d-56aa-42e3-8a1a-1fce8cc3ca27.png" 
+              src="/lovable-uploads/011bbaad-d5d8-4a60-868a-57a59c6515bd.png" 
               alt="GPTVerse Logo" 
-              className="w-20 h-20 object-contain"
+              className="w-24 h-24 object-contain mx-auto"
             />
           </div>
         </motion.div>
@@ -158,3 +138,4 @@ const PieChartVisualization: React.FC = () => {
 };
 
 export default PieChartVisualization;
+

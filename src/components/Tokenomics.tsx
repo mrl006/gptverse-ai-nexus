@@ -42,22 +42,22 @@ const Tokenomics = () => {
           
           {/* Main visualization section - Cleaner layout */}
           <div className="flex flex-col lg:flex-row items-start gap-12 w-full max-w-6xl mx-auto mt-10">
-            {/* Left side - Enhanced pie chart visualization */}
-            <div className="w-full lg:w-7/12 backdrop-blur-sm border border-[#0ef34b]/10 rounded-2xl 
-                            shadow-[0_5px_30px_rgba(14,243,75,0.08)] p-6 bg-black/20">
+            {/* Left side - Enhanced pie chart visualization with glossy morphism */}
+            <div className="w-full lg:w-7/12 backdrop-blur-xl border border-white/10 rounded-2xl 
+                            shadow-[0_8px_32px_rgba(0,0,0,0.2)] p-6 bg-black/10">
               <h3 className="text-center text-2xl font-bold text-white mb-6">Token Allocation</h3>
               <PieChartVisualization />
             </div>
             
             {/* Right side - Improved tabbed information */}
-            <div className="w-full lg:w-5/12 backdrop-blur-sm border border-[#0ef34b]/10 rounded-2xl 
-                           shadow-[0_5px_30px_rgba(14,243,75,0.08)] p-6 bg-black/20">
+            <div className="w-full lg:w-5/12 backdrop-blur-xl border border-white/10 rounded-2xl 
+                           shadow-[0_8px_32px_rgba(0,0,0,0.2)] p-6 bg-black/10">
               <Tabs defaultValue="distribution" className="w-full">
                 <TabsList className="mb-6 w-full grid grid-cols-2 bg-black/30 border border-white/10">
-                  <TabsTrigger value="distribution" className="data-[state=active]:bg-[#0ef34b]/20">
+                  <TabsTrigger value="distribution" className="data-[state=active]:bg-white/10">
                     Distribution
                   </TabsTrigger>
-                  <TabsTrigger value="vesting" className="data-[state=active]:bg-[#8B5CF6]/20">
+                  <TabsTrigger value="vesting" className="data-[state=active]:bg-white/10">
                     Vesting Schedule
                   </TabsTrigger>
                 </TabsList>

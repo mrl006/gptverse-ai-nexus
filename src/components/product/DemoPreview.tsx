@@ -25,7 +25,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   const [showGeneratedImage, setShowGeneratedImage] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollPosition = useRef(0);
-  const { isMobile } = useIsMobile();
+  const { isMobile, isSmallMobile } = useIsMobile();
   
   const currentModel = AiModels.find(m => m.id === modelId);
   
@@ -110,6 +110,9 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
     // No functionality as requested
   };
 
+  // Adjust content height based on device size
+  const contentHeight = isSmallMobile ? "250px" : (isMobile ? "300px" : "400px");
+
   return (
     <AnimatePresence mode="wait">
       <motion.div 
@@ -132,7 +135,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         
         <ScrollArea 
           className="flex-grow bg-[#080d16]/70 backdrop-blur-md" 
-          style={{ height: isMobile ? "300px" : "400px" }}
+          style={{ height: contentHeight }}
         >
           <div className="p-4">
             {showFileUpload && modelId === 'pdf-reader' && (

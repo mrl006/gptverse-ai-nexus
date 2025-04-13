@@ -46,18 +46,24 @@ const Index = () => {
     return () => document.removeEventListener('click', handleAnchorClick);
   }, []);
 
-  // Simplified animation variants for better mobile performance
+  // Optimized animation variants for mobile
   const sectionVariants = {
     hidden: { opacity: 0, y: isMobile ? 5 : 20 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: isMobile ? 0.3 : 0.6 }
+      transition: { 
+        duration: isMobile ? 0.2 : 0.5,
+        ease: "easeOut"
+      }
     }
   };
 
+  // Optimize viewport margin for mobile to improve scrolling performance
+  const viewportMargin = isMobile ? "-10px" : "-50px";
+
   return (
-    <div className={`min-h-screen bg-[#040812] text-white relative`}>
+    <div className="min-h-screen bg-[#040812] text-white relative">
       <GlassyBackground />
       
       <div className="relative z-10 flex flex-col min-h-screen">
@@ -69,7 +75,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             variants={sectionVariants}
           >
             <ProductView />
@@ -78,7 +84,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             variants={sectionVariants}
           >
             <AiServices />
@@ -87,7 +93,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             variants={sectionVariants}
           >
             <AboutGPTVerse />
@@ -96,7 +102,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             variants={sectionVariants}
           >
             <Tokenomics />
@@ -105,7 +111,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             variants={sectionVariants}
           >
             <Roadmap />
@@ -114,7 +120,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             variants={sectionVariants}
           >
             <Partners />
@@ -123,7 +129,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             variants={sectionVariants}
           >
             <Faq />
@@ -132,7 +138,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
+            viewport={{ once: true, margin: viewportMargin }}
             variants={sectionVariants}
           >
             <ContactGPTVerse />

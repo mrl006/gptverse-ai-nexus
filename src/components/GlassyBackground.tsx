@@ -5,13 +5,13 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const GlassyBackground: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { isMobile } = useIsMobile();
+  const { isMobile, isTablet } = useIsMobile();
   
   useEffect(() => {
     // Only apply parallax effect on desktop
-    if (isMobile) return;
+    if (isMobile || isTablet) return;
     
-    // Parallax effect based on mouse movement
+    // Simplified and optimized parallax effect
     const handleMouseMove = (e: MouseEvent) => {
       if (!containerRef.current) return;
       
@@ -19,10 +19,12 @@ const GlassyBackground: React.FC = () => {
       const xPos = (e.clientX / window.innerWidth) - 0.5;
       const yPos = (e.clientY / window.innerHeight) - 0.5;
       
-      elements.forEach((el, index) => {
-        const speed = 1 + index * 0.2;
-        const htmlEl = el as HTMLElement;
-        htmlEl.style.transform = `translate3d(${xPos * speed * 20}px, ${yPos * speed * 20}px, 0)`;
+      requestAnimationFrame(() => {
+        elements.forEach((el, index) => {
+          const speed = 0.5 + index * 0.1; // Reduced movement for better performance
+          const htmlEl = el as HTMLElement;
+          htmlEl.style.transform = `translate3d(${xPos * speed * 15}px, ${yPos * speed * 15}px, 0)`;
+        });
       });
     };
     
@@ -31,8 +33,46 @@ const GlassyBackground: React.FC = () => {
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
-  }, [isMobile]);
+  }, [isMobile, isTablet]);
   
+  // Different rendering strategies based on device
+  if (isMobile) {
+    // Super simplified background for mobile - minimal effects for better performance
+    return (
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        {/* Basic dark backdrop */}
+        <div className="absolute inset-0 bg-[#020408]"></div>
+        
+        {/* Very subtle grid - lighter on resources */}
+        <div className="absolute inset-0 bg-tech-grid opacity-5"></div>
+        
+        {/* Simple gradient edges instead of animated elements */}
+        <div className="absolute top-0 inset-x-0 h-1/3 bg-gradient-to-b from-[#0ef34b]/5 to-transparent"></div>
+        <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-[#00aeff]/5 to-transparent"></div>
+      </div>
+    );
+  }
+  
+  if (isTablet) {
+    // Medium complexity for tablets - some effects but still optimized
+    return (
+      <div className="fixed inset-0 overflow-hidden pointer-events-none" ref={containerRef}>
+        {/* Dark backdrop with subtle grid */}
+        <div className="absolute inset-0 bg-[#020408]"></div>
+        <div className="absolute inset-0 bg-tech-grid opacity-10"></div>
+        
+        {/* Simple gradient accents */}
+        <div className="absolute top-0 inset-x-0 h-1/2 bg-gradient-to-b from-[#0ef34b]/5 to-transparent"></div>
+        <div className="absolute bottom-0 inset-x-0 h-1/2 bg-gradient-to-t from-[#00aeff]/5 to-transparent"></div>
+        
+        {/* Just a few static glowy elements */}
+        <div className="absolute top-1/4 left-1/4 w-[200px] h-[200px] rounded-full bg-gradient-to-r from-[#0ef34b]/5 to-transparent blur-[60px]"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-[200px] h-[200px] rounded-full bg-gradient-to-l from-[#00aeff]/5 to-transparent blur-[60px]"></div>
+      </div>
+    );
+  }
+  
+  // Full experience for desktop
   return (
     <div className="fixed inset-0 overflow-hidden" ref={containerRef}>
       {/* Dark backdrop with tech grid */}
@@ -42,65 +82,48 @@ const GlassyBackground: React.FC = () => {
       {/* Simplified hexagon grid for web3 aesthetic */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMTUgMi41TDMwIDE3LjVMNDUgMi41TDU3LjUgMTVMNDUgMzBMNTcuNSA0NUw0NSA1Ny41TDMwIDQyLjVMMTUgNTcuNUwyLjUgNDVMMTUgMzBMMi41IDE1TDE1IDIuNVoiIHN0cm9rZT0icmdiYSgxNCwyNDMsNzUsMC4wNSkiIHN0cm9rZS13aWR0aD0iMC41IiBmaWxsPSJub25lIi8+PC9zdmc+')] opacity-10 bg-[length:60px_60px]"></div>
       
-      {/* Reduce the number of depth elements for mobile */}
-      {!isMobile && (
-        <div className="absolute inset-0" style={{ perspective: '1000px' }}>
-          {/* 3D rotating elements - only show on desktop */}
-          <div className="absolute top-1/4 left-1/4 parallax-element">
-            <motion.div 
-              className="w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#0ef34b]/3 to-transparent backdrop-blur-[100px]"
-              animate={{ 
-                rotateY: [0, 360],
-                rotateX: [15, -15, 15]
-              }}
-              transition={{ 
-                duration: 30, 
-                ease: "linear", 
-                repeat: Infinity,
-                repeatType: "loop"
-              }}
-            />
-          </div>
-          
-          <div className="absolute top-3/4 right-1/4 parallax-element">
-            <motion.div 
-              className="w-[250px] h-[250px] rounded-full bg-gradient-to-l from-[#00aeff]/3 to-transparent backdrop-blur-[80px]"
-              animate={{ 
-                rotateY: [360, 0],
-                rotateX: [-15, 15, -15]
-              }}
-              transition={{ 
-                duration: 25, 
-                ease: "linear", 
-                repeat: Infinity,
-                repeatType: "loop",
-                delay: 1.5
-              }}
-            />
-          </div>
+      {/* 3D rotating elements */}
+      <div className="absolute inset-0" style={{ perspective: '1000px' }}>
+        <div className="absolute top-1/4 left-1/4 parallax-element">
+          <motion.div 
+            className="w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#0ef34b]/3 to-transparent backdrop-blur-[100px]"
+            animate={{ 
+              rotateY: [0, 360],
+              rotateX: [15, -15, 15]
+            }}
+            transition={{ 
+              duration: 30, 
+              ease: "linear", 
+              repeat: Infinity,
+              repeatType: "loop"
+            }}
+          />
         </div>
-      )}
+        
+        <div className="absolute top-3/4 right-1/4 parallax-element">
+          <motion.div 
+            className="w-[250px] h-[250px] rounded-full bg-gradient-to-l from-[#00aeff]/3 to-transparent backdrop-blur-[80px]"
+            animate={{ 
+              rotateY: [360, 0],
+              rotateX: [-15, 15, -15]
+            }}
+            transition={{ 
+              duration: 25, 
+              ease: "linear", 
+              repeat: Infinity,
+              repeatType: "loop",
+              delay: 1.5
+            }}
+          />
+        </div>
+      </div>
       
-      {/* Mobile-optimized background elements */}
-      {isMobile && (
-        <>
-          <div className="absolute top-0 inset-x-0 h-1/3 bg-gradient-to-b from-[#0ef34b]/5 to-transparent"></div>
-          <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-[#00aeff]/5 to-transparent"></div>
-          <div className="absolute left-0 inset-y-0 w-1/3 bg-gradient-to-r from-[#0ef34b]/5 to-transparent"></div>
-          <div className="absolute right-0 inset-y-0 w-1/3 bg-gradient-to-l from-[#00aeff]/5 to-transparent"></div>
-        </>
-      )}
+      {/* Glassy panels */}
+      <div className="absolute -right-20 top-1/3 w-[300px] h-[300px] rotate-45 backdrop-blur-xl bg-gradient-to-tr from-[#0ef34b]/2 to-[#00aeff]/2 rounded-3xl parallax-element"></div>
+      <div className="absolute -left-20 top-2/3 w-[250px] h-[250px] -rotate-30 backdrop-blur-xl bg-gradient-to-tl from-[#00aeff]/2 to-[#0ef34b]/2 rounded-3xl parallax-element"></div>
       
-      {/* Simplified glassy panels - reduced for mobile */}
-      {!isMobile && (
-        <>
-          <div className="absolute -right-20 top-1/3 w-[300px] h-[300px] rotate-45 backdrop-blur-xl bg-gradient-to-tr from-[#0ef34b]/2 to-[#00aeff]/2 rounded-3xl parallax-element"></div>
-          <div className="absolute -left-20 top-2/3 w-[250px] h-[250px] -rotate-30 backdrop-blur-xl bg-gradient-to-tl from-[#00aeff]/2 to-[#0ef34b]/2 rounded-3xl parallax-element"></div>
-        </>
-      )}
-      
-      {/* Reduced floating particles */}
-      {Array.from({ length: isMobile ? 3 : 10 }).map((_, index) => (
+      {/* Floating particles */}
+      {Array.from({ length: 8 }).map((_, index) => (
         <motion.div
           key={index}
           className="absolute w-1 h-1 bg-white/50 rounded-full"
@@ -121,9 +144,9 @@ const GlassyBackground: React.FC = () => {
         />
       ))}
       
-      {/* Web3 glassy effect - reduced for mobile */}
+      {/* Web3 glassy effect */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(isMobile ? 2 : 4)].map((_, idx) => {
+        {[...Array(4)].map((_, idx) => {
           const size = 6 + Math.random() * 4;
           return (
             <div 

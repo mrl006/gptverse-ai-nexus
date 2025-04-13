@@ -5,6 +5,7 @@ import { tokenDistribution, TokenDistributionItem } from './TokenDistributionDat
 import PieChartActiveShape from './PieChartActiveShape';
 import PieChartTooltip from './PieChartTooltip';
 import ChartConnectors from './ChartConnectors';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 interface TokenomicsPieChartProps {
   activeIndex: number | null;
@@ -17,6 +18,8 @@ const TokenomicsPieChart: React.FC<TokenomicsPieChartProps> = ({
   topDistributions,
   selectedCategory
 }) => {
+  const { isMobile } = useIsMobile();
+  
   // The index in the tokenDistribution array that corresponds to the selected category
   const selectedIndex = selectedCategory 
     ? tokenDistribution.findIndex(item => item.name === selectedCategory)
@@ -25,19 +28,23 @@ const TokenomicsPieChart: React.FC<TokenomicsPieChartProps> = ({
   // We prioritize selectedIndex over activeIndex
   const activeIdx = selectedIndex !== null && selectedIndex !== -1 ? selectedIndex : activeIndex;
 
+  // Adjust sizes for mobile
+  const outerRadius = isMobile ? "60%" : "65%";
+  const innerRadius = isMobile ? "25%" : "30%";
+
   return (
     <div className="w-full">
-      <h3 className="text-center text-2xl font-bold text-white mb-6">Token Allocation</h3>
+      <h3 className="text-center text-xl md:text-2xl font-bold text-white mb-4 md:mb-6">Token Allocation</h3>
       <div className="relative w-full aspect-square max-w-[500px] mx-auto">
         <ResponsiveContainer width="100%" height="100%">
-          <PieChart>
+          <PieChart margin={{ top: 0, right: 0, bottom: 0, left: 0 }}>
             <Pie
               data={tokenDistribution}
               cx="50%"
               cy="50%"
-              innerRadius="30%"
-              outerRadius="65%"
-              paddingAngle={1}
+              innerRadius={innerRadius}
+              outerRadius={outerRadius}
+              paddingAngle={isMobile ? 0.5 : 1}
               dataKey="value"
               activeIndex={activeIdx !== null ? [activeIdx] : []}
               activeShape={PieChartActiveShape}
@@ -49,7 +56,7 @@ const TokenomicsPieChart: React.FC<TokenomicsPieChartProps> = ({
                   stroke="rgba(0,0,0,0.1)"
                   strokeWidth={1}
                   style={{
-                    filter: `drop-shadow(0 0 6px ${entry.color}40)`,
+                    filter: isMobile ? 'none' : `drop-shadow(0 0 6px ${entry.color}40)`,
                     transition: 'all 0.3s ease'
                   }}
                 />
@@ -62,13 +69,15 @@ const TokenomicsPieChart: React.FC<TokenomicsPieChartProps> = ({
         
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
           <div className="text-center">
-            <div className="text-alien-neon font-mono text-lg font-bold">100%</div>
-            <div className="text-white/70 text-sm">Total Supply</div>
+            <div className="text-alien-neon font-mono text-base md:text-lg font-bold">100%</div>
+            <div className="text-white/70 text-xs md:text-sm">Total Supply</div>
           </div>
         </div>
         
-        {/* Chart connectors with labels */}
-        <ChartConnectors topDistributions={topDistributions} chartWidth={500} />
+        {/* Chart connectors with labels - only show on non-mobile */}
+        {!isMobile && (
+          <ChartConnectors topDistributions={topDistributions} chartWidth={500} />
+        )}
       </div>
     </div>
   );

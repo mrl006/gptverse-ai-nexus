@@ -4,10 +4,12 @@ import * as React from "react"
 // Mobile breakpoint constants
 const MOBILE_BREAKPOINT = 768
 const SMALL_MOBILE_BREAKPOINT = 480
+const TABLET_BREAKPOINT = 1024
 
 export function useIsMobile() {
   const [isMobile, setIsMobile] = React.useState<boolean>(false)
   const [isSmallMobile, setIsSmallMobile] = React.useState<boolean>(false)
+  const [isTablet, setIsTablet] = React.useState<boolean>(false)
   const [windowWidth, setWindowWidth] = React.useState<number>(
     typeof window !== 'undefined' ? window.innerWidth : 0
   )
@@ -22,6 +24,7 @@ export function useIsMobile() {
       setWindowWidth(width)
       setIsMobile(width < MOBILE_BREAKPOINT)
       setIsSmallMobile(width < SMALL_MOBILE_BREAKPOINT)
+      setIsTablet(width >= MOBILE_BREAKPOINT && width < TABLET_BREAKPOINT)
     }
     
     checkMobileSize()
@@ -30,19 +33,21 @@ export function useIsMobile() {
     let timeoutId: ReturnType<typeof setTimeout>;
     
     const handleResize = () => {
-      clearTimeout(timeoutId);
+      // Cancel the previous timeout
+      if (timeoutId) clearTimeout(timeoutId);
       
+      // Only update after a short delay to prevent excessive re-renders
       timeoutId = setTimeout(() => {
         checkMobileSize()
-      }, 100); // Debounce for better performance
+      }, 150); // Increased debounce time for better performance
     }
     
     window.addEventListener("resize", handleResize, { passive: true })
     return () => {
       window.removeEventListener("resize", handleResize)
-      clearTimeout(timeoutId);
+      if (timeoutId) clearTimeout(timeoutId);
     }
   }, [])
 
-  return { isMobile, isSmallMobile, windowWidth }
+  return { isMobile, isSmallMobile, isTablet, windowWidth }
 }

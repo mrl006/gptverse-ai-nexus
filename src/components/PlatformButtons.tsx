@@ -1,7 +1,8 @@
 
 import React from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
-import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const PlatformButtons = () => {
   const isMobile = useIsMobile();
@@ -32,26 +33,33 @@ const PlatformButtons = () => {
   return (
     <div className={`flex ${isMobile ? 'grid grid-cols-2' : 'overflow-x-auto scrollbar-none'} py-2 mb-6 w-full max-w-6xl mx-auto px-4 gap-4`}>
       {platforms.map((platform, index) => (
-        <Button
+        <motion.button
           key={index}
-          variant="glassy"
-          className={`px-4 py-3 hover:bg-[#040812]/80 transition-all duration-300
+          className={`px-4 py-3 transition-all duration-500
                     flex items-center ${isMobile ? 'justify-between' : 'justify-center'} gap-3 
                     ${isMobile ? 'w-full' : 'min-w-[180px] flex-1'}
-                    relative overflow-hidden group mb-3 h-auto`}
+                    relative overflow-hidden group mb-3 h-auto
+                    bg-[#040812]/20 backdrop-blur-xl border border-[#0ef34b]/15 rounded-lg hover:border-[#0ef34b]/30 shadow-[0_0_15px_rgba(4,8,18,0.5)]`}
+          whileHover={{ scale: 1.02 }}
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: index * 0.1 }}
         >
-          {/* Minimal glassmorphism effects */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/5 to-transparent opacity-30"></div>
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
+          {/* Top highlight edge */}
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/30 to-transparent"></div>
           
-          {/* Inner glow effect - reduced */}
-          <div className="absolute inset-0 bg-[#0ef34b]/0 group-hover:bg-[#0ef34b]/5 transition-all duration-500 rounded-lg"></div>
+          {/* Animated glow overlay */}
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 via-transparent to-[#00aeff]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+          
+          {/* Inner scanline effect */}
+          <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-10">
+            <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent h-[10px] animate-[moveVertical_8s_linear_infinite]"></div>
+          </div>
           
           {/* Button Content */}
           <div className="relative z-10 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#040812]/80 rounded-full flex items-center justify-center 
-                          border border-white/20
+            <div className="w-10 h-10 bg-[#040812]/40 rounded-full flex items-center justify-center 
+                          border border-[#0ef34b]/20 group-hover:border-[#0ef34b]/40
                           transition-all duration-500 overflow-hidden p-1">
               <img 
                 src={platform.logo} 
@@ -61,22 +69,19 @@ const PlatformButtons = () => {
             </div>
             
             <span className="text-white font-mono">
-              <div className="text-xs text-white/60">{platform.text}</div>
-              <div className="text-sm font-bold tracking-wider">{platform.name}</div>
+              <div className="text-xs text-[#0ef34b]/60 group-hover:text-[#0ef34b]/80 transition-colors duration-300">{platform.text}</div>
+              <div className="text-sm font-bold tracking-wider group-hover:text-[#0ef34b] transition-colors duration-300">{platform.name}</div>
             </span>
           </div>
           
           {isMobile && (
             <div className="relative z-10 pr-2">
-              <div className="w-6 h-6 rounded-full border border-[#0ef34b]/30 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[#0ef34b]">
-                  <path d="M5 12h14"></path>
-                  <path d="m12 5 7 7-7 7"></path>
-                </svg>
+              <div className="w-6 h-6 rounded-full border border-[#0ef34b]/30 flex items-center justify-center group-hover:bg-[#0ef34b]/10 transition-all duration-300">
+                <ArrowRight size={12} className="text-[#0ef34b] group-hover:translate-x-0.5 transition-all duration-300" />
               </div>
             </div>
           )}
-        </Button>
+        </motion.button>
       ))}
     </div>
   );

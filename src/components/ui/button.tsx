@@ -6,7 +6,7 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0ef34b]/30 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0 relative overflow-hidden",
   {
     variants: {
       variant: {
@@ -19,7 +19,9 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
-        glassy: "bg-[#040812]/60 backdrop-blur-md border border-white/10 text-white hover:bg-[#040812]/80 hover:border-white/20 shadow-sm transition-all duration-300",
+        glassy: "bg-[#040812]/30 backdrop-blur-xl border border-[#0ef34b]/15 text-white hover:border-[#0ef34b]/30 shadow-sm transition-all duration-300 hover:shadow-[0_0_15px_rgba(14,243,75,0.2)]",
+        "glassy-glow": "bg-[#040812]/30 backdrop-blur-xl border border-[#0ef34b]/20 text-white hover:border-[#0ef34b]/40 shadow-[0_0_10px_rgba(14,243,75,0.15)] hover:shadow-[0_0_20px_rgba(14,243,75,0.3)] group",
+        "gradient": "bg-gradient-to-r from-[#0ef34b] to-[#00aeff] text-black font-semibold border-none hover:brightness-110 hover:shadow-[0_0_20px_rgba(14,243,75,0.4)]",
       },
       size: {
         default: "h-10 px-4 py-2",
@@ -49,7 +51,22 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         className={cn(buttonVariants({ variant, size, className }))}
         ref={ref}
         {...props}
-      />
+      >
+        {/* Add top highlight for glassy variants */}
+        {(variant === 'glassy' || variant === 'glassy-glow') && (
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/30 to-transparent"></div>
+        )}
+        
+        {/* Add animated background for glassy-glow variant */}
+        {variant === 'glassy-glow' && (
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 via-transparent to-[#00aeff]/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        )}
+        
+        {/* Make sure content stays on top */}
+        <div className="relative z-10 flex items-center gap-2">
+          {props.children}
+        </div>
+      </Comp>
     )
   }
 )

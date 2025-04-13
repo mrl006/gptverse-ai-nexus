@@ -34,9 +34,9 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="backdrop-blur-lg bg-white/10 p-3 rounded-xl border border-white/20 shadow-xl">
-        <p className="text-white font-medium text-sm">{payload[0].name}</p>
-        <p className="text-white font-mono text-base">{`${payload[0].value}%`}</p>
+      <div className="backdrop-blur-lg bg-white/10 p-2 rounded-lg border border-white/20 shadow-xl">
+        <p className="text-white font-medium text-xs">{payload[0].name}</p>
+        <p className="text-white font-mono text-sm">{`${payload[0].value}%`}</p>
       </div>
     );
   }
@@ -48,13 +48,13 @@ const PieChartVisualization: React.FC = () => {
   const { isMobile, isSmallMobile } = useIsMobile();
   
   // Adjust dimensions based on device type
-  const chartHeight = isSmallMobile ? 300 : (isMobile ? 400 : 500);
-  const outerRadius = isSmallMobile ? 70 : (isMobile ? 120 : 180);
-  const innerRadius = isSmallMobile ? 35 : (isMobile ? 60 : 90);
+  const chartHeight = isSmallMobile ? 260 : (isMobile ? 300 : 500);
+  const outerRadius = isSmallMobile ? 60 : (isMobile ? 90 : 180);
+  const innerRadius = isSmallMobile ? 25 : (isMobile ? 40 : 90);
   
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
-      <div className={`w-full h-[${chartHeight}px] max-w-[800px] mx-auto relative`}>
+      <div style={{ width: '100%', height: chartHeight }} className="max-w-[800px] mx-auto relative">
         <ResponsiveContainer width="100%" height="100%">
           <PieChart>
             <Pie
@@ -67,7 +67,7 @@ const PieChartVisualization: React.FC = () => {
               innerRadius={innerRadius}
               fill="#8884d8"
               dataKey="value"
-              paddingAngle={isMobile ? 2 : 3}
+              paddingAngle={isMobile ? 1 : 3}
               strokeWidth={1}
               onMouseEnter={(_, index) => setActiveIndex(index)}
               onMouseLeave={() => setActiveIndex(null)}
@@ -88,17 +88,18 @@ const PieChartVisualization: React.FC = () => {
             
             <Tooltip content={<CustomTooltip />} />
             
-            {/* Simplified legend for mobile */}
+            {/* Optimized legend for mobile */}
             {isMobile ? (
               <Legend
                 layout="horizontal"
                 align="center"
                 verticalAlign="bottom"
                 wrapperStyle={{
-                  fontSize: "10px",
+                  fontSize: isSmallMobile ? "8px" : "10px",
                   opacity: 0.9,
-                  maxHeight: "60px",
-                  overflow: "auto"
+                  maxHeight: "50px",
+                  overflow: "auto",
+                  padding: "5px 0"
                 }}
               />
             ) : (

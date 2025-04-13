@@ -5,7 +5,7 @@ import { useIsMobile } from '@/hooks/use-mobile';
 
 const GlassyBackground: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { isMobile, isTablet } = useIsMobile();
+  const { isMobile, isSmallMobile, isTablet } = useIsMobile();
   
   useEffect(() => {
     // Only apply parallax effect on desktop
@@ -21,9 +21,9 @@ const GlassyBackground: React.FC = () => {
       
       requestAnimationFrame(() => {
         elements.forEach((el, index) => {
-          const speed = 0.5 + index * 0.1; // Reduced movement for better performance
+          const speed = 0.3 + index * 0.05; // Reduced movement for better performance
           const htmlEl = el as HTMLElement;
-          htmlEl.style.transform = `translate3d(${xPos * speed * 15}px, ${yPos * speed * 15}px, 0)`;
+          htmlEl.style.transform = `translate3d(${xPos * speed * 10}px, ${yPos * speed * 10}px, 0)`;
         });
       });
     };
@@ -34,6 +34,16 @@ const GlassyBackground: React.FC = () => {
       window.removeEventListener('mousemove', handleMouseMove);
     };
   }, [isMobile, isTablet]);
+  
+  // Ultra-minimal background for small mobile devices
+  if (isSmallMobile) {
+    return (
+      <div className="fixed inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute inset-0 bg-[#020408]"></div>
+        <div className="absolute inset-0 bg-tech-grid opacity-5"></div>
+      </div>
+    );
+  }
   
   // Different rendering strategies based on device
   if (isMobile) {
@@ -47,8 +57,8 @@ const GlassyBackground: React.FC = () => {
         <div className="absolute inset-0 bg-tech-grid opacity-5"></div>
         
         {/* Simple gradient edges instead of animated elements */}
-        <div className="absolute top-0 inset-x-0 h-1/3 bg-gradient-to-b from-[#0ef34b]/5 to-transparent"></div>
-        <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-[#00aeff]/5 to-transparent"></div>
+        <div className="absolute top-0 inset-x-0 h-1/4 bg-gradient-to-b from-[#0ef34b]/5 to-transparent"></div>
+        <div className="absolute bottom-0 inset-x-0 h-1/4 bg-gradient-to-t from-[#00aeff]/5 to-transparent"></div>
       </div>
     );
   }
@@ -121,28 +131,6 @@ const GlassyBackground: React.FC = () => {
       {/* Glassy panels */}
       <div className="absolute -right-20 top-1/3 w-[300px] h-[300px] rotate-45 backdrop-blur-xl bg-gradient-to-tr from-[#0ef34b]/2 to-[#00aeff]/2 rounded-3xl parallax-element"></div>
       <div className="absolute -left-20 top-2/3 w-[250px] h-[250px] -rotate-30 backdrop-blur-xl bg-gradient-to-tl from-[#00aeff]/2 to-[#0ef34b]/2 rounded-3xl parallax-element"></div>
-      
-      {/* Floating particles */}
-      {Array.from({ length: 8 }).map((_, index) => (
-        <motion.div
-          key={index}
-          className="absolute w-1 h-1 bg-white/50 rounded-full"
-          style={{
-            top: `${Math.random() * 100}%`,
-            left: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [0, -20, 0],
-            opacity: [0.1, 0.5, 0.1],
-            scale: [1, 1.5, 1]
-          }}
-          transition={{
-            duration: Math.random() * 5 + 5,
-            repeat: Infinity,
-            delay: Math.random() * 5
-          }}
-        />
-      ))}
       
       {/* Web3 glassy effect */}
       <div className="absolute inset-0 overflow-hidden">

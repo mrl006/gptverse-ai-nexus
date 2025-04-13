@@ -1,7 +1,7 @@
 
 import * as React from "react"
 
-// Mobile breakpoint constants
+// Mobile breakpoint constants with refined values
 const MOBILE_BREAKPOINT = 768
 const SMALL_MOBILE_BREAKPOINT = 480
 const TABLET_BREAKPOINT = 1024
@@ -39,7 +39,7 @@ export function useIsMobile() {
       // Only update after a short delay to prevent excessive re-renders
       timeoutId = setTimeout(() => {
         checkMobileSize()
-      }, 150); // Increased debounce time for better performance
+      }, 100); // Decreased debounce time for more responsive UI
     }
     
     window.addEventListener("resize", handleResize, { passive: true })

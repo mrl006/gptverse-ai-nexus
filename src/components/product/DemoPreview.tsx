@@ -51,10 +51,14 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
       window.scrollTo({top: scrollPosition.current});
     }
     
-    startDemo();
-  }, [modelId]);
+    // Use shorter timeouts on mobile for better user experience
+    const delay = isSmallMobile ? 400 : (isMobile ? 600 : 1000);
+    const typingDelay = isSmallMobile ? 400 : (isMobile ? 600 : 800);
+    
+    startDemo(delay, typingDelay);
+  }, [modelId, isMobile, isSmallMobile]);
   
-  const startDemo = () => {
+  const startDemo = (delay: number, typingDelay: number) => {
     if (modelId === 'pdf-reader') {
       setTimeout(() => {
         setShowFileUpload(false);
@@ -67,14 +71,14 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
           setTimeout(() => {
             setIsTyping(false);
             setMessages(prev => [...prev, demoMessages['pdf-reader'][1]]);
-          }, 800);
-        }, 800);
-      }, 1000);
+          }, typingDelay);
+        }, typingDelay);
+      }, delay);
     } else if (modelId === 'image-generator') {
       // For image generator, show a more specific user prompt
       setMessages([{
         role: 'user',
-        content: "Generate multiple style variations of a character design for my game"
+        content: "Generate character designs for my game"
       }]);
       
       // Then show typing indicator and generated image sequence
@@ -85,10 +89,10 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
           setShowGeneratedImage(true);
           setMessages(prev => [...prev, {
             role: 'assistant',
-            content: "I've created 8 different style variations of a character design, ranging from realistic to cartoon, isometric, abstract, and stylized. Each has unique artistic elements that could work for different game aesthetics."
+            content: "I've created different style variations of a character design that could work for different game aesthetics."
           }]);
-        }, 1500);
-      }, 800);
+        }, typingDelay * 1.5);
+      }, typingDelay);
     } else if (demoMessages[modelId]?.length) {
       // Start with first message immediately
       setMessages([demoMessages[modelId][0]]);
@@ -99,8 +103,8 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         setTimeout(() => {
           setIsTyping(false);
           setMessages(prev => [...prev, demoMessages[modelId][1]]);
-        }, 800);
-      }, 800);
+        }, typingDelay);
+      }, typingDelay);
     }
   };
 
@@ -111,18 +115,18 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   };
 
   // Adjust content height based on device size
-  const contentHeight = isSmallMobile ? "250px" : (isMobile ? "300px" : "400px");
+  const contentHeight = isSmallMobile ? "220px" : (isMobile ? "260px" : "400px");
 
   return (
     <AnimatePresence mode="wait">
       <motion.div 
         key={modelId}
         ref={containerRef}
-        className="flex flex-col h-full bg-[#06101a] rounded-xl overflow-hidden border border-white/10 relative"
-        initial={{ opacity: 0, y: 10 }}
+        className="flex flex-col h-full bg-[#06101a] rounded-lg md:rounded-xl overflow-hidden border border-white/10 relative"
+        initial={{ opacity: 0, y: 5 }}
         animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -10 }}
-        transition={{ duration: 0.3 }}
+        exit={{ opacity: 0, y: -5 }}
+        transition={{ duration: isSmallMobile ? 0.2 : 0.3 }}
       >
         {/* Simplified glassmorphism accent */}
         <div className="absolute inset-0 backdrop-blur-sm bg-gradient-to-br from-[#0ef34b]/5 via-transparent to-[#00aeff]/5 pointer-events-none"></div>
@@ -137,7 +141,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
           className="flex-grow bg-[#080d16]/70 backdrop-blur-md" 
           style={{ height: contentHeight }}
         >
-          <div className="p-4">
+          <div className="p-2 md:p-4">
             {showFileUpload && modelId === 'pdf-reader' && (
               <FileUploadPreview />
             )}

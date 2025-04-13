@@ -17,7 +17,7 @@ import { motion } from 'framer-motion';
 import GlassyBackground from '../components/GlassyBackground';
 
 const Index = () => {
-  const { isMobile } = useIsMobile();
+  const { isMobile, isSmallMobile } = useIsMobile();
   
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -35,7 +35,7 @@ const Index = () => {
           
           window.scrollTo({
             top: targetPosition,
-            behavior: 'smooth'
+            behavior: isMobile ? 'auto' : 'smooth' // Use auto for mobile for better performance
           });
         }
       }
@@ -44,23 +44,23 @@ const Index = () => {
     document.addEventListener('click', handleAnchorClick);
     
     return () => document.removeEventListener('click', handleAnchorClick);
-  }, []);
+  }, [isMobile]);
 
-  // Optimized animation variants for mobile
+  // Super optimized animation variants for mobile
   const sectionVariants = {
-    hidden: { opacity: 0, y: isMobile ? 5 : 20 },
+    hidden: { opacity: 0, y: isSmallMobile ? 0 : (isMobile ? 3 : 15) },
     visible: { 
       opacity: 1, 
       y: 0,
       transition: { 
-        duration: isMobile ? 0.2 : 0.5,
+        duration: isSmallMobile ? 0.1 : (isMobile ? 0.2 : 0.4),
         ease: "easeOut"
       }
     }
   };
 
-  // Optimize viewport margin for mobile to improve scrolling performance
-  const viewportMargin = isMobile ? "-10px" : "-50px";
+  // Minimize viewport margin for mobile to improve scrolling performance
+  const viewportMargin = isSmallMobile ? "0px" : (isMobile ? "-5px" : "-40px");
 
   return (
     <div className="min-h-screen bg-[#040812] text-white relative">

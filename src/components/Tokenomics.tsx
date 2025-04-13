@@ -9,14 +9,14 @@ import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const Tokenomics = () => {
-  const { isMobile } = useIsMobile();
+  const { isMobile, isSmallMobile } = useIsMobile();
   
   // Sort token distribution data by value (descending)
   const sortedTokenDistribution = [...tokenDistribution].sort((a, b) => b.value - a.value);
   
   return (
-    <section id="tokenomics" className="relative py-16 md:py-28 overflow-hidden">
-      {/* Enhanced background with more depth */}
+    <section id="tokenomics" className="relative py-12 md:py-24 overflow-hidden">
+      {/* Simplified background for mobile */}
       <div className="absolute inset-0 bg-[#040812]"></div>
       <div className="absolute inset-0 bg-tech-grid opacity-10"></div>
       
@@ -34,23 +34,23 @@ const Tokenomics = () => {
       )}
       
       {/* Main content container */}
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-3 md:px-4 relative z-10">
         {/* Section heading */}
         <TokenomicsHeading />
         
-        <div className="flex flex-col space-y-10 md:space-y-16">
+        <div className="flex flex-col space-y-6 md:space-y-16">
           {/* Info cards section */}
           <TokenomicsInfoCards />
           
-          {/* Main visualization section with enhanced glassmorphism and glow effects */}
+          {/* Main visualization section */}
           <motion.div 
-            initial={{ opacity: 0, y: isMobile ? 10 : 20 }}
+            initial={{ opacity: 0, y: isMobile ? 5 : 15 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: isMobile ? "-10px" : "-50px" }}
-            transition={{ duration: isMobile ? 0.5 : 0.7, delay: 0.3 }}
+            viewport={{ once: true, margin: isMobile ? "-5px" : "-40px" }}
+            transition={{ duration: isMobile ? 0.3 : 0.6, delay: 0.2 }}
             className="max-w-5xl mx-auto w-full"
           >
-            <Card className="relative backdrop-blur-xl border border-[#0ef34b]/20 rounded-xl md:rounded-2xl shadow-[0_8px_16px_rgba(0,0,0,0.2),0_0_10px_rgba(14,243,75,0.15)] p-4 md:p-6 bg-black/10 overflow-hidden">
+            <Card className="relative backdrop-blur-xl border border-[#0ef34b]/20 rounded-lg md:rounded-2xl shadow-[0_8px_16px_rgba(0,0,0,0.2),0_0_10px_rgba(14,243,75,0.15)] p-3 md:p-6 bg-black/10 overflow-hidden">
               {/* Simplified green glow ambient effects for mobile */}
               {!isMobile && (
                 <>
@@ -62,7 +62,7 @@ const Tokenomics = () => {
               {/* Subtle gradient overlay for depth */}
               <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 to-transparent opacity-40 mix-blend-overlay"></div>
               
-              <CardContent className="p-2 md:p-4 relative z-10">
+              <CardContent className="p-1 md:p-4 relative z-10">
                 <PieChartVisualization />
               </CardContent>
             </Card>

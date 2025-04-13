@@ -25,7 +25,11 @@ const Index = () => {
     // Remove any listeners that might affect scroll
     const cleanupListeners = () => {
       document.querySelectorAll('*').forEach(element => {
-        element.onscroll = null;
+        // Fixed: using a more generic approach without specific properties
+        const el = element as HTMLElement;
+        if (el.onscroll) {
+          el.onscroll = null;
+        }
       });
     };
     

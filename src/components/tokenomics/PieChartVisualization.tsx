@@ -5,10 +5,9 @@ import { tokenDistribution } from './TokenDistributionData';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
 
-const RADIAN = Math.PI / 180;
-
-const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name }: any) => {
-  const { isMobile, isSmallMobile } = useIsMobile();
+// Define the custom label renderer as a non-hook function that receives the needed props
+const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, percent, index, name, isMobile, isSmallMobile }: any) => {
+  const RADIAN = Math.PI / 180;
   
   // Don't render labels for small slices on mobile
   if (isMobile && percent < 0.05) return null;
@@ -62,6 +61,13 @@ const PieChartVisualization: React.FC = () => {
     ? tokenDistribution.filter(item => item.value >= 3) // Only show items with value >= 3% on mobile
     : tokenDistribution;
   
+  // Create a label renderer that has access to the mobile state
+  const labelRenderer = (props: any) => renderCustomizedLabel({
+    ...props,
+    isMobile,
+    isSmallMobile
+  });
+  
   return (
     <div className="w-full h-full flex flex-col items-center justify-center">
       <div style={{ width: '100%', height: chartHeight }} className="max-w-[800px] mx-auto">
@@ -72,7 +78,7 @@ const PieChartVisualization: React.FC = () => {
               cx="50%"
               cy="50%"
               labelLine={false}
-              label={renderCustomizedLabel}
+              label={labelRenderer}
               outerRadius={outerRadius}
               innerRadius={innerRadius}
               fill="#8884d8"

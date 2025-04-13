@@ -1,8 +1,7 @@
 
 import React, { useState, useEffect, useRef } from 'react';
 import { AiModels } from '@/data/aiModels';
-import { demoMessages, extendedDemoMessages } from '@/data/demoMessages';
-import { getIconByName } from '@/utils/iconUtils';
+import { demoMessages } from '@/data/demoMessages';
 import DemoHeader from './DemoHeader';
 import MessageList from './MessageList';
 import FileUploadPreview from './FileUploadPreview';
@@ -26,7 +25,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
   const [showGeneratedImage, setShowGeneratedImage] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const scrollPosition = useRef(0);
-  const isMobile = useIsMobile();
+  const { isMobile } = useIsMobile();
   
   const currentModel = AiModels.find(m => m.id === modelId);
   
@@ -122,7 +121,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
         exit={{ opacity: 0, y: -10 }}
         transition={{ duration: 0.3 }}
       >
-        {/* Glassmorphism accent */}
+        {/* Simplified glassmorphism accent */}
         <div className="absolute inset-0 backdrop-blur-sm bg-gradient-to-br from-[#0ef34b]/5 via-transparent to-[#00aeff]/5 pointer-events-none"></div>
         
         <DemoHeader 
@@ -131,7 +130,7 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
           iconComponent={iconComponent} 
         />
         
-        <ScrollArea className="flex-grow bg-[#080d16]/70 backdrop-blur-md" style={{ height: isMobile ? "300px" : "400px" }}>
+        <ScrollArea className="flex-grow bg-[#080d16]/70 backdrop-blur-md" style={{ height: isMobile ? "250px" : "400px" }}>
           <div className="p-4">
             {showFileUpload && modelId === 'pdf-reader' && (
               <FileUploadPreview />

@@ -54,22 +54,14 @@ const ModelList: React.FC<ModelListProps> = ({
           initial={isMobile ? "hidden" : "visible"}
           animate="visible"
         >
-          {/* Enhanced glassmorphism sidebar accent with stronger green glow */}
+          {/* Simplified glassmorphism sidebar accent for better performance */}
           {!isMobile && (
-            <div className="absolute -inset-4 bg-gradient-to-r from-[#06101a]/80 to-transparent backdrop-blur-md pointer-events-none z-0 rounded-2xl">
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -left-20 top-1/4 w-40 h-40 bg-[#0ef34b]/15 rounded-full blur-3xl"></div>
-                <div className="absolute -right-20 bottom-1/4 w-40 h-40 bg-[#0ef34b]/10 rounded-full blur-3xl"></div>
-              </div>
-            </div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-[#06101a]/80 to-transparent backdrop-blur-md pointer-events-none z-0 rounded-2xl"></div>
           )}
           
           <div className="hidden lg:block mb-6 relative z-10">
-            <h2 className="text-2xl font-bold text-white drop-shadow-[0_2px_4px_rgba(14,243,75,0.4)]">
-              <span className="relative">
-                AI HUB
-                <span className="absolute -inset-1 bg-gradient-to-r from-[#0ef34b]/20 to-transparent blur-sm rounded-lg -z-10"></span>
-              </span>
+            <h2 className="text-2xl font-bold text-white">
+              AI HUB
             </h2>
           </div>
           
@@ -80,12 +72,12 @@ const ModelList: React.FC<ModelListProps> = ({
                 onClick={() => setSelectedModel(model.id)}
                 className={`w-full text-left p-3 rounded-lg flex items-center gap-3 transition-all ${
                   selectedModel === model.id 
-                    ? 'bg-[#1e1e2f]/80 border-l-2 border-[#0ef34b] relative shadow-[0_0_15px_rgba(14,243,75,0.2)]' 
+                    ? 'bg-[#1e1e2f]/80 border-l-2 border-[#0ef34b]' 
                     : 'hover:bg-white/5'
                 }`}
-                whileHover={{ x: 3 }}
+                whileHover={{ x: isMobile ? 1 : 3 }}
                 animate={{ 
-                  scale: selectedModel === model.id ? 1.02 : 1,
+                  scale: selectedModel === model.id ? (isMobile ? 1.01 : 1.02) : 1,
                   opacity: 1
                 }}
                 transition={{ duration: 0.2 }}
@@ -109,13 +101,6 @@ const ModelList: React.FC<ModelListProps> = ({
                   : 'text-gray-400'} ${isMobile ? 'text-sm' : ''} whitespace-nowrap overflow-hidden text-ellipsis`}>
                   {model.name}
                 </span>
-                
-                {/* Add glow effect for selected model */}
-                {selectedModel === model.id && (
-                  <div className="absolute inset-0 -z-20 rounded-lg">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-[#0ef34b]/20 to-transparent opacity-60 blur-md rounded-lg"></div>
-                  </div>
-                )}
               </motion.button>
             ))}
           </div>

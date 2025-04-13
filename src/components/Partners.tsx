@@ -5,6 +5,7 @@ import PartnerTabs from './partners/PartnerTabs';
 import PartnerGrid from './partners/PartnerGrid';
 import PartnerTabIndicators from './partners/PartnerTabIndicators';
 import { strategicPartners, mediaPartners } from './partners/partnersData';
+import { UnifiedBackground } from './UnifiedBackground';
 
 const Partners = () => {
   const [activeCategory, setActiveCategory] = useState<'strategic' | 'media'>('strategic');
@@ -20,9 +21,9 @@ const Partners = () => {
   
   return (
     <section id="partners" className="py-20 relative overflow-hidden">
+      {/* Using single unified background style */}
       <div className="absolute inset-0 bg-[#040812]"></div>
-      <div className="absolute inset-0 bg-tech-grid opacity-10"></div>
-      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(14,243,75,0.1)_0%,transparent_50%)]"></div>
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-[#0ef34b]/5 blur-[180px] animate-pulse-slow"></div>
       
       <div className="container mx-auto px-4 relative z-10">
         <PartnersHeader />

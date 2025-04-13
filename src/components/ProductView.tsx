@@ -52,8 +52,8 @@ const ProductView = () => {
       transition={{ duration: isSmallMobile ? 0.2 : 0.4 }}
     >
       <div className="absolute inset-0 bg-[#040812] pointer-events-none">
-        {/* Simplified background */}
-        <div className="absolute inset-0 bg-tech-grid opacity-10"></div>
+        {/* Simplified single glow background */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#0ef34b]/5 blur-[150px] animate-pulse-slow"></div>
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
         <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#00aeff]/20 to-transparent"></div>
       </div>

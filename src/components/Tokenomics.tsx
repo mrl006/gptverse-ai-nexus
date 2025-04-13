@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React from 'react';
 import { tokenDistribution } from './tokenomics/TokenDistributionData';
 import PieChartVisualization from './tokenomics/PieChartVisualization';
 import TokenomicsHeading from './tokenomics/TokenomicsHeading';
@@ -16,19 +16,9 @@ const Tokenomics = () => {
   
   return (
     <section id="tokenomics" className="relative py-8 md:py-24 overflow-hidden">
-      {/* Ultra simplified background for mobile */}
+      {/* Simplified background */}
       <div className="absolute inset-0 bg-[#040812]"></div>
-      {!isSmallMobile && <div className="absolute inset-0 bg-tech-grid opacity-10"></div>}
-      
-      {/* Ultra simplified ambient lighting for mobile */}
-      {!isMobile ? (
-        <>
-          <div className="absolute top-0 left-1/4 w-[800px] h-[800px] rounded-full bg-[#0ef34b]/5 blur-[180px] animate-pulse-slow"></div>
-          <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] rounded-full bg-[#00aeff]/5 blur-[150px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-        </>
-      ) : (
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0ef34b]/2 via-transparent to-[#00aeff]/2"></div>
-      )}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] rounded-full bg-[#0ef34b]/5 blur-[180px] animate-pulse-slow"></div>
       
       {/* Main content container */}
       <div className="container mx-auto px-2 md:px-4 relative z-10">
@@ -48,16 +38,8 @@ const Tokenomics = () => {
             className="max-w-5xl mx-auto w-full"
           >
             <Card className="relative backdrop-blur-xl border border-[#0ef34b]/20 rounded-lg md:rounded-2xl shadow-[0_8px_16px_rgba(0,0,0,0.2),0_0_10px_rgba(14,243,75,0.15)] p-2 md:p-6 bg-black/10 overflow-hidden">
-              {/* Desktop-only ambient effects */}
-              {!isMobile && (
-                <>
-                  <div className="absolute -top-20 -left-20 w-40 h-40 bg-[#0ef34b]/10 rounded-full blur-[60px] animate-pulse-slow"></div>
-                  <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-[#0ef34b]/10 rounded-full blur-[60px] animate-pulse-slow" style={{animationDelay: '2s'}}></div>
-                </>
-              )}
-              
-              {/* Simple gradient overlay for depth */}
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 to-transparent opacity-40 mix-blend-overlay"></div>
+              {/* Simple glow effect */}
+              <div className="absolute -top-20 -left-20 w-40 h-40 bg-[#0ef34b]/10 rounded-full blur-[60px] animate-pulse-slow"></div>
               
               <CardContent className="p-1 md:p-4 relative z-10">
                 <PieChartVisualization />

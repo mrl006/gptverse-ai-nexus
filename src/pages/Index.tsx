@@ -78,6 +78,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-[#040812] text-white relative">
+      {/* Single unified background for whole site */}
       <GlassyBackground />
       
       <div className="relative z-10 flex flex-col min-h-screen">

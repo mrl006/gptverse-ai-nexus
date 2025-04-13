@@ -1,0 +1,203 @@
+
+/* Corporate card styling */
+.card {
+  padding: 2em;
+  background: rgba(6, 16, 26, 0.4);
+  border-radius: 8px;
+  border: 1px solid rgba(8, 126, 139, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(8, 126, 139, 0.3);
+}
+
+/* Enterprise-level button styling */
+.enterprise-button {
+  background: linear-gradient(135deg, #0B3954 0%, #087E8B 100%);
+  color: white;
+  border: 1px solid rgba(8, 126, 139, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.enterprise-button:hover {
+  background: linear-gradient(135deg, #0B3954 30%, #087E8B 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.enterprise-button:active {
+  transform: translateY(1px);
+}
+
+/* Enhanced corporate form controls */
+.input-corporate {
+  background: rgba(6, 16, 26, 0.3);
+  border: 1px solid rgba(8, 126, 139, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: white;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.input-corporate:focus {
+  border-color: rgba(8, 126, 139, 0.5);
+  box-shadow: 0 0 0 2px rgba(8, 126, 139, 0.2);
+  outline: none;
+}
+
+/* Corporate-level loading indicators */
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 3px solid rgba(8, 126, 139, 0.1);
+  border-top: 3px solid rgba(8, 126, 139, 0.8);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Professional badge styling */
+.corporate-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background: rgba(8, 126, 139, 0.1);
+  color: #0CF574;
+  border: 1px solid rgba(8, 126, 139, 0.3);
+}
+
+/* Enterprise alert styling */
+.corporate-alert {
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  margin-bottom: 1rem;
+}
+
+.corporate-alert-info {
+  background: rgba(8, 126, 139, 0.1);
+  border-left-color: #087E8B;
+}
+
+.corporate-alert-success {
+  background: rgba(12, 245, 116, 0.1);
+  border-left-color: #0CF574;
+}
+
+.corporate-alert-warning {
+  background: rgba(255, 171, 64, 0.1);
+  border-left-color: #FFAB40;
+}
+
+.corporate-alert-error {
+  background: rgba(255, 82, 82, 0.1);
+  border-left-color: #FF5252;
+}
+
+/* Glass effect for AI components */
+.ai-glass {
+  background: rgba(14, 22, 35, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced glow effects */
+.glow-text {
+  text-shadow: 0 0 10px rgba(14, 243, 75, 0.5);
+}
+
+/* Timeline styling for roadmap */
+.timeline-container::after {
+  content: '';
+  position: absolute;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(12, 245, 116, 0.4) 0%, rgba(11, 57, 84, 0.1) 100%);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -1px;
+}
+
+@media (max-width: 768px) {
+  .timeline-container::after {
+    left: 31px;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 70px;
+}
+
+.timeline-item::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  background-color: #0CF574;
+  border: 4px solid #040812;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+  left: 50%;
+  margin-left: -8px;
+  box-shadow: 0 0 10px rgba(12, 245, 116, 0.5);
+}
+
+@media (max-width: 768px) {
+  .timeline-item::after {
+    left: 31px;
+  }
+}
+
+/* Enhanced corporate data visualization styling */
+.data-viz-container {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 1.5rem;
+  background: rgba(6, 16, 26, 0.6);
+  border: 1px solid rgba(8, 126, 139, 0.2);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.data-viz-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Professional tooltip styling */
+.corporate-tooltip {
+  background: rgba(6, 16, 26, 0.9);
+  border: 1px solid rgba(8, 126, 139, 0.3);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}
+
+/* Refined 3D effect for professional charts */
+.pie-3d {
+  transform: perspective(1000px) rotateX(30deg) rotateZ(-5deg);
+  transition: transform 0.5s ease;
+}
+
+.pie-3d:hover {
+  transform: perspective(1000px) rotateX(25deg) rotateZ(-2deg);
+}

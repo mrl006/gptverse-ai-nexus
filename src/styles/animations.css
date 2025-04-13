@@ -1,0 +1,177 @@
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-15px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes float-slow {
+  0% {
+    transform: translateY(0px) translateX(0px);
+  }
+  50% {
+    transform: translateY(-10px) translateX(5px);
+  }
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes blip {
+  0% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-slow {
+  0% {
+    transform: translateY(0) scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: translateY(-10px) scale(1.05);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0) scale(1);
+    opacity: 0.4;
+  }
+}
+
+@keyframes button-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(8, 126, 139, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(8, 126, 139, 0.8);
+  }
+}
+
+@keyframes pulse-dot {
+  0% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(0.7);
+    opacity: 0.5;
+  }
+}
+
+@keyframes borderFlow {
+  0% {
+    border-image-source: linear-gradient(to right, rgba(14, 243, 75, 0), rgba(14, 243, 75, 0.6), rgba(0, 174, 255, 0.6), rgba(0, 174, 255, 0));
+    border-image-slice: 1;
+  }
+  50% {
+    border-image-source: linear-gradient(to right, rgba(0, 174, 255, 0), rgba(0, 174, 255, 0.6), rgba(14, 243, 75, 0.6), rgba(14, 243, 75, 0));
+    border-image-slice: 1;
+  }
+  100% {
+    border-image-source: linear-gradient(to right, rgba(14, 243, 75, 0), rgba(14, 243, 75, 0.6), rgba(0, 174, 255, 0.6), rgba(0, 174, 255, 0));
+    border-image-slice: 1;
+  }
+}
+
+/* Animation utility classes */
+.animate-blip {
+  animation: blip 2s infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 10s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-float-slow {
+  animation: float-slow 10s ease-in-out infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 15s linear infinite;
+}
+
+.button-glow {
+  animation: button-glow 2s ease-in-out infinite;
+}
+
+.loading-dot {
+  animation: pulse-dot 1.5s ease-in-out infinite;
+}
+
+.animate-border {
+  border-width: 1px;
+  border-style: solid;
+  animation: borderFlow 6s ease infinite;
+}

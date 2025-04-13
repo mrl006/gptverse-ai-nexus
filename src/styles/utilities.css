@@ -1,0 +1,90 @@
+
+@layer components {
+  /* Professional glass card styling */
+  .glass-card {
+    @apply backdrop-blur-xl bg-[#06101a]/40 border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
+  }
+  
+  /* Corporate panel styling */
+  .glass-panel {
+    @apply backdrop-blur-md bg-[#06101a]/40 border border-white/20 rounded-xl shadow-lg;
+  }
+  
+  /* Enhanced blur effect for professional UI */
+  .neo-blur {
+    @apply backdrop-blur-xl bg-black/25 border border-white/10 rounded-xl shadow-lg relative overflow-hidden;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+  
+  /* Corporate button styling */
+  .neo-button {
+    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#0B3954] to-[#087E8B] hover:brightness-110 text-white hover:shadow-lg hover:shadow-[#087E8B]/20 active:scale-[0.98] font-sans;
+  }
+  
+  /* Section anchor styling */
+  .section-anchor {
+    @apply scroll-mt-24;
+  }
+  
+  /* Corporate heading gradient */
+  .corporate-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto];
+  }
+  
+  /* Shadow effects for cards */
+  .card-shadow {
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+  }
+  
+  /* Card hover effect for interactive elements */
+  .card-hover {
+    @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg;
+  }
+}
+
+/* Professional scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(6, 16, 26, 0.6);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(8, 126, 139, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(8, 126, 139, 0.5);
+}
+
+/* Thin scrollbar for smaller elements */
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+/* Typography refinements for corporate display */
+.heading-large {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+}
+
+.heading-medium {
+  @apply text-2xl md:text-3xl font-semibold tracking-tight;
+}
+
+.heading-small {
+  @apply text-xl md:text-2xl font-medium tracking-tight;
+}
+
+.paragraph-large {
+  @apply text-lg leading-relaxed;
+}
+
+.paragraph-medium {
+  @apply text-base leading-relaxed;
+}

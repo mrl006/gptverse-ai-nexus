@@ -1,0 +1,77 @@
+
+/* Improve touch targets on mobile */
+@media (max-width: 768px) {
+  button, 
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .touch-target {
+    padding: 0.75rem;
+  }
+  
+  /* Fix for platform buttons display */
+  .platform-button {
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Ensure no horizontal overflow */
+  .container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-x: hidden;
+  }
+  
+  /* Enhance scrolling */
+  html, body {
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* Improve AI Hub section for mobile */
+  .mobile-models-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  /* Add bottom spacing for mobile viewports */
+  .mobile-pb {
+    padding-bottom: 5rem;
+  }
+  
+  /* Better spacing for mobile sections */
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  /* Improved text scaling for mobile */
+  h1 {
+    font-size: 2.25rem !important;
+  }
+  
+  h2 {
+    font-size: 1.75rem !important;
+  }
+  
+  /* Fix mobile scroll anchors */
+  .section-anchor {
+    scroll-margin-top: 5rem;
+  }
+  
+  /* Responsive typography adjustments */
+  .heading-large {
+    @apply text-2xl md:text-3xl;
+  }
+  
+  .heading-medium {
+    @apply text-xl md:text-2xl;
+  }
+  
+  .heading-small {
+    @apply text-lg md:text-xl;
+  }
+}

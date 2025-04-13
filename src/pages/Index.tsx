@@ -20,9 +20,6 @@ const Index = () => {
   const { isMobile } = useIsMobile();
   
   useEffect(() => {
-    let isScrolling: ReturnType<typeof setTimeout>;
-    const body = document.body;
-    
     window.scrollTo(0, 0);
     
     const handleAnchorClick = (e: MouseEvent) => {
@@ -46,39 +43,16 @@ const Index = () => {
     
     document.addEventListener('click', handleAnchorClick);
     
-    if (isMobile) {
-      const handleScrollStart = () => {
-        clearTimeout(isScrolling);
-        body.classList.add('is-scrolling');
-      };
-      
-      const handleScrollEnd = () => {
-        isScrolling = setTimeout(() => {
-          body.classList.remove('is-scrolling');
-        }, 100);
-      };
-      
-      window.addEventListener('scroll', handleScrollStart, { passive: true });
-      window.addEventListener('scroll', handleScrollEnd, { passive: true });
-      
-      return () => {
-        window.removeEventListener('scroll', handleScrollStart);
-        window.removeEventListener('scroll', handleScrollEnd);
-        document.removeEventListener('click', handleAnchorClick);
-        clearTimeout(isScrolling);
-      }
-    }
-    
     return () => document.removeEventListener('click', handleAnchorClick);
-  }, [isMobile]);
+  }, []);
 
   // Simplified animation variants for better mobile performance
   const sectionVariants = {
-    hidden: { opacity: 0, y: isMobile ? 10 : 20 },
+    hidden: { opacity: 0, y: isMobile ? 5 : 20 },
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { duration: isMobile ? 0.4 : 0.6 }
+      transition: { duration: isMobile ? 0.3 : 0.6 }
     }
   };
 
@@ -95,7 +69,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-50px" : "-100px" }}
+            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
             variants={sectionVariants}
           >
             <ProductView />
@@ -104,7 +78,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-50px" : "-100px" }}
+            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
             variants={sectionVariants}
           >
             <AiServices />
@@ -113,7 +87,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-50px" : "-100px" }}
+            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
             variants={sectionVariants}
           >
             <AboutGPTVerse />
@@ -122,7 +96,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-50px" : "-100px" }}
+            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
             variants={sectionVariants}
           >
             <Tokenomics />
@@ -131,7 +105,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-50px" : "-100px" }}
+            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
             variants={sectionVariants}
           >
             <Roadmap />
@@ -140,7 +114,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-50px" : "-100px" }}
+            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
             variants={sectionVariants}
           >
             <Partners />
@@ -149,7 +123,7 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-50px" : "-100px" }}
+            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
             variants={sectionVariants}
           >
             <Faq />
@@ -158,16 +132,16 @@ const Index = () => {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, margin: isMobile ? "-50px" : "-100px" }}
+            viewport={{ once: true, margin: isMobile ? "-20px" : "-100px" }}
             variants={sectionVariants}
           >
             <ContactGPTVerse />
           </motion.div>
           
-          <div id="overview" className="section-anchor pt-20"></div>
-          <div id="features" className="section-anchor pt-20"></div>
-          <div id="roadmap" className="section-anchor pt-20"></div>
-          <div id="faq" className="section-anchor pt-20"></div>
+          <div id="overview" className="section-anchor pt-16"></div>
+          <div id="features" className="section-anchor pt-16"></div>
+          <div id="roadmap" className="section-anchor pt-16"></div>
+          <div id="faq" className="section-anchor pt-16"></div>
         </div>
         
         <Footer />

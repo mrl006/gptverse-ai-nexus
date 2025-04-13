@@ -22,11 +22,11 @@ const GlassyBackground: React.FC = () => {
       elements.forEach((el, index) => {
         const speed = 1 + index * 0.2;
         const htmlEl = el as HTMLElement;
-        htmlEl.style.transform = `translate3d(${xPos * speed * 30}px, ${yPos * speed * 30}px, 0)`;
+        htmlEl.style.transform = `translate3d(${xPos * speed * 20}px, ${yPos * speed * 20}px, 0)`;
       });
     };
     
-    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mousemove', handleMouseMove, { passive: true });
     
     return () => {
       window.removeEventListener('mousemove', handleMouseMove);
@@ -45,10 +45,10 @@ const GlassyBackground: React.FC = () => {
       {/* Reduce the number of depth elements for mobile */}
       {!isMobile && (
         <div className="absolute inset-0" style={{ perspective: '1000px' }}>
-          {/* 3D rotating hexagonal elements - only show on desktop */}
+          {/* 3D rotating elements - only show on desktop */}
           <div className="absolute top-1/4 left-1/4 parallax-element">
             <motion.div 
-              className="w-[400px] h-[400px] rounded-full bg-gradient-to-r from-[#0ef34b]/3 to-transparent backdrop-blur-[100px]"
+              className="w-[300px] h-[300px] rounded-full bg-gradient-to-r from-[#0ef34b]/3 to-transparent backdrop-blur-[100px]"
               animate={{ 
                 rotateY: [0, 360],
                 rotateX: [15, -15, 15]
@@ -64,7 +64,7 @@ const GlassyBackground: React.FC = () => {
           
           <div className="absolute top-3/4 right-1/4 parallax-element">
             <motion.div 
-              className="w-[300px] h-[300px] rounded-full bg-gradient-to-l from-[#00aeff]/3 to-transparent backdrop-blur-[80px]"
+              className="w-[250px] h-[250px] rounded-full bg-gradient-to-l from-[#00aeff]/3 to-transparent backdrop-blur-[80px]"
               animate={{ 
                 rotateY: [360, 0],
                 rotateX: [-15, 15, -15]
@@ -81,16 +81,26 @@ const GlassyBackground: React.FC = () => {
         </div>
       )}
       
+      {/* Mobile-optimized background elements */}
+      {isMobile && (
+        <>
+          <div className="absolute top-0 inset-x-0 h-1/3 bg-gradient-to-b from-[#0ef34b]/5 to-transparent"></div>
+          <div className="absolute bottom-0 inset-x-0 h-1/3 bg-gradient-to-t from-[#00aeff]/5 to-transparent"></div>
+          <div className="absolute left-0 inset-y-0 w-1/3 bg-gradient-to-r from-[#0ef34b]/5 to-transparent"></div>
+          <div className="absolute right-0 inset-y-0 w-1/3 bg-gradient-to-l from-[#00aeff]/5 to-transparent"></div>
+        </>
+      )}
+      
       {/* Simplified glassy panels - reduced for mobile */}
       {!isMobile && (
         <>
-          <div className="absolute -right-20 top-1/3 w-[400px] h-[400px] rotate-45 backdrop-blur-xl bg-gradient-to-tr from-[#0ef34b]/2 to-[#00aeff]/2 rounded-3xl parallax-element"></div>
-          <div className="absolute -left-20 top-2/3 w-[300px] h-[300px] -rotate-30 backdrop-blur-xl bg-gradient-to-tl from-[#00aeff]/2 to-[#0ef34b]/2 rounded-3xl parallax-element"></div>
+          <div className="absolute -right-20 top-1/3 w-[300px] h-[300px] rotate-45 backdrop-blur-xl bg-gradient-to-tr from-[#0ef34b]/2 to-[#00aeff]/2 rounded-3xl parallax-element"></div>
+          <div className="absolute -left-20 top-2/3 w-[250px] h-[250px] -rotate-30 backdrop-blur-xl bg-gradient-to-tl from-[#00aeff]/2 to-[#0ef34b]/2 rounded-3xl parallax-element"></div>
         </>
       )}
       
       {/* Reduced floating particles */}
-      {Array.from({ length: isMobile ? 5 : 15 }).map((_, index) => (
+      {Array.from({ length: isMobile ? 3 : 10 }).map((_, index) => (
         <motion.div
           key={index}
           className="absolute w-1 h-1 bg-white/50 rounded-full"
@@ -99,7 +109,7 @@ const GlassyBackground: React.FC = () => {
             left: `${Math.random() * 100}%`,
           }}
           animate={{
-            y: [0, -30, 0],
+            y: [0, -20, 0],
             opacity: [0.1, 0.5, 0.1],
             scale: [1, 1.5, 1]
           }}
@@ -111,15 +121,9 @@ const GlassyBackground: React.FC = () => {
         />
       ))}
       
-      {/* Top-down light glow - simplified */}
-      <div className="absolute top-0 left-0 right-0 h-[30vh] bg-gradient-to-b from-[#0ef34b]/5 to-transparent"></div>
-      
-      {/* Bottom-up light glow - simplified */}
-      <div className="absolute bottom-0 left-0 right-0 h-[30vh] bg-gradient-to-t from-[#00aeff]/5 to-transparent"></div>
-      
       {/* Web3 glassy effect - reduced for mobile */}
       <div className="absolute inset-0 overflow-hidden">
-        {[...Array(isMobile ? 2 : 6)].map((_, idx) => {
+        {[...Array(isMobile ? 2 : 4)].map((_, idx) => {
           const size = 6 + Math.random() * 4;
           return (
             <div 
@@ -149,43 +153,6 @@ const GlassyBackground: React.FC = () => {
           );
         })}
       </div>
-      
-      {/* Glass panel overlays - only for desktop */}
-      {!isMobile && (
-        <div className="absolute inset-0" style={{ perspective: '2000px' }}>
-          <motion.div 
-            className="absolute inset-y-0 left-0 w-1/3 origin-left parallax-element"
-            style={{ 
-              backdropFilter: 'blur(5px)',
-              background: 'linear-gradient(to right, rgba(14, 243, 75, 0.01), transparent)',
-              transformStyle: 'preserve-3d'
-            }}
-            animate={{ rotateY: [5, -5, 5] }}
-            transition={{ 
-              duration: 20, 
-              ease: "easeInOut", 
-              repeat: Infinity,
-              repeatType: "mirror"
-            }}
-          />
-          <motion.div 
-            className="absolute inset-y-0 right-0 w-1/3 origin-right parallax-element"
-            style={{ 
-              backdropFilter: 'blur(5px)',
-              background: 'linear-gradient(to left, rgba(0, 174, 255, 0.01), transparent)',
-              transformStyle: 'preserve-3d'
-            }}
-            animate={{ rotateY: [-5, 5, -5] }}
-            transition={{ 
-              duration: 20, 
-              ease: "easeInOut", 
-              repeat: Infinity,
-              repeatType: "mirror",
-              delay: 2
-            }}
-          />
-        </div>
-      )}
     </div>
   );
 };

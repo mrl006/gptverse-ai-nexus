@@ -130,7 +130,10 @@ const DemoPreview: React.FC<DemoPreviewProps> = ({ modelId, iconBg, iconComponen
           iconComponent={iconComponent} 
         />
         
-        <ScrollArea className="flex-grow bg-[#080d16]/70 backdrop-blur-md" style={{ height: isMobile ? "250px" : "400px" }}>
+        <ScrollArea 
+          className="flex-grow bg-[#080d16]/70 backdrop-blur-md" 
+          style={{ height: isMobile ? "300px" : "400px" }}
+        >
           <div className="p-4">
             {showFileUpload && modelId === 'pdf-reader' && (
               <FileUploadPreview />

@@ -5,6 +5,7 @@ import { AiModels } from '@/data/aiModels';
 import { getIconByName } from '@/utils/iconUtils';
 import { motion } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { ChevronDown, ChevronUp } from 'lucide-react';
 
 interface ModelListProps {
   selectedModel: string;
@@ -32,24 +33,27 @@ const ModelList: React.FC<ModelListProps> = ({
   
   return (
     <>
-      {/* Mobile Header & Toggle */}
-      <div className="lg:hidden mb-4 flex flex-col gap-4">
-        <h2 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#d946ef] via-[#8b5cf6] to-[#0ef34b]">
-          AI HUB
+      {/* Mobile Header & Toggle - Improved with better visibility */}
+      <div className="lg:hidden mb-5 flex flex-col gap-3">
+        <h2 className="text-2xl font-bold text-white">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d946ef] via-[#8b5cf6] to-[#0ef34b]">
+            AI HUB
+          </span>
         </h2>
         <Button 
           variant="outline" 
           onClick={() => setShowSidebar(!showSidebar)}
-          className="w-full border-[#0ef34b]/20 text-[#0ef34b] hover:bg-[#0ef34b]/10 backdrop-blur-sm"
+          className="w-full border-[#0ef34b]/20 text-[#0ef34b] hover:bg-[#0ef34b]/10 backdrop-blur-sm flex items-center justify-between"
         >
-          {showSidebar ? 'Hide Models List' : 'Show Models List'}
+          <span>{showSidebar ? 'Hide Models' : 'Show Models'}</span>
+          {showSidebar ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
         </Button>
       </div>
       
-      {/* Sidebar Navigation */}
+      {/* Sidebar Navigation - Improved layout and contrast */}
       {(showSidebar || !isMobile) && (
         <motion.div 
-          className={`${isMobile ? 'border-b border-white/10 pb-4 mb-6' : 'lg:border-r lg:border-white/10 pr-4'} relative`}
+          className={`${isMobile ? 'border-b border-white/20 pb-4 mb-5 bg-[#06101a]/60 backdrop-blur-sm rounded-lg p-3' : 'lg:border-r lg:border-white/10 pr-4'} relative`}
           variants={isMobile ? containerVariants : {}}
           initial={isMobile ? "hidden" : "visible"}
           animate="visible"
@@ -70,12 +74,12 @@ const ModelList: React.FC<ModelListProps> = ({
               <motion.button 
                 key={model.id}
                 onClick={() => setSelectedModel(model.id)}
-                className={`w-full text-left p-3 rounded-lg flex items-center gap-3 transition-all ${
+                className={`w-full text-left p-2.5 rounded-lg flex items-center gap-2.5 transition-all ${
                   selectedModel === model.id 
                     ? 'bg-[#1e1e2f]/80 border-l-2 border-[#0ef34b]' 
                     : 'hover:bg-white/5'
                 }`}
-                whileHover={{ x: isMobile ? 1 : 3 }}
+                whileHover={{ x: isMobile ? 0 : 3, scale: isMobile ? 1.01 : 1.02 }}
                 animate={{ 
                   scale: selectedModel === model.id ? (isMobile ? 1.01 : 1.02) : 1,
                   opacity: 1
@@ -89,7 +93,7 @@ const ModelList: React.FC<ModelListProps> = ({
                     transition={{ type: "spring", duration: 0.5 }}
                   />
                 )}
-                <div className={`flex-shrink-0 p-2 rounded-md ${
+                <div className={`flex-shrink-0 p-1.5 rounded-md ${
                   selectedModel === model.id 
                     ? 'bg-[#0ef34b]/20 text-[#0ef34b]' 
                     : 'bg-gray-800/50 text-gray-400'
@@ -98,7 +102,7 @@ const ModelList: React.FC<ModelListProps> = ({
                 </div>
                 <span className={`${selectedModel === model.id 
                   ? 'text-white font-medium' 
-                  : 'text-gray-400'} ${isMobile ? 'text-sm' : ''} whitespace-nowrap overflow-hidden text-ellipsis`}>
+                  : 'text-gray-400'} ${isMobile ? 'text-xs' : ''} whitespace-nowrap overflow-hidden text-ellipsis`}>
                   {model.name}
                 </span>
               </motion.button>

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { Button } from '@/components/ui/button';
+import { motion } from 'framer-motion';
 
 const Hero = () => {
   const [glitchText, setGlitchText] = useState('');
@@ -52,34 +53,48 @@ const Hero = () => {
   }];
   
   return (
-    <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden py-20">
+    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden py-16">
       {/* Main heading with futuristic alien style */}
-      <div className="relative z-10 text-center max-w-5xl mx-auto px-4 mb-12">
+      <motion.div 
+        className="relative z-10 text-center max-w-5xl mx-auto px-4 mb-10"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+      >
         <h1 className={`${isMobile ? 'text-4xl' : 'text-5xl md:text-6xl lg:text-7xl'} font-bold font-mono tracking-tight`}>
           <span className="text-white">Multi platform </span>
           <span className="bg-gradient-to-r from-[#0ef34b] to-[#00aeff] bg-clip-text text-transparent">AI Hub</span>
         </h1>
-        <p className={`${isMobile ? 'text-lg' : 'text-xl md:text-2xl'} text-white/80 mt-6 max-w-3xl mx-auto`}>
+        <p className={`${isMobile ? 'text-base mt-4' : 'text-xl md:text-2xl mt-6'} text-white/80 max-w-3xl mx-auto leading-relaxed`}>
           Your AI Hub and Multi-Platform Gateway to a Next-Level Dapp!
         </p>
-      </div>
+      </motion.div>
       
       {/* Platform buttons - with improved mobile layout */}
-      <div className={`${isMobile ? 'grid grid-cols-2 gap-3' : 'flex overflow-x-auto'} scrollbar-none py-2 mb-6 w-full max-w-6xl mx-auto px-4 gap-4 z-10`}>
+      <motion.div 
+        className={`${isMobile ? 'grid grid-cols-2 gap-3 px-3' : 'flex overflow-x-auto'} scrollbar-none py-2 mb-6 w-full max-w-6xl mx-auto gap-4 z-10`}
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+      >
         {platforms.map((platform, index) => (
-          <button 
+          <motion.button 
             key={index} 
-            className={`backdrop-blur-md bg-[#040812]/40 border border-[#0ef34b]/30 rounded-lg
-              px-4 py-3 hover:bg-[#040812]/60 transition-all duration-300
-              flex items-center justify-center gap-3 ${isMobile ? '' : 'min-w-[180px]'}
-              relative overflow-hidden group flex-1 shadow-[0_0_15px_rgba(14,243,75,0.2)]`}
+            className={`backdrop-blur-md bg-[#040812]/60 border border-[#0ef34b]/30 rounded-lg
+              px-3 py-2.5 hover:bg-[#040812]/80 transition-all duration-300
+              flex items-center justify-center gap-2 ${isMobile ? '' : 'min-w-[180px]'}
+              relative overflow-hidden group flex-1 shadow-[0_0_15px_rgba(14,243,75,0.15)]`}
+            whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.4, delay: 0.1 + index * 0.1 }}
           >
             {/* Simplified glassmorphism effects with green glow */}
             <div className="absolute inset-0 bg-gradient-to-b from-white/10 to-transparent opacity-30"></div>
             
             {/* Button Content - simplified for mobile */}
-            <div className="relative z-10 flex items-center justify-center gap-3 w-full">
-              <div className={`${isMobile ? 'w-10 h-10' : 'w-12 h-12'} bg-[#040812]/80 rounded-full flex items-center justify-center 
+            <div className="relative z-10 flex items-center justify-center gap-2 w-full">
+              <div className={`${isMobile ? 'w-8 h-8' : 'w-10 h-10'} bg-[#040812]/80 rounded-full flex items-center justify-center 
                         border border-[#0ef34b]/30 group-hover:border-[#0ef34b]/50
                         transition-all duration-500 overflow-hidden p-1`}
               >
@@ -88,14 +103,14 @@ const Hero = () => {
               
               <span className="text-white font-mono">
                 <div className={`${isMobile ? 'text-[10px]' : 'text-xs'} text-white/60`}>{platform.text}</div>
-                <div className={`${isMobile ? 'text-sm' : 'font-bold tracking-wider'} group-hover:text-[#0ef34b] transition-colors duration-300`}>
+                <div className={`${isMobile ? 'text-xs' : 'text-sm font-bold tracking-wider'} group-hover:text-[#0ef34b] transition-colors duration-300`}>
                   {platform.name}
                 </div>
               </span>
             </div>
-          </button>
+          </motion.button>
         ))}
-      </div>
+      </motion.div>
       
       {/* Alien tech indicators */}
       <div className="flex justify-center space-x-2 mt-3 z-10">

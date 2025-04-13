@@ -68,6 +68,14 @@
   height: 4px;
 }
 
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: rgba(6, 16, 26, 0.2);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(8, 126, 139, 0.2);
+}
+
 /* Typography refinements for corporate display */
 .heading-large {
   @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;

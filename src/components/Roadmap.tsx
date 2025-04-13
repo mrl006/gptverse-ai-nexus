@@ -93,7 +93,7 @@ const Roadmap = () => {
     {
       period: "Q2 2024",
       title: "Token Launch",
-      status: "in-progress" as const,
+      status: "shipped" as const,
       description: [
         "Listing of GPTV Token on selected CEXs",
         "GPTV Staking Program",
@@ -105,7 +105,7 @@ const Roadmap = () => {
     {
       period: "Q3 2024",
       title: "Global Expansion",
-      status: "planned" as const,
+      status: "shipped" as const,
       description: [
         "Expand GPTVerse's presence to a global audience",
         "Broaden the range of AI products to cater to diverse industries, including healthcare, finance, education, and more",
@@ -116,7 +116,7 @@ const Roadmap = () => {
     {
       period: "Q4 2024",
       title: "Chain & Governance",
-      status: "planned" as const,
+      status: "shipped" as const,
       description: [
         "GPTVerse Chain Testnet",
         "Continue to expand the AI Hub ecosystem by onboarding more third-party developers and businesses",

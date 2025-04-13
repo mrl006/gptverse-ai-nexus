@@ -137,19 +137,19 @@ const PieChartVisualization: React.FC = () => {
           </PieChart>
         </ResponsiveContainer>
         
-        {/* Replace text with GPTVerse logo */}
+        {/* GPTVerse Logo in Chart Center */}
         <motion.div 
           className="absolute inset-0 flex items-center justify-center pointer-events-none"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.5, duration: 0.5 }}
         >
-          <div className="text-center backdrop-blur-md bg-black/30 p-4 rounded-full border border-white/10 w-32 h-32 flex flex-col items-center justify-center">
-            <div className="relative w-24 h-24 flex items-center justify-center">
-              <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b] to-[#0085ff] opacity-30 rounded-full animate-pulse-slow"></div>
-              <div className="text-[#0ef34b] font-bold text-xl">GPT</div>
-              <div className="text-white font-bold text-xl">Verse</div>
-            </div>
+          <div className="w-32 h-32 bg-[#0ef34b] rounded-full flex items-center justify-center shadow-lg">
+            <img 
+              src="/lovable-uploads/c8a2351d-56aa-42e3-8a1a-1fce8cc3ca27.png" 
+              alt="GPTVerse Logo" 
+              className="w-20 h-20 object-contain"
+            />
           </div>
         </motion.div>
       </div>

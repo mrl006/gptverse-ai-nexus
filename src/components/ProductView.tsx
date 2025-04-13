@@ -52,11 +52,10 @@ const ProductView = () => {
       transition={{ duration: 0.7 }}
     >
       <div className="absolute inset-0 bg-[#040812] pointer-events-none">
-        {/* Enhanced glassmorphism elements with stronger green glow */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0ef34b]/10 to-transparent opacity-60"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(14,243,75,0.15)_0%,transparent_70%)]"></div>
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/40 to-transparent"></div>
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#00aeff]/40 to-transparent"></div>
+        {/* Simplified background with light grid pattern */}
+        <div className="absolute inset-0 bg-tech-grid opacity-10"></div>
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#0ef34b]/20 to-transparent"></div>
+        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-[#00aeff]/20 to-transparent"></div>
       </div>
       
       <div className="max-w-[1400px] mx-auto px-4 relative z-10">
@@ -77,12 +76,6 @@ const ProductView = () => {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
             >
-              {/* Enhanced glassmorphism effects inside the card */}
-              <div className="absolute inset-0 overflow-hidden">
-                <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#0ef34b]/15 rounded-full blur-3xl"></div>
-                <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-[#00aeff]/15 rounded-full blur-3xl"></div>
-              </div>
-              
               <DemoPreview 
                 modelId={currentModel.id} 
                 iconBg={currentModel.color} 

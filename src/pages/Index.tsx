@@ -86,19 +86,21 @@ const Index = () => {
 
   return (
     <div className={`min-h-screen bg-[#040812] text-white ${isMobile ? '' : 'overflow-x-hidden'}`}>
+      {/* Common background for the entire site */}
       <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwaDQwdjQwSDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoMXY0MEgweiIgZmlsbD0icmdiYSg4LDEyNiwxMzksMC4wMikiLz48cGF0aCBkPSJNMTAgMGgxdjQwSDEweiIgZmlsbD0icmdiYSg4LDEyNiwxMzksMC4wMikiLz48cGF0aCBkPSJNMjAgMGgxdjQwSDIweiIgZmlsbD0icmdiYSg4LDEyNiwxMzksMC4wMikiLz48cGF0aCBkPSJNMzAgMGgxdjQwSDMweiIgZmlsbD0icmdiYSg4LDEyNiwxMzksMC4wMikiLz48cGF0aCBkPSJNMCAwdjFoNDBWMHoiIGZpbGw9InJnYmEoOCwxMjYsMTM5LDAuMDIpIi8+PHBhdGggZD0iTTAgMTB2MWg0MHYtMXoiIGZpbGw9InJnYmEoOCwxMjYsMTM5LDAuMDIpIi8+PHBhdGggZD0iTTAgMjB2MWg0MHYtMXoiIGZpbGw9InJnYmEoOCwxMjYsMTM5LDAuMDIpIi8+PHBhdGggZD0iTTAgMzB2MWg0MHYtMXoiIGZpbGw9InJnYmEoOCwxMjYsMTM5LDAuMDIpIi8+PC9zdmc+')] opacity-30"></div>
+        <div className="absolute inset-0 bg-tech-grid opacity-10"></div>
         
-        <div className="absolute top-[10%] left-[15%] w-1 h-1 bg-[#087E8B] rounded-full opacity-40 animate-pulse"></div>
-        <div className="absolute top-[25%] left-[40%] w-1 h-1 bg-[#0CF574] rounded-full opacity-30 animate-pulse" style={{animationDelay: '1.5s'}}></div>
-        <div className="absolute top-[70%] left-[20%] w-1 h-1 bg-[#0B3954] rounded-full opacity-40 animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-[30%] right-[25%] w-1 h-1 bg-[#087E8B] rounded-full opacity-30 animate-pulse" style={{animationDelay: '2s'}}></div>
-        <div className="absolute top-[60%] right-[10%] w-1 h-1 bg-[#0CF574] rounded-full opacity-40 animate-pulse" style={{animationDelay: '0.5s'}}></div>
+        {/* Subtle glow effects */}
+        <div className="absolute top-[10%] left-[15%] w-1 h-1 bg-[#087E8B] rounded-full opacity-30 animate-pulse"></div>
+        <div className="absolute top-[25%] left-[40%] w-1 h-1 bg-[#0CF574] rounded-full opacity-20 animate-pulse" style={{animationDelay: '1.5s'}}></div>
+        <div className="absolute top-[70%] left-[20%] w-1 h-1 bg-[#0B3954] rounded-full opacity-30 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-[30%] right-[25%] w-1 h-1 bg-[#087E8B] rounded-full opacity-20 animate-pulse" style={{animationDelay: '2s'}}></div>
+        <div className="absolute top-[60%] right-[10%] w-1 h-1 bg-[#0CF574] rounded-full opacity-30 animate-pulse" style={{animationDelay: '0.5s'}}></div>
         
+        {/* Ambient glow */}
         <div className="absolute h-full w-full opacity-10">
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_center,rgba(8,126,139,0.1)_0%,rgba(8,126,139,0)_70%)] animate-pulse-slow" style={{transformOrigin: '30% 30%'}}></div>
           <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_center,rgba(12,245,116,0.1)_0%,rgba(12,245,116,0)_70%)] animate-pulse-slow" style={{transformOrigin: '70% 60%', animationDelay: '2s'}}></div>
-          <div className="absolute top-0 left-0 right-0 bottom-0 bg-[radial-gradient(ellipse_at_center,rgba(11,57,84,0.05)_0%,rgba(11,57,84,0)_70%)] animate-pulse-slow" style={{transformOrigin: '50% 50%', animationDelay: '4s'}}></div>
         </div>
       </div>
       

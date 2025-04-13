@@ -1,4 +1,3 @@
-
 import React, { useRef, useEffect, useState } from 'react';
 import { Card } from "@/components/ui/card";
 import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/hover-card";
@@ -9,7 +8,6 @@ const Partners = () => {
   const [activeCategory, setActiveCategory] = useState<'strategic' | 'media'>('strategic');
   const [imagesLoaded, setImagesLoaded] = useState(false);
   
-  // Strategic partners data with logo paths (in the specified order)
   const strategicPartners = [
     { name: 'BNB Chain', logo: '/lovable-uploads/6d854a68-604d-472f-8dbe-4e6b7d475e7a.png' },
     { name: 'SKALE', logo: '/lovable-uploads/d8a647fd-5f31-4013-b469-097d203a60fd.png' },
@@ -28,7 +26,6 @@ const Partners = () => {
     { name: 'Eesee', logo: '/lovable-uploads/30ba900d-446a-4c45-b435-b8d41893f15d.png' },
   ];
   
-  // Media partners data with logo paths
   const mediaPartners = [
     { name: 'Cassava', logo: '/lovable-uploads/0f079dac-6a27-4f29-973c-e59b2510eaee.png' },
     { name: 'Trend3', logo: '/lovable-uploads/36844903-9eb1-456c-8520-ce13cd802585.png' },
@@ -37,8 +34,6 @@ const Partners = () => {
   ];
 
   useEffect(() => {
-    // Set imagesLoaded to true when component mounts
-    // In a real app, you'd want to track each image load
     const timer = setTimeout(() => {
       setImagesLoaded(true);
     }, 800);
@@ -87,18 +82,11 @@ const Partners = () => {
   
   return (
     <section id="partners" className="py-20 relative overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[#040812] to-[#06101a] opacity-95 z-0"></div>
-      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwaDQwdjQwSDB6IiBmaWxsPSJub25lIi8+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDBoMXY0MEgweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMTAgMGgxdjQwSDEweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMjAgMGgxdjQwSDIweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMzAgMGgxdjQwSDMweiIgZmlsbD0icmdiYSgxNCwyNDMsNzUsMC4wMikiLz48cGF0aCBkPSJNMCAwdjFoNDBWMHoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PHBhdGggZD0iTTAgMTB2MWg0MHYtMXoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PHBhdGggZD0iTTAgMjB2MWg0MHYtMXoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PHBhdGggZD0iTTAgMzB2MWg0MHYtMXoiIGZpbGw9InJnYmEoMTQsMjQzLDc1LDAuMDIpIi8+PC9zdmc+')] opacity-30 z-0"></div>
-      <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_50%_50%,rgba(14,243,75,0.15)_0%,transparent_50%)] z-0"></div>
-      
-      {/* Glowing orbs in background */}
-      <div className="absolute top-1/4 left-1/5 w-2 h-2 bg-[#0ef34b] rounded-full opacity-70 blur-sm animate-pulse"></div>
-      <div className="absolute top-2/3 right-1/4 w-2 h-2 bg-[#00aeff] rounded-full opacity-60 blur-sm animate-pulse" style={{animationDelay: '1.5s'}}></div>
-      <div className="absolute bottom-1/4 left-1/3 w-2 h-2 bg-[#d946ef] rounded-full opacity-50 blur-sm animate-pulse" style={{animationDelay: '0.7s'}}></div>
+      <div className="absolute inset-0 bg-[#040812]"></div>
+      <div className="absolute inset-0 bg-tech-grid opacity-10"></div>
+      <div className="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_50%_50%,rgba(14,243,75,0.1)_0%,transparent_50%)]"></div>
       
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="text-[#0ef34b] uppercase tracking-wider text-sm font-mono mb-2">Ecosystem</h2>
           <div className="relative inline-block">
@@ -112,7 +100,6 @@ const Partners = () => {
           </p>
         </div>
         
-        {/* Category Tabs */}
         <div className="flex justify-center mb-10">
           <div className="glass-card p-1 flex rounded-lg backdrop-blur-md bg-[#040812]/40 border border-[#0ef34b]/20">
             <button 
@@ -138,7 +125,6 @@ const Partners = () => {
           </div>
         </div>
         
-        {/* Partners Grid */}
         <div 
           ref={containerRef}
           className="relative overflow-hidden"
@@ -171,7 +157,6 @@ const Partners = () => {
                         </div>
                       )}
                       
-                      {/* Corner dot */}
                       <div className="absolute top-2 right-2 w-1 h-1 rounded-full bg-[#0ef34b]/50 group-hover:bg-[#0ef34b] transition-colors duration-300" />
                     </Card>
                   </div>
@@ -184,7 +169,6 @@ const Partners = () => {
           </div>
         </div>
         
-        {/* Indicator dots */}
         <div className="flex justify-center mt-10">
           <div className="flex space-x-2">
             <span className={`w-2 h-2 rounded-full ${activeCategory === 'strategic' ? 'bg-[#0ef34b]' : 'bg-[#0ef34b]/30'} transition-colors duration-300`}></span>
@@ -197,4 +181,3 @@ const Partners = () => {
 };
 
 export default Partners;
-

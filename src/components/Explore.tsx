@@ -80,27 +80,27 @@ const Explore = () => {
       <div className="container mx-auto px-4 relative z-10">
         <ExploreHeader />
         
-        {/* Category filters */}
+        {/* Category filters with glassy look */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categories.map(category => (
             <Toggle
               key={category.id}
               pressed={activeCategory === category.id}
               onPressedChange={() => setActiveCategory(category.id)}
-              variant="outline"
-              className="bg-[#061018]/60 backdrop-blur-md border border-white/10 text-white hover:bg-[#061018]/80 hover:text-white data-[state=on]:bg-[#0ef34b]/20 data-[state=on]:text-white data-[state=on]:border-[#0ef34b]/30"
+              variant="glassy"
+              className="backdrop-blur-xl bg-white/5 border border-white/10 text-white hover:bg-white/10 hover:text-white data-[state=on]:bg-[#0ef34b]/20 data-[state=on]:text-white data-[state=on]:border-[#0ef34b]/30"
             >
               {category.label}
             </Toggle>
           ))}
         </div>
         
-        {/* Grid of explore items */}
+        {/* Grid of explore items with enhanced glassy look */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredItems.map((item, index) => (
             <div 
               key={index}
-              className={`backdrop-blur-xl bg-[#061018]/40 border border-white/10 hover:border-[#0ef34b]/20 rounded-xl overflow-hidden transition-all duration-300 shadow-lg relative group
+              className={`glass-card backdrop-blur-xl bg-white/5 border border-white/10 hover:border-[#0ef34b]/20 rounded-xl overflow-hidden transition-all duration-300 shadow-lg relative group
                 ${item.featured ? 'md:col-span-2 lg:col-span-1' : ''}`}
             >
               {/* Enhanced glow background */}
@@ -109,12 +109,12 @@ const Explore = () => {
               {/* Content */}
               <div className="p-6 flex flex-col h-full">
                 <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 rounded-full bg-[#040812]/80 border border-white/20 flex items-center justify-center">
+                  <div className="w-12 h-12 rounded-full bg-black/20 backdrop-blur-xl border border-white/20 flex items-center justify-center">
                     {item.icon}
                   </div>
                   
                   {item.comingSoon && (
-                    <span className="px-3 py-1 text-xs font-medium rounded-md backdrop-blur-md bg-[#040812]/60 border border-white/10 text-white">
+                    <span className="px-3 py-1 text-xs font-medium rounded-md backdrop-blur-xl bg-black/20 border border-white/10 text-white">
                       Coming Soon
                     </span>
                   )}
@@ -124,7 +124,8 @@ const Explore = () => {
                 <p className="text-white/60 mb-6 flex-grow">{item.description}</p>
                 
                 <Button 
-                  className={`mt-auto self-start bg-[#040812]/60 backdrop-blur-md border border-white/10 hover:bg-[#040812]/80 text-white
+                  variant="glassy-glow"
+                  className={`mt-auto self-start backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-white/30 text-white
                     ${item.comingSoon ? 'opacity-50 cursor-not-allowed' : ''}`}
                   disabled={item.comingSoon}
                 >
@@ -135,10 +136,14 @@ const Explore = () => {
           ))}
         </div>
         
-        {/* View all button */}
+        {/* View all button with glassy look */}
         <div className="flex justify-center mt-12">
-          <Button className="bg-[#061018]/60 backdrop-blur-md border border-white/10 hover:bg-[#061018]/80 hover:border-[#0ef34b]/30 text-white px-8 transition-all duration-300">
-            View All GPTVerse Tools <ArrowRight size={16} />
+          <Button 
+            variant="glassy-glow"
+            className="backdrop-blur-xl bg-white/5 border border-white/10 hover:bg-white/10 hover:border-[#0ef34b]/30 text-white px-8 transition-all duration-300 group"
+          >
+            View All GPTVerse Tools 
+            <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
       </div>

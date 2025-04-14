@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Network, CheckCircle } from 'lucide-react';
@@ -25,11 +26,11 @@ const AiVisualComponent: React.FC = () => {
         duration: isMobile ? 0.2 : 0.6
       }}
     >
-      <div className="relative max-w-md mx-auto h-full w-full flex items-center justify-center">
+      <div className="relative h-full w-full flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 via-[#00aeff]/3 to-transparent rounded-xl blur-2xl"></div>
         
-        {/* Main image with reduced height and simplified elements for mobile */}
-        <div className="relative backdrop-blur-xl bg-white/5 border border-[#0ef34b]/10 p-2 md:p-4 rounded-xl md:rounded-2xl overflow-hidden group h-[450px] w-full flex flex-col justify-center">
+        {/* Main image container with equal height to text box */}
+        <div className="relative backdrop-blur-xl bg-white/5 border border-[#0ef34b]/10 p-2 md:p-4 rounded-xl md:rounded-2xl overflow-hidden group h-full w-full flex flex-col justify-center">
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 to-transparent opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
           

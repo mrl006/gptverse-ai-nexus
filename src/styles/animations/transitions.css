@@ -23,3 +23,20 @@
     transform: translateY(1000%);
   }
 }
+
+/* Glowing effect animation for glassy elements */
+@keyframes glassyGlow {
+  0% {
+    box-shadow: 0 0 10px rgba(14, 243, 75, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(14, 243, 75, 0.2);
+  }
+  100% {
+    box-shadow: 0 0 10px rgba(14, 243, 75, 0.1);
+  }
+}
+
+.glassy-glow {
+  animation: glassyGlow 3s infinite ease-in-out;
+}

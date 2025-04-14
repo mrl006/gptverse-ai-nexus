@@ -38,7 +38,7 @@ const renderCustomizedLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, per
 const CustomTooltip = ({ active, payload }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className="backdrop-blur-lg bg-white/10 p-2 rounded-lg border border-white/20 shadow-xl">
+      <div className="backdrop-blur-xl bg-white/10 p-2 rounded-lg border border-white/20 shadow-xl">
         <p className="text-white font-medium text-xs">{payload[0].name}</p>
         <p className="text-white font-mono text-sm">{`${payload[0].value}%`}</p>
       </div>
@@ -94,9 +94,10 @@ const PieChartVisualization: React.FC = () => {
                   fill={entry.color}
                   stroke="rgba(255,255,255,0.2)"
                   style={{
+                    filter: `drop-shadow(0 0 6px ${entry.color}40)`,
                     transition: 'all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)',
                     transformOrigin: 'center center',
-                    transform: activeIndex === index ? 'scale(1.03)' : 'scale(1)'
+                    transform: activeIndex === index ? 'scale(1.05)' : 'scale(1)'
                   }}
                 />
               ))}
@@ -118,7 +119,7 @@ const PieChartVisualization: React.FC = () => {
                   width: "100%",
                 }}
                 formatter={(value, entry, index) => (
-                  <span style={{ color: 'white', opacity: 0.8 }}>{value}</span>
+                  <span style={{ color: 'white', opacity: 0.9 }}>{value}</span>
                 )}
               />
             )}
@@ -136,6 +137,9 @@ const PieChartVisualization: React.FC = () => {
                   fontSize: "12px",
                   opacity: 0.9
                 }}
+                formatter={(value, entry, index) => (
+                  <span style={{ color: 'white', opacity: 0.9 }}>{value}</span>
+                )}
               />
             )}
           </PieChart>

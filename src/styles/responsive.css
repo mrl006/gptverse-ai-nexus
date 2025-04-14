@@ -97,6 +97,23 @@
     padding: 0.125rem 0.375rem;
     font-size: 0.625rem;
   }
+  
+  /* Neural Core mobile improvements */
+  #neural-core .glass-card {
+    padding: 0.75rem;
+  }
+  
+  #neural-core .stats-grid {
+    gap: 0.5rem;
+  }
+  
+  #neural-core .icon-box {
+    padding: 0.5rem;
+  }
+  
+  #neural-core .scroll-area {
+    max-height: 260px;
+  }
 }
 
 /* Small mobile specific adjustments */
@@ -122,5 +139,22 @@
   #ai-services button {
     padding: 0.375rem 0.75rem;
     font-size: 0.75rem;
+  }
+  
+  /* Neural Core small mobile improvements */
+  #neural-core .stats-box {
+    font-size: 0.625rem;
+  }
+  
+  #neural-core .stat-value {
+    font-size: 0.875rem;
+  }
+  
+  #neural-core .scroll-area {
+    max-height: 220px;
+  }
+  
+  #neural-core img {
+    width: 70%;
   }
 }

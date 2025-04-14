@@ -32,7 +32,7 @@ const AboutTabs: React.FC = () => {
       <Tabs defaultValue="vision" className="w-full h-full">
         <div className="bg-white/10 backdrop-blur-xl border border-white/20 rounded-lg md:rounded-xl p-2 md:p-6 shadow-lg h-full flex flex-col">
           <TabsContent value="vision" className="mt-0 data-[state=active]:animate-fade-in w-full h-full">
-            <ScrollArea className={`${isSmallMobile ? 'h-[220px]' : (isMobile ? 'h-[280px]' : 'h-auto')} pr-2`}>
+            <ScrollArea className={`${isSmallMobile ? 'h-[180px]' : (isMobile ? 'h-[240px]' : 'h-auto')} pr-2`}>
               <VisionTabContent />
             </ScrollArea>
           </TabsContent>

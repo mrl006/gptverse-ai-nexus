@@ -2,7 +2,7 @@
 import React from 'react';
 import ExploreHeader from './explore/ExploreHeader';
 import { Button } from '@/components/ui/button';
-import { ArrowRight, Cpu, Zap, Brain, Bot, Sparkles } from 'lucide-react';
+import { ArrowRight, Cpu, Zap, Brain, Bot, Sparkles, ChevronRight, MapPin, Bookmark, RefreshCw } from 'lucide-react';
 import { Toggle } from '@/components/ui/toggle';
 import UnifiedBackground from './UnifiedBackground';
 
@@ -72,6 +72,34 @@ const Explore = () => {
     ? exploreItems 
     : exploreItems.filter(item => item.category === activeCategory);
 
+  // Four navigation buttons with glassy effect
+  const navButtons = [
+    { 
+      label: 'Discover', 
+      icon: <MapPin className="w-5 h-5" />, 
+      color: 'from-[#0ef34b]/20 to-[#0ef34b]/5',
+      borderColor: 'border-[#0ef34b]/30'
+    },
+    { 
+      label: 'Favorites', 
+      icon: <Bookmark className="w-5 h-5" />, 
+      color: 'from-[#00aeff]/20 to-[#00aeff]/5',
+      borderColor: 'border-[#00aeff]/30'
+    },
+    { 
+      label: 'Latest', 
+      icon: <RefreshCw className="w-5 h-5" />, 
+      color: 'from-[#d946ef]/20 to-[#d946ef]/5',
+      borderColor: 'border-[#d946ef]/30'
+    },
+    { 
+      label: 'Browse All', 
+      icon: <ChevronRight className="w-5 h-5" />, 
+      color: 'from-white/10 to-white/5',
+      borderColor: 'border-white/30'
+    }
+  ];
+
   return (
     <section id="explore" className="relative py-20 overflow-hidden">
       {/* Enhanced background */}
@@ -79,6 +107,24 @@ const Explore = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <ExploreHeader />
+        
+        {/* Four navigation buttons with glassy effects */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+          {navButtons.map((button, index) => (
+            <Button
+              key={index}
+              variant="glassy-glow"
+              className={`nav-glass-button relative overflow-hidden h-full py-3 md:py-4 flex flex-col items-center justify-center ${button.borderColor}`}
+            >
+              <div className={`absolute inset-0 bg-gradient-to-br ${button.color} opacity-20`}></div>
+              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+              <div className="relative z-10 flex flex-col items-center justify-center">
+                <span className="p-2 bg-black/20 rounded-full mb-2">{button.icon}</span>
+                <span className="text-sm md:text-base">{button.label}</span>
+              </div>
+            </Button>
+          ))}
+        </div>
         
         {/* Category filters with glassy look */}
         <div className="flex flex-wrap justify-center gap-2 mb-12">

@@ -60,3 +60,25 @@
   @apply bg-white/15 border-white/30;
   box-shadow: 0 8px 32px rgba(14, 243, 75, 0.15);
 }
+
+/* Feature card with glassy effect */
+.feature-glass-card {
+  @apply backdrop-blur-xl bg-white/5 border border-white/10 rounded-xl p-5 relative overflow-hidden;
+  transition: all 0.3s ease;
+}
+
+.feature-glass-card:hover {
+  @apply bg-white/10 border-white/20;
+  box-shadow: 0 8px 32px rgba(14, 243, 75, 0.1);
+}
+
+/* Nav button with glassy effect */
+.nav-glass-button {
+  @apply backdrop-blur-xl bg-white/10 border border-white/15 rounded-lg px-4 py-2 flex items-center gap-2;
+  transition: all 0.3s ease;
+}
+
+.nav-glass-button:hover {
+  @apply bg-white/15 border-[#0ef34b]/30;
+  box-shadow: 0 0 15px rgba(14, 243, 75, 0.2);
+}

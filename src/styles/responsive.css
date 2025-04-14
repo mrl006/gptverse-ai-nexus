@@ -103,35 +103,21 @@
     font-size: 0.625rem;
   }
   
-  /* Neural Core mobile improvements - updated for better spacing */
+  /* Neural Core mobile improvements */
   #neural-core .glass-card {
-    padding: 0.5rem;
+    padding: 0.75rem;
   }
   
   #neural-core .stats-grid {
-    gap: 0.35rem;
+    gap: 0.5rem;
   }
   
   #neural-core .icon-box {
-    padding: 0.35rem;
+    padding: 0.5rem;
   }
   
-  #about .scroll-area {
-    max-height: 220px;
-  }
-  
-  /* More compact Neural Core section */
-  #about section {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
-  }
-  
-  #about .container {
-    max-width: 100%;
-  }
-  
-  #about img {
-    max-width: 65%;
+  #neural-core .scroll-area {
+    max-height: 260px;
   }
 }
 
@@ -160,29 +146,20 @@
     font-size: 0.75rem;
   }
   
-  /* Neural Core small mobile improvements - updated for better sizing */
-  #about .stats-box {
-    font-size: 0.55rem;
+  /* Neural Core small mobile improvements */
+  #neural-core .stats-box {
+    font-size: 0.625rem;
   }
   
-  #about .stat-value {
-    font-size: 0.7rem;
+  #neural-core .stat-value {
+    font-size: 0.875rem;
   }
   
-  #about .scroll-area {
-    max-height: 180px;
+  #neural-core .scroll-area {
+    max-height: 220px;
   }
   
-  #about img {
-    width: 65%;
-  }
-  
-  /* More compact header for Neural Core */
-  #about h3 {
-    font-size: 1.25rem;
-  }
-  
-  #about h2 {
-    font-size: 0.65rem !important;
+  #neural-core img {
+    width: 70%;
   }
 }

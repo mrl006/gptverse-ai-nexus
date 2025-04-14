@@ -17,7 +17,7 @@ const AboutGPTVerse: React.FC = () => {
   };
 
   return (
-    <section id="about" className="relative py-24 overflow-hidden">
+    <section id="about" className="relative py-16 overflow-hidden">
       {/* Background component */}
       <AboutBackground />
 
@@ -26,7 +26,7 @@ const AboutGPTVerse: React.FC = () => {
         <AboutHeader />
 
         {/* Split layout with AI visual and tabs - equal height and size */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20 h-auto md:h-[500px] items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16 h-auto md:h-[480px] items-stretch">
           {/* Left Side - AI Robot Image with Animated Effects */}
           <AiVisualComponent />
           

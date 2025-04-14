@@ -48,7 +48,7 @@ const AboutTabs: React.FC = () => {
           </TabsList>
           
           <TabsContent value="vision" className="mt-0 data-[state=active]:animate-fade-in w-full h-full">
-            <ScrollArea className={`${isSmallMobile ? 'h-[180px]' : (isMobile ? 'h-[220px]' : 'h-[360px]')} pr-2`}>
+            <ScrollArea className={`${isSmallMobile ? 'h-[140px]' : (isMobile ? 'h-[180px]' : 'h-[320px]')} pr-2`}>
               <VisionTabContent />
             </ScrollArea>
           </TabsContent>

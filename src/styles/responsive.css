@@ -75,6 +75,11 @@
     @apply text-lg md:text-xl;
   }
   
+  /* Glassy UI adjustments for mobile */
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/15 border border-white/20;
+  }
+  
   /* AI Forge specific mobile improvements */
   #ai-services .carousel {
     margin-left: -0.5rem;

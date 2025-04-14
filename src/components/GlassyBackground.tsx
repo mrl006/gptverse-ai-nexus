@@ -4,15 +4,15 @@ import React from 'react';
 const GlassyBackground: React.FC = () => {
   return (
     <div className="fixed inset-0 overflow-hidden pointer-events-none">
-      {/* Simple dark background - no animation */}
-      <div className="absolute inset-0 bg-[#040812]/95"></div>
+      {/* Deep dark background for contrast */}
+      <div className="absolute inset-0 bg-[#080d1c]"></div>
       
-      {/* Subtle tech grid overlay with reduced opacity */}
-      <div className="absolute inset-0 bg-tech-grid opacity-5"></div>
+      {/* Minimal tech grid overlay */}
+      <div className="absolute inset-0 bg-tech-grid opacity-10"></div>
       
-      {/* Single minimal highlight */}
+      {/* Subtle gradient highlight */}
       <div 
-        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-[#0ef34b]/5 blur-[180px]"
+        className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-indigo-500/5 blur-[100px]"
       />
     </div>
   );

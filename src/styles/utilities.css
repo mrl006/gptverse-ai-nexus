@@ -1,24 +1,24 @@
 
 @layer components {
-  /* Professional glass card styling with improved transparency */
+  /* Professional glass card styling with white transparency */
   .glass-card {
-    @apply backdrop-blur-xl bg-[#06101a]/30 border border-white/15 rounded-xl shadow-lg relative overflow-hidden;
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl shadow-lg relative overflow-hidden;
   }
   
-  /* Corporate panel styling with better transparency */
+  /* Corporate panel styling with white transparency */
   .glass-panel {
-    @apply backdrop-blur-md bg-[#06101a]/30 border border-white/20 rounded-xl shadow-lg;
+    @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-lg;
   }
   
-  /* Enhanced blur effect for professional UI with improved transparency */
+  /* Enhanced blur effect for professional UI with white transparency */
   .neo-blur {
-    @apply backdrop-blur-xl bg-black/20 border border-white/15 rounded-xl shadow-lg relative overflow-hidden;
+    @apply backdrop-blur-xl bg-white/15 border border-white/20 rounded-xl shadow-lg relative overflow-hidden;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
   }
   
   /* Corporate button styling */
   .neo-button {
-    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-gradient-to-r from-[#0B3954]/90 to-[#087E8B]/90 hover:brightness-110 text-white hover:shadow-lg hover:shadow-[#087E8B]/20 active:scale-[0.98] font-sans;
+    @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-white/15 backdrop-blur-md hover:bg-white/20 text-white hover:shadow-lg hover:shadow-white/10 active:scale-[0.98] font-sans;
   }
   
   /* Section anchor styling */
@@ -28,7 +28,7 @@
   
   /* Corporate heading gradient */
   .corporate-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-[#0B3954] via-[#087E8B] to-[#0CF574] animate-text-gradient bg-[length:200%_auto];
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/80 animate-text-gradient bg-[length:200%_auto];
   }
   
   /* Shadow effects for cards */
@@ -49,17 +49,17 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: rgba(6, 16, 26, 0.4);
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(8, 126, 139, 0.3);
+  background: rgba(255, 255, 255, 0.2);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(8, 126, 139, 0.5);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Thin scrollbar for smaller elements */

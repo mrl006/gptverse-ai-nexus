@@ -1,0 +1,36 @@
+
+/* Typography refinements for corporate display */
+.heading-large {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight;
+}
+
+.heading-medium {
+  @apply text-2xl md:text-3xl font-semibold tracking-tight;
+}
+
+.heading-small {
+  @apply text-xl md:text-2xl font-medium tracking-tight;
+}
+
+.paragraph-large {
+  @apply text-lg leading-relaxed;
+}
+
+.paragraph-medium {
+  @apply text-base leading-relaxed;
+}
+
+/* Corporate heading gradient */
+.corporate-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/80 animate-text-gradient bg-[length:200%_auto];
+}
+
+/* Enhanced glow effects */
+.glow-text {
+  text-shadow: 0 0 10px rgba(14, 243, 75, 0.5);
+}
+
+/* Section anchor styling */
+.section-anchor {
+  @apply scroll-mt-24;
+}

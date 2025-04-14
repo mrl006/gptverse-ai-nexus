@@ -1,0 +1,52 @@
+
+/* Professional badge styling */
+.corporate-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  background: rgba(8, 126, 139, 0.1);
+  color: #0CF574;
+  border: 1px solid rgba(8, 126, 139, 0.3);
+}
+
+/* Enterprise alert styling */
+.corporate-alert {
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid;
+  margin-bottom: 1rem;
+}
+
+.corporate-alert-info {
+  background: rgba(8, 126, 139, 0.1);
+  border-left-color: #087E8B;
+}
+
+.corporate-alert-success {
+  background: rgba(12, 245, 116, 0.1);
+  border-left-color: #0CF574;
+}
+
+.corporate-alert-warning {
+  background: rgba(255, 171, 64, 0.1);
+  border-left-color: #FFAB40;
+}
+
+.corporate-alert-error {
+  background: rgba(255, 82, 82, 0.1);
+  border-left-color: #FF5252;
+}
+
+/* Professional tooltip styling */
+.corporate-tooltip {
+  background: rgba(6, 16, 26, 0.9);
+  border: 1px solid rgba(8, 126, 139, 0.3);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+}

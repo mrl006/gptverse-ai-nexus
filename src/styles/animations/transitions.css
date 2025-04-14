@@ -1,0 +1,25 @@
+
+@keyframes slide-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.mobile-slide-up {
+  animation: slide-up 0.4s ease-out forwards;
+}
+
+/* Optimized vertical motion animation */
+@keyframes moveVertical {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}

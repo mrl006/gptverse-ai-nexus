@@ -1,0 +1,51 @@
+
+/* Corporate card styling */
+.card {
+  padding: 2em;
+  background: rgba(6, 16, 26, 0.4);
+  border-radius: 8px;
+  border: 1px solid rgba(8, 126, 139, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-color: rgba(8, 126, 139, 0.3);
+}
+
+/* Professional glass card styling with white transparency */
+.glass-card {
+  @apply backdrop-blur-xl bg-white/10 border border-white/20 rounded-xl shadow-lg relative overflow-hidden;
+}
+
+/* Corporate panel styling with white transparency */
+.glass-panel {
+  @apply backdrop-blur-md bg-white/10 border border-white/20 rounded-xl shadow-lg;
+}
+
+/* Enhanced blur effect for professional UI with white transparency */
+.neo-blur {
+  @apply backdrop-blur-xl bg-white/15 border border-white/20 rounded-xl shadow-lg relative overflow-hidden;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+}
+
+/* Shadow effects for cards */
+.card-shadow {
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* Card hover effect for interactive elements */
+.card-hover {
+  @apply transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg;
+}
+
+/* Glass effect for AI components */
+.ai-glass {
+  background: rgba(14, 22, 35, 0.3);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}

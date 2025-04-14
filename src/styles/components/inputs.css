@@ -1,0 +1,17 @@
+
+/* Enhanced corporate form controls */
+.input-corporate {
+  background: rgba(6, 16, 26, 0.3);
+  border: 1px solid rgba(8, 126, 139, 0.2);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: white;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.input-corporate:focus {
+  border-color: rgba(8, 126, 139, 0.5);
+  box-shadow: 0 0 0 2px rgba(8, 126, 139, 0.2);
+  outline: none;
+}

@@ -1,0 +1,41 @@
+
+/* Enterprise-level button styling */
+.enterprise-button {
+  background: linear-gradient(135deg, #0B3954 0%, #087E8B 100%);
+  color: white;
+  border: 1px solid rgba(8, 126, 139, 0.3);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.enterprise-button:hover {
+  background: linear-gradient(135deg, #0B3954 30%, #087E8B 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 7px 14px rgba(0, 0, 0, 0.1), 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.enterprise-button:active {
+  transform: translateY(1px);
+}
+
+/* Corporate button animations */
+@keyframes button-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px rgba(8, 126, 139, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(8, 126, 139, 0.8);
+  }
+}
+
+.button-glow {
+  animation: button-glow 2s ease-in-out infinite;
+}
+
+/* Neo-button styling */
+.neo-button {
+  @apply px-6 py-2 rounded-full font-medium transition-all duration-300 bg-white/15 backdrop-blur-md hover:bg-white/20 text-white hover:shadow-lg hover:shadow-white/10 active:scale-[0.98] font-sans;
+}

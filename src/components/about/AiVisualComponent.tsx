@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Network, CheckCircle } from 'lucide-react';
@@ -27,16 +26,16 @@ const AiVisualComponent: React.FC = () => {
       }}
     >
       <div className="relative max-w-md mx-auto h-full w-full flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/10 via-[#00aeff]/5 to-transparent rounded-xl blur-2xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 via-[#00aeff]/3 to-transparent rounded-xl blur-2xl"></div>
         
-        {/* Main image with simplified elements for mobile */}
-        <div className="relative backdrop-blur-xl bg-white/10 border border-[#0ef34b]/20 p-2 md:p-8 rounded-xl md:rounded-2xl overflow-hidden group h-full w-full flex flex-col justify-center">
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/10 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-300"></div>
+        {/* Main image with reduced height and simplified elements for mobile */}
+        <div className="relative backdrop-blur-xl bg-white/5 border border-[#0ef34b]/10 p-2 md:p-4 rounded-xl md:rounded-2xl overflow-hidden group h-[450px] w-full flex flex-col justify-center">
+          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 to-transparent opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
           
           <img 
             alt="Neural Core AI Robot" 
-            className="w-[75%] md:w-[85%] mx-auto transform transition-all duration-700 hover:scale-[1.02] z-10 relative" 
+            className="w-[75%] md:w-[85%] mx-auto transform transition-all duration-700 hover:scale-[1.01] z-10 relative" 
             src="/lovable-uploads/28b4f259-14ca-4c5f-95b8-7ec2c00d4c7f.png"
             loading="lazy"
           />

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Zap, Network, CheckCircle } from 'lucide-react';
@@ -29,7 +30,14 @@ const AiVisualComponent: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 via-[#00aeff]/3 to-transparent rounded-xl blur-2xl"></div>
         
         {/* Main image with simplified elements for mobile */}
-        <div className="relative backdrop-blur-xl bg-black/20 border border-[#0ef34b]/10 p-2 md:p-8 rounded-xl md:rounded-2xl overflow-hidden group h-full w-full flex flex-col justify-center">
+        <div className="relative backdrop-blur-xl bg-black/20 border border-[#0ef34b]/10 p-2 md:p-8 rounded-xl md:rounded-2xl overflow-hidden group h-[400px] md:h-[500px] w-full flex flex-col justify-center">
+          {/* Image added here */}
+          <img 
+            src="/lovable-uploads/73db8ccd-e50b-4c30-a364-fc0795558d03.png" 
+            alt="AI Hub Visualization" 
+            className="absolute inset-0 w-full h-full object-cover opacity-20 mix-blend-overlay"
+          />
+          
           <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"></div>
           <div className="absolute inset-0 bg-gradient-to-br from-[#0ef34b]/5 to-transparent opacity-40 group-hover:opacity-60 transition-opacity duration-300"></div>
           
@@ -110,3 +118,4 @@ const AiVisualComponent: React.FC = () => {
 };
 
 export default AiVisualComponent;
+

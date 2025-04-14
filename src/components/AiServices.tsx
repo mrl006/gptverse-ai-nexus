@@ -12,11 +12,13 @@ import {
   CarouselPrevious 
 } from './ui/carousel';
 import type { CarouselApi } from './ui/carousel';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const AiServices = () => {
   const aiServices = getAiServices();
   const [activeIndex, setActiveIndex] = useState(0);
   const [api, setApi] = useState<CarouselApi | null>(null);
+  const { isMobile } = useIsMobile();
 
   // Set up the onSelect handler when the API changes
   React.useEffect(() => {
@@ -36,7 +38,7 @@ const AiServices = () => {
   }, [api]);
 
   return (
-    <section id="ai-services" className="py-20 relative overflow-hidden">
+    <section id="ai-services" className="py-10 md:py-20 relative overflow-hidden">
       {/* Background effects */}
       <AiServicesBackground />
       
@@ -45,7 +47,7 @@ const AiServices = () => {
         <AiServicesHeader />
         
         {/* Carousel of service cards */}
-        <div className="mt-12 relative">
+        <div className="mt-6 md:mt-12 relative">
           <Carousel
             opts={{
               align: "center",
@@ -56,13 +58,13 @@ const AiServices = () => {
           >
             <CarouselContent>
               {aiServices.map((service, index) => (
-                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 py-1">
+                <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3 py-1 px-1 md:px-2">
                   <AiServiceCard
                     title={service.title}
                     subtitle={service.subtitle}
                     description={service.description}
                     image={service.image}
-                    statusLabels={service.statusLabels}
+                    statusLabels={service.statusLabels || []}
                     buttonType={service.buttonType}
                     flipped={index % 2 !== 0}
                     isActive={index === activeIndex}
@@ -76,11 +78,12 @@ const AiServices = () => {
           </Carousel>
           
           {/* Carousel indicator dots */}
-          <div className="flex justify-center gap-2 mt-8">
+          <div className="flex justify-center gap-2 mt-4 md:mt-8">
             {aiServices.map((_, index) => (
               <button
                 key={index}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                onClick={() => api?.scrollTo(index)}
+                className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all duration-300 ${
                   index === activeIndex 
                     ? "bg-[#0ef34b] scale-110 shadow-[0_0_10px_rgba(14,243,75,0.7)]" 
                     : "bg-white/20"

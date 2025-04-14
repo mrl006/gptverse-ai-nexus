@@ -7,7 +7,7 @@ const AiServicesBackground: React.FC = () => {
       {/* Simple dark background */}
       <div className="absolute inset-0 bg-[#040812]/95"></div>
       
-      {/* Ultra-subtle tech grid overlay */}
+      {/* Ultra-subtle tech grid */}
       <div className="absolute inset-0 bg-tech-grid opacity-5"></div>
     </div>
   );

@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Orbit, Globe, BrainCircuit, Zap, BookOpen, ChevronDown } from 'lucide-react';
+import { Menu, X, ArrowRight, Orbit, Globe, BrainCircuit, Zap, BookOpen, ChevronDown, ChevronUp, Laptop, Headset } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { useIsMobile } from '@/hooks/use-mobile';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -101,8 +101,14 @@ const Navbar = () => {
           >
             <div className="container px-4 pt-6 pb-24 flex flex-col">
               <div className="space-y-6">
-                <div className="bg-[#087E8B]/5 p-4 rounded-xl border border-[#087E8B]/20 mb-8">
-                  <h2 className="font-sans text-[#0CF574] mb-3 text-sm uppercase tracking-widest">Enterprise Menu</h2>
+                <div className="bg-[#06101a]/80 p-4 rounded-xl border border-[#087E8B]/20 mb-8">
+                  <h2 className="font-sans text-[#0CF574] mb-3 text-sm uppercase tracking-widest">ENTERPRISE MENU</h2>
+                  
+                  <div className="mb-6">
+                    <h3 className="text-white text-2xl font-bold mb-1">Multi-Platform Hub</h3>
+                    <p className="text-white/70 text-sm mb-4">Your AI Hub and Multi-Platform Gateway to a Next-Level Dapp!</p>
+                  </div>
+                  
                   <div className="grid grid-cols-1 gap-3">
                     <a 
                       href="#overview" 
@@ -126,6 +132,32 @@ const Navbar = () => {
                       <span className="text-white font-medium">Products</span>
                     </a>
                     
+                    <div className="grid grid-cols-2 gap-2 my-2">
+                      <a 
+                        href="#windows"
+                        className="flex flex-col items-center justify-center bg-[#06101a] p-3 rounded-lg border border-[#087E8B]/20 hover:border-[#087E8B]/40 transition-all"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <Laptop size={22} className="text-white mb-1" />
+                        <div className="text-center">
+                          <div className="text-[10px] text-white/60">Get it on</div>
+                          <div className="text-white text-sm font-medium">WINDOWS</div>
+                        </div>
+                      </a>
+                      
+                      <a 
+                        href="#vr"
+                        className="flex flex-col items-center justify-center bg-[#06101a] p-3 rounded-lg border border-[#087E8B]/20 hover:border-[#087E8B]/40 transition-all"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <Headset size={22} className="text-white mb-1" />
+                        <div className="text-center">
+                          <div className="text-[10px] text-white/60">Get it on</div>
+                          <div className="text-white text-sm font-medium">VR SIDEQUEST</div>
+                        </div>
+                      </a>
+                    </div>
+                    
                     <a 
                       href="#features" 
                       className="flex items-center gap-3 bg-[#06101a]/50 p-4 rounded-lg border border-[#087E8B]/10 hover:border-[#087E8B]/30 transition-all" 
@@ -136,6 +168,32 @@ const Navbar = () => {
                       </div>
                       <span className="text-white font-medium">Features</span>
                     </a>
+                    
+                    <div className="grid grid-cols-2 gap-2 my-2">
+                      <a 
+                        href="#web3"
+                        className="flex flex-col items-center justify-center bg-[#06101a] p-3 rounded-lg border border-[#087E8B]/20 hover:border-[#087E8B]/40 transition-all"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <Globe size={22} className="text-white mb-1" />
+                        <div className="text-center">
+                          <div className="text-[10px] text-white/60">Get it on</div>
+                          <div className="text-white text-sm font-medium">WEB3</div>
+                        </div>
+                      </a>
+                      
+                      <a 
+                        href="#ai-hub"
+                        className="flex flex-col items-center justify-center bg-[#06101a] p-3 rounded-lg border border-[#087E8B]/20 hover:border-[#087E8B]/40 transition-all"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        <BrainCircuit size={22} className="text-white mb-1" />
+                        <div className="text-center">
+                          <div className="text-[10px] text-white/60">Get it on</div>
+                          <div className="text-white text-sm font-medium">AI HUB</div>
+                        </div>
+                      </a>
+                    </div>
                     
                     <a 
                       href="#roadmap" 
@@ -160,10 +218,19 @@ const Navbar = () => {
                     </a>
                   </div>
                 </div>
+                
+                <div className="text-center">
+                  <h3 className="text-3xl font-bold text-purple-400 tracking-wide mb-3">AI HUB</h3>
+                  <button 
+                    className="w-full py-2 rounded-lg bg-[#06101a]/80 border border-[#0CF574]/30 text-[#0CF574] flex items-center justify-center gap-2 hover:bg-[#0CF574]/10 transition-all"
+                  >
+                    Hide Models <ChevronUp size={16} />
+                  </button>
+                </div>
               </div>
               
               <div className="mt-auto pt-6 pb-6">
-                <Button className="w-full py-6 rounded-xl bg-gradient-to-r from-[#0B3954] to-[#087E8B] hover:brightness-110 text-white font-sans text-lg border border-[#087E8B]/30 shadow-md">
+                <Button className="w-full py-6 rounded-xl bg-gradient-to-r from-teal-600 to-cyan-500 hover:brightness-110 text-white font-sans text-lg shadow-lg flex items-center justify-center">
                   AI HUB <ArrowRight className="ml-2" size={20} />
                 </Button>
               </div>

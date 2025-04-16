@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Orbit, Globe, BrainCircuit, Zap, BookOpen, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -24,7 +23,6 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Close mobile menu when switching to desktop view
   useEffect(() => {
     if (!isMobile && isMobileMenuOpen) {
       setIsMobileMenuOpen(false);
@@ -56,7 +54,6 @@ const Navbar = () => {
           </span>
         </a>
         
-        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center">
           <div className="bg-[#06101a]/70 backdrop-blur-md border border-[#087E8B]/20 rounded-full flex items-center">
             <a href="#overview" className="text-white/80 hover:text-[#0CF574] px-5 py-2 transition-colors flex items-center gap-2">
@@ -77,14 +74,12 @@ const Navbar = () => {
           </div>
         </nav>
 
-        {/* Desktop Action Button */}
         <div className="hidden md:flex">
           <Button className="rounded-full bg-gradient-to-r from-[#0B3954] to-[#087E8B] hover:brightness-110 text-white font-sans shadow-md border border-[#087E8B]/30">
             Enterprise Portal <ArrowRight className="ml-1" size={16} />
           </Button>
         </div>
 
-        {/* Mobile Menu Toggle */}
         <button 
           className="md:hidden text-white hover:text-[#0CF574] transition-colors p-1 bg-[#06101a]/40 rounded-lg backdrop-blur-md border border-[#087E8B]/20"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -94,7 +89,6 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu with enhanced styling */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div 

@@ -1,4 +1,3 @@
-
 export interface RoadmapItem {
   period: string;
   title: string;
@@ -119,7 +118,6 @@ export const roadmapData: RoadmapItem[] = [
     title: "Chain & Governance",
     status: "shipped",
     description: [
-      "GPTVerse Chain Testnet",
       "Continue to expand the AI Hub ecosystem by onboarding more third-party developers and businesses",
       "Develop and implement a community-driven governance framework that allows token holders to participate in decision-making processes",
       "Roll out advanced metaverse features, including enhanced interactivity, virtual economies, and social experiences",

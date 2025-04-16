@@ -1,0 +1,49 @@
+
+/* Component-specific mobile styles */
+@media (max-width: 768px) {
+  /* Platform buttons */
+  .platform-button {
+    margin-bottom: 0.75rem;
+  }
+  
+  /* Models grid */
+  .mobile-models-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+  
+  /* Glassy UI adjustments */
+  .glass-card {
+    @apply backdrop-blur-lg bg-white/15 border border-white/20;
+  }
+  
+  /* Card grids */
+  .card-grid-1 {
+    @apply grid grid-cols-1 gap-4;
+  }
+  
+  .card-grid-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+  }
+  
+  /* Content containers */
+  .mobile-center-content {
+    @apply flex flex-col items-center text-center;
+  }
+  
+  /* Section containers */
+  .section-container {
+    @apply px-4 py-8;
+  }
+  
+  /* Component spacing */
+  .section-component {
+    @apply mb-6;
+  }
+  
+  /* Button sizing */
+  .mobile-btn {
+    @apply py-2.5 px-4 text-sm;
+  }
+}

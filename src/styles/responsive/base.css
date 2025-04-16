@@ -1,0 +1,42 @@
+
+/* Base mobile styles */
+@media (max-width: 768px) {
+  button, 
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  .touch-target {
+    padding: 0.75rem;
+  }
+  
+  /* Container handling */
+  .container {
+    width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow-x: hidden;
+  }
+  
+  /* Basic page structure */
+  html, body {
+    overflow-x: hidden;
+    position: relative;
+  }
+  
+  /* Section spacing */
+  section {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+  }
+  
+  section + section {
+    margin-top: 3rem;
+  }
+  
+  /* Fix mobile scroll anchors */
+  .section-anchor {
+    scroll-margin-top: 5rem;
+  }
+}

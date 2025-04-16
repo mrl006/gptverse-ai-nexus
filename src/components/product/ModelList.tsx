@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { AiModels } from '@/data/aiModels';
@@ -30,25 +29,43 @@ const ModelList: React.FC<ModelListProps> = ({
       transition: { duration: 0.3 }
     }
   };
-  
+
   return (
     <>
-      {/* Mobile Header & Toggle - Enhanced styling */}
+      {/* Enhanced Mobile Header & Toggle */}
       <div className="lg:hidden mb-4 flex flex-col gap-2">
-        <h2 className="ai-hub-header text-center">
-          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d946ef] via-[#8b5cf6] to-[#0ef34b]">
+        <motion.h2 
+          className="ai-hub-header text-center relative"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          <span className="bg-gradient-to-br from-[#d946ef] via-[#8b5cf6] to-[#0ef34b] bg-clip-text text-transparent text-2xl font-bold">
             AI HUB
           </span>
-        </h2>
+          <motion.div 
+            className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 w-16 bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b] to-[#0ef34b]/0"
+            initial={{ width: 0 }}
+            animate={{ width: 64 }}
+            transition={{ delay: 0.2, duration: 0.4 }}
+          />
+        </motion.h2>
+
         <Button 
           variant="outline" 
           onClick={() => setShowSidebar(!showSidebar)}
-          className="model-toggle-button w-full"
+          className="model-toggle-button w-full group"
           aria-expanded={showSidebar}
           aria-controls="model-list"
         >
-          <span>{showSidebar ? 'Hide Models' : 'Show Models'}</span>
-          {showSidebar ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+          <span className="text-[#0ef34b] group-hover:text-[#0ef34b]/80 transition-colors">
+            {showSidebar ? 'Hide Models' : 'Show Models'}
+          </span>
+          {showSidebar ? (
+            <ChevronUp size={16} className="text-[#0ef34b]" />
+          ) : (
+            <ChevronDown size={16} className="text-[#0ef34b]" />
+          )}
         </Button>
       </div>
       

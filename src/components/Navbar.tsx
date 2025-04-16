@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { Menu, X, ArrowRight, Orbit, Globe, BrainCircuit, Zap, BookOpen, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -163,7 +164,7 @@ const Navbar = () => {
               
               <div className="mt-auto pt-6 pb-6">
                 <Button className="w-full py-6 rounded-xl bg-gradient-to-r from-[#0B3954] to-[#087E8B] hover:brightness-110 text-white font-sans text-lg border border-[#087E8B]/30 shadow-md">
-                  Enterprise Portal <ArrowRight className="ml-2" size={20} />
+                  AI HUB <ArrowRight className="ml-2" size={20} />
                 </Button>
               </div>
             </div>

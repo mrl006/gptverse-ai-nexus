@@ -1,80 +1,61 @@
 
-/* Neural core components mobile optimizations */
+/* Neural Core specific mobile styles */
 @media (max-width: 768px) {
-  /* Neural network visualizations */
-  .neural-viz {
-    height: 180px;
-    max-width: 100%;
-    overflow: hidden;
-  }
-  
-  /* Model card adjustments */
-  .model-card {
-    border-radius: 0.75rem;
-    padding: 0.75rem;
-    margin-bottom: 1rem;
-  }
-  
-  .model-card-header {
-    margin-bottom: 0.5rem;
-  }
-  
-  .model-card-content {
-    font-size: 0.875rem;
-  }
-  
-  /* AI Chat interface mobile optimizations */
-  .ai-chat-container {
-    border-radius: 0.75rem;
-    overflow: hidden;
-    border: 1px solid rgba(14, 243, 75, 0.15);
-  }
-  
-  .ai-chat-header {
-    padding: 0.75rem;
-    background: rgba(6, 16, 26, 0.8);
-    backdrop-filter: blur(8px);
-  }
-  
-  .ai-chat-messages {
-    max-height: 300px;
-    overflow-y: auto;
+  #neural-core .glass-card {
     padding: 0.75rem;
   }
   
-  .ai-chat-input {
-    padding: 0.75rem;
-    background: rgba(6, 16, 26, 0.9);
-    backdrop-filter: blur(8px);
+  #neural-core .stats-grid {
+    gap: 0.5rem;
   }
   
-  /* AI visualization components */
-  .ai-visualization {
-    height: 200px;
-    margin: 1rem 0;
+  #neural-core .icon-box {
+    padding: 0.5rem;
+  }
+  
+  #neural-core .scroll-area {
+    max-height: 260px;
   }
 }
 
-/* Small mobile optimizations */
+/* Small mobile specific adjustments */
 @media (max-width: 480px) {
-  .neural-viz {
-    height: 150px;
+  #neural-core .stats-box {
+    font-size: 0.625rem;
   }
   
-  .model-card {
-    padding: 0.5rem;
+  #neural-core .stat-value {
+    font-size: 0.875rem;
   }
   
-  .ai-chat-messages {
-    max-height: 250px;
-    padding: 0.5rem;
+  #neural-core .scroll-area {
+    max-height: 220px;
   }
   
-  .ai-chat-input {
-    padding: 0.5rem;
+  #neural-core img {
+    width: 70%;
   }
   
-  .ai-visualization {
-    height: 150px;
+  /* Extra small device optimizations */
+  .xs-hidden {
+    display: none;
+  }
+  
+  .xs-stack {
+    @apply flex flex-col;
+  }
+  
+  .xs-center {
+    @apply text-center flex justify-center items-center;
+  }
+  
+  /* Fix extra small screen layout issues */
+  .section-container {
+    @apply px-3 py-6;
+  }
+  
+  /* Adjust card padding for very small screens */
+  .card-xs {
+    @apply p-3;
   }
 }

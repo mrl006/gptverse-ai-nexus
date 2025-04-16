@@ -30,73 +30,51 @@ const ModelList: React.FC<ModelListProps> = ({
       transition: { duration: 0.3 }
     }
   };
-
+  
   return (
     <>
-      {/* Mobile Header & Toggle */}
-      {isMobile && (
-        <div className="lg:hidden mb-4 flex flex-col gap-2">
-          <motion.h2 
-            className="ai-hub-header text-center relative"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            <span className="bg-gradient-to-br from-[#d946ef] via-[#8b5cf6] to-[#0ef34b] bg-clip-text text-transparent text-2xl font-bold">
-              AI HUB
-            </span>
-            <motion.div 
-              className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 h-0.5 w-16 bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b] to-[#0ef34b]/0"
-              initial={{ width: 0 }}
-              animate={{ width: 64 }}
-              transition={{ delay: 0.2, duration: 0.4 }}
-            />
-          </motion.h2>
-
-          <Button 
-            variant="outline" 
-            onClick={() => setShowSidebar(!showSidebar)}
-            className="model-toggle-button w-full group"
-            aria-expanded={showSidebar}
-            aria-controls="model-list"
-          >
-            <span className="text-[#0ef34b] group-hover:text-[#0ef34b]/80 transition-colors">
-              {showSidebar ? 'Hide Models' : 'Show Models'}
-            </span>
-            {showSidebar ? (
-              <ChevronUp size={16} className="text-[#0ef34b]" />
-            ) : (
-              <ChevronDown size={16} className="text-[#0ef34b]" />
-            )}
-          </Button>
-        </div>
-      )}
+      {/* Mobile Header & Toggle - Improved with better visibility */}
+      <div className="lg:hidden mb-4 flex flex-col gap-2">
+        <h2 className="text-xl font-bold text-white">
+          <span className="bg-clip-text text-transparent bg-gradient-to-r from-[#d946ef] via-[#8b5cf6] to-[#0ef34b]">
+            AI HUB
+          </span>
+        </h2>
+        <Button 
+          variant="outline" 
+          onClick={() => setShowSidebar(!showSidebar)}
+          className="w-full border-[#0ef34b]/20 text-[#0ef34b] hover:bg-[#0ef34b]/10 backdrop-blur-sm flex items-center justify-between"
+          aria-expanded={showSidebar}
+          aria-controls="model-list"
+        >
+          <span>{showSidebar ? 'Hide Models' : 'Show Models'}</span>
+          {showSidebar ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+        </Button>
+      </div>
       
-      {/* Desktop & Mobile Sidebar Navigation */}
+      {/* Sidebar Navigation - Improved layout and performance for mobile */}
       {(showSidebar || !isMobile) && (
         <motion.div 
           id="model-list"
-          className={`
-            ${isMobile ? 'models-grid' : 'lg:bg-[#06101a]/50 lg:border lg:border-white/10 lg:rounded-2xl lg:p-4'}
-            relative
-          `}
+          className={`${isMobile ? 'border-b border-white/20 pb-4 mb-4 bg-[#06101a]/60 backdrop-blur-sm rounded-lg p-3' : 'lg:border-r lg:border-white/10 pr-4'} relative`}
           variants={isMobile ? containerVariants : {}}
           initial={isMobile ? "hidden" : "visible"}
           animate="visible"
           role="navigation"
           aria-label="AI Models Selection"
         >
-          {/* Desktop Header */}
+          {/* Simplified glassmorphism sidebar accent for better performance */}
           {!isMobile && (
-            <div className="hidden lg:block mb-6 relative">
-              <h2 className="text-3xl font-bold bg-gradient-to-br from-[#d946ef] via-[#8b5cf6] to-[#0ef34b] bg-clip-text text-transparent">
-                AI HUB
-              </h2>
-              <div className="h-0.5 w-16 bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b] to-[#0ef34b]/0 mt-2"></div>
-            </div>
+            <div className="absolute -inset-4 bg-gradient-to-r from-[#06101a]/80 to-transparent backdrop-blur-md pointer-events-none z-0 rounded-2xl"></div>
           )}
           
-          <div className="relative z-10">
+          <div className="hidden lg:block mb-6 relative z-10">
+            <h2 className="text-2xl font-bold text-white">
+              AI HUB
+            </h2>
+          </div>
+          
+          <div className={`${isMobile ? 'grid grid-cols-2 gap-2' : 'space-y-2'} relative z-10`}>
             {AiModels.map((model) => {
               const isSelected = selectedModel === model.id;
               
@@ -104,11 +82,11 @@ const ModelList: React.FC<ModelListProps> = ({
                 <motion.button 
                   key={model.id}
                   onClick={() => setSelectedModel(model.id)}
-                  className={`
-                    model-item 
-                    ${isSelected ? 'active' : ''}
-                    ${!isMobile ? 'lg:hover:bg-[#1E2D3D] lg:transition-all lg:duration-200' : ''}
-                  `}
+                  className={`w-full text-left p-2 md:p-2.5 rounded-lg flex items-center gap-2 md:gap-2.5 transition-all ${
+                    isSelected 
+                      ? 'bg-[#1e1e2f]/80 border-l-2 border-[#0ef34b]' 
+                      : 'hover:bg-white/5'
+                  }`}
                   whileHover={{ x: isMobile ? 0 : 3, scale: isMobile ? 1.01 : 1.02 }}
                   animate={{ 
                     scale: isSelected ? (isMobile ? 1.01 : 1.02) : 1,
@@ -124,10 +102,16 @@ const ModelList: React.FC<ModelListProps> = ({
                       transition={{ type: "spring", duration: 0.4 }}
                     />
                   )}
-                  <div className={`model-icon ${isSelected ? 'active' : 'bg-gray-800/50 text-gray-400'}`}>
+                  <div className={`flex-shrink-0 p-1 md:p-1.5 rounded-md ${
+                    isSelected 
+                      ? 'bg-[#0ef34b]/20 text-[#0ef34b]' 
+                      : 'bg-gray-800/50 text-gray-400'
+                  }`}>
                     {getIconByName(model.iconName)}
                   </div>
-                  <span className={`model-name ${isSelected ? 'active' : ''}`}>
+                  <span className={`${isSelected 
+                    ? 'text-white font-medium' 
+                    : 'text-gray-400'} ${isSmallMobile ? 'text-[10px]' : isMobile ? 'text-xs' : ''} whitespace-nowrap overflow-hidden text-ellipsis`}>
                     {model.name}
                   </span>
                 </motion.button>

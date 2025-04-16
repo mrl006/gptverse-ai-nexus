@@ -37,7 +37,7 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
     <motion.div 
       className={`w-full h-full transition-all duration-500 transform ${isActive ? 'scale-102 z-10' : 'scale-100 opacity-90'}`}
       whileHover={{ 
-        scale: isActive ? 1.05 : 1,
+        scale: isMobile ? 1.02 : (isActive ? 1.05 : 1),
         transition: { duration: 0.3 }
       }}
       onHoverStart={() => setIsHovered(true)}
@@ -50,14 +50,15 @@ const AiServiceCard: React.FC<AiServiceCardProps> = ({
             {getServiceIcon(buttonType, isMobile)}
           </div>
           
-          {/* Decorative corner accents */}
-          <div className="absolute top-0 left-0 w-4 h-4 md:w-5 md:h-5 border-t-2 border-l-2 border-white/10 rounded-tl-lg"></div>
-          <div className="absolute top-0 right-0 w-4 h-4 md:w-5 md:h-5 border-t-2 border-r-2 border-white/10 rounded-tr-lg"></div>
-          <div className="absolute bottom-0 left-0 w-4 h-4 md:w-5 md:h-5 border-b-2 border-l-2 border-white/10 rounded-bl-lg"></div>
-          <div className="absolute bottom-0 right-0 w-4 h-4 md:w-5 md:h-5 border-b-2 border-r-2 border-white/10 rounded-br-lg"></div>
+          {/* Decorative corner accents with better mobile visibility */}
+          <div className="absolute top-0 left-0 w-3 h-3 md:w-5 md:h-5 border-t border-l border-white/20 rounded-tl-lg"></div>
+          <div className="absolute top-0 right-0 w-3 h-3 md:w-5 md:h-5 border-t border-r border-white/20 rounded-tr-lg"></div>
+          <div className="absolute bottom-0 left-0 w-3 h-3 md:w-5 md:h-5 border-b border-l border-white/20 rounded-bl-lg"></div>
+          <div className="absolute bottom-0 right-0 w-3 h-3 md:w-5 md:h-5 border-b border-r border-white/20 rounded-br-lg"></div>
           
+          {/* Improved card layout */}
           <div className="flex flex-col h-full">
-            {/* Image container with subtle overlay */}
+            {/* Image container with improved mobile dimensions */}
             <ServiceCardImage 
               image={image}
               title={title}

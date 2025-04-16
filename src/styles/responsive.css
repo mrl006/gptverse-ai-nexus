@@ -51,10 +51,26 @@
   /* Improved text scaling for mobile */
   h1 {
     font-size: 2.25rem !important;
+    line-height: 1.2 !important;
+    margin-bottom: 1rem !important;
   }
   
   h2 {
     font-size: 1.75rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.75rem !important;
+  }
+  
+  h3 {
+    font-size: 1.5rem !important;
+    line-height: 1.3 !important;
+    margin-bottom: 0.5rem !important;
+  }
+  
+  p {
+    font-size: 1rem !important;
+    line-height: 1.5 !important;
+    margin-bottom: 1rem !important;
   }
   
   /* Fix mobile scroll anchors */
@@ -75,9 +91,23 @@
     @apply text-lg md:text-xl;
   }
   
+  /* Consistent section spacing */
+  section + section {
+    margin-top: 3rem;
+  }
+  
   /* Glassy UI adjustments for mobile */
   .glass-card {
     @apply backdrop-blur-lg bg-white/15 border border-white/20;
+  }
+  
+  /* Consistent section heading styling */
+  .section-title {
+    @apply text-center mb-6;
+  }
+  
+  .section-subtitle {
+    @apply text-[#0ef34b] text-sm uppercase tracking-wider font-mono mb-2;
   }
   
   /* AI Forge specific mobile improvements */
@@ -118,6 +148,35 @@
   
   #neural-core .scroll-area {
     max-height: 260px;
+  }
+  
+  /* Consistent grid layouts for cards */
+  .card-grid-1 {
+    @apply grid grid-cols-1 gap-4;
+  }
+  
+  .card-grid-2 {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4;
+  }
+  
+  /* Improved section layout consistency */
+  .section-container {
+    @apply px-4 py-8;
+  }
+  
+  /* Centered content containers */
+  .mobile-center-content {
+    @apply flex flex-col items-center text-center;
+  }
+  
+  /* Improved spacing for section components */
+  .section-component {
+    @apply mb-6;
+  }
+  
+  /* Consistent button sizing */
+  .mobile-btn {
+    @apply py-2.5 px-4 text-sm;
   }
 }
 
@@ -161,5 +220,28 @@
   
   #neural-core img {
     width: 70%;
+  }
+  
+  /* Extra small device optimizations */
+  .xs-hidden {
+    display: none;
+  }
+  
+  .xs-stack {
+    @apply flex flex-col;
+  }
+  
+  .xs-center {
+    @apply text-center flex justify-center items-center;
+  }
+  
+  /* Fix extra small screen layout issues */
+  .section-container {
+    @apply px-3 py-6;
+  }
+  
+  /* Adjust card padding for very small screens */
+  .card-xs {
+    @apply p-3;
   }
 }

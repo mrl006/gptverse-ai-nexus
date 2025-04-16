@@ -25,10 +25,10 @@ const ServiceCardContent: React.FC<ServiceCardContentProps> = ({
 
   return (
     <div className="p-3 md:p-6 flex-grow flex flex-col justify-between">
-      {/* Title section with minimal styling */}
+      {/* Title section with consistent mobile styling */}
       <div>
         <motion.h2 
-          className="text-lg md:text-2xl font-bold text-white mb-0.5 md:mb-1 truncate"
+          className="text-lg md:text-2xl font-bold text-white mb-1 md:mb-1.5 truncate"
           animate={{ 
             opacity: isHovered ? 1 : 0.9,
             y: isHovered ? -2 : 0 
@@ -39,7 +39,7 @@ const ServiceCardContent: React.FC<ServiceCardContentProps> = ({
         </motion.h2>
         
         <motion.h3 
-          className="text-base md:text-xl font-bold text-white/70 mb-2 md:mb-4 truncate"
+          className="text-sm md:text-xl font-bold text-white/70 mb-3 md:mb-4 truncate"
           animate={{ 
             opacity: isHovered ? 1 : 0.7,
             y: isHovered ? -2 : 0 
@@ -49,7 +49,7 @@ const ServiceCardContent: React.FC<ServiceCardContentProps> = ({
           {subtitle}
         </motion.h3>
         
-        {/* Simplified description section */}
+        {/* Improved description section with consistent spacing */}
         <div className="relative">
           <div className="absolute -left-2 top-0 w-px h-full bg-white/10"></div>
           <motion.p 
@@ -65,9 +65,9 @@ const ServiceCardContent: React.FC<ServiceCardContentProps> = ({
         </div>
       </div>
       
-      {/* Action buttons with minimal glassmorphism */}
+      {/* Improved action buttons with consistent spacing */}
       <motion.div 
-        className="flex flex-wrap gap-2 md:gap-4 mt-auto"
+        className="flex flex-wrap gap-2 md:gap-4 mt-auto justify-center sm:justify-start"
         animate={{ 
           y: isHovered ? -3 : 0,
           opacity: isHovered ? 1 : 0.9 

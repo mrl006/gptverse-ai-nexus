@@ -34,3 +34,43 @@
 .section-anchor {
   @apply scroll-mt-24;
 }
+
+/* Mobile section headings */
+@media (max-width: 768px) {
+  .section-heading {
+    @apply text-center mb-6 relative;
+  }
+  
+  .section-heading .subtitle {
+    @apply text-[#0ef34b] uppercase tracking-wider text-xs font-mono mb-1;
+  }
+  
+  .section-heading .title {
+    @apply text-2xl font-bold mb-3 relative z-10 inline-block;
+  }
+  
+  .section-heading .title::after {
+    content: '';
+    @apply absolute -bottom-1 left-0 right-0 h-0.5 bg-gradient-to-r from-[#0ef34b]/0 via-[#0ef34b] to-[#0ef34b]/0;
+  }
+  
+  /* Section container padding */
+  .section-container {
+    @apply px-4 py-10 md:py-16;
+  }
+  
+  /* Card grid layouts */
+  .card-grid {
+    @apply grid grid-cols-1 gap-4;
+  }
+  
+  /* Consistent spacing */
+  .mobile-section-spacing {
+    @apply mb-12;
+  }
+  
+  /* Centered content */
+  .mobile-center {
+    @apply flex flex-col items-center text-center;
+  }
+}
